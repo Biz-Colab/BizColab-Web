@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BizColab — The 4-Week Roadmap</title>
+<meta name="description" content="The BizColab four-week roadmap: four key focuses, the weekly operating loop, and the Map–Match–Move–Measure arc. Mondays, 6:00–7:30." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0a0a; --paper:#fff; --paper-2:#f5f5f7; --muted:#6e6e73; --line:#d2d2d7;
+    --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e; --amber:#ffb340; --mint:#30d158;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Geist', system-ui, sans-serif; color:var(--ink); background:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-0.011em; }
+  .font-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; }
+  .font-serif-i{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; letter-spacing:-0.015em; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  .eyebrow{ font-size:12px; text-transform:uppercase; letter-spacing:0.22em; color:var(--muted); }
+
+  /* HERO */
+  header.hero{ position:relative; overflow:hidden; padding:84px 0 64px; text-align:center; }
+  header.hero .glow1{ position:absolute; top:-180px; left:50%; transform:translateX(-50%); width:900px; height:900px; border-radius:50%; background:radial-gradient(closest-side,#c8e3ff 0%,#ffe0d4 38%,#fff 72%); z-index:-1; }
+  .badge{ display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.7); font-size:12px; font-weight:500; }
+  h1{ font-size:clamp(40px,7vw,76px); line-height:1.02; margin-top:22px; }
+  .hero p.sub{ max-width:620px; margin:20px auto 0; font-size:clamp(17px,2.4vw,21px); line-height:1.5; color:rgba(29,29,31,.78); }
+  .meta-row{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:28px; }
+  .chip{ font-size:13px; font-weight:500; padding:8px 14px; border-radius:999px; background:var(--paper-2); color:#1d1d1f; }
+
+  /* OPERATING SYSTEM band */
+  .os{ background:#0a0a0a; color:#fff; padding:54px 0; }
+  .os h2{ font-size:clamp(26px,4vw,40px); line-height:1.08; }
+  .os .lead{ margin-top:14px; max-width:640px; font-size:16px; line-height:1.6; color:rgba(255,255,255,.7); }
+
+  /* Loop label */
+  .os-looplabel{ display:inline-flex; align-items:center; gap:8px; margin-top:30px; font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,.5); }
+  .os-looplabel svg{ animation:spin 14s linear infinite; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .os-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px; position:relative; }
+  .os-step{ position:relative; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.035); border-radius:20px; padding:22px; transition:transform .25s, background .25s, border-color .25s; }
+  .os-step .glowclip{ position:absolute; inset:0; border-radius:20px; overflow:hidden; pointer-events:none; }
+  .os-step:hover{ transform:translateY(-4px); background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.22); }
+  .os-step .glow{ position:absolute; top:-40px; right:-40px; width:120px; height:120px; border-radius:50%; opacity:.22; filter:blur(6px); }
+  .os-step .ico{ width:46px; height:46px; border-radius:13px; display:grid; place-items:center; position:relative; }
+  .os-step .n{ position:absolute; top:22px; right:22px; font-size:12px; font-weight:700; color:rgba(255,255,255,.32); letter-spacing:0.04em; }
+  .os-step .t{ font-size:17px; font-weight:600; margin-top:16px; letter-spacing:-0.02em; }
+  .os-step .d{ font-size:13.5px; line-height:1.55; color:rgba(255,255,255,.62); margin-top:7px; }
+  /* connector chevrons between cards in a row */
+  .os-step .chev{ position:absolute; top:50%; right:-15px; transform:translateY(-50%); z-index:5; color:#0a0a0a; background:rgba(255,255,255,.92); border-radius:50%; padding:4px; width:26px; height:26px; box-shadow:0 2px 8px rgba(0,0,0,.4); }
+  .os-step.no-chev .chev{ display:none; }
+  @media (max-width:880px){
+    .os-steps{ grid-template-columns:1fr 1fr; }
+    .os-step .chev{ display:none; }
+  }
+  @media (max-width:520px){
+    .os-steps{ grid-template-columns:1fr; }
+  }
+
+  /* 4 KEY FOCUSES */
+  .focuses{ padding:60px 0 8px; }
+  .focuses .head{ max-width:640px; margin-bottom:36px; }
+  .focuses .head h2{ font-size:clamp(28px,4.6vw,46px); line-height:1.05; }
+  .focuses .head p{ margin-top:14px; font-size:16.5px; line-height:1.55; color:rgba(29,29,31,.72); }
+  .focus-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+  .focus-card{ position:relative; border:1px solid #e8e8ed; border-radius:22px; padding:28px; overflow:hidden; background:#fff; transition:transform .25s, box-shadow .25s; }
+  .focus-card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(10,10,10,.08); }
+  .focus-card .bignum{ position:absolute; top:-10px; right:14px; font-family:'Instrument Serif',serif; font-style:italic; font-size:96px; line-height:1; color:rgba(10,10,10,.05); }
+  .focus-card .ico{ width:52px; height:52px; border-radius:15px; display:grid; place-items:center; margin-bottom:18px; }
+  .focus-card h3{ font-size:21px; font-weight:600; letter-spacing:-0.02em; }
+  .focus-card p{ margin-top:9px; font-size:15px; line-height:1.6; color:rgba(29,29,31,.68); }
+  .focus-card .rule{ width:34px; height:3px; border-radius:2px; margin-top:18px; }
+  @media (max-width:680px){ .focus-grid{ grid-template-columns:1fr; } }
+
+  /* WEEKS */
+  .weeks{ padding:64px 0; }
+  .section-head{ max-width:640px; margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(30px,5vw,52px); line-height:1.05; }
+  .section-head p{ margin-top:14px; font-size:17px; line-height:1.55; color:rgba(29,29,31,.72); }
+
+  .week{ display:grid; grid-template-columns:200px 1fr; gap:34px; padding:38px 0; border-top:1px solid #e8e8ed; }
+  .week:first-of-type{ border-top:none; }
+  .week-tag{ }
+  .week-num{ font-size:13px; font-weight:600; letter-spacing:0.05em; }
+  .week-name{ font-family:'Geist'; font-weight:600; letter-spacing:-0.03em; font-size:40px; line-height:1; margin-top:8px; }
+  .week-sub{ font-family:'Instrument Serif',serif; font-style:italic; font-size:18px; line-height:1.3; color:#6e6e73; margin-top:12px; }
+  .week-body .frame{ font-size:15px; line-height:1.6; color:rgba(29,29,31,.7); margin-bottom:18px; padding-left:14px; border-left:2px solid; }
+  .week-body ul{ list-style:none; display:flex; flex-direction:column; gap:14px; }
+  .week-body li{ display:flex; gap:12px; align-items:flex-start; }
+  .week-body li .dot{ margin-top:7px; width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+  .week-body li .txt{ font-size:15.5px; line-height:1.55; }
+  .week-body li .txt b{ font-weight:600; }
+  .week-body li .txt span{ color:rgba(29,29,31,.7); }
+
+  /* AFTER (continuation) */
+  .after{ padding:60px 0; background:linear-gradient(180deg,#fff,#f5f5f7); }
+  .after .card{ background:#fff; border:1px solid #e8e8ed; border-radius:24px; padding:32px; }
+  .after h3{ font-size:24px; }
+  .after p{ margin-top:10px; font-size:15.5px; line-height:1.6; color:rgba(29,29,31,.72); }
+  .after .pill{ display:inline-block; margin-top:18px; font-size:13px; font-weight:600; background:#0a0a0a; color:#fff; padding:10px 18px; border-radius:999px; }
+
+  footer{ background:#0a0a0a; color:rgba(255,255,255,.6); font-size:13px; padding:34px 0; text-align:center; }
+  footer .b{ color:#fff; font-weight:600; font-size:18px; }
+
+  @media (max-width:720px){
+    .week{ grid-template-columns:1fr; gap:16px; }
+    .week-name{ font-size:34px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="glow1"></div>
+  <div class="wrap">
+    <span class="badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+      Cohort 01 · The four-week arc
+    </span>
+    <h1 class="font-display">Map. Match. Move.<br/><span class="font-serif-i">Measure.</span></h1>
+    <p class="sub">Four weeks, one focused room. A structured arc borrowed from the best of executive coaching, management consulting, and operator playbooks — built to turn eight businesses forward, together.</p>
+    <div class="meta-row">
+      <span class="chip">4 weeks</span>
+      <span class="chip">Mondays · 6:00–7:30 PM</span>
+      <span class="chip">8 members</span>
+      <span class="chip">Virtual &amp; recorded</span>
+    </div>
+  </div>
+</header>
+
+<!-- 4 KEY FOCUSES -->
+<section class="focuses">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">What the month is built around</div>
+      <h2 class="font-display" style="margin-top:10px">Four key focuses.</h2>
+      <p>Everything in the four weeks ladders up to these. They're the lens for every call, task, and check-in.</p>
+    </div>
+    <div class="focus-grid">
+
+      <!-- 1 -->
+      <div class="focus-card">
+        <div class="bignum">1</div>
+        <div class="ico" style="background:rgba(0,113,227,.1)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+        </div>
+        <h3>Implementing AI</h3>
+        <p>Put AI to work inside your business — turning conversations into tasks, automating the busywork, and finding leverage you didn't have time to build alone.</p>
+        <div class="rule" style="background:#0071e3"></div>
+      </div>
+
+      <!-- 2 -->
+      <div class="focus-card">
+        <div class="bignum">2</div>
+        <div class="ico" style="background:rgba(94,92,230,.1)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5e5ce6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 16 4-6 4 3 5-7"/></svg>
+        </div>
+        <h3>Compounding processes &amp; tasks</h3>
+        <p>Build systems that stack. Small, repeatable processes that compound week over week instead of one-off effort that resets every Monday.</p>
+        <div class="rule" style="background:#5e5ce6"></div>
+      </div>
+
+      <!-- 3 -->
+      <div class="focus-card">
+        <div class="bignum">3</div>
+        <div class="ico" style="background:rgba(255,111,94,.1)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff6f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Accountability partners &amp; group</h3>
+        <p>A paired partner and a room of eight who expect your update. The structure that turns "I should" into "I did" — and keeps you honest between calls.</p>
+        <div class="rule" style="background:#ff6f5e"></div>
+      </div>
+
+      <!-- 4 -->
+      <div class="focus-card">
+        <div class="bignum">4</div>
+        <div class="ico" style="background:rgba(48,209,88,.12)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2bb24c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 1-2-2 2 2 0 0 1 2-2h14"/><path d="M18 12a1 1 0 0 0 0 2h2v-2Z"/></svg>
+        </div>
+        <h3>Sustainability &amp; sellability</h3>
+        <p>Build a business that runs without you — durable enough to sustain, and structured enough that it could one day be sold. Not just busier, but more valuable.</p>
+        <div class="rule" style="background:#2bb24c"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OPERATING SYSTEM -->
+<section class="os">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#ffb340">The engine behind every week</div>
+    <h2 class="font-display" style="margin-top:10px">Every call compounds<br/><span class="font-serif-i" style="color:#ffb340">into action.</span></h2>
+    <p class="lead">The structure runs the same loop each week, so nothing said in the room gets lost. Talk becomes commitments; commitments become tasks; tasks become measured progress — then the loop begins again.</p>
+
+    <div class="os-looplabel">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
+      A repeating weekly loop
+    </div>
+
+    <div class="os-steps">
+      <!-- 1 MEET -->
+      <div class="os-step">
+        <div class="glowclip"><div class="glow" style="background:var(--blue)"></div></div>
+        <span class="n">01</span>
+        <div class="ico" style="background:rgba(0,113,227,.16)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4aa3ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="t">Meet</div>
+        <div class="d">The room gathers Monday, 6:00–7:30. One focused session, eight operators, full presence.</div>
+        <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+
+      <!-- 2 CAPTURE GOALS -->
+      <div class="os-step">
+        <div class="glowclip"><div class="glow" style="background:var(--indigo)"></div></div>
+        <span class="n">02</span>
+        <div class="ico" style="background:rgba(94,92,230,.16)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b89f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="t">Capture the goal</div>
+        <div class="d">Each member's single highest-leverage commitment is named out loud and written down.</div>
+        <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+
+      <!-- 3 RECORD -->
+      <div class="os-step no-chev">
+        <div class="glowclip"><div class="glow" style="background:var(--violet)"></div></div>
+        <span class="n">03</span>
+        <div class="ico" style="background:rgba(154,78,246,.16)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b07bf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
+        <div class="t">Record</div>
+        <div class="d">Every call is recorded — no notes lost, full context preserved for everyone.</div>
+        <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+
+      <!-- 4 AI TASKS -->
+      <div class="os-step">
+        <div class="glowclip"><div class="glow" style="background:var(--coral)"></div></div>
+        <span class="n">04</span>
+        <div class="ico" style="background:rgba(255,111,94,.16)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff8b7d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+        </div>
+        <div class="t">AI → tasks</div>
+        <div class="d">AI turns the discussion into clear, assigned, manageable tasks for each member.</div>
+        <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+
+      <!-- 5 SLACK -->
+      <div class="os-step">
+        <div class="glowclip"><div class="glow" style="background:var(--mint)"></div></div>
+        <span class="n">05</span>
+        <div class="ico" style="background:rgba(48,209,88,.16)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+        </div>
+        <div class="t">Shared channel</div>
+        <div class="d">Tasks and threads live in one Slack channel the whole cohort can see and push on.</div>
+        <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+
+      <!-- 6 DAILY CHECK-INS -->
+      <div class="os-step no-chev">
+        <div class="glowclip"><div class="glow" style="background:var(--amber)"></div></div>
+        <span class="n">06</span>
+        <div class="ico" style="background:rgba(255,179,64,.18)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffc266" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+        </div>
+        <div class="t">Daily check-ins</div>
+        <div class="d">Short daily accountability between calls keeps momentum honest — then Monday comes round again.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKS -->
+<section class="weeks">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The four weeks</div>
+      <h2 class="font-display" style="margin-top:10px">One arc.<br/><span class="font-serif-i">Four moves.</span></h2>
+      <p>Each week has a job. Diagnose, contribute, execute, measure — the same sequence a good operator or coach would run, compressed into a month.</p>
+    </div>
+
+    <!-- WEEK 1 -->
+    <div class="week">
+      <div class="week-tag">
+        <div class="week-num" style="color:var(--blue)">WEEK 01</div>
+        <div class="week-name">Map</div>
+        <div class="week-sub">Diagnose before you solve. Find the one move that matters.</div>
+      </div>
+      <div class="week-body">
+        <div class="frame" style="border-color:var(--blue)">The consulting discipline: you don't prescribe before you diagnose. Week 1 is all diagnosis — and getting the room to truly know each business.</div>
+        <ul>
+          <li><span class="dot" style="background:var(--blue)"></span><div class="txt"><b>Intros — 10 minutes each.</b> <span>What you've built, where you're headed, and what you want to walk away with. This sets the room's shared context.</span></div></li>
+          <li><span class="dot" style="background:var(--blue)"></span><div class="txt"><b>The One Thing.</b> <span>Drawing on executive coaching and leverage thinking, the group helps each member name their single highest-leverage move for the month. Not five priorities — one.</span></div></li>
+          <li><span class="dot" style="background:var(--blue)"></span><div class="txt"><b>Constraint check.</b> <span>The room identifies the real bottleneck in each business — leads, conversion, delivery, or cash — so you work the constraint, not the symptom.</span></div></li>
+          <li><span class="dot" style="background:var(--blue)"></span><div class="txt"><b>Pairing.</b> <span>Members are matched by complementary skills and networks as accountability partners for the month.</span></div></li>
+          <li><span class="dot" style="background:var(--blue)"></span><div class="txt"><b>After the call.</b> <span>Recording → AI task list → Slack channel goes live → daily check-in cadence begins.</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week">
+      <div class="week-tag">
+        <div class="week-num" style="color:var(--indigo)">WEEK 02</div>
+        <div class="week-name">Match</div>
+        <div class="week-sub">Show up for someone else. Put the whole room on one problem.</div>
+      </div>
+      <div class="week-body">
+        <div class="frame" style="border-color:var(--indigo)">The fastest way to grow is to get out of your own head and contribute to someone else's outcome. This week, you build for your partner.</div>
+        <ul>
+          <li><span class="dot" style="background:var(--indigo)"></span><div class="txt"><b>Partner presentations.</b> <span>Each member prepares and delivers something genuinely useful for their paired partner — a teardown, a plan, an intro, a fix.</span></div></li>
+          <li><span class="dot" style="background:var(--indigo)"></span><div class="txt"><b>Hot seat.</b> <span>The whole room weighs in on each presentation. Structured, specific feedback — not pleasantries.</span></div></li>
+          <li><span class="dot" style="background:var(--indigo)"></span><div class="txt"><b>Commitment restated.</b> <span>Everyone re-confirms their One Thing now that the room knows their business far better.</span></div></li>
+          <li><span class="dot" style="background:var(--indigo)"></span><div class="txt"><b>Cadence holds.</b> <span>Daily Slack check-ins continue; partners hold each other to the rhythm.</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week">
+      <div class="week-tag">
+        <div class="week-num" style="color:var(--violet)">WEEK 03</div>
+        <div class="week-name">Move</div>
+        <div class="week-sub">All hands on deck. Pressure-test, refine, build.</div>
+      </div>
+      <div class="week-body">
+        <div class="frame" style="border-color:var(--violet)">The war-room week — execution over theory. The room's collective experience is the product here.</div>
+        <ul>
+          <li><span class="dot" style="background:var(--violet)"></span><div class="txt"><b>Idea stress-test.</b> <span>Members bring work-in-progress; the room beats it up, finds the holes, and sharpens it.</span></div></li>
+          <li><span class="dot" style="background:var(--violet)"></span><div class="txt"><b>Live problem-solving.</b> <span>Real-time troubleshooting on what's stuck — eight operators, one problem at a time.</span></div></li>
+          <li><span class="dot" style="background:var(--violet)"></span><div class="txt"><b>Peer coaching.</b> <span>Feedback is direct and specific. Everyone trains and challenges everyone.</span></div></li>
+          <li><span class="dot" style="background:var(--violet)"></span><div class="txt"><b>Tightest check-ins.</b> <span>Daily accountability peaks this week — the goal is shipped progress, not plans.</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week">
+      <div class="week-tag">
+        <div class="week-num" style="color:var(--coral)">WEEK 04</div>
+        <div class="week-name">Measure</div>
+        <div class="week-sub">What worked, what didn't, and what happens next.</div>
+      </div>
+      <div class="week-body">
+        <div class="frame" style="border-color:var(--coral)">The coaching close: results get measured against the goal — and the relationships get a structure to continue.</div>
+        <ul>
+          <li><span class="dot" style="background:var(--coral)"></span><div class="txt"><b>Strategy presentations.</b> <span>Each member presents their go-forward strategy and the concrete plan behind it.</span></div></li>
+          <li><span class="dot" style="background:var(--coral)"></span><div class="txt"><b>Scorecard review.</b> <span>Measured against the One Thing from Week 1 — what moved, what didn't, what was learned.</span></div></li>
+          <li><span class="dot" style="background:var(--coral)"></span><div class="txt"><b>The next 60 days.</b> <span>Everyone commits to a biweekly check-in cadence for two months to keep momentum and accountability alive.</span></div></li>
+          <li><span class="dot" style="background:var(--coral)"></span><div class="txt"><b>The room stays.</b> <span>The cohort ends; the network doesn't.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTINUATION -->
+<section class="after">
+  <div class="wrap">
+    <div class="card">
+      <div class="eyebrow" style="color:#0071e3">After the month</div>
+      <h3 class="font-display" style="margin-top:10px">The month is the catalyst — not the finish line.</h3>
+      <p>The four weeks are designed to create momentum you can't easily create alone. When they end, the cohort shifts into a biweekly check-in rhythm for the next two months, so the accountability and the relationships keep compounding well past day thirty.</p>
+      <span class="pill">Biweekly check-ins · Next 2 months</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b">BizColab</div>
+    <div style="margin-top:8px">Cohort 01 curriculum · Draft for review</div>
+  </div>
+</footer>
+
+</body>
+</html>
