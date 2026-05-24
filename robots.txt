@@ -1,0 +1,31 @@
+# BizColab robots.txt
+User-agent: *
+Allow: /
+Disallow: /4-week-roadmap
+
+# AI crawlers — homepage and public content welcome
+User-agent: GPTBot
+Allow: /
+Disallow: /4-week-roadmap
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /4-week-roadmap
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /4-week-roadmap
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /4-week-roadmap
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /4-week-roadmap
+
+User-agent: CCBot
+Allow: /
+Disallow: /4-week-roadmap
+
+Sitemap: https://bizcolab.com/sitemap.xml
