@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply — BizColab</title>
   <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#0a0a0a; --paper:#fff; --paper-2:#f5f5f7; --muted:#6e6e73; --line:#d2d2d7;
+    }
+    .font-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; }
+    .glass{ background:rgba(255,255,255,.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); }
+    .hairline-b{ box-shadow:inset 0 -1px 0 0 var(--line); }
+    .sticky-nav{ position:sticky; top:0; z-index:50; }
+    .sticky-nav .nav-inner{
+      max-width:72rem; margin:0 auto; padding:0 1.5rem;
+      height:48px; display:flex; align-items:center; justify-content:space-between;
+      font-size:13px;
+    }
+    .sticky-nav a.nav-link{ color:#1d1d1f; text-decoration:none; }
+    .sticky-nav a.nav-link:hover{ opacity:.6; }
+    .sticky-nav .nav-links{ display:none; align-items:center; gap:1.75rem; }
+    .sticky-nav .nav-cta{
+      font-size:13px; font-weight:500; padding:6px 12px; border-radius:9999px;
+      background:#0a0a0a; color:#fff; text-decoration:none;
+    }
+    .sticky-nav .nav-cta:hover{ background:#1f1f1f; }
+    @media (min-width:768px){ .sticky-nav .nav-links{ display:flex; } }
+  </style>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -12,12 +38,12 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
       background: linear-gradient(135deg, #f5f3ff 0%, #fef5f0 50%, #f0f4ff 100%);
       min-height: 100vh;
-      padding: 48px 20px 80px;
+      padding: 0 20px 80px;
     }
 
     .container { max-width: 720px; margin: 0 auto; }
 
-    .header { text-align: center; margin-bottom: 48px; }
+    .header { text-align: center; margin-bottom: 48px; padding-top: 48px; }
     .logo a { font-size: 22px; font-weight: 600; color: #1a1a1a; text-decoration: none; letter-spacing: -0.3px; }
 
     .badge {
@@ -118,12 +144,25 @@
   </style>
 </head>
 <body>
+  <!-- STICKY NAV (matches homepage) -->
+  <header class="sticky-nav glass hairline-b">
+    <div class="nav-inner">
+      <a href="https://bizcolab.com" class="font-display" style="font-size:15px;font-weight:600;letter-spacing:-0.025em;color:#1a1a1a;text-decoration:none">BizColab</a>
+      <div class="nav-links">
+        <a class="nav-link" href="https://bizcolab.com#how">How it runs</a>
+        <a class="nav-link" href="https://bizcolab.com#pillars">The six pillars</a>
+        <a class="nav-link" href="https://bizcolab.com#why-groups">Why groups</a>
+        <a class="nav-link" href="https://bizcolab.com#faq">FAQ</a>
+      </div>
+      <a class="nav-cta" href="#forumForm">Apply now</a>
+    </div>
+  </header>
+
   <div class="container">
 
     <div class="header">
-      <div><a class="logo" href="https://bizcolab.com">BizColab</a></div>
       <div class="badge"><span class="badge-dot"></span> All eight seats currently open</div>
-      <h1>Join the next<br><span>cohort.</span></h1>
+      <h1 style="white-space:nowrap">Join the next <span>cohort.</span></h1>
       <p>Complete this short form so we can place you with the right group. We review every application personally and respond within 7&nbsp;days.</p>
     </div>
 
