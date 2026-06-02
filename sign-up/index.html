@@ -312,7 +312,7 @@
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     emailjs.init('yWt3TMJ6ysOrH3vH1');
 
@@ -353,7 +353,7 @@
       // Fire all sends in background — don't block redirect
       emailjs.send('service_bpcodid', 'template_09f1pjl', data).catch(function(e){ console.error('Lead email failed:', e); });
       emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function(e){ console.error('Auto-reply failed:', e); });
-      fetch(SHEETS_URL, { method: 'POST', body: JSON.stringify(data) }).catch(function(){});
+      fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(function(){});
 
       // Small delay to let requests fire, then redirect
       setTimeout(function(){
