@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Received — BizColab</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#0a0a0a; --paper:#fff; --paper-2:#f5f5f7; --muted:#6e6e73; --line:#d2d2d7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f3ff 0%, #fef5f0 50%, #f0f4ff 100%);
+      min-height: 100vh; color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; }
+    .font-serif-i{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; }
+    .glass{ background:rgba(255,255,255,.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); }
+    .hairline-b{ box-shadow:inset 0 -1px 0 0 var(--line); }
+    .sticky-nav{ position:sticky; top:0; z-index:50; }
+    .sticky-nav .nav-inner{
+      max-width:72rem; margin:0 auto; padding:0 1.5rem;
+      height:48px; display:flex; align-items:center; justify-content:space-between;
+      font-size:13px;
+    }
+    .sticky-nav a.nav-link{ color:#1d1d1f; text-decoration:none; }
+    .sticky-nav a.nav-link:hover{ opacity:.6; }
+    .sticky-nav .nav-links{ display:none; align-items:center; gap:1.75rem; }
+    .sticky-nav .nav-cta{
+      font-size:13px; font-weight:500; padding:6px 12px; border-radius:9999px;
+      background:#0a0a0a; color:#fff; text-decoration:none;
+    }
+    .sticky-nav .nav-cta:hover{ background:#1f1f1f; }
+    @media (min-width:768px){ .sticky-nav .nav-links{ display:flex; } }
+
+    .container {
+      max-width: 600px; margin: 0 auto; padding: 120px 20px 80px;
+      text-align: center;
+    }
+    .check-circle {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 32px;
+    }
+    .check-circle svg { width: 36px; height: 36px; }
+    h1 { font-size: 36px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .subtitle { font-size: 18px; color: #666; line-height: 1.6; max-width: 460px; margin: 0 auto 40px; }
+    .card {
+      background: white; border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 36px; text-align: left; margin-bottom: 32px;
+    }
+    .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 16px; color: #1a1a1a; }
+    .step { display: flex; gap: 14px; margin-bottom: 16px; }
+    .step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: #f3f4f6; font-size: 13px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; color: #6366f1;
+    }
+    .step-text { font-size: 15px; color: #555; line-height: 1.5; padding-top: 3px; }
+    .btn-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; background: #1a1a1a; color: white;
+      border-radius: 9999px; font-size: 15px; font-weight: 500;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-home:hover { background: #333; transform: translateY(-1px); }
+    .footer { margin-top: 40px; color: #aaa; font-size: 13px; }
+    .footer a { color: #6366f1; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header class="sticky-nav glass hairline-b">
+    <div class="nav-inner">
+      <a href="https://bizcolab.com" class="font-display" style="font-size:15px;font-weight:600;letter-spacing:-0.025em;color:#1a1a1a;text-decoration:none">BizColab</a>
+      <div class="nav-links">
+        <a class="nav-link" href="https://bizcolab.com#how">How it runs</a>
+        <a class="nav-link" href="https://bizcolab.com#pillars">The six pillars</a>
+        <a class="nav-link" href="https://bizcolab.com#why-groups">Why groups</a>
+        <a class="nav-link" href="https://bizcolab.com#faq">FAQ</a>
+      </div>
+      <a class="nav-cta" href="/sign-up/">Request a seat</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="check-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <h1>Application received.</h1>
+    <p class="subtitle">Thanks for applying to BizColab. We review every application personally and will be in touch within 7&nbsp;days&nbsp;— even if it's a&nbsp;no.</p>
+
+    <div class="card">
+      <h3>What happens next</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">We review your application and LinkedIn to understand your business and what you'd bring to the&nbsp;room.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">If it looks like a fit, we'll reach out to schedule a quick call or send you next&nbsp;steps.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Once confirmed, you'll get your cohort details and onboarding&nbsp;form.</div>
+      </div>
+    </div>
+
+    <a href="https://bizcolab.com" class="btn-home">
+      Back to bizcolab.com
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+
+    <div class="footer">
+      Questions? Email <a href="mailto:Michael@bizcolab.com">Michael@bizcolab.com</a>
+    </div>
+  </div>
+
+</body>
+</html>
