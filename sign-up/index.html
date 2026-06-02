@@ -154,7 +154,7 @@
         <a class="nav-link" href="https://bizcolab.com#why-groups">Why groups</a>
         <a class="nav-link" href="https://bizcolab.com#faq">FAQ</a>
       </div>
-      <a class="nav-cta" href="#forumForm">Apply now</a>
+      <a class="nav-cta" href="#forumForm">Request a seat</a>
     </div>
   </header>
 
@@ -352,9 +352,7 @@
         await emailjs.send('service_bpcodid', 'template_09f1pjl', data);
         await emailjs.send('service_bpcodid', 'template_bt9vd63', data);
 
-        successAlert.style.display = 'block';
-        form.reset();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.location.href = '/thank-you/';
 
       } catch (err) {
         console.error(err);
