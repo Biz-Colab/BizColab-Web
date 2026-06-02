@@ -316,6 +316,8 @@
   <script>
     emailjs.init('yWt3TMJ6ysOrH3vH1');
 
+    const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec';
+
     const form         = document.getElementById('forumForm');
     const submitBtn    = document.getElementById('submitBtn');
     const spinner      = document.getElementById('spinner');
@@ -353,6 +355,8 @@
         await emailjs.send('service_bpcodid', 'template_09f1pjl', data);
         // Auto-reply — fire and forget
         emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function(){});
+        // Log to Google Sheets (fire and forget)
+        fetch(SHEETS_URL, { method: 'POST', body: JSON.stringify(data) }).catch(function(){});
         // Redirect
         window.location.href = '/thank-you-sign-up-form-1/';
         return;
