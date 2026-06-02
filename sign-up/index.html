@@ -349,15 +349,17 @@
       };
 
       try {
+        // Lead notification
         await emailjs.send('service_bpcodid', 'template_09f1pjl', data);
-        await emailjs.send('service_bpcodid', 'template_bt9vd63', data);
-
+        // Auto-reply — fire and forget
+        emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function(){});
+        // Redirect
         window.location.href = '/thank-you/';
-
+        return;
       } catch (err) {
-        console.error(err);
+        console.error('EmailJS error:', err);
         errorAlert.style.display = 'block';
-      } finally {
+        errorAlert.scrollIntoView({ behavior: 'smooth' });
         submitBtn.disabled    = false;
         spinner.style.display = 'none';
         btnText.textContent   = 'Submit Application \u2192';
