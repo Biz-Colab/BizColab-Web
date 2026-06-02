@@ -350,24 +350,15 @@
         hear_about_us:        form.hearAboutUs.value,
       };
 
-      try {
-        // Lead notification
-        await emailjs.send('service_bpcodid', 'template_09f1pjl', data);
-        // Auto-reply — fire and forget
-        emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function(){});
-        // Log to Google Sheets (fire and forget)
-        fetch(SHEETS_URL, { method: 'POST', body: JSON.stringify(data) }).catch(function(){});
-        // Redirect
+      // Fire all sends in background — don't block redirect
+      emailjs.send('service_bpcodid', 'template_09f1pjl', data).catch(function(e){ console.error('Lead email failed:', e); });
+      emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function(e){ console.error('Auto-reply failed:', e); });
+      fetch(SHEETS_URL, { method: 'POST', body: JSON.stringify(data) }).catch(function(){});
+
+      // Small delay to let requests fire, then redirect
+      setTimeout(function(){
         window.location.href = '/thank-you-sign-up-form-1/';
-        return;
-      } catch (err) {
-        console.error('EmailJS error:', err);
-        errorAlert.style.display = 'block';
-        errorAlert.scrollIntoView({ behavior: 'smooth' });
-        submitBtn.disabled    = false;
-        spinner.style.display = 'none';
-        btnText.textContent   = 'Submit Application \u2192';
-      }
+      }, 800);
     });
   </script>
 </body>
