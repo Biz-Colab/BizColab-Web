@@ -83,6 +83,16 @@
     .alert-success { background:#f0fdf4; border:1.5px solid #86efac; color:#166534; }
     .alert-error   { background:#fef2f2; border:1.5px solid #fca5a5; color:#991b1b; }
 
+    #successPanel { text-align:center; padding:6px 4px 2px; }
+    .sp-check { width:54px; height:54px; margin:0 auto 18px; border-radius:50%; background:#f0fdf4; border:1.5px solid #86efac; color:#16a34a; font-size:26px; display:flex; align-items:center; justify-content:center; }
+    .sp-title { font-size:26px; font-weight:700; color:#1a1a1a; letter-spacing:-0.5px; margin-bottom:8px; }
+    .sp-sub { font-size:15px; color:#666; line-height:1.6; max-width:430px; margin:0 auto; }
+    .sp-rule { height:1px; background:#ececf0; margin:24px auto; max-width:360px; }
+    .sp-kicker { font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#9a4ef6; margin-bottom:10px; }
+    .sp-primary { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; max-width:420px; margin:20px auto 0; padding:14px; background:#1a1a1a; color:#fff; border-radius:8px; font-size:15px; font-weight:600; text-decoration:none; transition:all .2s ease; }
+    .sp-primary:hover { background:#333; transform:translateY(-1px); }
+    .sp-ghost { display:inline-block; margin-top:14px; color:#999; font-size:14px; text-decoration:none; }
+    .sp-ghost:hover { color:#666; }
     .footer { text-align:center; margin-top:24px; color:#aaa; font-size:13px; }
     .footer a { color:#6366f1; text-decoration:none; }
 
@@ -106,7 +116,7 @@
 
     <div class="header">
       <h1><span>Seven people</span> in your corner. <span>The team</span> you&rsquo;ve been missing.</h1>
-      <p>A small cohort for people serious about growing their business &mdash; and just as passionate about helping others grow theirs. Add your name to join the process.</p>
+      <p id="headerSub">A small cohort for people serious about growing their business &mdash; and just as passionate about helping others grow theirs. Add your name to join the process.</p>
     </div>
 
     <div class="form-card">
@@ -118,6 +128,7 @@
         &#10007; Something went wrong. Please try again or email Michael@bizcolab.com
       </div>
 
+      <div id="formWrap">
       <form id="seatForm">
         <div class="row">
           <div class="form-group">
@@ -139,6 +150,18 @@
           <span id="btnText">Add my name &rarr;</span>
         </button>
       </form>
+      </div><!-- /formWrap -->
+
+      <div id="successPanel" style="display:none;">
+        <div class="sp-check">&#10003;</div>
+        <h2 class="sp-title">You&rsquo;re on the list<span id="spName"></span>.</h2>
+        <p class="sp-sub">You&rsquo;re in for the next cohort &mdash; we&rsquo;ll be in touch within 7&nbsp;days.</p>
+        <div class="sp-rule"></div>
+        <p class="sp-kicker">Optional next step</p>
+        <p class="sp-sub">Want to fast-track your match? Complete the full application &mdash; it helps us pair you with the right people. There&rsquo;s no rush: do it now, or we&rsquo;ll email you the link to finish later.</p>
+        <a class="sp-primary" href="/sign-up/">Complete the full application &rarr;</a>
+        <a class="sp-ghost" href="https://bizcolab.com">I&rsquo;ll do this later</a>
+      </div>
     </div>
 
     <div class="footer">
@@ -186,8 +209,12 @@
       fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(data) }).catch(function(){});
 
       setTimeout(function(){
-        window.location.href = '/thank-you-sign-up-form-1/';
-      }, 800);
+        document.getElementById('spName').textContent = first ? (', ' + first) : '';
+        document.getElementById('formWrap').style.display = 'none';
+        var hs = document.getElementById('headerSub'); if (hs) hs.style.display = 'none';
+        document.getElementById('successPanel').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 700);
     });
   </script>
 </body>
