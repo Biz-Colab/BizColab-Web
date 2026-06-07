@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacy Policy — BizColab</title>
+<meta name="description" content="How BizColab collects, uses, and protects your information." />
+<link rel="canonical" href="https://bizcolab.com/privacy/" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BizColab" />
+<meta property="og:title" content="Privacy Policy — BizColab" />
+<meta property="og:description" content="How BizColab collects, uses, and protects your information." />
+<meta property="og:url" content="https://bizcolab.com/privacy/" />
+<meta property="og:image" content="https://bizcolab.com/og-home.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+<meta name="theme-color" content="#0a57ff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Geist (display + body) + Instrument Serif (italic accents only) -->
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0a0a0a; --paper:#fff; --paper-2:#f5f5f7; --muted:#6e6e73; --line:#d2d2d7;
+    --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e;
+    --amber:#ffb340; --mint:#30d158; --sky:#64d2ff;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; font-family:'Geist', system-ui, sans-serif; color:var(--ink); background:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-0.011em; }
+  a{ color:inherit; }
+
+  .font-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; }
+  .font-serif-i{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; letter-spacing:-0.015em; }
+
+  .wrap{ max-width:1152px; margin:0 auto; padding:0 24px; }
+
+  /* NAV */
+  header.nav{ position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px);
+    box-shadow:inset 0 -1px 0 0 var(--line); }
+  header.nav .bar{ height:48px; display:flex; align-items:center; justify-content:space-between; font-size:13px; }
+  header.nav .links{ display:none; align-items:center; gap:28px; color:#1d1d1f; }
+  header.nav .links a:hover{ opacity:.6; }
+  .cta{ font-size:13px; font-weight:500; padding:6px 12px; border-radius:9999px; background:#0a0a0a; color:#fff; text-decoration:none; }
+  .cta:hover{ background:#1f1f1f; }
+  @media(min-width:768px){ header.nav .links{ display:flex; } }
+
+  /* HERO */
+  .hero{ position:relative; overflow:hidden; padding:84px 0 36px; }
+  .hero .blob{ position:absolute; inset:0; z-index:-1; }
+  .hero .blob span{ position:absolute; top:-220px; left:50%; transform:translateX(-50%);
+    width:1000px; height:1000px; border-radius:9999px;
+    background:radial-gradient(closest-side,#c8e3ff 0%,#ffe0d4 38%,#fff 72%); }
+  .eyebrow{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+  h1.title{ margin:14px 0 0; font-size:48px; line-height:1.02; }
+  @media(max-width:640px){ h1.title{ font-size:36px; } }
+  .updated{ margin-top:14px; font-size:14px; color:var(--muted); }
+
+  /* CONTENT */
+  main{ padding:8px 0 72px; }
+  .doc{ max-width:760px; margin:0 auto; }
+  .doc h2{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.03em;
+    font-size:22px; margin:40px 0 12px; }
+  .doc h3{ font-weight:600; font-size:16px; margin:24px 0 6px; }
+  .doc p{ font-size:16px; line-height:1.65; color:#33333a; margin:0 0 14px; }
+  .doc ul{ margin:0 0 16px; padding-left:20px; }
+  .doc li{ font-size:16px; line-height:1.6; color:#33333a; margin:6px 0; }
+  .doc a.inline{ color:var(--blue); text-decoration:none; }
+  .doc a.inline:hover{ text-decoration:underline; }
+  .lead{ font-size:18px; line-height:1.6; color:#3a3a40; }
+  .rule{ height:1px; background:var(--line); border:0; margin:40px 0 0; }
+
+  /* FOOTER */
+  footer.site{ background:#0a0a0a; font-size:13px; color:rgba(255,255,255,.6); }
+  footer.site .top{ display:grid; gap:40px; padding:48px 0; }
+  @media(min-width:768px){ footer.site .top{ grid-template-columns:repeat(4,1fr); } }
+  footer.site .brand{ font-size:20px; color:#fff; }
+  footer.site .blurb{ margin-top:12px; max-width:24rem; line-height:1.55; }
+  footer.site .colhead{ font-weight:500; color:rgba(255,255,255,.8); margin-bottom:12px; }
+  footer.site ul{ list-style:none; margin:0; padding:0; }
+  footer.site ul li{ margin:8px 0; }
+  footer.site ul li a:hover{ color:#fff; }
+  footer.site .legal{ border-top:1px solid rgba(255,255,255,.1); }
+  footer.site .legal .row{ display:flex; flex-direction:column; gap:8px; align-items:center; justify-content:space-between; padding:20px 0; font-size:12px; }
+  footer.site .legal .links{ display:flex; gap:16px; align-items:center; }
+  footer.site .legal a:hover{ color:#fff; }
+  @media(min-width:640px){ footer.site .legal .row{ flex-direction:row; } }
+  .md\:col-span-2{ grid-column:span 2 / span 2; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap bar">
+    <a href="/" class="font-display" style="font-weight:600;letter-spacing:-0.02em;font-size:15px;text-decoration:none;color:#0a0a0a">BizColab</a>
+    <nav class="links">
+      <a href="/#how">How it runs</a>
+      <a href="/#pillars">The six pillars</a>
+      <a href="/#why-groups">Why groups</a>
+      <a href="/#apply">Apply</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <a href="/join/" class="cta">Request a seat</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob"><span></span></div>
+  <div class="wrap">
+    <div class="eyebrow">Legal</div>
+    <h1 class="title font-display">Privacy <span class="font-serif-i">Policy</span></h1>
+    <div class="updated">Last updated: June 6, 2026</div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main>
+  <div class="wrap">
+    <article class="doc">
+      <p class="lead">BizColab ("BizColab," "we," "us," or "our") respects your privacy. This policy explains what information we collect when you visit <a class="inline" href="https://bizcolab.com">bizcolab.com</a> or apply for a cohort, how we use it, and the choices you have.</p>
+
+      <h2>Information we collect</h2>
+      <h3>Information you give us</h3>
+      <p>When you request a seat, apply to a cohort, or contact us, you may provide details such as your name, email address, business or company name, industry, time in business, revenue range, your use of AI in your work, answers to short open-ended questions, and how you heard about us. If you become a member, our payment processor collects the billing details needed to process your payment.</p>
+      <h3>Information collected automatically</h3>
+      <p>Like most websites, we and our service providers may automatically collect limited technical information when you visit, such as your browser type, device, referring page, pages viewed, and general location inferred from your IP address. This is used to keep the site working and to understand overall traffic.</p>
+
+      <h2>How we use your information</h2>
+      <ul>
+        <li>To review applications and decide cohort membership.</li>
+        <li>To communicate with you about your application, your membership, and the program.</li>
+        <li>To process payments and manage billing.</li>
+        <li>To operate, maintain, and improve the website and the program.</li>
+        <li>To send you updates or marketing about BizColab, which you can opt out of at any time.</li>
+        <li>To comply with legal obligations and protect our rights.</li>
+      </ul>
+
+      <h2>How we share your information</h2>
+      <p>We do not sell your personal information. We share it only in these limited ways:</p>
+      <ul>
+        <li><strong>Service providers.</strong> Trusted vendors that help us run BizColab — including form, hosting, email, scheduling, analytics, and payment providers (for example, Google, Stripe, and similar processors) — handle data on our behalf under their own privacy and security terms.</li>
+        <li><strong>Within a cohort.</strong> BizColab is a small peer group. Once you join a cohort, basic details you choose to share (such as your name, business, and the goals you bring to the room) are visible to the other members of that cohort. We do not share your application answers with members unless you choose to.</li>
+        <li><strong>Legal and safety.</strong> When required by law, or to protect the rights, property, or safety of BizColab, our members, or others.</li>
+        <li><strong>Business transfers.</strong> In connection with a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</li>
+      </ul>
+
+      <h2>Cookies and analytics</h2>
+      <p>We may use cookies and similar technologies to remember preferences and measure how the site is used. You can control cookies through your browser settings; disabling them may affect some features. Where we use analytics, it is to understand aggregate usage, not to track you across unrelated sites.</p>
+
+      <h2>Data retention</h2>
+      <p>We keep your information only as long as needed for the purposes described here — for example, to evaluate your application, run the program, meet legal and accounting requirements, and resolve disputes. When it is no longer needed, we delete or de-identify it.</p>
+
+      <h2>Your choices and rights</h2>
+      <p>You can ask us to access, correct, or delete the personal information we hold about you, and you can opt out of marketing emails at any time using the unsubscribe link or by emailing us. Depending on where you live, you may have additional rights under laws such as the California Consumer Privacy Act (CCPA/CPRA) or the EU/UK GDPR, including the right to know what we collect, to request deletion, and to not be discriminated against for exercising your rights. To make a request, contact us using the details below. We do not sell or "share" personal information for cross-context behavioral advertising.</p>
+
+      <h2>Security</h2>
+      <p>We use reasonable administrative, technical, and physical safeguards to protect your information. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.</p>
+
+      <h2>Children's privacy</h2>
+      <p>BizColab is intended for business operators and is not directed to children under 16. We do not knowingly collect personal information from children. If you believe a child has provided us information, please contact us and we will delete it.</p>
+
+      <h2>Third-party links</h2>
+      <p>Our site and communications may link to third-party services. We are not responsible for the privacy practices of those services, and we encourage you to read their policies.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy from time to time. When we do, we will revise the "Last updated" date above. Significant changes may be communicated by email or through the site.</p>
+
+      <h2>Contact us</h2>
+      <p>Questions about this policy or your information? Email us at <a class="inline" href="mailto:Michael@bizcolab.com">Michael@bizcolab.com</a>.</p>
+
+      <hr class="rule" />
+    </article>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap top">
+    <div class="md:col-span-2">
+      <div class="brand font-display">BizColab</div>
+      <div class="blurb">Eight operators. One month. A different kind of company.</div>
+    </div>
+    <div>
+      <div class="colhead">The program</div>
+      <ul>
+        <li><a href="/#how">How it runs</a></li>
+        <li><a href="/#pillars">The six pillars</a></li>
+        <li><a href="/#why-groups">Why groups</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="colhead">Apply</div>
+      <ul>
+        <li><a href="/#apply">Request a seat</a></li>
+        <li><a href="mailto:Michael@bizcolab.com">Contact</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <div class="wrap row">
+      <div>© 2026 BizColab. All rights reserved.</div>
+      <div class="links">
+        <a href="/privacy/">Privacy Policy</a>
+        <span>Built for operators, by operators.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
