@@ -160,6 +160,7 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
 .modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;border:0;background:var(--paper-2);color:#3a3a3c;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
 .modal-close:hover{background:#e6e6eb;}
 .modal h3{margin:0 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em;}
+#modalTitle{padding-right:38px;}
 .modal-sub{margin:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.5;}
 .modal form{display:flex;flex-direction:column;gap:14px;}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -176,8 +177,14 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
 .modal-success .check{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--mint),#1fa84a);color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 12px 30px rgba(48,209,88,.3);}
 .modal-success h3{font-size:22px;}
 .modal-success p{font-size:15px;color:#5a5a5e;line-height:1.55;margin:8px 0 20px;}
+@media(max-width:520px){.frow{grid-template-columns:1fr;}.modal{padding:28px 22px 24px;}}
 </style>
 <meta name="description" content="BizColab is a curated room of eight revenue-generating operators. For one focused month, accelerate your business growth through strategic collaboration. 8 founding seats, by application.">
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+<meta name="robots" content="index,follow" />
 <link rel="canonical" href="https://bizcolab.com/accelerate/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bizcolab.com/accelerate/">
@@ -336,7 +343,7 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
   </div>
 </section>
 
-<footer class="foot">© BizColab — a curated room for operators. · @michaelabraham.realtor · Privacy</footer>
+<footer class="foot">© BizColab — a curated room for operators. · @michaelabraham.realtor · <a href="/privacy/" style="color:inherit;text-decoration:underline;">Privacy</a></footer>
 
 
 <!-- APPLY MODAL -->
@@ -355,7 +362,7 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
         <button type="submit" class="btn btn-primary" id="submitBtn"><span id="btnText">Request my seat</span><span id="spinner" class="spinner" style="display:none;margin-left:8px;"></span></button>
         <div id="errorAlert" class="alert err" style="display:none">Something went wrong — please try again, or email us directly.</div>
       </form>
-      <p class="modal-fine">Revenue-generating operators only.</p>
+      <p class="modal-fine">Revenue-generating operators only. By applying you agree to our <a href="/privacy/" style="color:inherit;text-decoration:underline;">Privacy&nbsp;Policy</a>.</p>
     </div>
     <div id="successPanel" class="modal-success" style="display:none">
       <div class="check">&#10003;</div>
@@ -378,8 +385,9 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
   var btnText = document.getElementById('btnText');
   var errorAlert = document.getElementById('errorAlert');
 
-  function openModal(e){ if(e) e.preventDefault(); overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); setTimeout(function(){ var f=document.getElementById('mFirst'); if(f) f.focus(); },120); }
-  function closeModal(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); }
+  var lastTrigger=null;
+  function openModal(e){ if(e){ e.preventDefault(); lastTrigger=e.currentTarget; } overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(function(){ var f=document.getElementById('mFirst'); if(f) f.focus(); },120); }
+  function closeModal(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if(lastTrigger && lastTrigger.focus){ try{ lastTrigger.focus(); }catch(_){} } }
 
   document.querySelectorAll('[data-open-apply]').forEach(function(el){ el.addEventListener('click', openModal); });
   document.querySelectorAll('[data-close-apply]').forEach(function(el){ el.addEventListener('click', closeModal); });
@@ -391,6 +399,9 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
     errorAlert.style.display = 'none';
     if(!form.firstName.value.trim() || !form.lastName.value.trim() || !form.email.value.trim()){
       errorAlert.textContent = 'Please fill in your name and email.'; errorAlert.style.display = 'block'; return;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim())){
+      errorAlert.textContent = 'Please enter a valid email address.'; errorAlert.style.display = 'block'; return;
     }
     submitBtn.disabled = true; spinner.style.display = 'inline-block'; btnText.textContent = 'Sending...';
 
