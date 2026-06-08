@@ -386,11 +386,26 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
   var errorAlert = document.getElementById('errorAlert');
 
   var lastTrigger=null;
-  function openModal(e){ if(e){ e.preventDefault(); lastTrigger=e.currentTarget; } overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(function(){ var f=document.getElementById('mFirst'); if(f) f.focus(); },120); }
-  function closeModal(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if(lastTrigger && lastTrigger.focus){ try{ lastTrigger.focus(); }catch(_){} } }
+  function openModal(e){
+    if(e){ e.preventDefault(); lastTrigger=e.currentTarget; }
+    overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    // Add a history entry so the browser/phone Back button just closes the modal
+    if(!(history.state && history.state.bizModal)){ history.pushState({bizModal:true}, ''); }
+    setTimeout(function(){ var f=document.getElementById('mFirst'); if(f) f.focus(); },120);
+  }
+  function closeModal(fromPop){
+    overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastTrigger && lastTrigger.focus){ try{ lastTrigger.focus(); }catch(_){} }
+    // If closed via X/overlay/Esc, consume the history entry we added (keeps user on /accelerate/)
+    if(!fromPop && history.state && history.state.bizModal){ history.back(); }
+  }
+  // Back button while modal is open -> close it instead of leaving the page
+  window.addEventListener('popstate', function(){ if(overlay.classList.contains('open')) closeModal(true); });
 
   document.querySelectorAll('[data-open-apply]').forEach(function(el){ el.addEventListener('click', openModal); });
-  document.querySelectorAll('[data-close-apply]').forEach(function(el){ el.addEventListener('click', closeModal); });
+  document.querySelectorAll('[data-close-apply]').forEach(function(el){ el.addEventListener('click', function(){ closeModal(); }); });
   overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
