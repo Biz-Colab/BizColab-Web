@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BizColab — The 4-Week Roadmap</title>
+<meta name="description" content="BizColab Cohort 01 — four weeks, eight operators, one Monday session a week. The room is the product.">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="GPTBot" content="noindex, nofollow">
+<meta name="ClaudeBot" content="noindex, nofollow">
+<meta name="anthropic-ai" content="noindex, nofollow">
+<meta name="PerplexityBot" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #0a0a0a; --ink-2: #1d1d1f; --muted: #6e6e73;
+  --line: #d2d2d7; --paper: #fff; --paper-2: #f5f5f7;
+  --blue: #0071e3; --indigo: #5e5ce6; --violet: #9a4ef6;
+  --coral: #ff6f5e; --amber: #ffb340; --mint: #30d158;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  color: var(--ink-2); background: var(--paper);
+  -webkit-font-smoothing: antialiased; letter-spacing: -0.011em;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid rgba(0,0,0,0.1);
+}
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 24px;
+  height: 48px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-size: 15px; font-weight: 700; letter-spacing: -0.04em; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 13px; color: var(--ink-2); text-decoration: none; opacity: 0.75; transition: opacity .18s; }
+.nav-links a:hover { opacity: 1; }
+.nav-pill { font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 999px; background: var(--ink); color: #fff; text-decoration: none; transition: background .18s; white-space: nowrap; }
+.nav-pill:hover { background: #2a2a2a; }
+@media (max-width: 600px) { .nav-links { display: none; } }
+
+/* HERO */
+.hero { padding: 96px 0 80px; text-align: center; position: relative; overflow: hidden; }
+.hero-glow { position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 860px; height: 860px; border-radius: 50%; background: radial-gradient(closest-side, #d6eaff 0%, #ffe3dd 40%, #fff 72%); z-index: 0; pointer-events: none; }
+.hero > .wrap { position: relative; z-index: 1; }
+.hero-badge { display: inline-flex; align-items: center; gap: 7px; padding: 6px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.7); font-size: 12px; font-weight: 500; color: var(--ink-2); margin-bottom: 28px; }
+.hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); animation: pulse 2s ease-out infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(48,209,88,.5); } 70% { box-shadow: 0 0 0 8px rgba(48,209,88,0); } 100% { box-shadow: 0 0 0 0 rgba(48,209,88,0); } }
+.hero h1 { font-size: clamp(48px, 8vw, 88px); font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: var(--ink); }
+.hero h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
+.hero-sub { margin: 22px auto 0; max-width: 540px; font-size: clamp(16px, 2.2vw, 19px); line-height: 1.55; color: rgba(29,29,31,.68); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 28px; }
+.chip { font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: var(--paper-2); color: var(--ink-2); }
+
+/* FOUR KEY FOCUSES */
+.focuses { padding: 80px 0 72px; border-top: 1px solid #ebebef; }
+.focuses-h2 { font-size: clamp(28px, 4.5vw, 44px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 36px; }
+.focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.focus-card { position: relative; border: 1px solid #e8e8ed; border-radius: 22px; padding: 26px; overflow: hidden; background: #fff; transition: transform .25s, box-shadow .25s; }
+.focus-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(10,10,10,.07); }
+.bignum { position: absolute; top: -10px; right: 14px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 88px; line-height: 1; color: rgba(10,10,10,.05); pointer-events: none; }
+.fico { width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 16px; }
+.focus-card h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
+.focus-card p { margin-top: 8px; font-size: 14px; line-height: 1.6; color: rgba(29,29,31,.65); }
+.frule { width: 30px; height: 3px; border-radius: 2px; margin-top: 16px; }
+@media (max-width: 640px) { .focus-grid { grid-template-columns: 1fr; } }
+
+/* ENGINE */
+.engine { background: var(--ink); color: #fff; padding: 72px 0; }
+.engine .section-label { color: rgba(255,255,255,.45); }
+.engine-h2 { font-size: clamp(26px, 4vw, 42px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 10px; }
+.engine-h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--amber); }
+.engine-lead { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,.6); max-width: 560px; margin-bottom: 40px; }
+.engine-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.engine-step { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); border-radius: 16px; padding: 22px 20px 24px; transition: background .2s; }
+.engine-step:hover { background: rgba(255,255,255,.08); }
+.engine-n { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: rgba(255,255,255,.3); margin-bottom: 12px; }
+.engine-ico { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; margin-bottom: 12px; }
+.engine-step h4 { font-size: 15px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
+.engine-step p { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.55); }
+@media (max-width: 680px) { .engine-steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 440px) { .engine-steps { grid-template-columns: 1fr; } }
+
+/* HOW IT WORKS (3 steps) */
+.how { padding: 80px 0 72px; border-top: 1px solid #ebebef; }
+.how-h2 { font-size: clamp(28px, 4.5vw, 44px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 36px; }
+.how-h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.step { padding: 26px 26px 30px; background: var(--paper-2); border-radius: 20px; }
+.steps .step:first-child { border-radius: 20px 4px 4px 20px; }
+.steps .step:last-child  { border-radius: 4px 20px 20px 4px; }
+.step-n { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 12px; }
+.step-icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 12px; }
+.step h3 { font-size: 17px; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 7px; }
+.step p { font-size: 13.5px; line-height: 1.6; color: rgba(29,29,31,.65); }
+@media (max-width: 680px) { .steps { grid-template-columns: 1fr; gap: 6px; } .steps .step { border-radius: 16px !important; } }
+
+/* 4-WEEK ARC */
+.arc { padding: 80px 0; }
+.arc-head { max-width: 560px; margin-bottom: 48px; }
+.arc-head h2 { font-size: clamp(30px, 5vw, 52px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.04; margin-top: 12px; }
+.arc-head h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+.arc-head p { margin-top: 12px; font-size: 16px; line-height: 1.55; color: rgba(29,29,31,.65); }
+.week-list { display: flex; flex-direction: column; }
+.wk { display: grid; grid-template-columns: 160px 1fr; gap: 40px; padding: 32px 0; border-top: 1px solid #ebebef; align-items: start; }
+.wk-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.wk-name { font-size: 40px; font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+.wk-right p { font-size: 14.5px; line-height: 1.65; color: rgba(29,29,31,.68); }
+.wk-right strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 640px) { .wk { grid-template-columns: 1fr; gap: 10px; } .wk-name { font-size: 34px; } }
+
+/* WHO JOINS */
+.who { padding: 80px 0; background: var(--paper-2); }
+.who-head { max-width: 480px; margin-bottom: 40px; }
+.who-head h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-top: 12px; }
+.who-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.who-card { background: #fff; border-radius: 18px; padding: 22px 20px; border: 1px solid #e8e8ed; }
+.who-card .icon { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; margin-bottom: 12px; }
+.who-card h4 { font-size: 14px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 7px; }
+.who-card p { font-size: 13px; line-height: 1.6; color: var(--muted); }
+@media (max-width: 720px) { .who-cards { grid-template-columns: 1fr; } }
+
+/* CTA */
+.cta-band { background: var(--ink); padding: 72px 0 76px; text-align: center; margin-top: 72px; }
+.cta-band .section-label { color: var(--amber); margin-bottom: 18px; }
+.cta-band h2 { font-size: clamp(28px, 5vw, 52px); font-weight: 700; letter-spacing: -0.04em; color: #fff; line-height: 1.06; margin-bottom: 12px; }
+.cta-band h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--amber); }
+.cta-band .sub { font-size: 16px; color: rgba(255,255,255,.6); max-width: 400px; margin: 0 auto 36px; line-height: 1.55; }
+.cta-buttons { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.join-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 16px; font-weight: 600; color: var(--ink);
+  background: #fff; text-decoration: none;
+  padding: 14px 32px; border-radius: 999px;
+  transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
+}
+.join-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 28px rgba(0,0,0,.35); }
+.join-btn:active { transform: scale(.98); }
+.seats-note { margin-top: 22px; font-size: 13px; color: rgba(255,255,255,.35); }
+
+/* FOOTER */
+footer { background: var(--ink); color: rgba(255,255,255,.4); font-size: 13px; padding: 22px 0; text-align: center; border-top: 1px solid rgba(255,255,255,.06); }
+footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+footer a:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">BizColab</a>
+    <div class="nav-links">
+      <a href="#focuses">Focuses</a>
+      <a href="#arc">The 4 weeks</a>
+      <a href="#who">Who joins</a>
+    </div>
+    <a href="/join/" class="nav-pill">Request a seat</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Cohort 01 — Now enrolling
+    </div>
+    <h1>Mondays at 5:30.<br><em>75 minutes.</em></h1>
+    <p class="hero-sub">Eight operators. One focused session a week. Four weeks to move your business forward — together.</p>
+    <div class="chips">
+      <span class="chip">Mondays · 5:30–6:45 PM PT</span>
+      <span class="chip">8 members</span>
+      <span class="chip">4 weeks</span>
+      <span class="chip">Virtual &amp; recorded</span>
+    </div>
+  </div>
+</header>
+
+<!-- FOUR KEY FOCUSES -->
+<section class="focuses" id="focuses">
+  <div class="wrap">
+    <div class="section-label">What the month is built around</div>
+    <h2 class="focuses-h2">Four key focuses.</h2>
+    <div class="focus-grid">
+
+      <div class="focus-card">
+        <div class="bignum">1</div>
+        <div class="fico" style="background:rgba(0,113,227,.1)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+        </div>
+        <h3>Implementing AI</h3>
+        <p>Put AI to work inside your business — turning conversations into tasks, automating the busywork, and finding leverage you didn't have time to build alone.</p>
+        <div class="frule" style="background:#0071e3"></div>
+      </div>
+
+      <div class="focus-card">
+        <div class="bignum">2</div>
+        <div class="fico" style="background:rgba(94,92,230,.1)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5e5ce6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 16 4-6 4 3 5-7"/></svg>
+        </div>
+        <h3>Compounding processes</h3>
+        <p>Build systems that stack. Small, repeatable processes that compound week over week instead of one-off effort that resets every Monday.</p>
+        <div class="frule" style="background:#5e5ce6"></div>
+      </div>
+
+      <div class="focus-card">
+        <div class="bignum">3</div>
+        <div class="fico" style="background:rgba(255,111,94,.1)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Accountability</h3>
+        <p>A paired partner and a room of eight who expect your update. The structure that turns "I should" into "I did" — and keeps you honest between calls.</p>
+        <div class="frule" style="background:#ff6f5e"></div>
+      </div>
+
+      <div class="focus-card">
+        <div class="bignum">4</div>
+        <div class="fico" style="background:rgba(48,209,88,.12)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2bb24c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 1-2-2 2 2 0 0 1 2-2h14"/><path d="M18 12a1 1 0 0 0 0 2h2v-2Z"/></svg>
+        </div>
+        <h3>Sustainability &amp; sellability</h3>
+        <p>Build a business that runs without you — durable enough to sustain, structured enough that it could one day be sold. Not just busier, but more valuable.</p>
+        <div class="frule" style="background:#2bb24c"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ENGINE BEHIND EVERY WEEK -->
+<section class="engine" id="engine">
+  <div class="wrap">
+    <div class="section-label">The engine behind every week</div>
+    <h2 class="engine-h2">Every call compounds<br><em>into action.</em></h2>
+    <p class="engine-lead">The structure runs the same loop each week. Talk becomes commitments; commitments become tasks; tasks become measured progress — then the loop begins again.</p>
+    <div class="engine-steps">
+
+      <div class="engine-step">
+        <div class="engine-n">01</div>
+        <div class="engine-ico" style="background:rgba(0,113,227,.18)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4aa3ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4>Meet</h4>
+        <p>Monday, 5:30–6:45 PM. Eight operators, full presence, one focused session.</p>
+      </div>
+
+      <div class="engine-step">
+        <div class="engine-n">02</div>
+        <div class="engine-ico" style="background:rgba(94,92,230,.18)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b89f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h4>Capture the goal</h4>
+        <p>Each member's single highest-leverage commitment is named out loud and written down.</p>
+      </div>
+
+      <div class="engine-step">
+        <div class="engine-n">03</div>
+        <div class="engine-ico" style="background:rgba(154,78,246,.18)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b07bf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
+        <h4>Record</h4>
+        <p>Every session is recorded — full context preserved, no notes lost.</p>
+      </div>
+
+      <div class="engine-step">
+        <div class="engine-n">04</div>
+        <div class="engine-ico" style="background:rgba(255,111,94,.18)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8b7d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+        </div>
+        <h4>AI → tasks</h4>
+        <p>AI converts the session into clear, assigned tasks for each member.</p>
+      </div>
+
+      <div class="engine-step">
+        <div class="engine-n">05</div>
+        <div class="engine-ico" style="background:rgba(48,209,88,.18)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+        </div>
+        <h4>Shared channel</h4>
+        <p>Tasks and threads live in one Slack channel the whole cohort can see and push on.</p>
+      </div>
+
+      <div class="engine-step">
+        <div class="engine-n">06</div>
+        <div class="engine-ico" style="background:rgba(255,179,64,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffc266" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+        </div>
+        <h4>Daily check-ins</h4>
+        <p>Short daily accountability between calls keeps momentum honest — then Monday comes round again.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4-WEEK ARC -->
+<section class="arc" id="arc">
+  <div class="wrap">
+    <div class="arc-head">
+      <div class="section-label">The four weeks</div>
+      <h2>One arc.<br><em>Four moves.</em></h2>
+      <p>Each week has a job. The same sequence a good operator or coach would run — compressed into a month.</p>
+    </div>
+
+    <div class="week-list">
+
+      <div class="wk">
+        <div class="wk-left">
+          <div class="wk-tag" style="color:var(--blue)">Week 01</div>
+          <div class="wk-name" style="color:var(--blue)">Map</div>
+        </div>
+        <div class="wk-right">
+          <p>Diagnose before you solve. Ten minutes each to share your business and what you want to walk away with. Then the room names each member's <strong>single highest-leverage move</strong> and real constraint for the month — not the symptom, the bottleneck.</p>
+        </div>
+      </div>
+
+      <div class="wk">
+        <div class="wk-left">
+          <div class="wk-tag" style="color:var(--indigo)">Week 02</div>
+          <div class="wk-name" style="color:var(--indigo)">Match</div>
+        </div>
+        <div class="wk-right">
+          <p>You build something genuinely useful for your paired partner — a teardown, a plan, an intro, a fix. Then the room turns the same lens on you. <strong>Structured, specific feedback.</strong> No pleasantries.</p>
+        </div>
+      </div>
+
+      <div class="wk">
+        <div class="wk-left">
+          <div class="wk-tag" style="color:var(--violet)">Week 03</div>
+          <div class="wk-name" style="color:var(--violet)">Move</div>
+        </div>
+        <div class="wk-right">
+          <p>War room week. Bring what you're building and the room tears it apart and sharpens it. <strong>Eight operators on one problem at a time.</strong> The goal is shipped progress — not updated plans.</p>
+        </div>
+      </div>
+
+      <div class="wk">
+        <div class="wk-left">
+          <div class="wk-tag" style="color:var(--coral)">Week 04</div>
+          <div class="wk-name" style="color:var(--coral)">Measure</div>
+        </div>
+        <div class="wk-right">
+          <p>Results against what you named in Week 1. What shipped, what didn't, and why. <strong>The relationships and the system follow you out</strong> — you leave with a partner, a room you know, and a cadence you can run again.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO JOINS -->
+<section class="who" id="who">
+  <div class="wrap">
+    <div class="who-head">
+      <div class="section-label">Who this is for</div>
+      <h2>Operators who've already started.</h2>
+    </div>
+    <div class="who-cards">
+
+      <div class="who-card">
+        <div class="icon" style="background:rgba(0,113,227,.08)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 1-2-2 2 2 0 0 1 2-2h14"/><path d="M18 12a1 1 0 0 0 0 2h2v-2Z"/></svg>
+        </div>
+        <h4>Revenue-generating</h4>
+        <p>Not idea-stage. You have a business that's running, with customers, revenue, or a clear path to both.</p>
+      </div>
+
+      <div class="who-card">
+        <div class="icon" style="background:rgba(94,92,230,.08)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5e5ce6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <h4>No board, no investors</h4>
+        <p>You're operating without anyone to pressure-test your decisions. Advising yourself on every call — and you know it.</p>
+      </div>
+
+      <div class="who-card">
+        <div class="icon" style="background:rgba(255,111,94,.08)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4>Ready to give, not just get</h4>
+        <p>You'll put in the work to solve for others. The room is the product — and everyone builds it.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="join">
+  <div class="wrap">
+    <div class="section-label">Cohort 01 · 8 seats · Founding member rate</div>
+    <h2>Ready to join<br><em>the room?</em></h2>
+    <p class="sub">Eight operators. Four Mondays. One focused arc. Secure your seat now.</p>
+    <div class="cta-buttons">
+      <a href="/join/" class="join-btn">
+        Request a seat
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+    <p class="seats-note">Questions? michael@bizcolab.com</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <span>© 2026 BizColab &nbsp;·&nbsp; <a href="/privacy/">Privacy</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
