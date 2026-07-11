@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Seat | BizColab</title>
+<meta name="description" content="Eight operators, one focused month. Apply for the next BizColab cohort — real accountability, complementary skills, honest feedback, and a network that lasts.">
+<meta name="theme-color" content="#0a57ff">
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BizColab">
+<meta property="og:url" content="https://bizcolab.com/apply/">
+<meta property="og:title" content="Eight founders. One month. The room you've been missing.">
+<meta property="og:description" content="A curated cohort of eight operators. One focused month — real accountability, honest feedback, and a network that lasts. Now enrolling.">
+<meta property="og:image" content="https://bizcolab.com/og-home.png">
+
+<link rel="icon" href="https://bizcolab.com/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bizcolab.com/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://bizcolab.com/favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0b0f;
+    --panel:#111318;
+    --panel-2:#15181f;
+    --line:#242832;
+    --accent:#0a57ff;
+    --accent-soft:rgba(10,87,255,.14);
+    --text:#f4f6fb;
+    --muted:#9aa4b2;
+    --muted-2:#6b7686;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--ink);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;color:var(--accent);font-weight:400}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(10,11,15,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-weight:800;font-size:19px;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  .nav .pill{border:1px solid var(--accent);padding:9px 18px;border-radius:999px;font-size:14px;font-weight:600;background:var(--accent)}
+  .nav .pill:hover{background:#0b4fe0}
+
+  .hero{padding:84px 0 56px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;top:-160px;right:-160px;width:520px;height:520px;background:radial-gradient(circle,var(--accent-soft),transparent 70%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start;position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--line);padding:7px 14px;border-radius:999px;margin-bottom:24px}
+  .badge .live{width:8px;height:8px;border-radius:50%;background:#28c76f;box-shadow:0 0 0 4px rgba(40,199,111,.16)}
+  h1{font-size:52px;line-height:1.04;font-weight:800;letter-spacing:-.03em;margin-bottom:20px}
+  .hero p.lede{font-size:19px;color:var(--muted);max-width:520px;margin-bottom:20px}
+  .metrics{display:flex;gap:36px;margin-top:34px;flex-wrap:wrap}
+  .metrics .m .n{font-size:30px;font-weight:800;letter-spacing:-.02em}
+  .metrics .m .l{font-size:13px;color:var(--muted-2);margin-top:2px}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .card h2{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:4px}
+  .card .sub{font-size:14px;color:var(--muted);margin-bottom:22px}
+  .field{margin-bottom:15px}
+  label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:var(--text)}
+  .req{color:var(--accent);margin-left:2px}
+  input,select,textarea{
+    width:100%;padding:12px 14px;font-size:15px;color:var(--text);
+    background:var(--panel-2);border:1px solid var(--line);border-radius:11px;font-family:inherit;
+    transition:border-color .15s,box-shadow .15s;
+  }
+  textarea{resize:vertical;min-height:78px}
+  input::placeholder,textarea::placeholder{color:var(--muted-2)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .btn{width:100%;padding:15px;font-size:16px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:11px;cursor:pointer;transition:background .15s,transform .05s;display:flex;align-items:center;justify-content:center;gap:9px}
+  .btn:hover{background:#0b4fe0}
+  .btn:active{transform:translateY(1px)}
+  .btn:disabled{background:#3a4256;cursor:not-allowed}
+  .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;display:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .fineprint{font-size:12px;color:var(--muted-2);margin-top:13px;text-align:center}
+  .alert{display:none;padding:13px 16px;border-radius:10px;font-size:14px;margin-bottom:18px;line-height:1.5}
+  .alert-error{background:rgba(220,53,69,.1);border:1px solid rgba(220,53,69,.4);color:#f7a6ae}
+  .success{display:none;text-align:center;padding:26px 0}
+  .success .check{width:58px;height:58px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 16px}
+  .success h3{font-size:22px;font-weight:800;margin-bottom:6px}
+  .success p{font-size:14px;color:var(--muted)}
+
+  .ask{padding:72px 0;border-top:1px solid var(--line)}
+  .kicker{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px}
+  .ask h2,.pillars h2{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-bottom:14px;line-height:1.1}
+  .ask p.intro{color:var(--muted);max-width:640px;margin-bottom:40px;font-size:17px}
+  .ask-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .item{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;gap:16px}
+  .item .no{font-family:"Instrument Serif",serif;font-style:italic;font-size:28px;color:var(--accent);line-height:1}
+  .item h3{font-size:17px;font-weight:700;margin-bottom:4px}
+  .item p{font-size:14px;color:var(--muted)}
+
+  .pillars{padding:72px 0;border-top:1px solid var(--line);background:var(--panel-2)}
+  .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .pillar{padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--ink)}
+  .pillar h3{font-size:16px;font-weight:700;margin-bottom:6px}
+  .pillar p{font-size:13.5px;color:var(--muted)}
+
+  .final{padding:80px 0;text-align:center;border-top:1px solid var(--line)}
+  .final h2{font-size:40px;font-weight:800;letter-spacing:-.025em;margin-bottom:14px;line-height:1.08}
+  .final p{color:var(--muted);margin-bottom:26px;font-size:17px}
+  .final a.cta{display:inline-block;background:var(--accent);padding:15px 34px;border-radius:12px;font-weight:700;font-size:16px}
+  .final a.cta:hover{background:#0b4fe0}
+  .final .note{margin-top:18px;font-size:13px;color:var(--muted-2)}
+
+  footer{padding:30px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted-2);font-size:13px}
+
+  @media(max-width:880px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    h1{font-size:38px}
+    .ask-grid{grid-template-columns:1fr}
+    .pillar-grid{grid-template-columns:1fr}
+    .final h2{font-size:30px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="https://bizcolab.com"><span class="dot"></span>BizColab</a>
+    <a class="pill" href="#apply">Request a seat</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge"><span class="live"></span>Now enrolling · All eight seats open</span>
+      <h1>Eight founders. One month. The room you've <span class="serif">been missing.</span></h1>
+      <p class="lede">A curated cohort of eight operators who lift each other for thirty days — real accountability, complementary skills, honest feedback, and a network that outlasts the program.</p>
+      <div class="metrics">
+        <div class="m"><div class="n">8</div><div class="l">Operators</div></div>
+        <div class="m"><div class="n">4</div><div class="l">Weeks</div></div>
+        <div class="m"><div class="n">1</div><div class="l">Curated room</div></div>
+      </div>
+    </div>
+
+    <div class="card" id="apply">
+      <div class="alert alert-error" id="errorAlert">Something went wrong. Please try again or email Michael@bizcolab.com</div>
+
+      <div id="formWrap">
+        <form id="leadForm">
+          <h2>Request a seat</h2>
+          <p class="sub">A short form so we can match you with the right cohort. We respond within 7 days — even if it's a no.</p>
+
+          <div class="row">
+            <div class="field">
+              <label for="firstName">First name<span class="req">*</span></label>
+              <input id="firstName" name="firstName" type="text" placeholder="Jamie" required>
+            </div>
+            <div class="field">
+              <label for="lastName">Last name<span class="req">*</span></label>
+              <input id="lastName" name="lastName" type="text" placeholder="Rivera" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email<span class="req">*</span></label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
+          </div>
+          <div class="field">
+            <label for="business">Your business</label>
+            <input id="business" name="business" type="text" placeholder="What do you run, and what stage?">
+          </div>
+          <div class="field">
+            <label for="focus">Your single highest-leverage move this month</label>
+            <textarea id="focus" name="focus" placeholder="The one thing you'd ship with seven operators holding you to it."></textarea>
+          </div>
+          <div class="field">
+            <label for="timeline">When can you start?</label>
+            <select id="timeline" name="timeline">
+              <option value="Next cohort">Next cohort</option>
+              <option value="Within 60 days">Within 60 days</option>
+              <option value="Still exploring" selected>Still exploring</option>
+            </select>
+          </div>
+          <button class="btn" type="submit" id="submitBtn">
+            <span class="spinner" id="spinner"></span>
+            <span id="btnText">Submit application →</span>
+          </button>
+          <p class="fineprint">Takes about 3 minutes. We're optimizing for the right eight, not the most members.</p>
+        </form>
+      </div>
+
+      <div class="success" id="successPanel">
+        <div class="check">✓</div>
+        <h3>Application received<span id="spName"></span>.</h3>
+        <p>We review on a rolling basis and respond within 7 days — even if it's a no. Check your inbox for a confirmation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ask">
+  <div class="wrap">
+    <div class="kicker">What we ask of you</div>
+    <h2>The real exchange is <span class="serif">your attention.</span></h2>
+    <p class="intro">There's a modest fee — kept deliberately low, so a little skin in the game makes you show up. If these four things sound like you, apply.</p>
+    <div class="ask-grid">
+      <div class="item"><div class="no">01</div><div><h3>Show up.</h3><p>Four weekly calls. You don't skip them. If something happens, you tell the group.</p></div></div>
+      <div class="item"><div class="no">02</div><div><h3>Bring a real business.</h3><p>Real numbers, real customers. We're not the right room for pre-revenue.</p></div></div>
+      <div class="item"><div class="no">03</div><div><h3>Help others as much as yourself.</h3><p>The point of eight is you get seven advisors — and you give seven people the same.</p></div></div>
+      <div class="item"><div class="no">04</div><div><h3>Bring your losses, not just your wins.</h3><p>Honesty is the whole product. Highlight reels get cut.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="wrap">
+    <div class="kicker">What you actually get</div>
+    <h2>Six pillars. No fluff <span class="serif">between them.</span></h2>
+    <div class="pillar-grid">
+      <div class="pillar"><h3>Accountability</h3><p>You commit in writing to one move. The group sees your weekly progress — so you don't quietly drop the ball.</p></div>
+      <div class="pillar"><h3>Complementary skill sets</h3><p>Every cohort is curated. You sit next to the seven people who fill the gaps in your business.</p></div>
+      <div class="pillar"><h3>Real plays, shared live</h3><p>No theory. You see what's working and failing in eight active businesses, this week.</p></div>
+      <div class="pillar"><h3>A network that lasts</h3><p>The cohort ends in 30 days. The relationships don't — intros, vendors, and warm leads keep flowing.</p></div>
+      <div class="pillar"><h3>Communication</h3><p>Pitching, persuading, and saying the hard thing — practiced live with people who tell you what landed.</p></div>
+      <div class="pillar"><h3>Goal oriented</h3><p>Every session starts with a target and ends with a next step. You're here to move the needle this week.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Do you want to join <span class="serif">the next cohort?</span></h2>
+    <p>Eight seats. Thirty days. The room you've been telling yourself you'd build, already half-built.</p>
+    <a class="cta" href="#apply" onclick="document.getElementById('firstName').focus()">Request a seat</a>
+    <div class="note">All eight seats currently open · Applications reviewed on a rolling basis</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 BizColab. All rights reserved. · Built for operators, by operators.</div>
+</footer>
+
+<!-- Same EmailJS + Sheets pipeline used by bizcolab.com/join/ -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init('yWt3TMJ6ysOrH3vH1');
+
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec';
+
+  const form       = document.getElementById('leadForm');
+  const submitBtn  = document.getElementById('submitBtn');
+  const spinner    = document.getElementById('spinner');
+  const btnText    = document.getElementById('btnText');
+  const errorAlert = document.getElementById('errorAlert');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorAlert.style.display = 'none';
+    submitBtn.disabled = true;
+    spinner.style.display = 'block';
+    btnText.textContent = 'Sending...';
+
+    const first = form.firstName.value.trim();
+    const last  = form.lastName.value.trim();
+
+    const data = {
+      full_name:  (first + ' ' + last).trim(),
+      first_name: first,
+      last_name:  last,
+      email:      form.email.value,
+      business:   form.business.value.trim(),
+      focus:      form.focus.value.trim(),
+      timeline:   form.timeline.value,
+      message:    'Business: ' + (form.business.value.trim() || '—') +
+                  '\nHighest-leverage move: ' + (form.focus.value.trim() || '—') +
+                  '\nCan start: ' + form.timeline.value
+    };
+
+    emailjs.send('service_bpcodid', 'template_09f1pjl', data).catch(function(err){ console.error('Lead email failed:', err); });
+    emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function(err){ console.error('Auto-reply failed:', err); });
+    fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(data) }).catch(function(){});
+
+    setTimeout(function(){
+      document.getElementById('spName').textContent = first ? (', ' + first) : '';
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successPanel').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 700);
+  });
+</script>
+</body>
+</html>
