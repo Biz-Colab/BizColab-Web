@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BizColab — A Mastermind Cohort for Founders & Operators</title>
+<title>BizColab — A Mastermind Cohort for Founders &amp; Operators</title>
 <meta name="description" content="BizColab is a curated 4-week mastermind of eight business operators — real accountability, complementary skills, honest feedback, and a network that lasts. Now enrolling." />
 <meta name="keywords" content="mastermind group, founder accountability group, entrepreneur cohort, small business mastermind, accountability partner, operator community, business growth group, peer advisory, founder peer group, Los Angeles mastermind" />
 <meta name="author" content="BizColab" />
@@ -13,7 +13,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="BizColab" />
-<meta property="og:title" content="BizColab — A Mastermind Cohort for Founders & Operators" />
+<meta property="og:title" content="BizColab — A Mastermind Cohort for Founders &amp; Operators" />
 <meta property="og:description" content="A curated 4-week room of eight operators: real accountability, complementary skills, honest feedback, and a network that lasts. Now enrolling." />
 <meta property="og:url" content="https://bizcolab.com/" />
 <meta property="og:image" content="https://bizcolab.com/og-home.png" />
@@ -24,7 +24,7 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="BizColab — A Mastermind Cohort for Founders & Operators" />
+<meta name="twitter:title" content="BizColab — A Mastermind Cohort for Founders &amp; Operators" />
 <meta name="twitter:description" content="A curated 4-week room of eight operators: accountability, complementary skills, honest feedback, and a lasting network. Now enrolling." />
 <meta name="twitter:image" content="https://bizcolab.com/og-home.png" />
 
@@ -48,4 +48,1083 @@
 <!-- Geist (display + body) + Instrument Serif (italic accents only) -->
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-WILL_CONTINUE_IN_NEXT_MESSAGE
+<style>
+  :root{
+    --ink:#0a0a0a; --paper:#fff; --paper-2:#f5f5f7; --muted:#6e6e73; --line:#d2d2d7;
+    --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e;
+    --amber:#ffb340; --mint:#30d158; --sky:#64d2ff;
+  }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Geist', system-ui, sans-serif; color:var(--ink); background:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-0.011em; }
+
+  .font-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; }
+  .font-serif-i{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; letter-spacing:-0.015em; }
+
+  @keyframes floatSlow{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(20px,-20px) rotate(8deg)}}
+  @keyframes floatFast{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-30px,15px) rotate(-6deg)}}
+  @keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+  @keyframes rise{from{opacity:0; transform:translateY(28px)}to{opacity:1; transform:translateY(0)}}
+  @keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(0,113,227,.35)}100%{box-shadow:0 0 0 18px rgba(0,113,227,0)}}
+
+  .rise{ animation:rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .float-slow{ animation:floatSlow 14s ease-in-out infinite; }
+  .float-fast{ animation:floatFast 10s ease-in-out infinite; }
+  .pulse-ring{ animation:pulseRing 2.2s ease-out infinite; }
+
+  .gradient-text{
+    background:linear-gradient(90deg,#0071e3,#5e5ce6,#9a4ef6,#ff6f5e,#ffb340);
+    background-size:200% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:shimmer 8s linear infinite;
+  }
+  .glass{ background:rgba(255,255,255,.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); }
+  .hairline-b{ box-shadow:inset 0 -1px 0 0 var(--line); }
+
+  .grain::before{
+    content:''; position:absolute; inset:0; pointer-events:none; opacity:.06;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/></svg>");
+    mix-blend-mode:overlay;
+  }
+
+  .btn-primary{ background:var(--ink); color:#fff; border-radius:9999px; padding:14px 26px; font-weight:500; display:inline-flex; align-items:center; gap:8px; transition:transform .2s,background .2s; position:relative; }
+  .btn-primary:hover{ background:#1f1f1f; transform:translateY(-1px); }
+  .btn-ghost{ border:1px solid var(--line); border-radius:9999px; padding:14px 26px; font-weight:500; display:inline-flex; align-items:center; gap:8px; transition:background .2s; }
+  .btn-ghost:hover{ background:var(--paper-2); }
+  .btn-light{ background:#fff; color:var(--ink); border-radius:9999px; padding:14px 26px; font-weight:500; display:inline-flex; align-items:center; gap:8px; transition:background .2s; }
+  .btn-light:hover{ background:rgba(255,255,255,.9); }
+  .btn-outline-light{ border:1px solid rgba(255,255,255,.4); color:#fff; border-radius:9999px; padding:14px 26px; font-weight:500; display:inline-flex; align-items:center; gap:8px; transition:background .2s; }
+  .btn-outline-light:hover{ background:rgba(255,255,255,.1); }
+
+  .faq-body{ overflow:hidden; max-height:0; transition:max-height .35s ease, margin-top .35s ease; color:rgba(29,29,31,.75); font-size:15px; line-height:1.6; }
+  .faq-open .faq-body{ max-height:280px; margin-top:12px; }
+  .faq-open .icon-plus{ display:none; }
+  .icon-minus{ display:none; }
+  .faq-open .icon-minus{ display:block; }
+
+  .seat-dot{ width:14px; height:14px; border-radius:9999px; background:#d2d2d7; display:inline-block; }
+  .seat-dot.taken{ background:#0a0a0a; }
+
+  .field-label{ display:block; font-size:13px; font-weight:500; margin-bottom:6px; color:#1d1d1f; }
+  .field-input{ width:100%; padding:14px 16px; border-radius:14px; border:1px solid #d2d2d7; background:#fff; font-family:inherit; font-size:15px; color:#0a0a0a; transition:border-color .2s, box-shadow .2s; }
+  .field-input:focus{ outline:none; border-color:#0a0a0a; box-shadow:0 0 0 4px rgba(10,10,10,.08); }
+  .field-input::placeholder{ color:#a1a1a6; }
+  textarea.field-input{ resize:vertical; min-height:96px; line-height:1.5; }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization","EducationalOrganization"],
+  "name": "BizColab",
+  "url": "https://bizcolab.com/",
+  "logo": "https://bizcolab.com/favicon-512.png",
+  "description": "BizColab is a curated four-week mastermind cohort of eight business operators, built around accountability, complementary skills, honest feedback, and a lasting network.",
+  "slogan": "Eight founders. One month. The room you've been missing.",
+  "founder": {"@type": "Person","name": "Michael Abraham","jobTitle": "Founder","sameAs": "https://www.linkedin.com/in/michaelabraham-realtor/"},
+  "areaServed": "Worldwide",
+  "knowsAbout": ["entrepreneurship","business growth","accountability","masterminds","operator peer groups"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mastermind cohort program",
+  "provider": {"@type": "Organization","name": "BizColab","url": "https://bizcolab.com/"},
+  "name": "BizColab Mastermind Cohort",
+  "description": "A curated four-week mastermind: eight operators meet weekly for accountability, complementary skill-sharing, honest feedback, and a network that outlasts the&nbsp;program.",
+  "offers": {"@type": "Offer","availability": "https://schema.org/InStock","url": "https://bizcolab.com/#apply","description": "Now enrolling — applications reviewed on a rolling basis. Nominal membership fee."},
+  "audience": {"@type": "Audience","audienceType": "Founders, business owners, and operators running a revenue-generating business"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "Who is BizColab for?","acceptedAnswer": {"@type": "Answer","text": "Business-minded operators running a real business who want a small, vetted room of peers to grow faster — not a course library, not a mastermind that meets twice a year."}},
+    {"@type": "Question","name": "Who is it not for?","acceptedAnswer": {"@type": "Answer","text": "Pre-revenue founders, people looking for a step-by-step course, or anyone who'd rather watch than participate. We assume you can ship; we make you ship&nbsp;better."}},
+    {"@type": "Question","name": "What does it cost?","acceptedAnswer": {"@type": "Answer","text": "There's a fee to join, and it's intentionally nominal — not prohibitive. When something is free, people don't show up for it; a modest cost is what holds you accountable. The knowledge you'll pull from a room of experienced operators should pay you back many times over. We share the exact figure with applicants we move forward."}},
+    {"@type": "Question","name": "Why only eight people?","acceptedAnswer": {"@type": "Answer","text": "Eight is the largest room where every voice still has weight and every member can still know every other member's business. Beyond that, attention dilutes and the network effect breaks."}},
+    {"@type": "Question","name": "How much time per week?","acceptedAnswer": {"@type": "Answer","text": "Plan on 3–4 hours: one 90-minute group call, plus async check-ins and one focused execution block. The thirty-day length forces concentration."}},
+    {"@type": "Question","name": "Is it in person or virtual?","acceptedAnswer": {"@type": "Answer","text": "The weekly calls are virtual. A short opening and closing in-person meetup is offered for members based in Los Angeles. Both are optional but encouraged."}},
+    {"@type": "Question","name": "What happens after the month?","acceptedAnswer": {"@type": "Answer","text": "The cohort stays connected. Most alumni keep a standing call, and there's an open-invitation alumni session each quarter. The relationships compound — the month is just the catalyst."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "BizColab — A Mastermind Cohort for Founders & Operators",
+  "url": "https://bizcolab.com/",
+  "description": "A curated four-week mastermind of eight operators.",
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true,
+  "speakable": {"@type": "SpeakableSpecification","cssSelector": ["h1","h2"]},
+  "about": [{"@type": "Thing","name": "Mastermind group"},{"@type": "Thing","name": "Entrepreneur accountability"},{"@type": "Thing","name": "Business growth"}]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 glass hairline-b">
+  <div class="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between text-[13px]">
+    <div class="font-display font-semibold tracking-tight text-[15px]">BizColab</div>
+    <nav class="hidden md:flex items-center gap-7" style="color:#1d1d1f">
+      <a class="hover:opacity-60" href="#how">How it runs</a>
+      <a class="hover:opacity-60" href="#pillars">The six pillars</a>
+      <a class="hover:opacity-60" href="#why-groups">Why groups</a>
+      <a class="hover:opacity-60" href="#apply">Apply</a>
+      <a class="hover:opacity-60" href="#faq">FAQ</a>
+    </nav>
+    <a href="/join/" class="text-[13px] font-medium px-3 py-1.5 rounded-full bg-[#0a0a0a] text-white hover:bg-[#1f1f1f]">Request a seat</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden pt-20 pb-24 md:pt-24 md:pb-28">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[1100px] h-[1100px] rounded-full"
+         style="background:radial-gradient(closest-side,#c8e3ff 0%,#ffe0d4 35%,#fff 70%)"></div>
+    <div class="absolute top-40 -left-24 w-[420px] h-[420px] rounded-full float-slow"
+         style="background:radial-gradient(closest-side,#9a4ef6 0%,transparent 70%);opacity:.25"></div>
+    <div class="absolute top-10 -right-32 w-[480px] h-[480px] rounded-full float-fast"
+         style="background:radial-gradient(closest-side,#ff6f5e 0%,transparent 70%);opacity:.25"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#d2d2d7] bg-white/70 text-[12px] font-medium rise" style="animation-delay:0ms">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+      Now enrolling · Open to all applicants
+    </div>
+
+    <h1 class="font-display text-[44px] sm:text-6xl md:text-[88px] leading-[1.02] mt-7 rise" style="animation-delay:120ms">
+      <span class="gradient-text">Eight founders.</span><br/>
+      One month.<br class="hidden sm:block" />
+      <span class="font-serif-i">The room you've been missing.</span>
+    </h1>
+
+    <p class="mt-6 max-w-2xl mx-auto text-[18px] md:text-[22px] leading-[1.45] rise" style="color:rgba(29,29,31,.8);animation-delay:220ms">
+      BizColab is a curated cohort of eight business-minded operators who lift each other for thirty days —
+      through accountability, complementary skill sets, real plays shared live, and a network that outlasts the&nbsp;program.
+      <span class="block mt-3 text-[16px] md:text-[18px] font-medium" style="color:#0a0a0a">
+        Do you want to join the next cohort?
+      </span>
+    </p>
+
+    <div class="mt-9 flex items-center justify-center gap-3 rise" style="animation-delay:320ms">
+      <a href="/join/" class="btn-primary">
+        <span class="absolute inset-0 rounded-full pulse-ring"></span>
+        Request a seat
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#how" class="btn-ghost">See how it runs</a>
+    </div>
+
+    <div class="mt-10 flex items-center justify-center gap-2 rise" style="animation-delay:420ms">
+      <span class="seat-dot"></span>
+      <span class="seat-dot"></span>
+      <span class="seat-dot"></span>
+      <span class="seat-dot"></span>
+      <span class="seat-dot"></span>
+      <span class="seat-dot"></span>
+      <span class="seat-dot"></span>
+      <span class="seat-dot"></span>
+    </div>
+    <div class="mt-3 text-[13px] rise" style="color:#6e6e73;animation-delay:460ms">All eight seats currently open · Applications reviewed on a rolling basis</div>
+  </div>
+</section>
+
+<!-- A NOTE FROM MICHAEL -->
+<section class="bg-white">
+  <div class="max-w-3xl mx-auto px-6 py-16 md:py-20">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-4" style="color:#6e6e73">A note from the founder</div>
+    <p class="font-display text-[22px] md:text-[28px] leading-[1.4]" style="color:#0a0a0a">
+      I've thought about building this room for years. With everything technology makes possible now, I can finally bring it to life — simply and the way I always imagined&nbsp;it.
+    </p>
+    <p class="mt-5 text-[16px] md:text-[17px] leading-[1.65]" style="color:rgba(29,29,31,.75)">
+      The idea is straightforward. Eight operators, one focused month. You get real accountability, seven peers whose skills fill the gaps in yours, honest feedback on what you're actually building, and a network that keeps paying off long after the cohort ends. If that sounds like the room you've been missing, I'd love for you to&nbsp;join.
+    </p>
+    <a href="/join/" class="btn-primary mt-8">
+      Sign up
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+    <div class="mt-6 font-serif-i text-[18px]" style="color:#0a0a0a">— Michael</div>
+  </div>
+</section>
+
+<!-- TRUST LINE -->
+<section class="border-t border-[#e8e8ed] bg-[#fafafa]">
+  <div class="max-w-3xl mx-auto px-6 py-7 text-center">
+    <p class="text-[15px] md:text-[16px] leading-[1.6]" style="color:#1d1d1f">
+      Past cohorts have included real-estate founders, agency operators, ecommerce owners, SaaS builders, and a few people who don't fit a category — and that's the&nbsp;point.
+    </p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="relative bg-[#0a0a0a] text-white py-20 md:py-24 grain overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full"
+       style="background:radial-gradient(closest-side,rgba(255,111,94,.35),transparent)"></div>
+  <div class="max-w-5xl mx-auto px-6 relative">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-4" style="color:#ff6f5e">The honest part</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05] max-w-4xl">
+      Growing alone is slow.<br/>
+      <span class="font-serif-i" style="color:#ffb340">Growing together compounds.</span>
+    </h2>
+    <p class="mt-6 text-[17px] md:text-[19px] max-w-2xl leading-[1.55]" style="color:rgba(255,255,255,.7)">
+      Most operators don't lack ideas. They lack a small group that knows their business well enough to challenge them, an ops partner across the table, and a standing reason to actually ship the thing they keep talking&nbsp;about.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-4">
+      <div class="rounded-3xl p-7 border border-white/10 bg-white/[0.03]">
+        <div class="font-display text-[22px] leading-tight">You're advising yourself.</div>
+        <div class="text-[14px] mt-3 leading-[1.6]" style="color:rgba(255,255,255,.65)">No one's pressure-testing your decisions. You're talking to yourself in a Google&nbsp;Doc.</div>
+      </div>
+      <div class="rounded-3xl p-7 border border-white/10 bg-white/[0.03]">
+        <div class="font-display text-[22px] leading-tight">Your circle isn't your industry.</div>
+        <div class="text-[14px] mt-3 leading-[1.6]" style="color:rgba(255,255,255,.65)">Friends and family love you, but they can't tell you why your funnel isn't&nbsp;converting.</div>
+      </div>
+      <div class="rounded-3xl p-7 border border-white/10 bg-white/[0.03]">
+        <div class="font-display text-[22px] leading-tight">You ship without witnesses.</div>
+        <div class="text-[14px] mt-3 leading-[1.6]" style="color:rgba(255,255,255,.65)">No deadline that matters. No one will notice if you push the launch another two&nbsp;weeks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT RUNS -->
+<section id="how" class="py-20 md:py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">How it runs</div>
+      <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">
+        Four weeks.<br/>
+        <span class="font-serif-i">Four moves.</span>
+      </h2>
+      <p class="mt-4 text-[18px] leading-[1.55]" style="color:rgba(29,29,31,.75)">
+        One curated group of eight. One commitment per week. Real outcomes by day&nbsp;thirty.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-4 gap-5">
+      <div class="relative rounded-3xl p-7 bg-[#f5f5f7] overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-50" style="background:radial-gradient(closest-side,#0071e3,transparent)"></div>
+        <div class="font-display text-[14px] tracking-wider" style="color:#0071e3">WEEK 01</div>
+        <div class="font-display text-[24px] mt-2">Map</div>
+        <div class="text-[14px] mt-2 leading-[1.6]" style="color:rgba(29,29,31,.7)">Each member presents their business in 10 minutes. The group identifies your single highest-leverage move for the&nbsp;month.</div>
+      </div>
+      <div class="relative rounded-3xl p-7 bg-[#f5f5f7] overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-50" style="background:radial-gradient(closest-side,#5e5ce6,transparent)"></div>
+        <div class="font-display text-[14px] tracking-wider" style="color:#5e5ce6">WEEK 02</div>
+        <div class="font-display text-[24px] mt-2">Match</div>
+        <div class="text-[14px] mt-2 leading-[1.6]" style="color:rgba(29,29,31,.7)">We pair members with complementary skill sets. You ship something for someone in the room — they ship something for&nbsp;you.</div>
+      </div>
+      <div class="relative rounded-3xl p-7 bg-[#f5f5f7] overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-50" style="background:radial-gradient(closest-side,#9a4ef6,transparent)"></div>
+        <div class="font-display text-[14px] tracking-wider" style="color:#9a4ef6">WEEK 03</div>
+        <div class="font-display text-[24px] mt-2">Move</div>
+        <div class="text-[14px] mt-2 leading-[1.6]" style="color:rgba(29,29,31,.7)">Execution week. Live war-room. Daily check-ins. Everyone ships the move they committed to in Week 01 — together.</div>
+      </div>
+      <div class="relative rounded-3xl p-7 bg-[#f5f5f7] overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-50" style="background:radial-gradient(closest-side,#ff6f5e,transparent)"></div>
+        <div class="font-display text-[14px] tracking-wider" style="color:#ff6f5e">WEEK 04</div>
+        <div class="font-display text-[24px] mt-2">Measure</div>
+        <div class="text-[14px] mt-2 leading-[1.6]" style="color:rgba(29,29,31,.7)">Group review of outcomes. What worked, what didn't, what comes next. The relationships stay. The work&nbsp;continues.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIX PILLARS -->
+<section id="pillars" class="relative py-20 md:py-24 overflow-hidden" style="background:linear-gradient(180deg,#f0f7ff 0%,#fff 100%)">
+  <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full opacity-40 float-slow" style="background:radial-gradient(closest-side,#64d2ff,transparent)"></div>
+  <div class="max-w-6xl mx-auto px-6 relative">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#0071e3">What you actually get</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05] max-w-3xl">
+      Six pillars.<br/>
+      <span class="font-serif-i">No fluff between them.</span>
+    </h2>
+
+    <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#0071e3,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(0,113,227,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Accountability</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">You commit in writing to a single move for the month. The group sees your weekly progress. You can't quietly drop the ball, so you&nbsp;don't.</p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#9a4ef6,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(154,78,246,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9a4ef6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Complementary skill sets</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Every cohort is curated. You won't sit next to seven versions of yourself. You'll sit next to the seven people who fill the gaps in your&nbsp;business.</p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#ff6f5e,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(255,111,94,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Real plays, shared live</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">No theory. No "case studies from 2019." You see what's working — and what's failing — in eight active businesses, this&nbsp;week.</p>
+
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#ffb340,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(255,179,64,.15)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb340" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 7 10 10"/><path d="M17 7 14 10"/><path d="M7 17 10 14"/><path d="M17 17 14 14"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">A network that outlasts the month</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">The cohort ends in 30 days. The relationships don't. Past members still trade intros, vendors, and warm leads long after their month is&nbsp;over.</p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#30d158,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(48,209,88,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Communication</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Pitching, persuading, and saying the hard thing out loud — you practice all of it in real time with people who'll tell you what landed and what didn't.</p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#5e5ce6,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(94,92,230,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5e5ce6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Goal oriented</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Every session starts with a clear target and ends with a concrete next step. You're not here to brainstorm in circles — you're here to move the needle this week.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY GROUPS / ACCOUNTABILITY -->
+<section id="why-groups" class="py-20 md:py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Why a room beats going solo</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05] max-w-3xl">
+      Willpower is fragile.<br/><span class="font-serif-i">A group is structural.</span>
+    </h2>
+    <p class="mt-4 text-[18px] leading-[1.55] max-w-2xl" style="color:rgba(29,29,31,.75)">
+      The research is blunt about this: who's in the room changes whether the work gets done. An accountability partner isn't a nice-to-have — it's the mechanism that turns intentions into shipped outcomes.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <div class="rounded-3xl p-8 bg-[#f5f5f7] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#0071e3,transparent)"></div>
+        <div class="relative">
+          <div class="font-display text-5xl" style="color:#0071e3">65%</div>
+          <div class="font-display text-[20px] mt-3 leading-tight">Commit it out loud</div>
+          <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Simply committing a goal to another person makes you far more likely to hit it than keeping it in your own&nbsp;head.</p>
+        </div>
+      </div>
+      <div class="rounded-3xl p-8 bg-[#f5f5f7] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#9a4ef6,transparent)"></div>
+        <div class="relative">
+          <div class="font-display text-5xl" style="color:#9a4ef6">95%</div>
+          <div class="font-display text-[20px] mt-3 leading-tight">Add a standing check-in</div>
+          <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Pair that commitment with a regular check-in with the person you answer to, and completion climbs dramatically.</p>
+        </div>
+      </div>
+      <div class="rounded-3xl p-8 bg-[#f5f5f7] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#ff6f5e,transparent)"></div>
+        <div class="relative">
+          <div class="font-display text-5xl" style="color:#ff6f5e">7×</div>
+          <div class="font-display text-[20px] mt-3 leading-tight">Borrow seven brains</div>
+          <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">In a room of eight, every problem you bring gets seven operators' worth of pattern-matching — not just your&nbsp;own.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 grid md:grid-cols-2 gap-5">
+      <div class="rounded-3xl p-8 border border-[#e8e8ed]">
+        <div class="font-display text-[22px] leading-tight">Momentum is contagious</div>
+        <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Watching peers ship makes you want to ship. Motivation isn't a personality trait you either have or don't — it's largely a property of the room you stand in. Put yourself next to people in motion and you&nbsp;move.</p>
+      </div>
+      <div class="rounded-3xl p-8 border border-[#e8e8ed]">
+        <div class="font-display text-[22px] leading-tight">Your blind spots get named</div>
+        <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">You're too close to your own business to see what's obvious to everyone else. An accountability partner says the thing your own head talks you out of — before it costs you a&nbsp;quarter.</p>
+      </div>
+    </div>
+
+    <p class="mt-6 text-[12px]" style="color:#a1a1a6">Figures reflect widely cited research on goal-setting and accountability (commonly attributed to a study by Dr. Gail Matthews). Directional, not a guarantee.</p>
+  </div>
+</section>
+
+<!-- BENEFITS BEYOND THE MONTH -->
+<section class="py-20 md:py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#30d158">After the cohort</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">
+      The benefits extend<br/><span class="font-serif-i">beyond the month.</span>
+    </h2>
+    <p class="mt-5 text-[18px] leading-[1.6] max-w-2xl mx-auto" style="color:rgba(29,29,31,.75)">
+      When your four weeks end, your access doesn't. You stay connected to the BizColab network — monthly check-ins keep momentum alive, and every new cohort expands the community you can tap into. It's a growing network of vetted operators, validated by the people in your cohort and every cohort that&nbsp;follows.
+    </p>
+    <div class="mt-10 grid md:grid-cols-3 gap-5 text-left">
+      <div class="rounded-3xl p-8 bg-[#f5f5f7]">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(48,209,88,.1)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="font-display text-[20px] leading-tight">Network access</div>
+        <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Stay plugged into the full BizColab alumni network — intros, referrals, and real conversations with operators who've been in your seat.</p>
+      </div>
+      <div class="rounded-3xl p-8 bg-[#f5f5f7]">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(0,113,227,.1)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="font-display text-[20px] leading-tight">Monthly check-ins</div>
+        <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Regular touchpoints keep you accountable and connected long after your cohort wraps. The rhythm doesn't stop just because the four weeks&nbsp;did.</p>
+      </div>
+      <div class="rounded-3xl p-8 bg-[#f5f5f7]">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(154,78,246,.1)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9a4ef6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <div class="font-display text-[20px] leading-tight">An ever-expanding network</div>
+        <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Every new cohort adds more vetted operators to the community. The network you join today is bigger tomorrow — and every member has been validated by their&nbsp;peers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER — TODO: Replace M.A. gradient block with real photo of Michael -->
+<section class="relative overflow-hidden py-20 md:py-24" style="background:linear-gradient(135deg,#fff4ec 0%,#ffe8e0 50%,#fde2f1 100%)">
+  <div class="absolute -top-10 -left-10 w-[420px] h-[420px] rounded-full float-slow" style="background:radial-gradient(closest-side,#ffb340,transparent);opacity:.4"></div>
+  <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-5 gap-10 items-center relative">
+    <div class="md:col-span-2">
+      <div class="aspect-[4/5] rounded-3xl overflow-hidden relative">
+        <img src="/michael.jpg" alt="Michael Abraham — founder, BizColab" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%" />
+      </div>
+    </div>
+    <div class="md:col-span-3">
+      <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:rgba(10,10,10,.6)">Who runs the room</div>
+      <h2 class="font-display text-4xl md:text-5xl leading-[1.05]">
+        I built the room<br/><span class="font-serif-i">I wanted to be in.</span>
+      </h2>
+      <p class="mt-5 text-[17px] leading-[1.6]" style="color:rgba(29,29,31,.8)">
+        I'm Michael — and I've spent my career as an entrepreneur who refuses to stay in one lane. I've built, run, and reinvented businesses across architecture, branding, marketing, and design, and gone on to work as an investor and a realtor. Every pivot meant walking into a new profession and earning my place in it from&nbsp;scratch.
+      </p>
+      <p class="mt-4 text-[17px] leading-[1.6]" style="color:rgba(29,29,31,.8)">
+        That range is the whole point of BizColab. Most operators get stuck because they only see their business through one lens. The single biggest unlock in my own career was a small group of people who took my growth as seriously as I did — and who'd lived the problem I was facing. This is the room I wish I'd had at every pivot, built for seven other people at a&nbsp;time.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Architecture</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Branding</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Marketing</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Design</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Investor</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Realtor</span>
+      </div>
+      <a href="https://www.linkedin.com/in/michaelabraham-realtor/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-6 text-[14px] font-medium" style="color:#0a0a0a">
+        Connect on LinkedIn
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE ASK -->
+<section class="py-20 md:py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="rounded-[32px] p-10 md:p-14 relative overflow-hidden" style="background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1f 100%)">
+      <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full" style="background:radial-gradient(closest-side,#30d158,transparent);opacity:.5"></div>
+      <div class="relative">
+        <div class="text-[12px] uppercase tracking-[0.22em] mb-2" style="color:#30d158">What we ask of you</div>
+        <h3 class="font-display text-3xl md:text-5xl text-white leading-[1.05]">
+          The real exchange<br/>
+          <span class="font-serif-i" style="color:#ffb340">is your attention.</span>
+        </h3>
+        <p class="mt-5 text-[16px] leading-[1.6] max-w-xl" style="color:rgba(255,255,255,.7)">
+          There's a modest fee to join — kept deliberately low. Not because the room isn't worth more, but because a small amount of skin in the game is what makes you show up and do the work. We're not optimizing for the most members. We're optimizing for the right&nbsp;eight. If these four things sound like you,&nbsp;apply.
+        </p>
+
+        <ul class="mt-8 space-y-4 text-white">
+          <li class="flex items-start gap-4">
+            <div class="mt-1 w-6 h-6 rounded-full grid place-items-center shrink-0" style="background:rgba(48,209,88,.2)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div><span class="font-medium">Show up.</span> <span style="color:rgba(255,255,255,.7)">Four weekly calls. You don't skip them. If something happens, you tell the&nbsp;group.</span></div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="mt-1 w-6 h-6 rounded-full grid place-items-center shrink-0" style="background:rgba(48,209,88,.2)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div><span class="font-medium">Bring a real business.</span> <span style="color:rgba(255,255,255,.7)">Doing real numbers. With real customers. We're not the right room for&nbsp;pre-revenue.</span></div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="mt-1 w-6 h-6 rounded-full grid place-items-center shrink-0" style="background:rgba(48,209,88,.2)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div><span class="font-medium">Help others as much as yourself.</span> <span style="color:rgba(255,255,255,.7)">The point of eight is you get seven advisors — and you give seven people the&nbsp;same.</span></div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="mt-1 w-6 h-6 rounded-full grid place-items-center shrink-0" style="background:rgba(48,209,88,.2)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div><span class="font-medium">Bring your losses, not just your wins.</span> <span style="color:rgba(255,255,255,.7)">Honesty is the whole product. Highlight reels get&nbsp;cut.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY — Real inline form -->
+<section id="apply" class="py-20 md:py-24" style="background:linear-gradient(180deg,#fff 0%,#f5f5f7 100%)">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Now enrolling</div>
+      <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">
+        Eight seats.<br/><span class="font-serif-i">All open.</span>
+      </h2>
+      <p class="mt-4 text-[17px]" style="color:rgba(29,29,31,.75)">
+        A short application. We respond within 7&nbsp;days&nbsp;— even if it's&nbsp;a&nbsp;no.
+      </p>
+    </div>
+
+    <div class="mt-12 max-w-2xl mx-auto rounded-[32px] p-1 relative" style="background:conic-gradient(from 180deg,#0071e3,#9a4ef6,#ff6f5e,#ffb340,#0071e3)">
+      <div class="rounded-[28px] bg-white p-8 md:p-10">
+        <div class="font-display text-[26px] md:text-[32px] text-center leading-tight">Request a seat</div>
+        <p class="mt-2 text-[15px] text-center" style="color:#6e6e73">A short form so we can match you with the right cohort. We respond within 7&nbsp;days.</p>
+
+        <a href="/join/" class="btn-primary w-full justify-center mt-7">
+          Open the application
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <p class="text-[12px] text-center mt-3" style="color:#6e6e73">Takes about 3&nbsp;minutes</p>
+        <p class="text-[13px] text-center mt-2 max-w-sm mx-auto" style="color:rgba(29,29,31,.55)">A few quick questions so we can place you with the right&nbsp;group.</p>
+
+        <div class="mt-8 pt-6 border-t border-[#e8e8ed] grid grid-cols-3 gap-3 text-center">
+          <div>
+            <div class="font-display text-[22px]">8</div>
+            <div class="text-[12px]" style="color:#6e6e73">Operators</div>
+          </div>
+          <div>
+            <div class="font-display text-[22px]">4</div>
+            <div class="text-[12px]" style="color:#6e6e73">Weeks</div>
+          </div>
+          <div>
+            <div class="font-display text-[22px]">1</div>
+            <div class="text-[12px]" style="color:#6e6e73">Curated room</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 md:py-24 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Questions</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">The honest answers.</h2>
+
+    <div class="mt-10 divide-y divide-[#e8e8ed] border-t border-[#e8e8ed]">
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">Who is BizColab for?</div>
+          <div class="faq-body">Business-minded operators running a real business who want a small, vetted room of peers to grow faster — not a course library, not a mastermind that meets twice a year.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">Who is it not for?</div>
+          <div class="faq-body">Pre-revenue founders, people looking for a step-by-step course, or anyone who'd rather watch than participate. We assume you can ship; we make you ship&nbsp;better.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <!-- Pricing FAQ — addresses the unspoken question -->
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">What does it cost?</div>
+          <div class="faq-body">There's a fee to join, and it's intentionally nominal — not prohibitive. The reason is simple: when something is free, people don't show up for it. A modest cost is what holds you accountable to the room and the work. And the return is lopsided in your favor — the knowledge you'll pull from a room of operators bringing a decade of experience each should pay you back many times over. We share the exact figure with applicants we move forward.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">Why only eight people?</div>
+          <div class="faq-body">Eight is the largest room where every voice still has weight and every member can still know every other member's business. Beyond that, attention dilutes and the network effect breaks.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">How much time per week?</div>
+          <div class="faq-body">Plan on 3–4 hours: one 90-minute group call, plus async check-ins and one focused execution block. The thirty-day length forces concentration.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">Is it in person or virtual?</div>
+          <div class="faq-body">The four weekly calls are virtual. A short opening and closing in-person meetup is offered for members based in Los Angeles. Both are optional but encouraged.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">What happens after the month?</div>
+          <div class="faq-body">The cohort stays connected. Most alumni keep a Friday standing call, and we host a single open-invitation alumni session each quarter. The relationships compound. The month is just the catalyst.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="relative py-24 md:py-32 overflow-hidden text-white"
+         style="background:linear-gradient(135deg,#0071e3 0%,#5e5ce6 50%,#9a4ef6 100%)">
+  <div class="absolute inset-0 grain"></div>
+  <div class="absolute -bottom-20 -right-20 w-[500px] h-[500px] rounded-full float-slow" style="background:radial-gradient(closest-side,#ffb340,transparent);opacity:.45"></div>
+  <div class="absolute -top-20 -left-20 w-[400px] h-[400px] rounded-full float-fast" style="background:radial-gradient(closest-side,#ff6f5e,transparent);opacity:.45"></div>
+  <div class="max-w-4xl mx-auto px-6 text-center relative">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:rgba(255,255,255,.8)">The invitation</div>
+    <h2 class="font-display text-5xl md:text-7xl leading-[1.02]">
+      Do you want to join<br/>
+      <span class="font-serif-i">the next cohort?</span>
+    </h2>
+    <p class="mt-5 text-[18px] max-w-xl mx-auto" style="color:rgba(255,255,255,.85)">
+      Eight seats. Thirty days. The room you've been telling yourself you'd build, already half&#8209;built.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a class="btn-light" href="/join/">Request a seat
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a class="btn-outline-light" href="#how">See how it runs</a>
+    </div>
+    <div class="mt-8 text-[13px]" style="color:rgba(255,255,255,.7)">All eight seats currently open · Applications reviewed on a rolling basis</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#0a0a0a] text-[13px]" style="color:rgba(255,255,255,.6)">
+  <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <div class="font-display text-[20px]" style="color:#fff">BizColab</div>
+      <div class="mt-3 max-w-sm leading-[1.55]">Eight operators. One month. A different kind of company.</div>
+    </div>
+    <div>
+      <div class="font-medium mb-3" style="color:rgba(255,255,255,.8)">The program</div>
+      <ul class="space-y-2">
+        <li><a href="#how">How it runs</a></li>
+        <li><a href="#pillars">The six pillars</a></li>
+        <li><a href="#why-groups">Why groups</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="font-medium mb-3" style="color:rgba(255,255,255,.8)">Apply</div>
+      <ul class="space-y-2">
+        <li><a href="#apply">Request a seat</a></li>
+        <li><a href="mailto:Michael@Bizcolab.com">Contact</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px]">
+      <div>© 2026 BizColab. All rights reserved.</div>
+      <div class="flex items-center gap-4"><a href="/privacy/" class="hover:text-white">Privacy Policy</a><span>Built for operators, by operators.</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const wasOpen = btn.classList.contains('faq-open');
+      document.querySelectorAll('.faq-item').forEach((b) => b.classList.remove('faq-open'));
+      if (!wasOpen) btn.classList.add('faq-open');
+    });
+  });
+
+  // Application is handled by an external Google Form (linked via the Apply buttons).
+
+</script>
+
+<!-- ============================================================
+     BizColab Lead-Capture Popup
+     Self-contained block: fonts, style, markup, script.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  #bizc-popup-root, #bizc-popup-root *{ box-sizing:border-box; }
+  #bizc-popup-root{
+    --bizc-ink:#0a0a0a; --bizc-paper:#fff; --bizc-paper-2:#f5f5f7; --bizc-muted:#6e6e73; --bizc-line:#d2d2d7;
+    --bizc-blue:#0071e3; --bizc-indigo:#5e5ce6; --bizc-violet:#9a4ef6; --bizc-coral:#ff6f5e; --bizc-amber:#ffb340; --bizc-mint:#30d158;
+    font-family:'Geist', system-ui, sans-serif; letter-spacing:-0.011em; color:var(--bizc-ink);
+  }
+  .bizc-serif-i{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; letter-spacing:-0.015em; }
+  .bizc-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; margin:0; }
+
+  .bizc-bar{ position:fixed; left:0; right:0; bottom:0; z-index:99998; transform:translateY(120%); transition:transform .45s cubic-bezier(.2,.7,.2,1); background:var(--bizc-ink); color:#fff; }
+  .bizc-bar.bizc-show{ transform:translateY(0); }
+  .bizc-bar-inner{ max-width:72rem; margin:0 auto; padding:14px 44px; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center; }
+  .bizc-pill-new{ display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:9999px; font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--bizc-amber); flex-shrink:0; }
+  .bizc-bar-hook{ font-size:14px; color:rgba(255,255,255,.9); }
+  .bizc-bar-cta{ background:#fff; color:var(--bizc-ink); border:none; border-radius:9999px; padding:9px 18px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background .2s, transform .2s; font-family:inherit; }
+  .bizc-bar-cta:hover{ background:rgba(255,255,255,.88); transform:translateY(-1px); }
+  .bizc-bar-close{ position:absolute; top:6px; right:10px; background:none; border:none; color:rgba(255,255,255,.5); font-size:16px; cursor:pointer; line-height:1; padding:6px; }
+  .bizc-bar-close:hover{ color:#fff; }
+
+  .bizc-backdrop{ position:fixed; inset:0; background:rgba(10,10,10,.55); backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px); z-index:99999; opacity:0; visibility:hidden; transition:opacity .3s ease; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .bizc-backdrop.bizc-open{ opacity:1; visibility:visible; }
+  .bizc-modal{ position:relative; width:100%; max-width:440px; background:#fff; border-radius:24px; box-shadow:0 24px 64px rgba(0,0,0,.28); padding:36px 32px 30px; transform:translateY(16px) scale(.98); opacity:0; transition:transform .35s cubic-bezier(.2,.7,.2,1), opacity .3s ease; max-height:92vh; overflow-y:auto; }
+  .bizc-backdrop.bizc-open .bizc-modal{ transform:translateY(0) scale(1); opacity:1; }
+  .bizc-modal-close{ position:absolute; top:16px; right:16px; width:30px; height:30px; border-radius:9999px; border:1px solid var(--bizc-line); background:#fff; color:var(--bizc-muted); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .bizc-modal-close:hover{ background:var(--bizc-paper-2); }
+
+  .bizc-badge{ display:inline-flex; align-items:center; gap:8px; border:1px solid var(--bizc-line); background:rgba(255,255,255,.7); padding:5px 12px; border-radius:9999px; font-size:11px; font-weight:500; margin:0 0 18px; }
+  .bizc-badge-dot{ width:6px; height:6px; border-radius:50%; background:var(--bizc-violet); flex-shrink:0; }
+  .bizc-headline{ font-size:26px; line-height:1.15; margin:0 0 10px; }
+  .bizc-sub{ font-size:15px; line-height:1.55; color:rgba(29,29,31,.75); margin:0 0 18px; }
+
+  .bizc-trust{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px; padding:0; list-style:none; }
+  .bizc-trust li{ font-size:11.5px; font-weight:500; color:var(--bizc-muted); background:var(--bizc-paper-2); border-radius:9999px; padding:5px 10px; }
+
+  .bizc-quote{ border-left:2px solid var(--bizc-line); padding-left:14px; margin:0 0 22px; }
+  .bizc-quote p{ font-size:15px; line-height:1.5; margin:0 0 6px; }
+  .bizc-quote cite{ font-size:12px; color:var(--bizc-muted); font-style:normal; }
+
+  .bizc-steps{ display:flex; align-items:center; gap:6px; font-size:11px; color:var(--bizc-muted); margin:0 0 14px; }
+  .bizc-steps b{ color:var(--bizc-ink); }
+  .bizc-back{ font-size:13px; color:var(--bizc-muted); cursor:pointer; display:inline-flex; align-items:center; gap:4px; margin:0 0 12px; background:none; border:none; padding:0; font-family:inherit; }
+  .bizc-back:hover{ color:var(--bizc-ink); }
+
+  .bizc-field{ margin:0 0 14px; }
+  .bizc-field label{ display:block; font-size:12.5px; font-weight:500; color:#1d1d1f; margin:0 0 6px; }
+  .bizc-field input, .bizc-field select{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--bizc-line); background:#fff; font-family:inherit; font-size:14.5px; color:var(--bizc-ink); transition:border-color .2s, box-shadow .2s; }
+  .bizc-field input:focus, .bizc-field select:focus{ outline:none; border-color:var(--bizc-ink); box-shadow:0 0 0 4px rgba(10,10,10,.08); }
+  .bizc-err{ font-size:12px; color:#c0392b; margin:5px 0 0; display:none; }
+  .bizc-err.bizc-show-err{ display:block; }
+
+  .bizc-btn{ width:100%; background:var(--bizc-ink); color:#fff; border:none; border-radius:9999px; padding:13px; font-size:14.5px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:background .2s, transform .2s; font-family:inherit; }
+  .bizc-btn:hover{ background:#1f1f1f; transform:translateY(-1px); }
+  .bizc-btn:disabled{ background:#999; cursor:not-allowed; transform:none; }
+  .bizc-spinner{ width:14px; height:14px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:bizc-spin .8s linear infinite; display:none; }
+  @keyframes bizc-spin{ to{ transform:rotate(360deg); } }
+
+  .bizc-fallback{ display:none; font-size:12.5px; color:#c0392b; margin:10px 0 0; text-align:center; }
+  .bizc-fallback a{ color:inherit; }
+
+  .bizc-legal{ font-size:11.5px; color:var(--bizc-muted); text-align:center; margin:14px 0 0; }
+
+  .bizc-success{ text-align:center; padding:6px 0 2px; display:none; }
+  .bizc-success-check{ width:52px; height:52px; margin:0 auto 16px; border-radius:50%; background:#f0fdf4; border:1.5px solid #86efac; color:var(--bizc-mint); font-size:24px; display:flex; align-items:center; justify-content:center; }
+  .bizc-success h3{ font-size:22px; margin:0 0 8px; }
+  .bizc-success p{ font-size:14.5px; color:rgba(29,29,31,.75); line-height:1.55; margin:0; }
+
+  @media (max-width:480px){
+    .bizc-modal{ padding:30px 22px 24px; border-radius:20px; }
+    .bizc-headline{ font-size:22px; }
+    .bizc-bar-inner{ padding:14px 30px; }
+  }
+</style>
+
+<div id="bizc-popup-root">
+
+  <div class="bizc-bar" id="bizcBar">
+    <button class="bizc-bar-close" id="bizcBarClose" aria-label="Dismiss">&times;</button>
+    <div class="bizc-bar-inner">
+      <span class="bizc-pill-new">New</span>
+      <span class="bizc-bar-hook">Eight seats are open for the next cohort — grab one before it fills.</span>
+      <button class="bizc-bar-cta" id="bizcBarCta">Request a seat</button>
+    </div>
+  </div>
+
+  <div class="bizc-backdrop" id="bizcBackdrop">
+    <div class="bizc-modal" role="dialog" aria-modal="true" aria-labelledby="bizcHeadline">
+      <button class="bizc-modal-close" id="bizcModalClose" aria-label="Close">&times;</button>
+
+      <div id="bizcStep1">
+        <div class="bizc-badge"><span class="bizc-badge-dot"></span> Now enrolling · Open to all applicants</div>
+        <h3 class="bizc-headline bizc-display" id="bizcHeadline">All eight seats are open.<br><span class="bizc-serif-i">Save yours.</span></h3>
+        <p class="bizc-sub">Drop your email and we'll send you the next cohort's start date, the six pillars, and a direct link to apply.</p>
+
+        <ul class="bizc-trust">
+          <li>Rolling admissions</li>
+          <li>Response within 7 days</li>
+          <li>Revenue-generating businesses only</li>
+        </ul>
+
+        <div class="bizc-quote">
+          <p>&ldquo;The single biggest unlock in my own career was a small group of people who took my growth as seriously as I did.&rdquo;</p>
+          <cite>&mdash; Michael, Founder of BizColab</cite>
+        </div>
+
+        <div class="bizc-steps"><b>Step 1</b>&nbsp;of 2</div>
+
+        <div class="bizc-field">
+          <label for="bizcEmail">Email <span style="color:var(--bizc-coral)">*</span></label>
+          <input type="email" id="bizcEmail" placeholder="you@company.com" autocomplete="email">
+          <div class="bizc-err" id="bizcEmailErr">Enter a valid email address.</div>
+        </div>
+
+        <div class="bizc-field">
+          <label for="bizcBizType">What best describes your business? <span style="color:var(--bizc-coral)">*</span></label>
+          <select id="bizcBizType">
+            <option value="" selected disabled>Choose one</option>
+            <option>Real estate</option>
+            <option>Agency / services</option>
+            <option>Ecommerce</option>
+            <option>SaaS / tech</option>
+            <option>Other operator</option>
+          </select>
+          <div class="bizc-err" id="bizcBizTypeErr">Select the option that fits best.</div>
+        </div>
+
+        <button class="bizc-btn" id="bizcStep1Next" type="button">
+          Continue
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+        <p class="bizc-legal">Just your email. No spam — ever.</p>
+      </div>
+
+      <div id="bizcStep2" style="display:none;">
+        <button class="bizc-back" id="bizcBack" type="button">&larr; Back</button>
+        <div class="bizc-steps"><b>Step 2</b>&nbsp;of 2 &middot; optional</div>
+        <h3 class="bizc-headline bizc-display" style="font-size:22px;">A little more helps us match you.</h3>
+        <p class="bizc-sub">Totally optional — skip straight to submit if you'd rather.</p>
+
+        <div class="bizc-field">
+          <label for="bizcFirstName">First name</label>
+          <input type="text" id="bizcFirstName" placeholder="Jane" autocomplete="given-name">
+        </div>
+        <div class="bizc-field">
+          <label for="bizcLastName">Last name</label>
+          <input type="text" id="bizcLastName" placeholder="Smith" autocomplete="family-name">
+        </div>
+        <div class="bizc-field">
+          <label for="bizcPhone">Phone</label>
+          <input type="tel" id="bizcPhone" placeholder="(555) 555-5555" autocomplete="tel">
+        </div>
+
+        <button class="bizc-btn" id="bizcSubmit" type="button">
+          <span class="bizc-spinner" id="bizcSpinner"></span>
+          <span id="bizcSubmitText">Request my seat</span>
+        </button>
+        <p class="bizc-fallback" id="bizcFallback">Something went wrong — email <a href="mailto:michael@bizcolab.com">michael@bizcolab.com</a> directly and we'll get you sorted.</p>
+      </div>
+
+      <div class="bizc-success" id="bizcSuccess">
+        <div class="bizc-success-check">&#10003;</div>
+        <h3 class="bizc-display">You're on the list.</h3>
+        <p>We'll be in touch within 7 days with your next cohort's start date and the full application.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+  if (typeof emailjs !== 'undefined' && !window.__bizcEmailjsInit) {
+    emailjs.init('yWt3TMJ6ysOrH3vH1');
+    window.__bizcEmailjsInit = true;
+  }
+
+  var root = document.getElementById('bizc-popup-root');
+  if (!root) return;
+
+  var bar        = document.getElementById('bizcBar');
+  var barCta     = document.getElementById('bizcBarCta');
+  var barClose   = document.getElementById('bizcBarClose');
+  var backdrop   = document.getElementById('bizcBackdrop');
+  var modalClose = document.getElementById('bizcModalClose');
+  var step1      = document.getElementById('bizcStep1');
+  var step2      = document.getElementById('bizcStep2');
+  var success    = document.getElementById('bizcSuccess');
+  var backBtn    = document.getElementById('bizcBack');
+  var next1      = document.getElementById('bizcStep1Next');
+  var submitBtn  = document.getElementById('bizcSubmit');
+  var spinner    = document.getElementById('bizcSpinner');
+  var submitText = document.getElementById('bizcSubmitText');
+  var fallback   = document.getElementById('bizcFallback');
+
+  var emailInput = document.getElementById('bizcEmail');
+  var bizTypeSel = document.getElementById('bizcBizType');
+  var emailErr   = document.getElementById('bizcEmailErr');
+  var bizTypeErr = document.getElementById('bizcBizTypeErr');
+
+  var SS = window.sessionStorage;
+  function seen(key){ try { return SS.getItem(key) === '1'; } catch(e){ return false; } }
+  function mark(key){ try { SS.setItem(key, '1'); } catch(e){} }
+
+  function maybeShowBar(){
+    if (seen('bizc_bar_dismissed')) { window.removeEventListener('scroll', maybeShowBar); return; }
+    if (window.scrollY > 500) {
+      bar.classList.add('bizc-show');
+      window.removeEventListener('scroll', maybeShowBar);
+    }
+  }
+  window.addEventListener('scroll', maybeShowBar, { passive:true });
+
+  barClose.addEventListener('click', function(){
+    bar.classList.remove('bizc-show');
+    mark('bizc_bar_dismissed');
+  });
+
+  function openModal(){
+    backdrop.classList.add('bizc-open');
+    document.body.style.overflow = 'hidden';
+    mark('bizc_modal_shown');
+  }
+  function closeModal(){
+    backdrop.classList.remove('bizc-open');
+    document.body.style.overflow = '';
+  }
+  barCta.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', function(e){ if (e.target === backdrop) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && backdrop.classList.contains('bizc-open')) closeModal(); });
+
+  function maybeAutoOpen(){
+    if (seen('bizc_modal_shown')) { window.removeEventListener('scroll', maybeAutoOpen); return; }
+    var doc = document.documentElement;
+    var depth = (window.scrollY + window.innerHeight) / doc.scrollHeight;
+    if (depth >= 0.5) {
+      openModal();
+      window.removeEventListener('scroll', maybeAutoOpen);
+    }
+  }
+  window.addEventListener('scroll', maybeAutoOpen, { passive:true });
+
+  document.addEventListener('mouseout', function(e){
+    if (seen('bizc_modal_shown')) return;
+    if (!e.relatedTarget && e.clientY <= 0) openModal();
+  });
+
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  next1.addEventListener('click', function(){
+    var ok = true;
+    if (!validEmail(emailInput.value.trim())) { emailErr.classList.add('bizc-show-err'); ok = false; } else { emailErr.classList.remove('bizc-show-err'); }
+    if (!bizTypeSel.value) { bizTypeErr.classList.add('bizc-show-err'); ok = false; } else { bizTypeErr.classList.remove('bizc-show-err'); }
+    if (!ok) return;
+    step1.style.display = 'none';
+    step2.style.display = 'block';
+  });
+
+  backBtn.addEventListener('click', function(){
+    step2.style.display = 'none';
+    step1.style.display = 'block';
+  });
+
+  submitBtn.addEventListener('click', function(){
+    fallback.style.display = 'none';
+    submitBtn.disabled = true;
+    spinner.style.display = 'inline-block';
+    submitText.textContent = 'Sending...';
+
+    var email    = emailInput.value.trim();
+    var bizType  = bizTypeSel.value;
+    var first    = document.getElementById('bizcFirstName').value.trim();
+    var last     = document.getElementById('bizcLastName').value.trim();
+    var phone    = document.getElementById('bizcPhone').value.trim();
+    var fullName = (first + ' ' + last).trim();
+
+    var baseParams = {
+      to_name:       fullName || email,
+      first_name:    first,
+      last_name:     last,
+      full_name:     fullName,
+      email:         email,
+      phone:         phone,
+      business_type: bizType,
+      message:       'Popup lead — business type: ' + bizType,
+      inquiry_type:  'Popup — Request a Seat',
+      source:        'homepage_popup',
+      reply_to:      email
+    };
+    var teamParams  = Object.assign({}, baseParams, { to_email: 'michael@bizcolab.com' });
+    var replyParams = Object.assign({}, baseParams, { to_email: email });
+
+    emailjs.send('service_bpcodid', 'template_09f1pjl', teamParams)
+      .then(function(){
+        emailjs.send('service_bpcodid', 'template_bt9vd63', replyParams)
+          .catch(function(err){ console.error('BizColab popup auto-reply failed:', err); });
+
+        try {
+          fetch('https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec', {
+            method:'POST', mode:'no-cors', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(baseParams)
+          }).catch(function(){});
+        } catch(e){}
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event:'lead_submit', form_type:'popup', form_source:'homepage_popup', lead_value:25, currency:'USD' });
+
+        step2.style.display = 'none';
+        success.style.display = 'block';
+        mark('bizc_lead_captured');
+      })
+      .catch(function(err){
+        console.error('BizColab popup lead email failed:', err);
+        submitBtn.disabled = false;
+        spinner.style.display = 'none';
+        submitText.textContent = 'Request my seat';
+        fallback.style.display = 'block';
+      });
+  });
+})();
+</script>
+<!-- /BizColab Lead Capture Popup -->
+
+</body>
+</html>
