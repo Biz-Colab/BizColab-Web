@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BizColab — Cohort 01 Kickoff</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0a0a0a; --paper:#0a0a0a; --muted:rgba(255,255,255,.55); --line:rgba(255,255,255,.1);
+  --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e; --amber:#ffb340; --mint:#30d158;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; background:var(--ink); overflow:hidden; }
+body { font-family:'Geist',system-ui,-apple-system,sans-serif; color:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-.011em; }
+em { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; }
+
+.deck { position:relative; width:100vw; height:100vh; }
+.slide { position:absolute; inset:0; display:none; padding:7vh 8vw; overflow:hidden; }
+.slide.active { display:flex; flex-direction:column; }
+.slide-glow { position:absolute; top:-30vh; left:50%; transform:translateX(-50%); width:70vw; height:70vw; border-radius:50%; background:radial-gradient(closest-side, #1e3a5f 0%, rgba(10,10,10,0) 70%); opacity:.55; pointer-events:none; }
+
+.eyebrow { font-size:clamp(11px,1vw,13px); font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:18px; position:relative; z-index:1; }
+.eyebrow .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:currentColor; margin-right:8px; }
+h1.big { font-size:clamp(40px,6.4vw,84px); font-weight:700; letter-spacing:-.045em; line-height:1.03; position:relative; z-index:1; }
+h1.big em { color:var(--amber); }
+.lead { margin-top:22px; font-size:clamp(15px,1.5vw,20px); line-height:1.6; color:var(--muted); max-width:56ch; position:relative; z-index:1; }
+
+.body-wrap { flex:1; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:1; }
+
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,26px); margin-top:clamp(20px,4vh,44px); }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,2vw,26px); margin-top:clamp(20px,4vh,44px); }
+.gcard { background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:22px; padding:clamp(20px,2.2vw,32px); }
+.gcard .tag { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+.gcard h3 { font-size:clamp(17px,1.7vw,23px); font-weight:700; letter-spacing:-.02em; margin-bottom:14px; color:#fff; }
+.gcard ul { list-style:none; }
+.gcard li { font-size:clamp(13px,1.05vw,15.5px); line-height:1.6; color:var(--muted); padding-left:16px; position:relative; margin-bottom:11px; }
+.gcard li::before { content:''; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:currentColor; }
+
+.arc-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:clamp(24px,4vh,50px); position:relative; z-index:1; }
+.arc-row::before { content:''; grid-column:1/-1; }
+.arcbox { border:1px solid var(--line); border-radius:20px; padding:clamp(18px,2vw,28px); background:rgba(255,255,255,.03); }
+.arcbox .n { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
+.arcbox h4 { font-size:clamp(20px,2.2vw,30px); font-weight:700; letter-spacing:-.03em; margin-bottom:10px; color:#fff; }
+.arcbox p { font-size:clamp(12px,1vw,14px); line-height:1.55; color:var(--muted); }
+
+.timeline { margin-top:clamp(24px,5vh,56px); position:relative; z-index:1; }
+.trow { display:grid; grid-template-columns:120px 1fr; gap:24px; padding:clamp(12px,1.6vh,20px) 0; border-top:1px solid var(--line); align-items:baseline; }
+.trow:first-child { border-top:0; }
+.trow .time { font-size:clamp(13px,1.2vw,16px); font-weight:600; color:#fff; }
+.trow .what { font-size:clamp(13px,1.2vw,16px); color:var(--muted); }
+.trow .what b { color:#fff; font-weight:600; }
+
+.stat-row { display:flex; gap:clamp(24px,4vw,60px); margin-top:clamp(20px,4vh,40px); position:relative; z-index:1; flex-wrap:wrap; }
+.stat b { display:block; font-size:clamp(32px,4.5vw,58px); font-weight:700; letter-spacing:-.03em; }
+.stat span { font-size:clamp(11px,.9vw,13px); text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+
+.foot { position:absolute; bottom:5vh; left:8vw; right:8vw; display:flex; justify-content:space-between; font-size:clamp(11px,.9vw,13px); color:rgba(255,255,255,.32); z-index:1; }
+
+.progress { position:fixed; bottom:0; left:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--indigo),var(--coral),var(--amber),var(--mint)); transition:width .35s ease; z-index:10; }
+.navhint { position:fixed; top:24px; right:32px; font-size:12px; color:rgba(255,255,255,.3); z-index:10; }
+.dots { position:fixed; bottom:20px; right:32px; display:flex; gap:7px; z-index:10; }
+.dots span { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.2); transition:background .2s; }
+.dots span.on { background:#fff; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- 1. COVER -->
+  <section class="slide active">
+    <div class="slide-glow"></div>
+    <div class="body-wrap" style="justify-content:center; align-items:flex-start; text-align:left;">
+      <div class="eyebrow"><span class="dot"></span>Founding Cohort &middot; Session 1 &middot; Aug 17, 2026</div>
+      <h1 class="big">BizColab<br><em>Cohort 01</em></h1>
+      <p class="lead">Los Angeles &middot; Eight operators, four Mondays, one high-leverage move each. Aug 17 &ndash; Sep 14, 5:30&ndash;7:00 PM PT on Google Meet.</p>
+      <div class="stat-row">
+        <div class="stat"><b>8</b><span>Operators</span></div>
+        <div class="stat"><b>4</b><span>Mondays</span></div>
+        <div class="stat"><b>1</b><span>Move each</span></div>
+        <div class="stat"><b>90</b><span>Min / session</span></div>
+      </div>
+    </div>
+    <div class="foot"><span>Michael Abraham, Founder</span><span>bizcolab.com</span></div>
+  </section>
+
+  <!-- 2. WHAT BIZCOLAB IS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>What this is</div>
+    <h1 class="big">The room <em>is the product.</em></h1>
+    <p class="lead">This isn't a course, and I'm not the product. It's eight operators pushing each other's businesses forward, on purpose, every Monday, with a real deliverable at the end.</p>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Not</div><h3>A course</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">No modules, no homework you do alone, nothing to binge-watch. Nobody's teaching a framework at you.</p></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Not</div><h3>Networking</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">No business cards, no small talk for its own sake, no "let's grab coffee sometime."</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Is</div><h3>Structured peer pressure</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">One challenge each, a hard timer, real accountability &mdash; a room that won't let it slide.</p></div>
+    </div>
+    <p class="lead" style="margin-top:22px">Eight people, four weeks, one seat each &mdash; small enough that everyone's problem gets real airtime.</p>
+  </section>
+
+  <!-- 3. THE ARC -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>The four weeks</div>
+    <h1 class="big">Map. Match. Move. <em>Measure.</em></h1>
+    <div class="arc-row">
+      <div class="arcbox" style="color:var(--blue)"><div class="n">Week 1 &middot; Aug 17</div><h4>Map</h4><p>Name your #1 challenge. The room learns who's in it &mdash; offers and needs get logged live.</p></div>
+      <div class="arcbox" style="color:var(--indigo)"><div class="n">Week 2 &middot; Aug 24</div><h4>Match</h4><p>Guest operator talk, then pairings built from Week 1's offers/needs map.</p></div>
+      <div class="arcbox" style="color:var(--coral)"><div class="n">Week 3 &middot; Aug 31</div><h4>Move</h4><p>Hot seats &mdash; three 20-min slots, the whole room solving one problem at a time.</p></div>
+      <div class="arcbox" style="color:var(--mint)"><div class="n">Week 4 &middot; Sep 14</div><h4>Measure</h4><p>Results round: what shipped, what didn't, and what's next for the group.</p></div>
+    </div>
+    <p class="lead" style="margin-top:26px">No session on Sep 7 &mdash; Labor Day. Same Google Meet link every week; the dashboard tracks who's committed to what.</p>
+  </section>
+
+  <!-- 4. WHY I BUILT THIS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Why I built this</div>
+    <h1 class="big">Peers, <em>not gurus.</em></h1>
+    <div class="grid2">
+      <div class="gcard" style="color:var(--blue)"><h3>What I learned the hard way</h3><ul>
+        <li>Every real unlock in my own businesses came from other operators in the room &mdash; not books, not consultants</li>
+        <li>The advice that actually worked came from someone one step ahead, in the trenches with me, not someone selling a framework</li>
+        <li>Most "communities" are content feeds with a Slack bolted on &mdash; nobody's actually accountable to anybody</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--amber)"><h3>So I built the room</h3><ul>
+        <li>A room built for that on purpose &mdash; not networking, not content, not a course</li>
+        <li>Just people pushing each other's businesses forward, on a clock, every Monday</li>
+        <li>Small by design: eight seats, one cohort, so every problem gets real attention</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- 5. ABOUT ME -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>A little about me</div>
+    <h1 class="big">Same seat <em>as you.</em></h1>
+    <p class="lead">I'm Michael Abraham &mdash; based in LA, building a few things at once, same as most of you.</p>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Real estate</div><h3>AMRE Real Estate Group</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Founder, AMRE Real Estate Group (Compass) &mdash; built the team from scratch, here in LA.</p></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Community</div><h3>Haps Club</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Built a community and newsletter from zero to a real, engaged audience &mdash; the same muscle behind BizColab.</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Approach</div><h3>Operator by habit</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Realtor by trade, builder by habit &mdash; I'm in the room building alongside you, not lecturing from above it.</p></div>
+    </div>
+    <p class="lead" style="margin-top:22px">I'll have a #1 challenge of my own on the board tonight, same as everyone else.</p>
+  </section>
+
+  <!-- 6. WHAT I HOPE YOU GET -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>What I hope you get</div>
+    <h1 class="big">One real move, <em>shipped.</em></h1>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><h3>Not a binder of ideas</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">One high-leverage thing that actually moved by Week 4 &mdash; a real number, not a plan you never ran.</p></div>
+      <div class="gcard" style="color:var(--indigo)"><h3>People you'd still call</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">A handful of operators in this room you'd reach out to a year from now, not just for four Mondays.</p></div>
+      <div class="gcard" style="color:var(--amber)"><h3>Permission to ask</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">To say the real ask out loud &mdash; the specific, uncomfortable one &mdash; instead of the polished version.</p></div>
+    </div>
+    <p class="lead" style="margin-top:22px">If all eight of us leave Week 4 with one thing genuinely moved, this format worked. That's the only bar.</p>
+  </section>
+
+  <!-- 7. HOW TONIGHT WORKS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Tonight</div>
+    <h1 class="big">How the next <em>90 minutes</em> go.</h1>
+    <div class="timeline">
+      <div class="trow"><div class="time">5:30</div><div class="what"><b>Welcome</b> &mdash; logistics: Google Meet, Slack, dashboard, how the four weeks work.</div></div>
+      <div class="trow"><div class="time">5:35</div><div class="what"><b>This intro</b> &mdash; 3 minutes on what BizColab is and why it exists.</div></div>
+      <div class="trow"><div class="time">5:40</div><div class="what"><b>Intros</b> &mdash; 5 minutes each, hard timer: what you do, what you offer, where you want help. I'm logging offers/needs live &mdash; this becomes the Week 2 pairing map.</div></div>
+      <div class="trow"><div class="time">6:35</div><div class="what"><b>Commitment round</b> &mdash; 2 minutes each: everyone narrows to ONE high-leverage challenge, out loud, posted to Slack and the dashboard.</div></div>
+      <div class="trow"><div class="time">6:55</div><div class="what"><b>Wrap</b> &mdash; what Week 2 looks like (pairings + first guest), one thing to do before Monday.</div></div>
+    </div>
+    <p class="lead" style="margin-top:20px">Running long on intros? Commitment round drops to one sentence each &mdash; we refine in Slack by Wednesday.</p>
+  </section>
+
+  <!-- 8. CLOSE -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="body-wrap" style="justify-content:center; align-items:flex-start; text-align:left;">
+      <div class="eyebrow"><span class="dot"></span>Let's go</div>
+      <h1 class="big">By 7pm tonight, <em>you'll know your one thing.</em></h1>
+      <p class="lead">Slack for momentum between Mondays. The dashboard has everyone's info, the arc, and the four sessions. Same Google Meet link every week &mdash; bookmark it now.</p>
+      <div class="grid3" style="margin-top:30px">
+        <div class="gcard" style="color:var(--blue)"><div class="tag">Dashboard</div><h3 style="font-size:16px">bizcolab.com/cohort-losangeles-001</h3></div>
+        <div class="gcard" style="color:var(--indigo)"><div class="tag">Slack</div><h3 style="font-size:16px">Join before you leave tonight</h3></div>
+        <div class="gcard" style="color:var(--mint)"><div class="tag">Next Monday</div><h3 style="font-size:16px">Aug 24 &mdash; Match</h3></div>
+      </div>
+      <p class="lead" style="margin-top:22px">One ask between now and Monday: post your #1 challenge in Slack if it sharpens overnight. Let's get to work.</p>
+    </div>
+    <div class="foot"><span>The room is the product.</span><span>Let's get to work.</span></div>
+  </section>
+
+</div>
+
+<div class="navhint" id="navhint">1 / 8 &nbsp;&middot;&nbsp; &larr; &rarr; or click</div>
+<div class="dots" id="dots"></div>
+<div class="progress" id="progress"></div>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let i = 0;
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_,idx)=>{ const d=document.createElement('span'); if(idx===0) d.classList.add('on'); dotsEl.appendChild(d); });
+  const dots = Array.from(dotsEl.children);
+
+  function render(){
+    slides.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+    dots.forEach((d,idx)=> d.classList.toggle('on', idx===i));
+    document.getElementById('navhint').textContent = (i+1)+' / '+total+'  ·  ← → or click';
+    document.getElementById('progress').style.width = ((i+1)/total*100)+'%';
+  }
+  function next(){ i = Math.min(i+1, total-1); render(); }
+  function prev(){ i = Math.max(i-1, 0); render(); }
+
+  document.addEventListener('keydown', e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); next(); }
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    if(e.key==='Home'){ i=0; render(); }
+    if(e.key==='End'){ i=total-1; render(); }
+  });
+  document.getElementById('deck').addEventListener('click', e=>{
+    const x = e.clientX / window.innerWidth;
+    if (x < 0.3) prev(); else next();
+  });
+  render();
+})();
+</script>
+
+</body>
+</html>
