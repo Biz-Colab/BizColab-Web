@@ -81,6 +81,15 @@ h1.big em { color:var(--amber); }
 .roomgrid .gcard h3 { font-size:clamp(15px,1.32vw,19px); margin-bottom:9px; }
 .roomgrid .gcard p { font-size:clamp(12.5px,1.02vw,14.5px) !important; line-height:1.5 !important; }
 
+/* About me: six ventures -> 3 x 2, compact */
+.sixgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(11px,1.3vw,17px); margin-top:clamp(13px,2.2vh,24px); }
+.sixgrid .gcard { padding:clamp(13px,1.4vw,19px); border-radius:18px; }
+.sixgrid .gcard .tag { margin-bottom:7px; font-size:10.5px; }
+.sixgrid .gcard h3 { font-size:clamp(14px,1.24vw,18px); margin-bottom:8px; }
+.sixgrid .gcard li { font-size:clamp(12.5px,1.02vw,14.6px); line-height:1.48; margin-bottom:5px; padding-left:14px; }
+.sixgrid .gcard li::before { top:7px; width:4px; height:4px; }
+@media (max-height: 880px) { .sixgrid { margin-top:clamp(10px,1.8vh,20px); } .sixgrid .gcard { padding:clamp(11px,1.2vw,16px); } }
+
 /* Shorter screens: tighten chrome, keep the larger body copy intact */
 @media (max-height: 880px) {
   .slide { padding:5.5vh 7vw; }
@@ -184,25 +193,47 @@ h1.big em { color:var(--amber); }
     <div class="slide-glow"></div>
     <div class="eyebrow"><span class="dot"></span>A little about me</div>
     <h1 class="big">A few careers, <em>one habit.</em></h1>
-    <p class="lead">I'm Michael Abraham. Licensed architect, then agency owner, now real estate &mdash; and every one of those with partners, never alone.</p>
-    <div class="grid3">
-      <div class="gcard" style="color:var(--blue)"><div class="tag">Then</div><h3>Architecture &amp; CCG</h3><ul>
-        <li>Licensed architect &mdash; trained to solve problems in systems, not pieces</li>
-        <li>Ran CCG, a creative marketing agency, for nearly 15 years</li>
-        <li>Worked with close to a thousand businesses on brand, marketing and design</li>
+    <p class="lead">I'm Michael Abraham. Twenty years of running businesses &mdash; architect, agency owner, investor, Realtor, community builder &mdash; and every one of them with partners, never alone.</p>
+    <div class="sixgrid">
+
+      <div class="gcard" style="color:var(--blue)"><div class="tag">01 &middot; Where it started</div><h3>Licensed Architect</h3><ul>
+        <li>Years of drawings, permits, budgets, contractors &mdash; and clients who needed it built, not explained</li>
+        <li>Trained to see a problem as a system: structure, constraints, sequence</li>
+        <li>First real lesson in business: nothing gets built by one person</li>
       </ul></div>
-      <div class="gcard" style="color:var(--coral)"><div class="tag">Now</div><h3>Real estate &amp; building</h3><ul>
-        <li>Realtor and founder of AMRE Real Estate Group</li>
-        <li>Investing in and renovating property on my own account</li>
-        <li>Started Haps Club, and now BizColab</li>
+
+      <div class="gcard" style="color:var(--violet)"><div class="tag">02 &middot; ~15 years</div><h3>C/C/G &mdash; Marketing &amp; Design</h3><ul>
+        <li>Founded and ran a creative marketing and design firm for nearly 15 years</li>
+        <li>Close to a thousand businesses: brand, positioning, campaigns, packaging, web</li>
+        <li>A team, a payroll, a P&amp;L &mdash; and a front-row seat to a thousand other people's problems</li>
       </ul></div>
-      <div class="gcard" style="color:var(--mint)"><div class="tag">What that's worth to you</div><h3>Range, not authority</h3><ul>
-        <li>I've seen a lot of businesses up close, in a lot of states of health</li>
-        <li>Useful on branding, marketing, design, positioning, partnerships</li>
-        <li>Not useful as a guru &mdash; I have plenty left to learn</li>
+
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">03 &middot; Own account</div><h3>Hilex &mdash; Real Estate Investment</h3><ul>
+        <li>Buying, renovating and holding property with my own capital at risk</li>
+        <li>Underwriting, financing, contractors, timelines &mdash; the whole stack, start to finish</li>
+        <li>Where the architecture training turned into an investment thesis</li>
       </ul></div>
+
+      <div class="gcard" style="color:var(--coral)"><div class="tag">04 &middot; Today</div><h3>AMRE Real Estate Group</h3><ul>
+        <li>Licensed Realtor and founder of AMRE</li>
+        <li>Built the practice the way I'd build a brand: systems, marketing, referrals</li>
+        <li>Buyers, sellers and investors &mdash; representing people through the biggest number they'll ever sign</li>
+      </ul></div>
+
+      <div class="gcard" style="color:var(--amber)"><div class="tag">05 &middot; Today</div><h3>Haps Club &mdash; Community</h3><ul>
+        <li>Founded Haps Club: Los Angeles events and a weekly newsletter</li>
+        <li>Audience built from zero &mdash; curation, cadence, showing up every single week</li>
+        <li>Proof that a room of people is an asset, not a nice-to-have</li>
+      </ul></div>
+
+      <div class="gcard" style="color:var(--mint)"><div class="tag">06 &middot; Tonight</div><h3>BizColab &mdash; Collaboration</h3><ul>
+        <li>The habit under all five: the unlocks came from other operators, never from going it alone</li>
+        <li>So I built the room on purpose &mdash; six operators, four Mondays, one real move each</li>
+        <li>Not a guru. Range, and a lot left to learn</li>
+      </ul></div>
+
     </div>
-    <p class="lead" style="margin-top:22px">I'm listing all that so you know what to ask me for &mdash; and I'll have a challenge of my own on the board tonight, same as everyone else.</p>
+    <p class="lead" style="margin-top:16px">Ask me for branding, marketing, design, positioning, partnerships, property. And I'll have a challenge of my own on the board tonight, same as everyone else.</p>
   </section>
 
   <!-- 6. WHAT I HOPE YOU GET -->
