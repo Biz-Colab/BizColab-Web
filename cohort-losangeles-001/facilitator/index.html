@@ -128,6 +128,34 @@ section[id], header[id] { scroll-margin-top:104px; }
 .srcs h5 { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:11px; }
 .srcs li { font-size:13px; line-height:1.75; color:var(--muted); list-style:none; }
 .srcs a { color:var(--ink-2); text-decoration:underline; text-underline-offset:2px; }
+
+/* ---- practitioner lens chips ---- */
+.lens { display:inline-flex; gap:6px; vertical-align:middle; margin-left:8px; }
+.lens-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; align-items:center; }
+.lens-row .ll { font-size:10.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-right:2px; }
+.lp { position:relative; display:inline-flex; }
+.lp > button { width:27px; height:27px; border-radius:50%; border:0; cursor:pointer; font-family:inherit; font-size:10.5px; font-weight:750; letter-spacing:.01em; color:#fff; background:var(--lc,#555); display:flex; align-items:center; justify-content:center; transition:transform .15s, box-shadow .15s; padding:0; }
+.lp > button:hover, .lp > button:focus-visible { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,.22); outline:none; }
+.lp > button:focus-visible { box-shadow:0 0 0 3px rgba(0,113,227,.35); }
+.lp-pop { position:absolute; bottom:calc(100% + 11px); left:50%; transform:translateX(-50%) translateY(4px); width:min(330px,78vw); background:var(--ink); color:#fff; border-radius:14px; padding:15px 17px; box-shadow:0 14px 42px rgba(0,0,0,.3); opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; text-align:left; pointer-events:none; }
+.lp-pop::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:7px solid transparent; border-top-color:var(--ink); }
+.lp:hover .lp-pop, .lp.open .lp-pop { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+.lp-pop .who { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--lc,#9aa); margin-bottom:7px; }
+.lp-pop .what { font-size:13.5px; line-height:1.62; color:rgba(255,255,255,.9); }
+.lp-pop .what b { color:#fff; font-weight:650; }
+.lp-pop .src { display:block; margin-top:9px; font-size:11px; color:rgba(255,255,255,.45); }
+.lp:nth-last-child(1) .lp-pop { left:auto; right:0; transform:translateX(0) translateY(4px); }
+.lp:nth-last-child(1) .lp-pop::after { left:auto; right:9px; transform:none; }
+.lp:nth-last-child(1):hover .lp-pop, .lp:nth-last-child(1).open .lp-pop { transform:translateX(0) translateY(0); }
+@media (max-width:640px) { .lp-pop { position:fixed; left:16px; right:16px; bottom:16px; top:auto; width:auto; transform:none !important; }
+  .lp-pop::after { display:none; } }
+
+/* roster strip */
+.roster { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+.rp { display:flex; align-items:center; gap:9px; border:1px solid var(--line); border-radius:999px; padding:6px 14px 6px 6px; }
+.rp .dot { width:26px; height:26px; border-radius:50%; background:var(--lc); color:#fff; font-size:10px; font-weight:750; display:flex; align-items:center; justify-content:center; }
+.rp .nm { font-size:13px; font-weight:600; color:var(--ink); }
+.rp .fd { font-size:12px; color:var(--muted); }
 </style>
 </head>
 <body>
@@ -177,6 +205,15 @@ section[id], header[id] { scroll-margin-top:104px; }
   <div class="section-label">What the research says</div>
   <h2>Six things that decide <em>whether a room works</em></h2>
   <p class="lead">These aren't opinions about facilitation &mdash; they're the findings that hold up across the research on groups and meetings. Each one has a specific thing you do about it.</p>
+  <div class="roster">
+    <span class="rp" style="--lc:var(--blue)"><span class="dot">AH</span><span class="nm">Alex Hormozi</span><span class="fd">offers &amp; pricing</span></span>
+    <span class="rp" style="--lc:var(--violet)"><span class="dot">SG</span><span class="nm">Seth Godin</span><span class="fd">marketing &amp; brand</span></span>
+    <span class="rp" style="--lc:var(--indigo)"><span class="dot">DM</span><span class="nm">Dan Martell</span><span class="fd">operations &amp; leverage</span></span>
+    <span class="rp" style="--lc:var(--mint)"><span class="dot">JC</span><span class="nm">James Clear</span><span class="fd">habits &amp; follow-through</span></span>
+    <span class="rp" style="--lc:var(--coral)"><span class="dot">TR</span><span class="nm">Tony Robbins</span><span class="fd">state &amp; energy</span></span>
+  </div>
+  <p style="margin-top:14px;font-size:13px;line-height:1.6;color:var(--muted)">Hover or tap a badge for that lens on the point beside it. These are each practitioner&rsquo;s published framework applied to facilitating a room &mdash; paraphrased, not quoted.</p>
+
 
   <div class="keys">
 
@@ -187,6 +224,7 @@ section[id], header[id] { scroll-margin-top:104px; }
         <p>The best-known study on group intelligence found that a group's collective performance was <em>not</em> predicted by the average or maximum IQ of its members. What predicted it: how evenly conversational turns were distributed, and how socially perceptive members were. Groups where one or two people dominated performed worse &mdash; on every kind of task.</p>
         <div class="do"><b>Do this:</b> keep a visible tally of who has spoken. Before closing any block, name the person who hasn't. &ldquo;Sudeep, you haven't weighed in &mdash; what are you seeing?&rdquo; This is the single highest-leverage thing a facilitator does.</div>
         <cite>Woolley, Chabris, Pentland, Hashmi &amp; Malone, <a href="https://www.science.org/doi/10.1126/science.1193147" target="_blank" rel="noopener">&ldquo;Evidence for a Collective Intelligence Factor in the Performance of Human Groups,&rdquo;</a> <em>Science</em>, 2010</cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">Robbins&rsquo; frame is that <b>where focus goes, energy flows</b> &mdash; and in a group the facilitator is the one directing focus. If you let attention drift to whoever is loudest, that&rsquo;s a choice you made by not making one.</span><span class="src">Robbins &mdash; focus &amp; state</span></span></span><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin&rsquo;s <b>&ldquo;people like us do things like this&rdquo;</b> is about culture as observed behaviour. Whatever you tolerate in session one becomes the norm &mdash; if one person runs the room and nobody stops it, that <em>is</em> the culture now.</span><span class="src">Godin, This Is Marketing</span></span></span></div>
       </div>
     </div>
 
@@ -198,6 +236,7 @@ section[id], header[id] { scroll-margin-top:104px; }
         <p>In a peer room this is the whole ballgame. Members arrived to talk about what <em>isn't</em> working. If the first person to admit a real problem gets advice-splained, nobody else will go there.</p>
         <div class="do"><b>Do this:</b> go first with your own unresolved problem, and be specific about it. Frame the session as a learning problem, not a performance review. When someone shares something hard, thank them out loud before anyone responds.</div>
         <cite>Edmondson, <a href="https://journals.sagepub.com/doi/10.2307/2666999" target="_blank" rel="noopener">&ldquo;Psychological Safety and Learning Behavior in Work Teams,&rdquo;</a> <em>ASQ</em>, 1999 &middot; <a href="https://psychsafety.com/googles-project-aristotle/" target="_blank" rel="noopener">Google Project Aristotle</a></cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">Robbins works <b>state before strategy</b>: a person who feels judged is physiologically defensive, and no amount of good advice reaches them there. Change how the room feels first, then work the problem.</span><span class="src">Robbins &mdash; state</span></span></span><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi is blunt that the useful conversation is the one about what&rsquo;s <b>actually broken</b>. A room where everyone reports that things are going well is a room producing nothing.</span><span class="src">Hormozi &mdash; constraint thinking</span></span></span></div>
       </div>
     </div>
 
@@ -208,6 +247,7 @@ section[id], header[id] { scroll-margin-top:104px; }
         <p>Open group brainstorming reliably produces <em>fewer</em> and lower-quality ideas than the same people thinking alone and pooling afterward. Two reasons: you can't form a thought while listening to someone else (production blocking), and once an idea is in the air the group anchors on it.</p>
         <div class="do"><b>Do this:</b> before any open discussion &mdash; hot seats especially &mdash; give 60&ndash;90 seconds of silence for everyone to write their answer down. Then go around. You'll get ideas that would never have surfaced, from people who'd otherwise have stayed quiet.</div>
         <cite>Diehl &amp; Stroebe, &ldquo;Productivity Loss in Brainstorming Groups,&rdquo; <em>JPSP</em>, 1987 &middot; <a href="https://en.wikipedia.org/wiki/Production_blocking" target="_blank" rel="noopener">overview</a></cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s third law is <b>make it easy</b> &mdash; lower the friction on the behaviour you want. Speaking up cold in front of five peers is high-friction; reading something you already wrote down is not.</span><span class="src">Clear, Atomic Habits</span></span></span></div>
       </div>
     </div>
 
@@ -216,9 +256,10 @@ section[id], header[id] { scroll-margin-top:104px; }
       <div>
         <h4>Groups default to discussing what everyone already knows</h4>
         <p>Deliberating groups fail in four predictable ways: they amplify individual errors rather than cancel them, they follow informational cascades (people echo whoever spoke first), they polarize toward more extreme versions of their starting view, and they suffer <em>hidden profiles</em> &mdash; the group talks about shared information and never surfaces what only one person knows.</p>
-        <p>That last one is why a room of eight can still miss the obvious answer: the person holding it assumed it was already known, or didn't think it was their place.</p>
+        <p>That last one is why a room of six can still miss the obvious answer: the person holding it assumed it was already known, or didn't think it was their place.</p>
         <div class="do"><b>Do this:</b> ask for unshared information directly. &ldquo;Who here has actually done this before?&rdquo; and &ldquo;What does everyone think we're missing?&rdquo; And speak last &mdash; if the facilitator opinionates first, you've set the anchor for the whole room.</div>
         <cite>Sunstein &amp; Hastie, <a href="https://hls.harvard.edu/bibliography/four-failures-of-deliberating-groups" target="_blank" rel="noopener">&ldquo;Four Failures of Deliberating Groups&rdquo;</a> &middot; <em>Wiser</em>, HBR Press, 2015</cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin&rsquo;s <b>Purple Cow</b> argument: the safe, agreeable answer is the one everyone already has, and it is therefore worth nothing. The useful contribution is the one that sounds slightly wrong at first.</span><span class="src">Godin, Purple Cow</span></span></span><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi&rsquo;s version of hidden profiles: the real constraint is usually the thing the founder hasn&rsquo;t said out loud yet &mdash; sometimes because they haven&rsquo;t admitted it to themselves.</span><span class="src">Hormozi &mdash; constraint thinking</span></span></span></div>
       </div>
     </div>
 
@@ -229,6 +270,7 @@ section[id], header[id] { scroll-margin-top:104px; }
         <p>Meeting research is blunt about agendas: having one doesn't help by itself &mdash; plenty of terrible meetings have agendas. What helps is framing each block as a question the room has to answer, because a question has an obvious finish line and a topic doesn't. &ldquo;Pairings&rdquo; can run forever. &ldquo;Who is each person paired with, and what do they owe each other by Friday?&rdquo; ends when it's answered.</p>
         <div class="do"><b>Do this:</b> the run-of-shows below are already written as outcomes. Before each block, say the question out loud. Before you move on, confirm it's been answered.</div>
         <cite>Rogelberg, <a href="https://global.oup.com/academic/product/the-surprising-science-of-meetings-9780190689216" target="_blank" rel="noopener"><em>The Surprising Science of Meetings</em></a>, Oxford University Press, 2019</cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">A signature Robbins line: <b>the quality of your life is the quality of your questions</b>. Same for a meeting &mdash; a block framed as a question has an answer and therefore an ending. A block framed as a topic does not.</span><span class="src">Robbins &mdash; quality questions</span></span></span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell&rsquo;s <b>10-80-10</b> habit: define the outcome and the standard at the front, let the room do the middle 80%, and close it yourself. Vague at the start guarantees rework at the end.</span><span class="src">Martell, Buy Back Your Time</span></span></span></div>
       </div>
     </div>
 
@@ -239,6 +281,7 @@ section[id], header[id] { scroll-margin-top:104px; }
         <p>The most common way a good conversation produces nothing is that it ends warmly and vaguely. Everyone leaves feeling it went well; no one can say what happens next. The fix is mechanical, not motivational &mdash; someone states the action out loud, in their own words, and it gets written down where they'll see it again.</p>
         <div class="do"><b>Do this:</b> every block ends with a named person saying a specific next action and a date. You write it down live, on screen, so the room watches it get recorded. That visibility is most of the accountability.</div>
         <cite>Rogelberg, <em>The Surprising Science of Meetings</em> &middot; consistent with the commitment literature on public, specific goals</cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s core claim: <b>you do not rise to the level of your goals, you fall to the level of your systems.</b> A stated intention is a goal. A named action, on a date, written where they&rsquo;ll see it again is the beginning of a system.</span><span class="src">Clear, Atomic Habits</span></span></span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell would ask who owns it and when it&rsquo;s due, every time. An action without a name attached is a wish the whole room quietly agreed to ignore.</span><span class="src">Martell, Buy Back Your Time</span></span></span></div>
       </div>
     </div>
 
@@ -332,35 +375,35 @@ section[id], header[id] { scroll-margin-top:104px; }
     <tr><th>What you're seeing</th><th>What to do about it, that session</th></tr>
     <tr>
       <td>One person is running the room</td>
-      <td>Go to a strict round-robin for the rest of the block &mdash; no open floor. Privately, after: thank them for engaging and ask them to hold back until three others have spoken. Almost always they don't realise.</td>
+      <td>Go to a strict round-robin for the rest of the block &mdash; no open floor. Privately, after: thank them for engaging and ask them to hold back until three others have spoken. Almost always they don't realise.<div class="lens"><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin&rsquo;s point about norms cuts both ways &mdash; the dominant person is usually reading the room correctly and filling a silence nobody else claimed. Change the format, not the person.</span><span class="src">Godin &mdash; culture as behaviour</span></span></span></div></td>
     </tr>
     <tr>
       <td>Someone has gone quiet for two sessions</td>
-      <td>Reach out between Mondays, not during. Quiet usually means their challenge got stale or they're embarrassed nothing moved. Give them a slot to reset it publicly &mdash; that's a normal outcome, not a failure.</td>
+      <td>Reach out between Mondays, not during. Quiet usually means their challenge got stale or they're embarrassed nothing moved. Give them a slot to reset it publicly &mdash; that's a normal outcome, not a failure.<div class="lens"><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s rule is <b>never miss twice</b>. One bad week is noise; two starts becoming an identity. Intervene between sessions, while it&rsquo;s still one.</span><span class="src">Clear, Atomic Habits</span></span></span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">Robbins would treat this as state, not laziness &mdash; people withdraw from what makes them feel incompetent. Give them a win they can actually get before asking for a bigger commitment.</span><span class="src">Robbins &mdash; state</span></span></span></div></td>
     </tr>
     <tr>
       <td>Advice-giving instead of experience</td>
-      <td>Interrupt and reframe on the spot: &ldquo;have you done this yourself, or is it a hunch?&rdquo; Both are allowed, but the room needs to know which it's hearing. Say it once early and it holds for four weeks.</td>
+      <td>Interrupt and reframe on the spot: &ldquo;have you done this yourself, or is it a hunch?&rdquo; Both are allowed, but the room needs to know which it's hearing. Say it once early and it holds for four weeks.<div class="lens"><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi&rsquo;s bias is toward whoever has done the thing. Opinions are free and abundant; a person who has actually run the play and can say what it cost is the scarce asset in the room.</span><span class="src">Hormozi &mdash; proof over opinion</span></span></span></div></td>
     </tr>
     <tr>
       <td>Challenges are still vague in Week 2</td>
-      <td>Stop the agenda and fix it live &mdash; a vague challenge poisons Weeks 3 and 4, since there's nothing to solve or measure. One question does most of the work: &ldquo;what number, and by when?&rdquo;</td>
+      <td>Stop the agenda and fix it live &mdash; a vague challenge poisons Weeks 3 and 4, since there's nothing to solve or measure. One question does most of the work: &ldquo;what number, and by when?&rdquo;<div class="lens"><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">In Hormozi&rsquo;s value equation the <b>dream outcome</b> has to be concrete enough to be measured, or the other three terms are meaningless. &ldquo;Grow&rdquo; is not an outcome. &ldquo;From four to twelve by Sep 14&rdquo; is.</span><span class="src">Hormozi, $100M Offers</span></span></span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell would ask what specifically gets handed over and by when. If you can&rsquo;t describe the finished thing, nobody can help you build it.</span><span class="src">Martell, Buy Back Your Time</span></span></span></div></td>
     </tr>
     <tr>
       <td>Nobody did anything between Mondays</td>
-      <td>Say it plainly and without blame, then shrink the ask. Weekly commitments should be small enough to finish in 30 minutes a day. If the whole room missed, the commitments were too big &mdash; that's a facilitation error, not a character flaw.</td>
+      <td>Say it plainly and without blame, then shrink the ask. Weekly commitments should be small enough to finish in 30 minutes a day. If the whole room missed, the commitments were too big &mdash; that's a facilitation error, not a character flaw.<div class="lens"><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s <b>two-minute rule</b>: shrink the commitment until starting is trivially easy. A week of a two-minute version beats a week of an ambitious version nobody began.</span><span class="src">Clear, Atomic Habits</span></span></span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell&rsquo;s question is whether they were doing <b>production</b> work all week instead of investment work. Nobody moves their one thing while buried in the day job &mdash; the fix is calendar, not willpower.</span><span class="src">Martell &mdash; the DRIP matrix</span></span></span></div></td>
     </tr>
     <tr>
       <td>Attendance is slipping</td>
-      <td>Most fixable in Week 1, not Week 3: the room has to be worth returning to on day one. Immediately &mdash; call the person, don't email. If two or more are drifting, the sessions aren't delivering and you should ask the room directly what's missing.</td>
+      <td>Most fixable in Week 1, not Week 3: the room has to be worth returning to on day one. Immediately &mdash; call the person, don't email. If two or more are drifting, the sessions aren't delivering and you should ask the room directly what's missing.<div class="lens"><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi treats price as a filter, not just revenue &mdash; what costs nothing gets treated like it costs nothing. If attendance is chronically soft across cohorts, look at what it took to get in.</span><span class="src">Hormozi, $100M Offers</span></span></span><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s environment-design point: attendance is mostly a <b>cue</b> problem. Same time, same link, a standing calendar hold and a reminder the room actually sees.</span><span class="src">Clear, Atomic Habits</span></span></span></div></td>
     </tr>
     <tr>
       <td>It's pleasant but nothing is happening</td>
-      <td>The most dangerous state, because nobody complains. Symptom of too much sharing and too little committing. Cut discussion time, add hot seats, and make every block end with a named action.</td>
+      <td>The most dangerous state, because nobody complains. Symptom of too much sharing and too little committing. Cut discussion time, add hot seats, and make every block end with a named action.<div class="lens"><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell&rsquo;s framing: the room has slid into <b>production</b> &mdash; busy, comfortable, generating no leverage. Move it back to investment work, which almost always feels harder.</span><span class="src">Martell &mdash; the DRIP matrix</span></span></span><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi&rsquo;s test is whether anything measurable moved. A room everyone enjoys and nobody profits from is a social club with a spreadsheet.</span><span class="src">Hormozi &mdash; outcome focus</span></span></span></div></td>
     </tr>
     <tr>
       <td>Someone starts pitching the room</td>
-      <td>Shut it down immediately and warmly, in the moment. One tolerated pitch and every member re-reads the room as a sales environment &mdash; you'll never get honest problems again.</td>
+      <td>Shut it down immediately and warmly, in the moment. One tolerated pitch and every member re-reads the room as a sales environment &mdash; you'll never get honest problems again.<div class="lens"><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">This is Godin&rsquo;s <b>permission</b> argument exactly &mdash; attention given for one purpose can&rsquo;t be spent on another without breaking the deal. Interruption marketing inside a trust room destroys the room.</span><span class="src">Godin, Permission Marketing</span></span></span></div></td>
     </tr>
   </table>
 </div></section>
@@ -374,7 +417,7 @@ section[id], header[id] { scroll-margin-top:104px; }
   <div class="gr" style="--c:var(--blue)">
     <div class="tagline">The equation to keep in your head</div>
     <h4>Value = (dream outcome &times; likelihood it happens) &divide; (time it takes &times; effort required)</h4>
-    <p>Every design choice in this program moves one of those four terms. Four weeks instead of twelve shortens time. Eight people instead of thirty raises likelihood, because everyone gets real airtime. Ninety minutes a week plus thirty minutes a day is a deliberately small effort ask.</p>
+    <p>Every design choice in this program moves one of those four terms. Four weeks instead of twelve shortens time. Six people instead of thirty raises likelihood, because everyone gets real airtime. Ninety minutes a week plus thirty minutes a day is a deliberately small effort ask.</p>
     <p>The weakest term for any new cohort is <b>likelihood</b> &mdash; a first cohort has no proof it works. That's the problem the next two cards solve.</p>
   </div>
 
@@ -412,7 +455,7 @@ section[id], header[id] { scroll-margin-top:104px; }
   <div class="gr" style="--c:var(--indigo)">
     <div class="tagline">The question to answer honestly</div>
     <h4>What is this actually for?</h4>
-    <p>Eight seats at a founding price is not a business on its own &mdash; it's roughly six hours of live facilitation for a few hundred dollars. That's fine, as long as you know which of these you're building:</p>
+    <p>Six seats at a founding price is not a business on its own &mdash; it's roughly six hours of live facilitation for a few hundred dollars. That's fine, as long as you know which of these you're building:</p>
     <ul>
       <li><b>A standalone product</b> &mdash; then price, proof and a continuity offer are everything</li>
       <li><b>A front door</b> &mdash; graduates roll into an ongoing paid room, which is where the economics actually work</li>
@@ -454,7 +497,7 @@ section[id], header[id] { scroll-margin-top:104px; }
   <h4 style="font-size:16px;font-weight:650;margin-top:26px;letter-spacing:-.02em">Before Week 1</h4>
   <ul class="ck">
     <li><b>Read the run-of-shows end to end</b> &mdash; not just Week 1. Knowing where Week 4 lands changes how you run Week 1.</li>
-    <li><b>Cap the room at eight.</b> Every member needs five uninterrupted minutes in a ninety-minute session; the math stops working above eight.</li>
+    <li><b>Cap the room at six.</b> Every member needs an uninterrupted intro plus a full block of the room working their challenge. At seven or eight the ninety minutes stop adding up.</li>
     <li><b>Screen for one thing:</b> a real business with a real constraint, and a willingness to say it out loud. Not stage, revenue or industry.</li>
     <li><b>Set up the recurring meeting link and calendar invites</b> for all sessions at once, and a group chat for between-session momentum.</li>
     <li><b>Prepare your own challenge.</b> You go first, and it has to be genuine. A facilitator who won't be vulnerable gets a room that won't either.</li>
@@ -481,7 +524,7 @@ section[id], header[id] { scroll-margin-top:104px; }
   <div class="gr" style="--c:var(--coral);margin-top:30px">
     <div class="tagline">The one rule under all of it</div>
     <h4>You are not the product</h4>
-    <p>The temptation, especially if you know a lot, is to be the most useful person in the room. Resist it. Your job is to make eight people useful to each other &mdash; the moment the room is oriented toward you, it stops being a peer group and becomes an audience, and audiences don't hold each other accountable.</p>
+    <p>The temptation, especially if you know a lot, is to be the most useful person in the room. Resist it. Your job is to make everyone in the room useful to each other &mdash; the moment the room is oriented toward you, it stops being a peer group and becomes an audience, and audiences don't hold each other accountable.</p>
   </div>
 </div></section>
 
@@ -507,6 +550,23 @@ section[id], header[id] { scroll-margin-top:104px; }
   document.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('resize', onScroll);
   onScroll();
+})();
+</script>
+<script>
+(function(){
+  var pops = Array.prototype.slice.call(document.querySelectorAll('.lp'));
+  function closeAll(except){ pops.forEach(function(p){ if(p!==except) p.classList.remove('open'); }); }
+  pops.forEach(function(p){
+    var btn = p.querySelector('button');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var wasOpen = p.classList.contains('open');
+      closeAll(); if(!wasOpen) p.classList.add('open');
+    });
+    btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ p.classList.remove('open'); btn.blur(); } });
+  });
+  document.addEventListener('click', function(){ closeAll(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAll(); });
 })();
 </script>
 </body>
