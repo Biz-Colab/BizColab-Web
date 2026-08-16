@@ -80,6 +80,35 @@ h1.big em { color:var(--amber); }
 .roomgrid .gcard .tag { margin-bottom:9px; }
 .roomgrid .gcard h3 { font-size:clamp(15px,1.32vw,19px); margin-bottom:9px; }
 .roomgrid .gcard p { font-size:clamp(12.5px,1.02vw,14.5px) !important; line-height:1.5 !important; }
+
+/* Shorter screens: tighten chrome, keep the larger body copy intact */
+@media (max-height: 880px) {
+  .slide { padding:5.5vh 7vw; }
+  h1.big { font-size:clamp(34px,5.3vw,62px); }
+  .lead { margin-top:16px; }
+  .grid3, .grid2 { margin-top:clamp(14px,2.6vh,28px); gap:clamp(12px,1.6vw,20px); }
+  .gcard { padding:clamp(15px,1.8vw,24px); }
+  .gcard li { margin-bottom:8px; }
+  .arc-row { margin-top:clamp(16px,2.8vh,32px); }
+  .arcbox { padding:clamp(14px,1.6vw,22px); }
+  .timeline { margin-top:clamp(14px,2.6vh,30px); }
+  .trow { padding:clamp(8px,1.1vh,14px) 0; }
+  .sched { margin-top:clamp(14px,2.4vh,26px); }
+  .srow { padding:clamp(8px,1.1vh,14px) 0; }
+  .roomgrid { margin-top:clamp(12px,2vh,22px); }
+  .foot { bottom:3.5vh; }
+}
+@media (max-height: 780px) {
+  .slide { padding:4.5vh 6.5vw; }
+  h1.big { font-size:clamp(30px,4.7vw,54px); }
+  .lead { margin-top:13px; font-size:clamp(15px,1.5vw,19px); }
+  .grid3, .grid2 { margin-top:clamp(11px,2vh,22px); }
+  .gcard { padding:clamp(13px,1.5vw,20px); }
+  .gcard h3 { margin-bottom:10px; }
+  .gcard li { margin-bottom:6px; }
+  .trow { padding:clamp(6px,.9vh,11px) 0; }
+  .srow { padding:clamp(6px,.9vh,11px) 0; }
+}
 </style>
 </head>
 <body>
