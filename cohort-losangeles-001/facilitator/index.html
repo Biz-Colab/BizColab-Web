@@ -141,6 +141,7 @@ section[id], header[id] { scroll-margin-top:104px; }
    overflow (card wrappers, the arc scroller) can ever clip it */
 .lp-pop { display:none; }
 
+.rp:hover { border-color:var(--lc); }
 #lens-tip { position:fixed; z-index:9999; width:min(330px,calc(100vw - 32px)); background:#0a0a0a; color:#fff; border-radius:14px; padding:15px 17px; box-shadow:0 16px 46px rgba(0,0,0,.36); text-align:left; pointer-events:none; opacity:0; visibility:hidden; transform:translateY(4px); transition:opacity .17s, transform .17s, visibility .17s; }
 #lens-tip.show { opacity:1; visibility:visible; transform:translateY(0); }
 #lens-tip::after { content:''; position:absolute; top:100%; left:var(--ax,50%); transform:translateX(-50%); border:7px solid transparent; border-top-color:#0a0a0a; }
@@ -152,7 +153,7 @@ section[id], header[id] { scroll-margin-top:104px; }
 @media (max-width:640px) { #lens-tip { left:16px !important; top:auto !important; bottom:16px; width:calc(100vw - 32px); } #lens-tip::after { display:none; } }
 
 .roster { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
-.rp { display:flex; align-items:center; gap:9px; border:1px solid var(--line); border-radius:999px; padding:6px 14px 6px 6px; }
+.rp { cursor:help; position:relative; display:flex; align-items:center; gap:9px; border:1px solid var(--line); border-radius:999px; padding:6px 14px 6px 6px; }
 .rp .dot { width:26px; height:26px; border-radius:50%; background:var(--lc); color:#fff; font-size:10px; font-weight:750; display:flex; align-items:center; justify-content:center; }
 .rp .nm { font-size:13px; font-weight:600; color:var(--ink); }
 .rp .fd { font-size:12px; color:var(--muted); }
@@ -206,13 +207,13 @@ section[id], header[id] { scroll-margin-top:104px; }
   <h2>Six things that decide <em>whether a room works</em></h2>
   <p class="lead">These aren't opinions about facilitation &mdash; they're the findings that hold up across the research on groups and meetings. Each one has a specific thing you do about it.</p>
   <div class="roster">
-    <span class="rp" style="--lc:var(--blue)"><span class="dot">AH</span><span class="nm">Alex Hormozi</span><span class="fd">offers &amp; pricing</span></span>
-    <span class="rp" style="--lc:var(--violet)"><span class="dot">SG</span><span class="nm">Seth Godin</span><span class="fd">marketing &amp; brand</span></span>
-    <span class="rp" style="--lc:var(--indigo)"><span class="dot">DM</span><span class="nm">Dan Martell</span><span class="fd">operations &amp; leverage</span></span>
-    <span class="rp" style="--lc:var(--mint)"><span class="dot">JC</span><span class="nm">James Clear</span><span class="fd">habits &amp; follow-through</span></span>
-    <span class="rp" style="--lc:var(--coral)"><span class="dot">TR</span><span class="nm">Tony Robbins</span><span class="fd">state &amp; energy</span></span>
+    <span class="rp" style="--lc:var(--blue)"><span class="dot">AH</span><span class="nm">Alex Hormozi</span><span class="fd">offers &amp; pricing</span><span class="lp-pop"><span class="who">Alex Hormozi &middot; Founder, Acquisition.com</span><span class="what">Built and exited a portfolio of gym and fitness businesses before founding Acquisition.com, and wrote <b>$100M Offers</b>, <b>$100M Leads</b> and <b>$100M Money Models</b>. We reference him for making an offer specific, measurable and hard to say no to &mdash; the same discipline that turns a vague challenge into one you can actually move.</span><span class="src">Why this lens is on the page</span></span></span>
+    <span class="rp" style="--lc:var(--violet)"><span class="dot">SG</span><span class="nm">Seth Godin</span><span class="fd">marketing &amp; brand</span><span class="lp-pop"><span class="who">Seth Godin &middot; Marketing author &amp; founder</span><span class="what">Author of more than twenty books on marketing including <b>Purple Cow</b>, <b>Permission Marketing</b> and <b>This Is Marketing</b>; founded Yoyodyne and Squidoo and has published a daily blog for two decades. We reference him for positioning, audience and culture &mdash; particularly why the safe, agreeable answer is usually the worthless one.</span><span class="src">Why this lens is on the page</span></span></span>
+    <span class="rp" style="--lc:var(--indigo)"><span class="dot">DM</span><span class="nm">Dan Martell</span><span class="fd">operations &amp; leverage</span><span class="lp-pop"><span class="who">Dan Martell &middot; SaaS founder &amp; coach</span><span class="what">Founded and exited several SaaS companies &mdash; Clarity.fm among them &mdash; and now coaches SaaS founders through SaaS Academy; author of <b>Buy Back Your Time</b>. We reference him for operations and leverage: protecting the hours your one challenge actually needs instead of hoping willpower finds them.</span><span class="src">Why this lens is on the page</span></span></span>
+    <span class="rp" style="--lc:var(--mint)"><span class="dot">JC</span><span class="nm">James Clear</span><span class="fd">habits &amp; follow-through</span><span class="lp-pop"><span class="who">James Clear &middot; Author, Atomic Habits</span><span class="what">Wrote <b>Atomic Habits</b>, one of the best-selling books on behaviour change ever published, after years of writing about habit formation and small-margin improvement. We reference him for the part of this program everyone underestimates &mdash; what actually happens between Mondays.</span><span class="src">Why this lens is on the page</span></span></span>
+    <span class="rp" style="--lc:var(--coral)"><span class="dot">TR</span><span class="nm">Tony Robbins</span><span class="fd">state &amp; energy</span><span class="lp-pop"><span class="who">Tony Robbins &middot; Performance strategist</span><span class="what">Four decades as a performance strategist and author of <b>Unlimited Power</b>, <b>Awaken the Giant Within</b> and <b>Money: Master the Game</b>, having coached athletes, founders and public figures. We reference him for state and energy &mdash; the thing that quietly decides whether anyone in the room says what is actually going on.</span><span class="src">Why this lens is on the page</span></span></span>
   </div>
-  <p style="margin-top:14px;font-size:13px;line-height:1.6;color:var(--muted)">Hover or tap a badge for that lens on the point beside it. These are each practitioner&rsquo;s published framework applied to facilitating a room &mdash; paraphrased, not quoted.</p>
+  <p style="margin-top:14px;font-size:13px;line-height:1.6;color:var(--muted)">Hover a name above to see why that lens is here. Hover or tap a badge for that lens on the point beside it &mdash; these are each practitioner&rsquo;s published framework applied to facilitating a room, paraphrased, not quoted.</p>
 
 
   <div class="keys">
@@ -554,7 +555,7 @@ section[id], header[id] { scroll-margin-top:104px; }
 </script>
 <script>
 (function(){
-  var chips = Array.prototype.slice.call(document.querySelectorAll('.lp'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.lp, .rp'));
   if (!chips.length) return;
   var tip = document.createElement('div'); tip.id = 'lens-tip'; tip.setAttribute('role','tooltip');
   document.body.appendChild(tip);
@@ -564,7 +565,7 @@ section[id], header[id] { scroll-margin-top:104px; }
     chips.forEach(function(c){ c.classList.remove('open'); }); }
 
   function position(p){
-    var btn = p.querySelector('button'); if (!btn) return;
+    var btn = p.querySelector('button') || p;
     var b = btn.getBoundingClientRect();
     if (window.matchMedia('(max-width:640px)').matches) { tip.classList.remove('below'); return; }
     var w = tip.offsetWidth, h = tip.offsetHeight, pad = 12;
@@ -588,7 +589,7 @@ section[id], header[id] { scroll-margin-top:104px; }
   }
 
   chips.forEach(function(p){
-    var btn = p.querySelector('button');
+    var btn = p.querySelector('button') || p;
     p.addEventListener('mouseenter', function(){ show(p); });
     p.addEventListener('mouseleave', function(){ if (!p.classList.contains('open')) hide(); });
     btn.addEventListener('focus', function(){ show(p); });
