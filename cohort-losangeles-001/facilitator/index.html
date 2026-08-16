@@ -137,16 +137,13 @@ section[id], header[id] { scroll-margin-top:104px; }
 .lp > button { width:27px; height:27px; border-radius:50%; border:0; cursor:pointer; font-family:inherit; font-size:10.5px; font-weight:750; letter-spacing:.01em; color:#fff; background:var(--lc,#555); display:flex; align-items:center; justify-content:center; transition:transform .15s, box-shadow .15s; padding:0; }
 .lp > button:hover, .lp > button:focus-visible { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,.22); outline:none; }
 .lp > button:focus-visible { box-shadow:0 0 0 3px rgba(0,113,227,.35); }
-.lp-pop { position:absolute; bottom:calc(100% + 11px); left:50%; transform:translateX(-50%) translateY(4px); width:min(330px,78vw); background:var(--ink); color:#fff; border-radius:14px; padding:15px 17px; box-shadow:0 14px 42px rgba(0,0,0,.3); opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; text-align:left; pointer-events:none; }
-.lp-pop::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:7px solid transparent; border-top-color:var(--ink); }
-.lp:hover .lp-pop, .lp.open .lp-pop { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+.lp-pop { position:absolute; bottom:calc(100% + 11px); left:50%; --nx:0px; transform:translateX(calc(-50% + var(--nx))) translateY(4px); width:min(330px,78vw); background:var(--ink); color:#fff; border-radius:14px; padding:15px 17px; box-shadow:0 14px 42px rgba(0,0,0,.3); opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; text-align:left; pointer-events:none; }
+.lp-pop::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(calc(-50% - var(--nx))); border:7px solid transparent; border-top-color:var(--ink); }
+.lp:hover .lp-pop, .lp.open .lp-pop { opacity:1; visibility:visible; transform:translateX(calc(-50% + var(--nx))) translateY(0); pointer-events:auto; }
 .lp-pop .who { display:block; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--lc,#9aa); margin-bottom:7px; }
 .lp-pop .what { display:block; font-size:13.5px; line-height:1.62; color:rgba(255,255,255,.9); }
 .lp-pop .what b { color:#fff; font-weight:650; }
 .lp-pop .src { display:block; margin-top:9px; font-size:11px; color:rgba(255,255,255,.45); }
-.lp:nth-last-child(1) .lp-pop { left:auto; right:0; transform:translateX(0) translateY(4px); }
-.lp:nth-last-child(1) .lp-pop::after { left:auto; right:9px; transform:none; }
-.lp:nth-last-child(1):hover .lp-pop, .lp:nth-last-child(1).open .lp-pop { transform:translateX(0) translateY(0); }
 @media (max-width:640px) { .lp-pop { position:fixed; left:16px; right:16px; bottom:16px; top:auto; width:auto; transform:none !important; }
   .lp-pop::after { display:none; } }
 
@@ -561,10 +558,24 @@ section[id], header[id] { scroll-margin-top:104px; }
     btn.addEventListener('click', function(e){
       e.stopPropagation();
       var wasOpen = p.classList.contains('open');
-      closeAll(); if(!wasOpen) p.classList.add('open');
+      closeAll(); if(!wasOpen) { p.classList.add('open'); place(p); }
     });
     btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ p.classList.remove('open'); btn.blur(); } });
   });
+  function place(p){
+    var pop = p.querySelector('.lp-pop');
+    if (!pop || window.matchMedia('(max-width:640px)').matches) { if(pop) pop.style.setProperty('--nx','0px'); return; }
+    pop.style.setProperty('--nx','0px');
+    var r = pop.getBoundingClientRect(), pad = 12, nx = 0;
+    if (r.left < pad) nx = pad - r.left;
+    else if (r.right > window.innerWidth - pad) nx = (window.innerWidth - pad) - r.right;
+    if (nx) pop.style.setProperty('--nx', nx + 'px');
+  }
+  pops.forEach(function(p){
+    p.addEventListener('mouseenter', function(){ place(p); });
+    p.addEventListener('focusin', function(){ place(p); });
+  });
+  window.addEventListener('resize', function(){ pops.forEach(place); });
   document.addEventListener('click', function(){ closeAll(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAll(); });
 })();
