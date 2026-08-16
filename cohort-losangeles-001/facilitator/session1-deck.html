@@ -26,7 +26,7 @@ em { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; }
 .eyebrow .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:currentColor; margin-right:8px; }
 h1.big { font-size:clamp(40px,6.4vw,84px); font-weight:700; letter-spacing:-.045em; line-height:1.03; position:relative; z-index:1; }
 h1.big em { color:var(--amber); }
-.lead { margin-top:22px; font-size:clamp(15px,1.5vw,20px); line-height:1.6; color:var(--muted); max-width:56ch; position:relative; z-index:1; }
+.lead { margin-top:22px; font-size:clamp(17px,1.73vw,23px); line-height:1.6; color:var(--muted); max-width:56ch; position:relative; z-index:1; }
 
 .body-wrap { flex:1; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:1; }
 
@@ -36,7 +36,7 @@ h1.big em { color:var(--amber); }
 .gcard .tag { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
 .gcard h3 { font-size:clamp(17px,1.7vw,23px); font-weight:700; letter-spacing:-.02em; margin-bottom:14px; color:#fff; }
 .gcard ul { list-style:none; }
-.gcard li { font-size:clamp(13px,1.05vw,15.5px); line-height:1.6; color:var(--muted); padding-left:16px; position:relative; margin-bottom:11px; }
+.gcard li { font-size:clamp(15px,1.21vw,17.8px); line-height:1.6; color:var(--muted); padding-left:16px; position:relative; margin-bottom:11px; }
 .gcard li::before { content:''; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:currentColor; }
 
 .arc-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:clamp(24px,4vh,50px); position:relative; z-index:1; }
@@ -44,13 +44,13 @@ h1.big em { color:var(--amber); }
 .arcbox { border:1px solid var(--line); border-radius:20px; padding:clamp(18px,2vw,28px); background:rgba(255,255,255,.03); }
 .arcbox .n { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
 .arcbox h4 { font-size:clamp(20px,2.2vw,30px); font-weight:700; letter-spacing:-.03em; margin-bottom:10px; color:#fff; }
-.arcbox p { font-size:clamp(12px,1vw,14px); line-height:1.55; color:var(--muted); }
+.arcbox p { font-size:clamp(14px,1.15vw,16.1px); line-height:1.55; color:var(--muted); }
 
 .timeline { margin-top:clamp(24px,5vh,56px); position:relative; z-index:1; }
 .trow { display:grid; grid-template-columns:120px 1fr; gap:24px; padding:clamp(12px,1.6vh,20px) 0; border-top:1px solid var(--line); align-items:baseline; }
 .trow:first-child { border-top:0; }
-.trow .time { font-size:clamp(13px,1.2vw,16px); font-weight:600; color:#fff; }
-.trow .what { font-size:clamp(13px,1.2vw,16px); color:var(--muted); }
+.trow .time { font-size:clamp(15px,1.38vw,18.4px); font-weight:600; color:#fff; }
+.trow .what { font-size:clamp(15px,1.38vw,18.4px); color:var(--muted); }
 .trow .what b { color:#fff; font-weight:600; }
 
 .stat-row { display:flex; gap:clamp(24px,4vw,60px); margin-top:clamp(20px,4vh,40px); position:relative; z-index:1; flex-wrap:wrap; }
@@ -64,6 +64,15 @@ h1.big em { color:var(--amber); }
 .dots { position:fixed; bottom:20px; right:32px; display:flex; gap:7px; z-index:10; }
 .dots span { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.2); transition:background .2s; }
 .dots span.on { background:#fff; }
+
+.sched { margin-top:clamp(20px,3.5vh,40px); position:relative; z-index:1; }
+.srow { display:grid; grid-template-columns:150px 130px 1fr; gap:26px; padding:clamp(11px,1.5vh,18px) 0; border-top:1px solid var(--line); align-items:baseline; }
+.srow:first-child { border-top:0; }
+.srow .sdate { font-size:clamp(15px,1.42vw,19px); font-weight:700; color:#fff; letter-spacing:-.02em; }
+.srow .sname { font-size:clamp(15px,1.42vw,19px); font-weight:700; letter-spacing:-.02em; }
+.srow .swhat { font-size:clamp(14px,1.27vw,17px); line-height:1.55; color:var(--muted); }
+.srow.skip { opacity:.45; }
+.srow.skip .sdate, .srow.skip .sname { font-weight:500; color:var(--muted); }
 </style>
 </head>
 <body>
@@ -94,9 +103,9 @@ h1.big em { color:var(--amber); }
     <h1 class="big">The room <em>is the product.</em></h1>
     <p class="lead">This isn't a course, and I'm not the product. It's eight operators pushing each other's businesses forward, on purpose, every Monday, with a real deliverable at the end.</p>
     <div class="grid3">
-      <div class="gcard" style="color:var(--blue)"><div class="tag">Not</div><h3>A course</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">No modules, no homework you do alone, nothing to binge-watch. Nobody's teaching a framework at you.</p></div>
-      <div class="gcard" style="color:var(--coral)"><div class="tag">Not</div><h3>Networking</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">No business cards, no small talk for its own sake, no "let's grab coffee sometime."</p></div>
-      <div class="gcard" style="color:var(--mint)"><div class="tag">Is</div><h3>Structured peer pressure</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">One challenge each, a hard timer, real accountability &mdash; a room that won't let it slide.</p></div>
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Not</div><h3>A course</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">No modules, no homework you do alone, nothing to binge-watch. Nobody's teaching a framework at you.</p></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Not</div><h3>Networking</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">No business cards, no small talk for its own sake, no "let's grab coffee sometime."</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Is</div><h3>Structured peer pressure</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">One challenge each, a hard timer, real accountability &mdash; a room that won't let it slide.</p></div>
     </div>
     <p class="lead" style="margin-top:22px">Eight people, four weeks, one seat each &mdash; small enough that everyone's problem gets real airtime.</p>
   </section>
@@ -138,14 +147,26 @@ h1.big em { color:var(--amber); }
   <section class="slide">
     <div class="slide-glow"></div>
     <div class="eyebrow"><span class="dot"></span>A little about me</div>
-    <h1 class="big">Same seat <em>as you.</em></h1>
-    <p class="lead">I'm Michael Abraham &mdash; based in LA, building a few things at once, same as most of you.</p>
+    <h1 class="big">A few careers, <em>one habit.</em></h1>
+    <p class="lead">I'm Michael Abraham. Licensed architect, then agency owner, now real estate &mdash; and every one of those with partners, never alone.</p>
     <div class="grid3">
-      <div class="gcard" style="color:var(--blue)"><div class="tag">Real estate</div><h3>AMRE Real Estate Group</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Founder, AMRE Real Estate Group (Compass) &mdash; built the team from scratch, here in LA.</p></div>
-      <div class="gcard" style="color:var(--coral)"><div class="tag">Community</div><h3>Haps Club</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Built a community and newsletter from zero to a real, engaged audience &mdash; the same muscle behind BizColab.</p></div>
-      <div class="gcard" style="color:var(--mint)"><div class="tag">Approach</div><h3>Operator by habit</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Realtor by trade, builder by habit &mdash; I'm in the room building alongside you, not lecturing from above it.</p></div>
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Then</div><h3>Architecture &amp; CCG</h3><ul>
+        <li>Licensed architect &mdash; trained to solve problems in systems, not pieces</li>
+        <li>Ran CCG, a creative marketing agency, for nearly 15 years</li>
+        <li>Worked with close to a thousand businesses on brand, marketing and design</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Now</div><h3>Real estate &amp; building</h3><ul>
+        <li>Realtor and founder of AMRE Real Estate Group</li>
+        <li>Investing in and renovating property on my own account</li>
+        <li>Started Haps Club, and now BizColab</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">What that's worth to you</div><h3>Range, not authority</h3><ul>
+        <li>I've seen a lot of businesses up close, in a lot of states of health</li>
+        <li>Useful on branding, marketing, design, positioning, partnerships</li>
+        <li>Not useful as a guru &mdash; I have plenty left to learn</li>
+      </ul></div>
     </div>
-    <p class="lead" style="margin-top:22px">I'll have a #1 challenge of my own on the board tonight, same as everyone else.</p>
+    <p class="lead" style="margin-top:22px">The reason I'm listing all that isn't the r&eacute;sum&eacute; &mdash; it's so you know what to ask me for. I'll have a challenge of my own on the board tonight, same as everyone else.</p>
   </section>
 
   <!-- 6. WHAT I HOPE YOU GET -->
@@ -154,9 +175,9 @@ h1.big em { color:var(--amber); }
     <div class="eyebrow"><span class="dot"></span>What I hope you get</div>
     <h1 class="big">One real move, <em>shipped.</em></h1>
     <div class="grid3">
-      <div class="gcard" style="color:var(--blue)"><h3>Not a binder of ideas</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">One high-leverage thing that actually moved by Week 4 &mdash; a real number, not a plan you never ran.</p></div>
-      <div class="gcard" style="color:var(--indigo)"><h3>People you'd still call</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">A handful of operators in this room you'd reach out to a year from now, not just for four Mondays.</p></div>
-      <div class="gcard" style="color:var(--amber)"><h3>Permission to ask</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">To say the real ask out loud &mdash; the specific, uncomfortable one &mdash; instead of the polished version.</p></div>
+      <div class="gcard" style="color:var(--blue)"><h3>Not a binder of ideas</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">One high-leverage thing that actually moved by Week 4 &mdash; a real number, not a plan you never ran.</p></div>
+      <div class="gcard" style="color:var(--indigo)"><h3>People you'd still call</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">A handful of operators in this room you'd reach out to a year from now, not just for four Mondays.</p></div>
+      <div class="gcard" style="color:var(--amber)"><h3>Permission to ask</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">To say the real ask out loud &mdash; the specific, uncomfortable one &mdash; instead of the polished version.</p></div>
     </div>
     <p class="lead" style="margin-top:22px">If everyone leaves Week 4 with one thing genuinely moved &mdash; and a number they can point at &mdash; this format worked. That's the only bar.</p>
   </section>
@@ -167,12 +188,12 @@ h1.big em { color:var(--amber); }
     <div class="eyebrow"><span class="dot"></span>House rules</div>
     <h1 class="big">Six things that <em>make this work.</em></h1>
     <div class="grid3">
-      <div class="gcard" style="color:var(--blue)"><h3>Show up</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">All four Mondays. Missing one costs the room more than it costs you.</p></div>
-      <div class="gcard" style="color:var(--indigo)"><h3>The room stays in the room</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Numbers, deals, struggles &mdash; nothing leaves without permission.</p></div>
-      <div class="gcard" style="color:var(--violet)"><h3>Experience over advice</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">"Here's what happened when I tried it" beats "you should."</p></div>
-      <div class="gcard" style="color:var(--coral)"><h3>Make specific asks</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">"Help me grow" gets nothing. "Who's hired a fractional CFO?" gets three names.</p></div>
-      <div class="gcard" style="color:var(--amber)"><h3>Give first</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Offer the intro, the template, the contact before you're asked for it.</p></div>
-      <div class="gcard" style="color:var(--mint)"><h3>Sessions are captured</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Transcribed for notes and action items only &mdash; no video, nothing published.</p></div>
+      <div class="gcard" style="color:var(--blue)"><h3>Show up</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">All four Mondays. Missing one costs the room more than it costs you.</p></div>
+      <div class="gcard" style="color:var(--indigo)"><h3>The room stays in the room</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Numbers, deals, struggles &mdash; nothing leaves without permission.</p></div>
+      <div class="gcard" style="color:var(--violet)"><h3>Experience over advice</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">"Here's what happened when I tried it" beats "you should."</p></div>
+      <div class="gcard" style="color:var(--coral)"><h3>Make specific asks</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">"Help me grow" gets nothing. "Who's hired a fractional CFO?" gets three names.</p></div>
+      <div class="gcard" style="color:var(--amber)"><h3>Give first</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Offer the intro, the template, the contact before you're asked for it.</p></div>
+      <div class="gcard" style="color:var(--mint)"><h3>Sessions are captured</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Transcribed for notes and action items only &mdash; no video, nothing published.</p></div>
     </div>
   </section>
 
@@ -183,14 +204,14 @@ h1.big em { color:var(--amber); }
     <h1 class="big">Who's <em>in it.</em></h1>
     <p class="lead">Six of eight seats confirmed, filled in payment order. Full bios and links live on the dashboard &mdash; open it while intros run.</p>
     <div class="grid3">
-      <div class="gcard" style="color:var(--amber)"><div class="tag">Host</div><h3>Michael Abraham</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Founder, AMRE Real Estate Group &middot; Haps Club. Facilitating, and in the same seat as you.</p></div>
-      <div class="gcard" style="color:var(--blue)"><div class="tag">Seat 01</div><h3>Renee Miller</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Founder &amp; Creative Director, The Miller Group &mdash; creative and design, Los Angeles.</p></div>
-      <div class="gcard" style="color:var(--mint)"><div class="tag">Seat 02</div><h3>Svetlana Heller</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Operator, Los Angeles. Introducing her business tonight.</p></div>
-      <div class="gcard" style="color:var(--coral)"><div class="tag">Seat 03</div><h3>Amy Lee Tu</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Co-Founder, Mobotory &mdash; AI for insurance claims. Previously YOLK, ReelChannel, Studio71.</p></div>
-      <div class="gcard" style="color:var(--amber)"><div class="tag">Seat 04</div><h3>Alex Nahai</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Principal, ASN Law Offices &amp; Moonlight Capital Group &mdash; law firm and investment bank.</p></div>
-      <div class="gcard" style="color:var(--blue)"><div class="tag">Seat 05</div><h3>Sudeep Deshpande</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Founder &mdash; 20+ years turning unmet needs into products. Standing up a new venture now.</p></div>
-      <div class="gcard" style="color:var(--mint)"><div class="tag">Seat 06</div><h3>Roy Pari</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Founder, CRE8 Intelligent Systems &mdash; AI consulting, workflow automation, 20+ years in brand.</p></div>
-      <div class="gcard" style="color:var(--coral)"><div class="tag">Seats 07&ndash;08</div><h3>Open</h3><p style="color:var(--muted);font-size:14px;line-height:1.6">Two seats still open. Referrals welcome &mdash; the room gets stronger with the right two.</p></div>
+      <div class="gcard" style="color:var(--amber)"><div class="tag">Host</div><h3>Michael Abraham</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Founder, AMRE Real Estate Group &middot; Haps Club. Facilitating, and in the same seat as you.</p></div>
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Seat 01</div><h3>Renee Miller</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Founder &amp; Creative Director, The Miller Group &mdash; creative and design, Los Angeles.</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Seat 02</div><h3>Svetlana Heller</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Operator, Los Angeles. Introducing her business tonight.</p></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Seat 03</div><h3>Amy Lee Tu</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Co-Founder, Mobotory &mdash; AI for insurance claims. Previously YOLK, ReelChannel, Studio71.</p></div>
+      <div class="gcard" style="color:var(--amber)"><div class="tag">Seat 04</div><h3>Alex Nahai</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Principal, ASN Law Offices &amp; Moonlight Capital Group &mdash; law firm and investment bank.</p></div>
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Seat 05</div><h3>Sudeep Deshpande</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Founder &mdash; 20+ years turning unmet needs into products. Standing up a new venture now.</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Seat 06</div><h3>Roy Pari</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Founder, CRE8 Intelligent Systems &mdash; AI consulting, workflow automation, 20+ years in brand.</p></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Seats 07&ndash;08</div><h3>Open</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Two seats still open. Referrals welcome &mdash; the room gets stronger with the right two.</p></div>
     </div>
     <p class="lead" style="margin-top:22px">By the end of intros I'll have every offer and every need written down &mdash; that list becomes next Monday's pairings.</p>
   </section>
@@ -202,7 +223,7 @@ h1.big em { color:var(--amber); }
     <h1 class="big">How the next <em>90 minutes</em> go.</h1>
     <div class="timeline">
       <div class="trow"><div class="time">5:30</div><div class="what"><b>Welcome</b> &mdash; logistics: Google Meet, Slack, dashboard, how the four weeks work.</div></div>
-      <div class="trow"><div class="time">5:35</div><div class="what"><b>This intro</b> &mdash; 3 minutes on what BizColab is and why it exists.</div></div>
+      <div class="trow"><div class="time">5:35</div><div class="what"><b>This overview</b> &mdash; 5 minutes on what BizColab is, why it exists, and how the four weeks run.</div></div>
       <div class="trow"><div class="time">5:40</div><div class="what"><b>Intros</b> &mdash; 5 minutes each, hard timer (through 6:30): what you do, what you offer, where you want help. I'm logging offers/needs live &mdash; this becomes the Week 2 pairing map.</div></div>
       <div class="trow"><div class="time">6:30</div><div class="what"><b>Break</b> &mdash; 5 minutes. Grab water, stretch, back on at 6:35.</div></div>
       <div class="trow"><div class="time">6:35</div><div class="what"><b>Commitment round</b> &mdash; 2 minutes each: everyone narrows to ONE challenge and says where the number sits today. After each one I ask the room: <b>who has solved this before?</b></div></div>
@@ -274,16 +295,53 @@ h1.big em { color:var(--amber); }
     <div class="slide-glow"></div>
     <div class="body-wrap" style="justify-content:center; align-items:flex-start; text-align:left;">
       <div class="eyebrow"><span class="dot"></span>Let's go</div>
-      <h1 class="big">By 7pm tonight, <em>you'll know your one thing.</em></h1>
-      <p class="lead">Slack for momentum between Mondays. The dashboard has everyone's info, the arc, and the four sessions. Same Google Meet link every week &mdash; bookmark it now.</p>
+      <h1 class="big">By 7pm tonight,<br><em>you'll know your one thing.</em></h1>
+      <p class="lead">The next seven days matter more than tonight did. Here's the work between now and Aug 24.</p>
       <div class="grid3" style="margin-top:30px">
-        <div class="gcard" style="color:var(--blue)"><div class="tag">Dashboard</div><h3 style="font-size:16px">bizcolab.com/cohort-losangeles-001</h3></div>
-        <div class="gcard" style="color:var(--indigo)"><div class="tag">Slack</div><h3 style="font-size:16px">Join before you leave tonight</h3></div>
-        <div class="gcard" style="color:var(--mint)"><div class="tag">Next Monday</div><h3 style="font-size:16px">Aug 24 &mdash; Match</h3></div>
+        <div class="gcard" style="color:var(--blue)"><div class="tag">This week</div><h3>Sharpen the number</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Go find the real figure your challenge starts from and post it in Slack by Wednesday.</p></div>
+        <div class="gcard" style="color:var(--coral)"><div class="tag">This week</div><h3>Make one move</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">30 minutes a day on the one thing. Small and actually done beats a perfect plan.</p></div>
+        <div class="gcard" style="color:var(--mint)"><div class="tag">This week</div><h3>Use somebody</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Reach out to one person from tonight. Ask them the specific thing you couldn't ask a stranger.</p></div>
       </div>
-      <p class="lead" style="margin-top:22px">One ask between now and Monday: post your #1 challenge in Slack if it sharpens overnight. Let's get to work.</p>
+      <p class="lead" style="margin-top:22px">Post what shipped and what blocked you by Friday &mdash; two lines is plenty. That's what we open with next Monday.</p>
     </div>
     <div class="foot"><span>The room is the product.</span><span>Let's get to work.</span></div>
+  </section>
+
+
+  <!-- 14. FULL SCHEDULE -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Put these in your calendar</div>
+    <h1 class="big">Four Mondays, <em>5:30&ndash;7:00 PM PT.</em></h1>
+    <div class="sched">
+      <div class="srow">
+        <div class="sdate">Mon, Aug 17</div>
+        <div class="sname" style="color:var(--blue)">Map</div>
+        <div class="swhat">Intros. Everyone leaves with one named challenge and the number it starts from.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Aug 24</div>
+        <div class="sname" style="color:var(--indigo)">Match</div>
+        <div class="swhat">Guest operator, then pairings built around your challenge from tonight's offers and needs.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Aug 31</div>
+        <div class="sname" style="color:var(--coral)">Move</div>
+        <div class="swhat">Hot seats &mdash; three 20-minute slots where the whole room takes on your biggest blocker.</div>
+      </div>
+      <div class="srow skip">
+        <div class="sdate">Mon, Sep 7</div>
+        <div class="sname">No session</div>
+        <div class="swhat">Labor Day. Two weeks between Move and Measure &mdash; use them.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Sep 14</div>
+        <div class="sname" style="color:var(--mint)">Measure</div>
+        <div class="swhat">Results: what shipped, what didn't, what the number did, and what happens after this.</div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:26px">Same Google Meet link every week &mdash; it's on the dashboard at bizcolab.com/cohort-losangeles-001. Five-minute break in the middle of every session.</p>
+    <div class="foot"><span>The room is the product.</span><span>See you Aug 24.</span></div>
   </section>
 
 </div>
