@@ -130,24 +130,27 @@ section[id], header[id] { scroll-margin-top:104px; }
 .srcs a { color:var(--ink-2); text-decoration:underline; text-underline-offset:2px; }
 
 /* ---- practitioner lens chips ---- */
-.lens { display:inline-flex; gap:6px; vertical-align:middle; margin-left:8px; }
-.lens-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; align-items:center; }
-.lens-row .ll { font-size:10.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-right:2px; }
+.lens { display:inline-flex; gap:6px; vertical-align:middle; margin-left:7px; }
+.lens-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:11px; align-items:center; }
+.lens-row .ll { font-size:10px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-right:2px; }
 .lp { position:relative; display:inline-flex; }
-.lp > button { width:27px; height:27px; border-radius:50%; border:0; cursor:pointer; font-family:inherit; font-size:10.5px; font-weight:750; letter-spacing:.01em; color:#fff; background:var(--lc,#555); display:flex; align-items:center; justify-content:center; transition:transform .15s, box-shadow .15s; padding:0; }
-.lp > button:hover, .lp > button:focus-visible { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,.22); outline:none; }
-.lp > button:focus-visible { box-shadow:0 0 0 3px rgba(0,113,227,.35); }
-.lp-pop { position:absolute; bottom:calc(100% + 11px); left:50%; --nx:0px; transform:translateX(calc(-50% + var(--nx))) translateY(4px); width:min(330px,78vw); background:var(--ink); color:#fff; border-radius:14px; padding:15px 17px; box-shadow:0 14px 42px rgba(0,0,0,.3); opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; text-align:left; pointer-events:none; }
-.lp-pop::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(calc(-50% - var(--nx))); border:7px solid transparent; border-top-color:var(--ink); }
-.lp:hover .lp-pop, .lp.open .lp-pop { opacity:1; visibility:visible; transform:translateX(calc(-50% + var(--nx))) translateY(0); pointer-events:auto; }
-.lp-pop .who { display:block; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--lc,#9aa); margin-bottom:7px; }
-.lp-pop .what { display:block; font-size:13.5px; line-height:1.62; color:rgba(255,255,255,.9); }
-.lp-pop .what b { color:#fff; font-weight:650; }
-.lp-pop .src { display:block; margin-top:9px; font-size:11px; color:rgba(255,255,255,.45); }
-@media (max-width:640px) { .lp-pop { position:fixed; left:16px; right:16px; bottom:16px; top:auto; width:auto; transform:none !important; }
-  .lp-pop::after { display:none; } }
+.lp > button { width:26px; height:26px; border-radius:50%; border:0; cursor:pointer; font-family:inherit; font-size:10px; font-weight:750; color:#fff; background:var(--lc,#555); display:flex; align-items:center; justify-content:center; transition:transform .15s, box-shadow .15s; padding:0; }
+.lp > button:hover, .lp > button:focus-visible { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,.25); outline:none; }
+.lp > button:focus-visible { box-shadow:0 0 0 3px rgba(0,113,227,.4); }
+/* source content only — the visible tooltip is one body-level node, so no ancestor with
+   overflow (card wrappers, the arc scroller) can ever clip it */
+.lp-pop { display:none; }
 
-/* roster strip */
+#lens-tip { position:fixed; z-index:9999; width:min(330px,calc(100vw - 32px)); background:#0a0a0a; color:#fff; border-radius:14px; padding:15px 17px; box-shadow:0 16px 46px rgba(0,0,0,.36); text-align:left; pointer-events:none; opacity:0; visibility:hidden; transform:translateY(4px); transition:opacity .17s, transform .17s, visibility .17s; }
+#lens-tip.show { opacity:1; visibility:visible; transform:translateY(0); }
+#lens-tip::after { content:''; position:absolute; top:100%; left:var(--ax,50%); transform:translateX(-50%); border:7px solid transparent; border-top-color:#0a0a0a; }
+#lens-tip.below::after { top:auto; bottom:100%; border-top-color:transparent; border-bottom-color:#0a0a0a; }
+#lens-tip .who { display:block; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--lc,#9aa); margin-bottom:7px; }
+#lens-tip .what { display:block; font-size:13.5px; line-height:1.62; color:rgba(255,255,255,.9); }
+#lens-tip .what b { color:#fff; font-weight:650; }
+#lens-tip .src { display:block; margin-top:9px; font-size:11px; color:rgba(255,255,255,.45); }
+@media (max-width:640px) { #lens-tip { left:16px !important; top:auto !important; bottom:16px; width:calc(100vw - 32px); } #lens-tip::after { display:none; } }
+
 .roster { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
 .rp { display:flex; align-items:center; gap:9px; border:1px solid var(--line); border-radius:999px; padding:6px 14px 6px 6px; }
 .rp .dot { width:26px; height:26px; border-radius:50%; background:var(--lc); color:#fff; font-size:10px; font-weight:750; display:flex; align-items:center; justify-content:center; }
@@ -551,33 +554,57 @@ section[id], header[id] { scroll-margin-top:104px; }
 </script>
 <script>
 (function(){
-  var pops = Array.prototype.slice.call(document.querySelectorAll('.lp'));
-  function closeAll(except){ pops.forEach(function(p){ if(p!==except) p.classList.remove('open'); }); }
-  pops.forEach(function(p){
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.lp'));
+  if (!chips.length) return;
+  var tip = document.createElement('div'); tip.id = 'lens-tip'; tip.setAttribute('role','tooltip');
+  document.body.appendChild(tip);
+  var current = null;
+
+  function hide(){ tip.classList.remove('show'); current = null;
+    chips.forEach(function(c){ c.classList.remove('open'); }); }
+
+  function position(p){
+    var btn = p.querySelector('button'); if (!btn) return;
+    var b = btn.getBoundingClientRect();
+    if (window.matchMedia('(max-width:640px)').matches) { tip.classList.remove('below'); return; }
+    var w = tip.offsetWidth, h = tip.offsetHeight, pad = 12;
+    var cx = b.left + b.width / 2;
+    var left = Math.max(pad, Math.min(cx - w / 2, window.innerWidth - w - pad));
+    var top = b.top - h - 11, below = false;
+    if (top < pad) { top = b.bottom + 11; below = true; }
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    tip.style.setProperty('--ax', Math.max(14, Math.min(cx - left, w - 14)) + 'px');
+    tip.classList.toggle('below', below);
+  }
+
+  function show(p){
+    var src = p.querySelector('.lp-pop'); if (!src) return;
+    current = p;
+    tip.innerHTML = src.innerHTML;
+    tip.style.setProperty('--lc', (p.style.getPropertyValue('--lc') || '#9aa').trim());
+    tip.classList.add('show');
+    position(p);
+  }
+
+  chips.forEach(function(p){
     var btn = p.querySelector('button');
+    p.addEventListener('mouseenter', function(){ show(p); });
+    p.addEventListener('mouseleave', function(){ if (!p.classList.contains('open')) hide(); });
+    btn.addEventListener('focus', function(){ show(p); });
+    btn.addEventListener('blur', function(){ if (!p.classList.contains('open')) hide(); });
     btn.addEventListener('click', function(e){
       e.stopPropagation();
-      var wasOpen = p.classList.contains('open');
-      closeAll(); if(!wasOpen) { p.classList.add('open'); place(p); }
+      var was = p.classList.contains('open');
+      hide();
+      if (!was) { p.classList.add('open'); show(p); }
     });
-    btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ p.classList.remove('open'); btn.blur(); } });
   });
-  function place(p){
-    var pop = p.querySelector('.lp-pop');
-    if (!pop || window.matchMedia('(max-width:640px)').matches) { if(pop) pop.style.setProperty('--nx','0px'); return; }
-    pop.style.setProperty('--nx','0px');
-    var r = pop.getBoundingClientRect(), pad = 12, nx = 0;
-    if (r.left < pad) nx = pad - r.left;
-    else if (r.right > window.innerWidth - pad) nx = (window.innerWidth - pad) - r.right;
-    if (nx) pop.style.setProperty('--nx', nx + 'px');
-  }
-  pops.forEach(function(p){
-    p.addEventListener('mouseenter', function(){ place(p); });
-    p.addEventListener('focusin', function(){ place(p); });
-  });
-  window.addEventListener('resize', function(){ pops.forEach(place); });
-  document.addEventListener('click', function(){ closeAll(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAll(); });
+
+  window.addEventListener('resize', function(){ if (current) position(current); });
+  window.addEventListener('scroll', function(){ if (current) position(current); }, {passive:true});
+  document.addEventListener('click', function(){ hide(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') hide(); });
 })();
 </script>
 </body>
