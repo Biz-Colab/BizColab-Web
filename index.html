@@ -796,7 +796,7 @@
 </script>
 
 <!-- ============================================================
-     BizColab Lead-Capture Popup
+     BizColab Lead-Capture Popup  (matches /join/ styling)
      Self-contained block: fonts, style, markup, script.
      ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -806,73 +806,78 @@
 <style>
   #bizc-popup-root, #bizc-popup-root *{ box-sizing:border-box; }
   #bizc-popup-root{
-    --bizc-ink:#0a0a0a; --bizc-paper:#fff; --bizc-paper-2:#f5f5f7; --bizc-muted:#6e6e73; --bizc-line:#d2d2d7;
-    --bizc-blue:#0071e3; --bizc-indigo:#5e5ce6; --bizc-violet:#9a4ef6; --bizc-coral:#ff6f5e; --bizc-amber:#ffb340; --bizc-mint:#30d158;
-    font-family:'Geist', system-ui, sans-serif; letter-spacing:-0.011em; color:var(--bizc-ink);
+    --bizc-ink:#1a1a1a; --bizc-muted:#666; --bizc-indigo:#6366f1;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; color:var(--bizc-ink);
   }
-  .bizc-serif-i{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; letter-spacing:-0.015em; }
-  .bizc-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; margin:0; }
 
-  .bizc-bar{ position:fixed; left:0; right:0; bottom:0; z-index:99998; transform:translateY(120%); transition:transform .45s cubic-bezier(.2,.7,.2,1); background:var(--bizc-ink); color:#fff; }
+  /* bottom bar (trigger) */
+  .bizc-bar{ position:fixed; left:0; right:0; bottom:0; z-index:99998; transform:translateY(120%); transition:transform .45s cubic-bezier(.2,.7,.2,1); background:#0a0a0a; color:#fff; }
   .bizc-bar.bizc-show{ transform:translateY(0); }
   .bizc-bar-inner{ max-width:72rem; margin:0 auto; padding:14px 44px; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center; }
-  .bizc-pill-new{ display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:9999px; font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--bizc-amber); flex-shrink:0; }
+  .bizc-pill-new{ display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:9999px; font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:#ffb340; flex-shrink:0; }
   .bizc-bar-hook{ font-size:14px; color:rgba(255,255,255,.9); }
-  .bizc-bar-cta{ background:#fff; color:var(--bizc-ink); border:none; border-radius:9999px; padding:9px 18px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background .2s, transform .2s; font-family:inherit; }
+  .bizc-bar-cta{ background:#fff; color:#0a0a0a; border:none; border-radius:9999px; padding:9px 18px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background .2s, transform .2s; font-family:inherit; }
   .bizc-bar-cta:hover{ background:rgba(255,255,255,.88); transform:translateY(-1px); }
   .bizc-bar-close{ position:absolute; top:6px; right:10px; background:none; border:none; color:rgba(255,255,255,.5); font-size:16px; cursor:pointer; line-height:1; padding:6px; }
   .bizc-bar-close:hover{ color:#fff; }
 
-  .bizc-backdrop{ position:fixed; inset:0; background:rgba(10,10,10,.55); backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px); z-index:99999; opacity:0; visibility:hidden; transition:opacity .3s ease; display:flex; align-items:center; justify-content:center; padding:20px; }
+  /* modal shell */
+  .bizc-backdrop{ position:fixed; inset:0; background:rgba(10,10,10,.5); backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); z-index:99999; opacity:0; visibility:hidden; transition:opacity .3s ease; display:flex; align-items:center; justify-content:center; padding:20px; overflow-y:auto; }
   .bizc-backdrop.bizc-open{ opacity:1; visibility:visible; }
-  .bizc-modal{ position:relative; width:100%; max-width:440px; background:#fff; border-radius:24px; box-shadow:0 24px 64px rgba(0,0,0,.28); padding:36px 32px 30px; transform:translateY(16px) scale(.98); opacity:0; transition:transform .35s cubic-bezier(.2,.7,.2,1), opacity .3s ease; max-height:92vh; overflow-y:auto; }
+  .bizc-modal{ position:relative; width:100%; max-width:520px; background:linear-gradient(135deg,#f5f3ff 0%,#fef5f0 50%,#f0f4ff 100%); border-radius:18px; box-shadow:0 24px 64px rgba(0,0,0,.28); padding:34px 28px 26px; transform:translateY(16px) scale(.98); opacity:0; transition:transform .35s cubic-bezier(.2,.7,.2,1), opacity .3s ease; max-height:92vh; overflow-y:auto; }
   .bizc-backdrop.bizc-open .bizc-modal{ transform:translateY(0) scale(1); opacity:1; }
-  .bizc-modal-close{ position:absolute; top:16px; right:16px; width:30px; height:30px; border-radius:9999px; border:1px solid var(--bizc-line); background:#fff; color:var(--bizc-muted); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-  .bizc-modal-close:hover{ background:var(--bizc-paper-2); }
+  .bizc-modal-close{ position:absolute; top:14px; right:14px; width:30px; height:30px; border-radius:9999px; border:1px solid #e5e5e5; background:#fff; color:#888; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:2; }
+  .bizc-modal-close:hover{ color:#1a1a1a; }
 
-  .bizc-badge{ display:inline-flex; align-items:center; gap:8px; border:1px solid var(--bizc-line); background:rgba(255,255,255,.7); padding:5px 12px; border-radius:9999px; font-size:11px; font-weight:500; margin:0 0 18px; }
-  .bizc-badge-dot{ width:6px; height:6px; border-radius:50%; background:var(--bizc-violet); flex-shrink:0; }
-  .bizc-headline{ font-size:26px; line-height:1.15; margin:0 0 10px; }
-  .bizc-sub{ font-size:15px; line-height:1.55; color:rgba(29,29,31,.75); margin:0 0 18px; }
+  /* header — mirrors /join/ */
+  .bizc-head{ text-align:center; margin-bottom:22px; }
+  .bizc-badge{ display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid #e5e5e5; padding:6px 14px; border-radius:999px; font-size:13px; color:#555; margin-bottom:18px; }
+  .bizc-badge-dot{ width:7px; height:7px; background:#6366f1; border-radius:50%; flex-shrink:0; }
+  .bizc-head h3{ font-family:'Geist', system-ui, sans-serif; font-size:30px; font-weight:700; line-height:1.15; color:#1a1a1a; margin:0 0 12px; letter-spacing:-1px; }
+  .bizc-head h3 span{
+    background:linear-gradient(90deg,#0071e3,#5e5ce6,#9a4ef6,#ff6f5e,#ffb340);
+    background-size:200% 100%; -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent; color:transparent; animation:bizc-shimmer 8s linear infinite;
+  }
+  @keyframes bizc-shimmer{ 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+  .bizc-head p{ font-size:15.5px; color:#666; line-height:1.6; max-width:420px; margin:0 auto; }
 
-  .bizc-trust{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px; padding:0; list-style:none; }
-  .bizc-trust li{ font-size:11.5px; font-weight:500; color:var(--bizc-muted); background:var(--bizc-paper-2); border-radius:9999px; padding:5px 10px; }
-
-  .bizc-quote{ border-left:2px solid var(--bizc-line); padding-left:14px; margin:0 0 22px; }
-  .bizc-quote p{ font-size:15px; line-height:1.5; margin:0 0 6px; }
-  .bizc-quote cite{ font-size:12px; color:var(--bizc-muted); font-style:normal; }
-
-  .bizc-steps{ display:flex; align-items:center; gap:6px; font-size:11px; color:var(--bizc-muted); margin:0 0 14px; }
-  .bizc-steps b{ color:var(--bizc-ink); }
-  .bizc-back{ font-size:13px; color:var(--bizc-muted); cursor:pointer; display:inline-flex; align-items:center; gap:4px; margin:0 0 12px; background:none; border:none; padding:0; font-family:inherit; }
-  .bizc-back:hover{ color:var(--bizc-ink); }
-
-  .bizc-field{ margin:0 0 14px; }
-  .bizc-field label{ display:block; font-size:12.5px; font-weight:500; color:#1d1d1f; margin:0 0 6px; }
-  .bizc-field input, .bizc-field select{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--bizc-line); background:#fff; font-family:inherit; font-size:14.5px; color:var(--bizc-ink); transition:border-color .2s, box-shadow .2s; }
-  .bizc-field input:focus, .bizc-field select:focus{ outline:none; border-color:var(--bizc-ink); box-shadow:0 0 0 4px rgba(10,10,10,.08); }
-  .bizc-err{ font-size:12px; color:#c0392b; margin:5px 0 0; display:none; }
-  .bizc-err.bizc-show-err{ display:block; }
-
-  .bizc-btn{ width:100%; background:var(--bizc-ink); color:#fff; border:none; border-radius:9999px; padding:13px; font-size:14.5px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:background .2s, transform .2s; font-family:inherit; }
-  .bizc-btn:hover{ background:#1f1f1f; transform:translateY(-1px); }
+  /* form card — mirrors /join/ .form-card */
+  .bizc-card{ background:#fff; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,.07); padding:28px 26px 24px; }
+  .bizc-group{ margin-bottom:18px; }
+  .bizc-card label{ display:block; font-size:14px; font-weight:500; color:#1a1a1a; margin-bottom:8px; }
+  .bizc-req{ color:#ec4899; margin-left:2px; }
+  .bizc-card input[type="text"], .bizc-card input[type="email"]{
+    width:100%; padding:12px 14px; border:1.5px solid #e0e0e0; border-radius:8px;
+    font-size:15px; font-family:inherit; color:#1a1a1a; background:#fafafa; transition:all .18s ease;
+  }
+  .bizc-card input:focus{ outline:none; border-color:#6366f1; background:#fff; box-shadow:0 0 0 3px rgba(99,102,241,.1); }
+  .bizc-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .bizc-btn{ width:100%; padding:14px; background:#1a1a1a; color:#fff; border:none; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; transition:all .2s ease; margin-top:4px; display:flex; align-items:center; justify-content:center; gap:8px; font-family:inherit; }
+  .bizc-btn:hover{ background:#333; transform:translateY(-1px); }
   .bizc-btn:disabled{ background:#999; cursor:not-allowed; transform:none; }
-  .bizc-spinner{ width:14px; height:14px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:bizc-spin .8s linear infinite; display:none; }
+  .bizc-spinner{ width:16px; height:16px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:bizc-spin .8s linear infinite; display:none; }
   @keyframes bizc-spin{ to{ transform:rotate(360deg); } }
+  .bizc-err{ display:none; padding:12px 16px; border-radius:8px; font-size:14px; margin-bottom:18px; line-height:1.5; background:#fef2f2; border:1.5px solid #fca5a5; color:#991b1b; }
+  .bizc-foot{ text-align:center; margin-top:16px; color:#8b8b93; font-size:13px; }
 
-  .bizc-fallback{ display:none; font-size:12.5px; color:#c0392b; margin:10px 0 0; text-align:center; }
-  .bizc-fallback a{ color:inherit; }
+  /* success panel — mirrors /join/ #successPanel */
+  .bizc-success{ text-align:center; padding:6px 4px 2px; display:none; }
+  .bizc-sp-check{ width:54px; height:54px; margin:0 auto 18px; border-radius:50%; background:#f0fdf4; border:1.5px solid #86efac; color:#16a34a; font-size:26px; display:flex; align-items:center; justify-content:center; }
+  .bizc-sp-title{ font-family:'Geist', system-ui, sans-serif; font-size:26px; font-weight:700; color:#1a1a1a; letter-spacing:-.5px; margin:0 0 8px; }
+  .bizc-sp-sub{ font-size:15px; color:#666; line-height:1.6; max-width:430px; margin:0 auto; }
+  .bizc-sp-rule{ height:1px; background:#ececf0; margin:22px auto; max-width:360px; }
+  .bizc-sp-kicker{ font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#9a4ef6; margin:0 0 10px; }
+  .bizc-sp-primary{ display:flex; align-items:center; justify-content:center; gap:8px; width:100%; max-width:420px; margin:20px auto 0; padding:14px; background:#1a1a1a; color:#fff; border-radius:8px; font-size:15px; font-weight:600; text-decoration:none; transition:all .2s ease; }
+  .bizc-sp-primary:hover{ background:#333; transform:translateY(-1px); }
+  .bizc-sp-ghost{ display:inline-block; margin-top:14px; color:#999; font-size:14px; text-decoration:none; background:none; border:none; cursor:pointer; font-family:inherit; }
+  .bizc-sp-ghost:hover{ color:#666; }
 
-  .bizc-legal{ font-size:11.5px; color:var(--bizc-muted); text-align:center; margin:14px 0 0; }
-
-  .bizc-success{ text-align:center; padding:6px 0 2px; display:none; }
-  .bizc-success-check{ width:52px; height:52px; margin:0 auto 16px; border-radius:50%; background:#f0fdf4; border:1.5px solid #86efac; color:var(--bizc-mint); font-size:24px; display:flex; align-items:center; justify-content:center; }
-  .bizc-success h3{ font-size:22px; margin:0 0 8px; }
-  .bizc-success p{ font-size:14.5px; color:rgba(29,29,31,.75); line-height:1.55; margin:0; }
-
-  @media (max-width:480px){
-    .bizc-modal{ padding:30px 22px 24px; border-radius:20px; }
-    .bizc-headline{ font-size:22px; }
+  @media (max-width:600px){
+    .bizc-modal{ padding:28px 16px 20px; border-radius:16px; }
+    .bizc-card{ padding:24px 18px; }
+    .bizc-row{ grid-template-columns:1fr; }
+    .bizc-head h3{ font-size:24px; }
     .bizc-bar-inner{ padding:14px 30px; }
   }
 </style>
@@ -892,80 +897,51 @@
     <div class="bizc-modal" role="dialog" aria-modal="true" aria-labelledby="bizcHeadline">
       <button class="bizc-modal-close" id="bizcModalClose" aria-label="Close">&times;</button>
 
-      <div id="bizcStep1">
-        <div class="bizc-badge"><span class="bizc-badge-dot"></span> Now enrolling · Open to all applicants</div>
-        <h3 class="bizc-headline bizc-display" id="bizcHeadline">All six seats are open.<br><span class="bizc-serif-i">Save yours.</span></h3>
-        <p class="bizc-sub">Drop your email and we'll send you the next cohort's start date, the six pillars, and a direct link to apply.</p>
-
-        <ul class="bizc-trust">
-          <li>Rolling admissions</li>
-          <li>Response within 7 days</li>
-          <li>Revenue-generating businesses only</li>
-        </ul>
-
-        <div class="bizc-quote">
-          <p>&ldquo;The single biggest unlock in my own career was a small group of people who took my growth as seriously as I did.&rdquo;</p>
-          <cite>&mdash; Michael, Founder of BizColab</cite>
+      <div id="bizcFormView">
+        <div class="bizc-head">
+          <div class="bizc-badge"><span class="bizc-badge-dot"></span> Founding cohort now enrolling</div>
+          <h3 id="bizcHeadline"><span>Seven people</span> in your corner. <span>The team</span> you&rsquo;ve been missing.</h3>
+          <p>A small cohort for people serious about growing their business &mdash; and just as passionate about helping others grow theirs. Add your name to join the process.</p>
         </div>
 
-        <div class="bizc-steps"><b>Step 1</b>&nbsp;of 2</div>
+        <div class="bizc-card">
+          <div class="bizc-err" id="bizcErrorAlert">&#10007; Something went wrong. Please try again or email Michael@bizcolab.com</div>
 
-        <div class="bizc-field">
-          <label for="bizcEmail">Email <span style="color:var(--bizc-coral)">*</span></label>
-          <input type="email" id="bizcEmail" placeholder="you@company.com" autocomplete="email">
-          <div class="bizc-err" id="bizcEmailErr">Enter a valid email address.</div>
+          <form id="bizcSeatForm">
+            <div class="bizc-row">
+              <div class="bizc-group">
+                <label for="bizcFirstName">First Name <span class="bizc-req">*</span></label>
+                <input type="text" id="bizcFirstName" name="firstName" placeholder="Jane" autocomplete="given-name" required>
+              </div>
+              <div class="bizc-group">
+                <label for="bizcLastName">Last Name <span class="bizc-req">*</span></label>
+                <input type="text" id="bizcLastName" name="lastName" placeholder="Smith" autocomplete="family-name" required>
+              </div>
+            </div>
+            <div class="bizc-group">
+              <label for="bizcEmail">Email <span class="bizc-req">*</span></label>
+              <input type="email" id="bizcEmail" name="email" placeholder="you@company.com" autocomplete="email" required>
+            </div>
+
+            <button type="submit" class="bizc-btn" id="bizcSubmitBtn">
+              <span class="bizc-spinner" id="bizcSpinner"></span>
+              <span id="bizcBtnText">Add my name &rarr;</span>
+            </button>
+          </form>
         </div>
 
-        <div class="bizc-field">
-          <label for="bizcBizType">What best describes your business? <span style="color:var(--bizc-coral)">*</span></label>
-          <select id="bizcBizType">
-            <option value="" selected disabled>Choose one</option>
-            <option>Real estate</option>
-            <option>Agency / services</option>
-            <option>Ecommerce</option>
-            <option>SaaS / tech</option>
-            <option>Other operator</option>
-          </select>
-          <div class="bizc-err" id="bizcBizTypeErr">Select the option that fits best.</div>
-        </div>
-
-        <button class="bizc-btn" id="bizcStep1Next" type="button">
-          Continue
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </button>
-        <p class="bizc-legal">Just your email. No spam — ever.</p>
+        <div class="bizc-foot">Just your name and email. Response within 7&nbsp;days.</div>
       </div>
 
-      <div id="bizcStep2" style="display:none;">
-        <button class="bizc-back" id="bizcBack" type="button">&larr; Back</button>
-        <div class="bizc-steps"><b>Step 2</b>&nbsp;of 2 &middot; optional</div>
-        <h3 class="bizc-headline bizc-display" style="font-size:22px;">A little more helps us match you.</h3>
-        <p class="bizc-sub">Totally optional — skip straight to submit if you'd rather.</p>
-
-        <div class="bizc-field">
-          <label for="bizcFirstName">First name</label>
-          <input type="text" id="bizcFirstName" placeholder="Jane" autocomplete="given-name">
-        </div>
-        <div class="bizc-field">
-          <label for="bizcLastName">Last name</label>
-          <input type="text" id="bizcLastName" placeholder="Smith" autocomplete="family-name">
-        </div>
-        <div class="bizc-field">
-          <label for="bizcPhone">Phone</label>
-          <input type="tel" id="bizcPhone" placeholder="(555) 555-5555" autocomplete="tel">
-        </div>
-
-        <button class="bizc-btn" id="bizcSubmit" type="button">
-          <span class="bizc-spinner" id="bizcSpinner"></span>
-          <span id="bizcSubmitText">Request my seat</span>
-        </button>
-        <p class="bizc-fallback" id="bizcFallback">Something went wrong — email <a href="mailto:michael@bizcolab.com">michael@bizcolab.com</a> directly and we'll get you sorted.</p>
-      </div>
-
-      <div class="bizc-success" id="bizcSuccess">
-        <div class="bizc-success-check">&#10003;</div>
-        <h3 class="bizc-display">You're on the list.</h3>
-        <p>We'll be in touch within 7 days with your next cohort's start date and the full application.</p>
+      <div class="bizc-card bizc-success" id="bizcSuccess">
+        <div class="bizc-sp-check">&#10003;</div>
+        <h2 class="bizc-sp-title">You&rsquo;re on the list<span id="bizcSpName"></span>.</h2>
+        <p class="bizc-sp-sub">You&rsquo;re in for the next cohort &mdash; we&rsquo;ll be in touch within 7&nbsp;days.</p>
+        <div class="bizc-sp-rule"></div>
+        <p class="bizc-sp-kicker">Optional next step</p>
+        <p class="bizc-sp-sub">Want to fast-track your match? Complete the full application &mdash; it helps us pair you with the right people. There&rsquo;s no rush: do it now, or we&rsquo;ll email you the link to finish later.</p>
+        <a class="bizc-sp-primary" href="/sign-up/">Complete the full application &rarr;</a>
+        <button type="button" class="bizc-sp-ghost" id="bizcSuccessClose">I&rsquo;ll do this later</button>
       </div>
 
     </div>
@@ -980,6 +956,8 @@
     window.__bizcEmailjsInit = true;
   }
 
+  var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec';
+
   var root = document.getElementById('bizc-popup-root');
   if (!root) return;
 
@@ -988,20 +966,14 @@
   var barClose   = document.getElementById('bizcBarClose');
   var backdrop   = document.getElementById('bizcBackdrop');
   var modalClose = document.getElementById('bizcModalClose');
-  var step1      = document.getElementById('bizcStep1');
-  var step2      = document.getElementById('bizcStep2');
+  var formView   = document.getElementById('bizcFormView');
   var success    = document.getElementById('bizcSuccess');
-  var backBtn    = document.getElementById('bizcBack');
-  var next1      = document.getElementById('bizcStep1Next');
-  var submitBtn  = document.getElementById('bizcSubmit');
+  var successX   = document.getElementById('bizcSuccessClose');
+  var form       = document.getElementById('bizcSeatForm');
+  var submitBtn  = document.getElementById('bizcSubmitBtn');
   var spinner    = document.getElementById('bizcSpinner');
-  var submitText = document.getElementById('bizcSubmitText');
-  var fallback   = document.getElementById('bizcFallback');
-
-  var emailInput = document.getElementById('bizcEmail');
-  var bizTypeSel = document.getElementById('bizcBizType');
-  var emailErr   = document.getElementById('bizcEmailErr');
-  var bizTypeErr = document.getElementById('bizcBizTypeErr');
+  var btnText    = document.getElementById('bizcBtnText');
+  var errorAlert = document.getElementById('bizcErrorAlert');
 
   var SS = window.sessionStorage;
   function seen(key){ try { return SS.getItem(key) === '1'; } catch(e){ return false; } }
@@ -1032,6 +1004,7 @@
   }
   barCta.addEventListener('click', openModal);
   modalClose.addEventListener('click', closeModal);
+  successX.addEventListener('click', closeModal);
   backdrop.addEventListener('click', function(e){ if (e.target === backdrop) closeModal(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && backdrop.classList.contains('bizc-open')) closeModal(); });
 
@@ -1051,76 +1024,46 @@
     if (!e.relatedTarget && e.clientY <= 0) openModal();
   });
 
-  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-
-  next1.addEventListener('click', function(){
-    var ok = true;
-    if (!validEmail(emailInput.value.trim())) { emailErr.classList.add('bizc-show-err'); ok = false; } else { emailErr.classList.remove('bizc-show-err'); }
-    if (!bizTypeSel.value) { bizTypeErr.classList.add('bizc-show-err'); ok = false; } else { bizTypeErr.classList.remove('bizc-show-err'); }
-    if (!ok) return;
-    step1.style.display = 'none';
-    step2.style.display = 'block';
-  });
-
-  backBtn.addEventListener('click', function(){
-    step2.style.display = 'none';
-    step1.style.display = 'block';
-  });
-
-  submitBtn.addEventListener('click', function(){
-    fallback.style.display = 'none';
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorAlert.style.display = 'none';
     submitBtn.disabled = true;
-    spinner.style.display = 'inline-block';
-    submitText.textContent = 'Sending...';
+    spinner.style.display = 'block';
+    btnText.textContent = 'Sending...';
 
-    var email    = emailInput.value.trim();
-    var bizType  = bizTypeSel.value;
-    var first    = document.getElementById('bizcFirstName').value.trim();
-    var last     = document.getElementById('bizcLastName').value.trim();
-    var phone    = document.getElementById('bizcPhone').value.trim();
-    var fullName = (first + ' ' + last).trim();
+    var first = document.getElementById('bizcFirstName').value.trim();
+    var last  = document.getElementById('bizcLastName').value.trim();
+    var email = document.getElementById('bizcEmail').value.trim();
 
-    var baseParams = {
-      to_name:       fullName || email,
-      first_name:    first,
-      last_name:     last,
-      full_name:     fullName,
-      email:         email,
-      phone:         phone,
-      business_type: bizType,
-      message:       'Popup lead — business type: ' + bizType,
-      inquiry_type:  'Popup — Request a Seat',
-      source:        'homepage_popup',
-      reply_to:      email
+    var data = {
+      full_name:  (first + ' ' + last).trim(),
+      first_name: first,
+      last_name:  last,
+      email:      email,
+      reply_to:   email,
+      to_name:    (first + ' ' + last).trim() || email,
+      to_email:   email,
+      inquiry_type: 'Popup — Request a Seat',
+      source:     'homepage_popup'
     };
-    var teamParams  = Object.assign({}, baseParams, { to_email: 'michael@bizcolab.com' });
-    var replyParams = Object.assign({}, baseParams, { to_email: email });
 
-    emailjs.send('service_bpcodid', 'template_09f1pjl', teamParams)
-      .then(function(){
-        emailjs.send('service_bpcodid', 'template_bt9vd63', replyParams)
-          .catch(function(err){ console.error('BizColab popup auto-reply failed:', err); });
+    emailjs.send('service_bpcodid', 'template_09f1pjl', Object.assign({}, data, { to_email:'michael@bizcolab.com' }))
+      .catch(function(err){ console.error('BizColab popup lead email failed:', err); });
+    emailjs.send('service_bpcodid', 'template_bt9vd63', data)
+      .catch(function(err){ console.error('BizColab popup auto-reply failed:', err); });
+    try {
+      fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(data) }).catch(function(){});
+    } catch(err){}
 
-        try {
-          fetch('https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec', {
-            method:'POST', mode:'no-cors', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(baseParams)
-          }).catch(function(){});
-        } catch(e){}
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event:'lead_submit', form_type:'popup', form_source:'homepage_popup', lead_value:25, currency:'USD' });
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event:'lead_submit', form_type:'popup', form_source:'homepage_popup', lead_value:25, currency:'USD' });
-
-        step2.style.display = 'none';
-        success.style.display = 'block';
-        mark('bizc_lead_captured');
-      })
-      .catch(function(err){
-        console.error('BizColab popup lead email failed:', err);
-        submitBtn.disabled = false;
-        spinner.style.display = 'none';
-        submitText.textContent = 'Request my seat';
-        fallback.style.display = 'block';
-      });
+    setTimeout(function(){
+      document.getElementById('bizcSpName').textContent = first ? (', ' + first) : '';
+      formView.style.display = 'none';
+      success.style.display = 'block';
+      mark('bizc_lead_captured');
+    }, 700);
   });
 })();
 </script>
