@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BizColab — Cohort 01 · Session 2 · Match</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0a0a0a; --paper:#0a0a0a; --muted:rgba(255,255,255,.55); --line:rgba(255,255,255,.1);
+  --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e; --amber:#ffb340; --mint:#30d158;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; background:var(--ink); overflow:hidden; }
+body { font-family:'Geist',system-ui,-apple-system,sans-serif; color:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-.011em; }
+em { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; }
+
+.deck { position:relative; width:100vw; height:100vh; }
+.slide { position:absolute; inset:0; display:none; padding:7vh 8vw; overflow:hidden; }
+.slide.active { display:flex; flex-direction:column; }
+.slide-glow { position:absolute; top:-30vh; left:50%; transform:translateX(-50%); width:70vw; height:70vw; border-radius:50%; background:radial-gradient(closest-side, #1e3a5f 0%, rgba(10,10,10,0) 70%); opacity:.55; pointer-events:none; }
+
+.eyebrow { font-size:clamp(11px,1vw,13px); font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:18px; position:relative; z-index:1; }
+.eyebrow .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:currentColor; margin-right:8px; }
+h1.big { font-size:clamp(40px,6.4vw,84px); font-weight:700; letter-spacing:-.045em; line-height:1.03; position:relative; z-index:1; }
+h1.big em { color:var(--amber); }
+.lead { margin-top:22px; font-size:clamp(17px,1.73vw,23px); line-height:1.6; color:var(--muted); max-width:56ch; position:relative; z-index:1; }
+
+.body-wrap { flex:1; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:1; }
+
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,26px); margin-top:clamp(20px,4vh,44px); }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,2vw,26px); margin-top:clamp(20px,4vh,44px); }
+.gcard { background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:22px; padding:clamp(20px,2.2vw,32px); }
+.gcard .tag { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+.gcard h3 { font-size:clamp(17px,1.7vw,23px); font-weight:700; letter-spacing:-.02em; margin-bottom:14px; color:#fff; }
+.gcard ul { list-style:none; }
+.gcard li { font-size:clamp(15px,1.21vw,17.8px); line-height:1.6; color:var(--muted); padding-left:16px; position:relative; margin-bottom:11px; }
+.gcard li::before { content:''; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:currentColor; }
+
+.arc-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:clamp(24px,4vh,50px); position:relative; z-index:1; }
+.arc-row::before { content:''; grid-column:1/-1; }
+.arcbox { border:1px solid var(--line); border-radius:20px; padding:clamp(18px,2vw,28px); background:rgba(255,255,255,.03); }
+.arcbox .n { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
+.arcbox h4 { font-size:clamp(20px,2.2vw,30px); font-weight:700; letter-spacing:-.03em; margin-bottom:10px; color:#fff; }
+.arcbox p { font-size:clamp(14px,1.15vw,16.1px); line-height:1.55; color:var(--muted); }
+
+.timeline { margin-top:clamp(24px,5vh,56px); position:relative; z-index:1; }
+.trow { display:grid; grid-template-columns:120px 1fr; gap:24px; padding:clamp(12px,1.6vh,20px) 0; border-top:1px solid var(--line); align-items:baseline; }
+.trow:first-child { border-top:0; }
+.trow .time { font-size:clamp(15px,1.38vw,18.4px); font-weight:600; color:#fff; }
+.trow .what { font-size:clamp(15px,1.38vw,18.4px); color:var(--muted); }
+.trow .what b { color:#fff; font-weight:600; }
+
+.stat-row { display:flex; gap:clamp(24px,4vw,60px); margin-top:clamp(20px,4vh,40px); position:relative; z-index:1; flex-wrap:wrap; }
+.stat b { display:block; font-size:clamp(32px,4.5vw,58px); font-weight:700; letter-spacing:-.03em; }
+.stat span { font-size:clamp(11px,.9vw,13px); text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+
+.foot { position:absolute; bottom:5vh; left:8vw; right:8vw; display:flex; justify-content:space-between; font-size:clamp(11px,.9vw,13px); color:rgba(255,255,255,.32); z-index:1; }
+
+.progress { position:fixed; bottom:0; left:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--indigo),var(--coral),var(--amber),var(--mint)); transition:width .35s ease; z-index:10; }
+.navhint { position:fixed; top:24px; right:32px; font-size:12px; color:rgba(255,255,255,.3); z-index:10; }
+.dots { position:fixed; bottom:20px; right:32px; display:flex; gap:7px; z-index:10; }
+.dots span { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.2); transition:background .2s; }
+.dots span.on { background:#fff; }
+
+.sched { margin-top:clamp(20px,3.5vh,40px); position:relative; z-index:1; }
+.srow { display:grid; grid-template-columns:150px 130px 1fr; gap:26px; padding:clamp(11px,1.5vh,18px) 0; border-top:1px solid var(--line); align-items:baseline; }
+.srow:first-child { border-top:0; }
+.srow .sdate { font-size:clamp(15px,1.42vw,19px); font-weight:700; color:#fff; letter-spacing:-.02em; }
+.srow .sname { font-size:clamp(15px,1.42vw,19px); font-weight:700; letter-spacing:-.02em; }
+.srow .swhat { font-size:clamp(14px,1.27vw,17px); line-height:1.55; color:var(--muted); }
+.srow.skip { opacity:.45; }
+.srow.skip .sdate, .srow.skip .sname { font-weight:500; color:var(--muted); }
+
+/* The Room: 8 cards -> 4 x 2, tighter so it fits one screen */
+.roomgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.4vw,18px); margin-top:clamp(16px,2.6vh,30px); }
+.roomgrid .gcard { padding:clamp(15px,1.5vw,21px); border-radius:18px; }
+.roomgrid .gcard .tag { margin-bottom:9px; }
+.roomgrid .gcard h3 { font-size:clamp(15px,1.32vw,19px); margin-bottom:9px; }
+.roomgrid .gcard p { font-size:clamp(12.5px,1.02vw,14.5px) !important; line-height:1.5 !important; }
+
+/* About me: six ventures -> 3 x 2, compact */
+.sixgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(11px,1.3vw,17px); margin-top:clamp(13px,2.2vh,24px); }
+.sixgrid .gcard { padding:clamp(13px,1.4vw,19px); border-radius:18px; }
+.sixgrid .gcard .tag { margin-bottom:7px; font-size:10.5px; }
+.sixgrid .gcard h3 { font-size:clamp(14px,1.24vw,18px); margin-bottom:8px; }
+.sixgrid .gcard li { font-size:clamp(12.5px,1.02vw,14.6px); line-height:1.48; margin-bottom:5px; padding-left:14px; }
+.sixgrid .gcard li::before { top:7px; width:4px; height:4px; }
+@media (max-height: 880px) { .sixgrid { margin-top:clamp(10px,1.8vh,20px); } .sixgrid .gcard { padding:clamp(11px,1.2vw,16px); } }
+
+/* Shorter screens: tighten chrome, keep the larger body copy intact */
+@media (max-height: 880px) {
+  .slide { padding:5.5vh 7vw; }
+  h1.big { font-size:clamp(34px,5.3vw,62px); }
+  .lead { margin-top:16px; }
+  .grid3, .grid2 { margin-top:clamp(14px,2.6vh,28px); gap:clamp(12px,1.6vw,20px); }
+  .gcard { padding:clamp(15px,1.8vw,24px); }
+  .gcard li { margin-bottom:8px; }
+  .arc-row { margin-top:clamp(16px,2.8vh,32px); }
+  .arcbox { padding:clamp(14px,1.6vw,22px); }
+  .timeline { margin-top:clamp(14px,2.6vh,30px); }
+  .trow { padding:clamp(8px,1.1vh,14px) 0; }
+  .sched { margin-top:clamp(14px,2.4vh,26px); }
+  .srow { padding:clamp(8px,1.1vh,14px) 0; }
+  .roomgrid { margin-top:clamp(12px,2vh,22px); }
+  .foot { bottom:3.5vh; }
+}
+@media (max-height: 780px) {
+  .slide { padding:4.5vh 6.5vw; }
+  h1.big { font-size:clamp(30px,4.7vw,54px); }
+  .lead { margin-top:13px; font-size:clamp(15px,1.5vw,19px); }
+  .grid3, .grid2 { margin-top:clamp(11px,2vh,22px); }
+  .gcard { padding:clamp(13px,1.5vw,20px); }
+  .gcard h3 { margin-bottom:10px; }
+  .gcard li { margin-bottom:6px; }
+  .trow { padding:clamp(6px,.9vh,11px) 0; }
+  .srow { padding:clamp(6px,.9vh,11px) 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- 1. COVER -->
+  <section class="slide active">
+    <div class="slide-glow"></div>
+    <div class="body-wrap" style="justify-content:center; align-items:flex-start; text-align:left;">
+      <div class="eyebrow"><span class="dot"></span>Founding Cohort &middot; Session 2 &middot; Aug 24, 2026</div>
+      <h1 class="big">Week 02<br><em>Match</em></h1>
+      <p class="lead">Last Monday every challenge went on the table. Tonight you get paired with the person best positioned to move yours &mdash; and you build them something real in return.</p>
+      <div class="stat-row">
+        <div class="stat"><b>3</b><span>Pairs</span></div>
+        <div class="stat"><b>28</b><span>Min in the pair room</span></div>
+        <div class="stat"><b>1</b><span>Thing you build</span></div>
+        <div class="stat"><b>6</b><span>Numbers on the board</span></div>
+      </div>
+    </div>
+    <div class="foot"><span>Michael Abraham, Founder</span><span>bizcolab.com</span></div>
+  </section>
+
+  <!-- 2. WHERE WE ARE -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Where we are</div>
+    <h1 class="big">Six challenges. <em>One week in.</em></h1>
+    <p class="lead">Week 1 was diagnosis &mdash; every business and every constraint named out loud, with a starting number attached. Tonight is the first time the room actually works <em>for</em> you.</p>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Done</div><h3>Mapped</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Six challenges named, six starting numbers written down, every offer and every ask logged live.</p></div>
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">Tonight</div><h3>Matched</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Pairs built from that map &mdash; your ask against someone else's offer. Not random, not alphabetical.</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Next</div><h3>Moved</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Week 3 you bring the actual work and the whole room takes a turn on it.</p></div>
+    </div>
+    <p class="lead" style="margin-top:22px"><b style="color:#fff">[Facilitator: replace with the six named challenges from Week 1 before the session.]</b></p>
+  </section>
+
+  <!-- 3. WHAT MATCH MEANS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>What tonight is</div>
+    <h1 class="big">Build them <em>something.</em></h1>
+    <p class="lead">The bar for tonight isn't a good conversation. It's that your partner leaves with an object &mdash; something that exists now and didn't at 5:30.</p>
+    <div class="grid2">
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Not this</div><h3>A nice chat</h3><ul>
+        <li>"That's really interesting, have you thought about&hellip;"</li>
+        <li>Trading context for 14 minutes and running out of time</li>
+        <li>"Let's set something up" &mdash; the thing that never happens</li>
+        <li>Advice you could have given a stranger</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">This</div><h3>A deliverable</h3><ul>
+        <li>A teardown &mdash; their site, pitch, pricing, funnel, pulled apart in writing</li>
+        <li>A plan &mdash; the next five steps, in order, with owners</li>
+        <li>An intro &mdash; a real name, and you send it this week</li>
+        <li>A solution &mdash; the thing they're stuck on, unstuck, in the room</li>
+      </ul></div>
+    </div>
+    <p class="lead" style="margin-top:22px">You get 14 minutes on theirs and 14 on yours. Whatever you make gets shown to the room after the break.</p>
+  </section>
+
+  <!-- 4. HOW TONIGHT WORKS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Tonight</div>
+    <h1 class="big">How the next <em>90 minutes</em> go.</h1>
+    <div class="timeline">
+      <div class="trow"><div class="time">5:30</div><div class="what"><b>Open</b> &mdash; who's here, what landed in Slack on Friday, how tonight runs.</div></div>
+      <div class="trow"><div class="time">5:35</div><div class="what"><b>This overview</b> &mdash; 5 minutes on what Match is and what you're expected to walk out with.</div></div>
+      <div class="trow"><div class="time">5:40</div><div class="what"><b>Round the room</b> &mdash; 2 minutes each, hard timer. What moved, what didn't, where the number sits today.</div></div>
+      <div class="trow"><div class="time">5:52</div><div class="what"><b>Pair rooms</b> &mdash; 28 minutes, three breakouts. 14 minutes on their challenge, 14 on yours. Timer calls the switch.</div></div>
+      <div class="trow"><div class="time">6:20</div><div class="what"><b>Break</b> &mdash; 5 minutes. Back on at 6:25.</div></div>
+      <div class="trow"><div class="time">6:25</div><div class="what"><b>Report back</b> &mdash; 9 minutes per pair. You present what you built <b>for your partner</b>, they say what they'll do with it, the room adds.</div></div>
+      <div class="trow"><div class="time">6:52</div><div class="what"><b>Close</b> &mdash; one commitment each for the week, and what Week 3 asks you to bring.</div></div>
+    </div>
+    <p class="lead" style="margin-top:20px">You present your partner's work, not your own. It's the fastest way to find out whether you actually listened.</p>
+  </section>
+
+  <!-- 5. THE PAIRINGS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>The pairings</div>
+    <h1 class="big">Who's with <em>who</em> &mdash; and why.</h1>
+    <p class="lead">Built from Week 1's offers-and-needs map. Each pairing exists for a specific reason, and that reason is on the card.</p>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Pair 01 &middot; Room A</div><h3>[Name] &amp; [Name]</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">[Why: their offer against this ask. One line.]</p></div>
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">Pair 02 &middot; Room B</div><h3>[Name] &amp; [Name]</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">[Why: their offer against this ask. One line.]</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Pair 03 &middot; Room C</div><h3>[Name] &amp; [Name]</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">[Why: their offer against this ask. One line.]</p></div>
+    </div>
+    <p class="lead" style="margin-top:22px"><b style="color:#fff">[Facilitator: fill these from the Week 1 log. Seven names in the room including the host &mdash; the host joins whichever pair is short, or floats between rooms.]</b></p>
+  </section>
+
+  <!-- 6. YOUR TWO MINUTES -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Round the room</div>
+    <h1 class="big">Two minutes. <em>Three lines.</em></h1>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">01 &middot; ~40 sec</div><h3>What you did</h3><ul>
+        <li>The actual thing you moved, not the thinking you did</li>
+        <li>If nothing moved, say that &mdash; it's more useful than a summary</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">02 &middot; ~40 sec</div><h3>Where the number is</h3><ul>
+        <li>Week 1's number, and today's</li>
+        <li>Flat is fine. Flat with a reason is better</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">03 &middot; ~40 sec</div><h3>What's in the way</h3><ul>
+        <li>The one blocker your partner should spend tonight on</li>
+        <li>Name it now so the pair room doesn't burn ten minutes finding it</li>
+      </ul></div>
+    </div>
+    <p class="lead" style="margin-top:22px">Hard timer. No responses during the round &mdash; the pair rooms and the report-back are where the work happens.</p>
+  </section>
+
+  <!-- 7. IN THE PAIR ROOM -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>In the pair room</div>
+    <h1 class="big">Fourteen minutes, <em>then switch.</em></h1>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Min 0&ndash;3</div><h3>Get to the real constraint</h3><ul>
+        <li>Ask, don't advise. Three questions before you offer anything</li>
+        <li>"What have you already tried?" saves the other eleven minutes</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">Min 3&ndash;11</div><h3>Make the thing</h3><ul>
+        <li>Screen share. Open the doc, the site, the deck, the spreadsheet</li>
+        <li>Write it down as you go &mdash; theirs to keep, not yours to remember</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Min 11&ndash;14</div><h3>Land it</h3><ul>
+        <li>What they'll actually do with it, and by when</li>
+        <li>What you owe them after tonight &mdash; the intro, the file, the name</li>
+      </ul></div>
+    </div>
+    <p class="lead" style="margin-top:22px">The timer switches you at 14 minutes whether you're finished or not. Both halves get the same time &mdash; that's the whole deal.</p>
+  </section>
+
+  <!-- 8. STRUCTURED, SPECIFIC FEEDBACK -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>How we give feedback</div>
+    <h1 class="big">Direct beats <em>polite.</em></h1>
+    <div class="grid2">
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Useless</div><h3>Sounds supportive, does nothing</h3><ul>
+        <li>"I love this, I think you're really onto something"</li>
+        <li>"You should do more marketing"</li>
+        <li>"Have you thought about AI?"</li>
+        <li>Softening it so much the point disappears</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Usable</div><h3>Specific enough to act on tomorrow</h3><ul>
+        <li>"Your pricing page buries the number &mdash; move it above the fold"</li>
+        <li>"I ran that exact play at C/C/G and it took nine months, not six weeks"</li>
+        <li>"I'll intro you to [name] Thursday &mdash; she's hired for this twice"</li>
+        <li>Experience over advice: what happened when <em>you</em> tried it</li>
+      </ul></div>
+    </div>
+    <p class="lead" style="margin-top:22px">Nobody paid $99 to be told their idea is nice. Say the thing you'd want said to you &mdash; and before we close a block, I'll call on whoever hasn't spoken yet.</p>
+  </section>
+
+  <!-- 9. REPORT BACK -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Report back</div>
+    <h1 class="big">Nine minutes <em>per pair.</em></h1>
+    <div class="timeline">
+      <div class="trow"><div class="time">0:00&ndash;2:00</div><div class="what"><b>You present their work</b> &mdash; what you built for your partner and why that was the constraint.</div></div>
+      <div class="trow"><div class="time">2:00&ndash;3:00</div><div class="what"><b>They respond</b> &mdash; what they'll do with it, and where it missed.</div></div>
+      <div class="trow"><div class="time">3:00&ndash;5:00</div><div class="what"><b>Switch</b> &mdash; the other direction, same two beats.</div></div>
+      <div class="trow"><div class="time">5:00&ndash;9:00</div><div class="what"><b>Room adds</b> &mdash; anyone with a name, a number, a warning or a hand. This is where the other four people earn their seat.</div></div>
+    </div>
+    <p class="lead" style="margin-top:20px">I'm logging every offer made here. Anything promised tonight shows up in Slack by Wednesday &mdash; that's the accountability.</p>
+  </section>
+
+  <!-- 10. BETWEEN MONDAYS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Before next Monday</div>
+    <h1 class="big">Send what <em>you promised.</em></h1>
+    <div class="arc-row">
+      <div class="arcbox" style="color:var(--blue)"><div class="n">By Wednesday</div><h4>Deliver</h4><p>The intro, the file, the teardown. Whatever you said you'd send &mdash; send it.</p></div>
+      <div class="arcbox" style="color:var(--indigo)"><div class="n">Tue&ndash;Thu</div><h4>Run it</h4><p>Do the first two steps of what your partner built. Don't wait for step five.</p></div>
+      <div class="arcbox" style="color:var(--coral)"><div class="n">Friday</div><h4>Report</h4><p>Two lines in Slack: what shipped, what blocked you, what the number did.</p></div>
+      <div class="arcbox" style="color:var(--mint)"><div class="n">Aug 31</div><h4>Bring the work</h4><p>Week 3 is a working session. You bring the actual artifact, not a description of it.</p></div>
+    </div>
+    <p class="lead" style="margin-top:26px">A pairing that produces nothing by Friday was a conversation, not a match. Close the loop while it's still warm.</p>
+  </section>
+
+  <!-- 11. CLOSE -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="body-wrap" style="justify-content:center; align-items:flex-start; text-align:left;">
+      <div class="eyebrow"><span class="dot"></span>Close</div>
+      <h1 class="big">Halfway.<br><em>Now it gets real.</em></h1>
+      <p class="lead">Two Mondays down. Week 3 is the working session &mdash; nine minutes each, the whole room on one problem at a time, hands on the actual thing.</p>
+      <div class="grid3" style="margin-top:30px">
+        <div class="gcard" style="color:var(--blue)"><div class="tag">Next Monday</div><h3>Bring an artifact</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">The page, the deck, the pricing sheet, the outreach list, the contract. Something we can open on screen.</p></div>
+        <div class="gcard" style="color:var(--coral)"><div class="tag">Next Monday</div><h3>Bring the blocker</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">The specific thing standing between today's number and Sep 14's. One, not five.</p></div>
+        <div class="gcard" style="color:var(--mint)"><div class="tag">This week</div><h3>Use your pair</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">You have one person who now knows your business cold. Don't let that go idle for seven days.</p></div>
+      </div>
+      <p class="lead" style="margin-top:22px">Same Google Meet link, Monday Aug 31, 5:30 PM PT.</p>
+    </div>
+    <div class="foot"><span>The room is the product.</span><span>See you Aug 31.</span></div>
+  </section>
+
+  <!-- 12. FULL SCHEDULE -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Where we are in the arc</div>
+    <h1 class="big">Four Mondays, <em>5:30&ndash;7:00 PM PT.</em></h1>
+    <div class="sched">
+      <div class="srow skip">
+        <div class="sdate">Mon, Aug 17</div>
+        <div class="sname">Map &mdash; done</div>
+        <div class="swhat">Six challenges named, six starting numbers on the board.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Aug 24</div>
+        <div class="sname" style="color:var(--indigo)">Match &mdash; tonight</div>
+        <div class="swhat">Pairs built from the Week 1 map. Everyone builds their partner one real thing.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Aug 31</div>
+        <div class="sname" style="color:var(--coral)">Move</div>
+        <div class="swhat">Working session &mdash; six blocks, nine minutes each, the room hands-on with your actual work.</div>
+      </div>
+      <div class="srow skip">
+        <div class="sdate">Mon, Sep 7</div>
+        <div class="sname">No session</div>
+        <div class="swhat">Labor Day. Two weeks between Move and Measure &mdash; that's the ship window.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Sep 14</div>
+        <div class="sname" style="color:var(--mint)">Measure</div>
+        <div class="swhat">Results: what shipped, what didn't, what the number did, and what happens after this.</div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:26px">Same Google Meet link every week &mdash; it's on the dashboard at bizcolab.com/cohort-losangeles-001.</p>
+    <div class="foot"><span>The room is the product.</span><span>Let's get to work.</span></div>
+  </section>
+</div>
+
+<div class="navhint" id="navhint">1 / 8 &nbsp;&middot;&nbsp; &larr; &rarr; or click</div>
+<div class="dots" id="dots"></div>
+<div class="progress" id="progress"></div>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let i = 0;
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_,idx)=>{ const d=document.createElement('span'); if(idx===0) d.classList.add('on'); dotsEl.appendChild(d); });
+  const dots = Array.from(dotsEl.children);
+
+  function render(){
+    slides.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+    dots.forEach((d,idx)=> d.classList.toggle('on', idx===i));
+    document.getElementById('navhint').textContent = (i+1)+' / '+total+'  ·  ← → or click';
+    document.getElementById('progress').style.width = ((i+1)/total*100)+'%';
+  }
+  function next(){ i = Math.min(i+1, total-1); render(); }
+  function prev(){ i = Math.max(i-1, 0); render(); }
+
+  document.addEventListener('keydown', e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); next(); }
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    if(e.key==='Home'){ i=0; render(); }
+    if(e.key==='End'){ i=total-1; render(); }
+  });
+  document.getElementById('deck').addEventListener('click', e=>{
+    const x = e.clientX / window.innerWidth;
+    if (x < 0.3) prev(); else next();
+  });
+  render();
+})();
+</script>
+
+</body>
+</html>
