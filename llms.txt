@@ -1,6 +1,6 @@
 # BizColab
 
-> BizColab is a curated four-week mastermind cohort of eight business operators. Each cohort meets weekly for one month and is built around four pillars: accountability, complementary skill sets, honest peer feedback, and a network that outlasts the program. Founded by Michael Abraham.
+> BizColab is a curated four-week mastermind cohort of six business operators. Each cohort meets weekly for one month and is built around four pillars: accountability, complementary skill sets, honest peer feedback, and a network that outlasts the program. Founded by Michael Abraham.
 
 ## Key facts
 - Format: 8 members per cohort, 4 weeks, one weekly group call plus daily async check-ins.
