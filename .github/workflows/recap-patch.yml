@@ -1,0 +1,81 @@
+name: recap-patch
+
+on:
+  push:
+    paths:
+      - '.tmp-patch/patch.b64'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Unpack patch bundle
+        run: |
+          set -euo pipefail
+          test -f .tmp-patch/patch.b64
+          tr -d '\n' < .tmp-patch/patch.b64 | base64 -d > patch.tgz
+          md5sum patch.tgz
+          mkdir -p patchsrc
+          tar xzf patch.tgz -C patchsrc
+          ls -la patchsrc
+          sed -i 's#/home/user/patch/#patchsrc/#g; s#/tmp/patch/#patchsrc/#g' patchsrc/apply.py
+
+      - name: Decrypt, patch, re-encrypt
+        run: |
+          set -euo pipefail
+          PAGE=cohort-losangeles-001/recap-session-1/index.html
+          echo '{"salt":"927547544ff55e56970951a0e7855a92"}' > .staticrypt.json
+          cp "$PAGE" live.html
+          md5sum live.html
+          mkdir -p dec && npx --yes staticrypt live.html --decrypt -p 'BizColab001' --short -d dec
+          python3 patchsrc/apply.py dec/live.html new_plain.html
+          md5sum new_plain.html
+          cp new_plain.html enc_in.html
+          mkdir -p encout && npx --yes staticrypt enc_in.html -p 'BizColab001' --short -d encout
+          python3 - <<'PY'
+          import io, re
+          new = io.open('encout/enc_in.html', encoding='utf-8').read()
+          live = io.open('live.html', encoding='utf-8').read()
+          pat = re.compile(r'"staticryptEncryptedMsgUniqueVariableName":"([0-9a-f]+)"')
+          n = pat.search(new); l = pat.search(live)
+          sa = re.search(r'"staticryptSaltUniqueVariableName":"([0-9a-f]+)"', new).group(1)
+          sb = re.search(r'"staticryptSaltUniqueVariableName":"([0-9a-f]+)"', live).group(1)
+          assert sa == sb == '927547544ff55e56970951a0e7855a92', (sa, sb)
+          out = live[:l.start(1)] + n.group(1) + live[l.end(1):]
+          assert 'staticrypt_passphrase_recap' in out
+          io.open('publish.html', 'w', encoding='utf-8').write(out)
+          print('publish bytes', len(out))
+          PY
+          cp publish.html rt_in.html
+          mkdir -p rt && npx --yes staticrypt rt_in.html --decrypt -p 'BizColab001' --short -d rt
+          cmp rt/rt_in.html new_plain.html
+          echo ROUNDTRIP_OK
+          grep -c 'id="streetpulse"' rt/rt_in.html
+          cp publish.html "$PAGE"
+
+      - name: Clean up and commit
+        run: |
+          set -euo pipefail
+          rm -rf .tmp-patch patchsrc dec encout rt patch.tgz live.html new_plain.html enc_in.html rt_in.html publish.html .staticrypt.json .claude-write-probe.txt
+          rm -f .github/workflows/recap-patch.yml
+          git config user.name 'Claude'
+          git config user.email 'noreply@anthropic.com'
+          git add -A
+          git status --short
+          git commit -m "Recap S1: rewrite Renee's card around StreetPulse + add StreetPulse deep-dive section
+
+          - Renee's card: the tool is named (StreetPulse, live on millergroup.com since Jul 2026);
+            main challenge shifts from naming to positioning; new sub-challenges, aim, gap, lenses
+          - New #streetpulse section: deck read, social-listening verdict, AI-interview competitor
+            set, the empty middle, defensible claims, name/TM status, price anchors, 7-page deck
+            framework + Poppi art direction, Monday asks
+          - Anchor nav entry + scoped .sp-* CSS
+
+          Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+          git push
