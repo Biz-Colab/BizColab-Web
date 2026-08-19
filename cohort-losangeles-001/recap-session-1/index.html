@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Meeting 1 Recap and Next Steps · BizColab Cohort 01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{ --ink:#0a0a0a; --ink-2:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7; --paper:#fff; --paper-2:#f5f5f7;
+  --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e; --amber:#ffb340; --mint:#30d158; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Geist',system-ui,-apple-system,sans-serif; color:var(--ink-2); background:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-0.011em;}
+p,li,h1,h2,h3,h4,.lead{text-wrap:pretty}
+em.serif{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.06em;letter-spacing:0}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+/* topbar */
+.topbar{position:sticky;top:0;z-index:150;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.tb-in{max-width:1060px;margin:0 auto;padding:0 24px;height:50px;display:flex;align-items:center;gap:14px}
+.wordmark{font-weight:700;font-size:15px;color:var(--ink);letter-spacing:-.02em}
+.tb-div{width:1px;height:18px;background:var(--line)}
+.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--ink-2);background:#fff}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.tb-label{margin-left:auto;font-size:12px;color:var(--muted);font-weight:500}
+/* anchors */
+.anchors{position:sticky;top:50px;z-index:140;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.an-wrap{max-width:1060px;margin:0 auto;padding:0 24px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.an-wrap::-webkit-scrollbar{display:none}
+.anchors a{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--muted);padding:11px 12px;border-bottom:2px solid transparent;white-space:nowrap}
+.anchors a.on{color:var(--ink);border-bottom-color:var(--ink)}
+section{scroll-margin-top:104px;padding:52px 0 8px}
+/* hero */
+.hero{padding:64px 0 36px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+h1{font-size:clamp(30px,4.4vw,44px);line-height:1.08;letter-spacing:-.03em;color:var(--ink);font-weight:700;max-width:19ch}
+.lead{margin-top:16px;font-size:17px;line-height:1.55;color:var(--muted);max-width:62ch}
+.rule-chip{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px;font-weight:600;color:var(--ink)}
+.rule-chip .rd{width:8px;height:8px;border-radius:50%;background:var(--coral);flex:0 0 auto}
+h2{font-size:24px;letter-spacing:-.02em;color:var(--ink);font-weight:700;margin-bottom:6px}
+.sec-note{font-size:14px;color:var(--muted);margin-bottom:26px;max-width:66ch;line-height:1.55}
+/* pattern cards */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pcard{border:1px solid var(--line);border-radius:16px;padding:22px;background:#fff}
+.pcard .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:4px 8px;margin-bottom:12px}
+.pcard h3{font-size:17px;color:var(--ink);margin-bottom:8px;letter-spacing:-.015em}
+.pcard p{font-size:13.5px;line-height:1.55;color:var(--muted)}
+.pcard .names{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.nchip{font-size:11.5px;font-weight:600;border-radius:999px;padding:3px 9px;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-2)}
+/* member cards */
+.mcard{border:1px solid var(--line);border-radius:18px;background:#fff;margin-bottom:18px;overflow:hidden}
+.m-head{display:flex;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--paper-2)}
+.av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;flex:0 0 auto}
+.m-head h3{font-size:17px;color:var(--ink);letter-spacing:-.015em}
+.m-head .biz{font-size:12.5px;color:var(--muted);margin-top:2px}
+.m-body{display:grid;grid-template-columns:1.25fr 1fr;gap:0}
+.m-col{padding:18px 22px}
+.m-col + .m-col{border-left:1px solid var(--paper-2);background:var(--paper-2)}
+.klab{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.biz-p{font-size:13px;line-height:1.55;color:var(--ink-2);margin-bottom:16px}
+.root-callout{border-left:3px solid var(--coral);background:#fff6f4;border-radius:0 10px 10px 0;padding:10px 12px;margin-bottom:14px}
+.m-col + .m-col .root-callout{background:#fff}
+.root-callout .rl{font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--coral);text-transform:uppercase}
+.root-callout p{font-size:13px;line-height:1.5;color:var(--ink-2);margin-top:4px}
+ol.chal{list-style:none;counter-reset:c;margin-bottom:4px}
+ol.chal li{counter-increment:c;position:relative;padding:6px 0 6px 30px;font-size:13px;line-height:1.5;color:var(--ink-2);border-bottom:1px dashed var(--line)}
+ol.chal li:last-child{border-bottom:none}
+ol.chal li::before{content:counter(c);position:absolute;left:0;top:7px;width:20px;height:20px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+ol.chal li.root::before{background:var(--coral);border-color:var(--coral);color:#fff}
+.help-p,.aim-p{font-size:13px;line-height:1.55;color:var(--ink-2)}
+.aim-box{margin-top:14px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px 14px}
+.aim-box .klab{color:var(--mint);margin-bottom:5px}
+.test-box{margin-top:14px;border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+.test-box .klab{color:var(--indigo);margin-bottom:5px}
+.test-box p{font-size:12.5px;line-height:1.5;color:var(--muted)}
+/* synergy */
+.pairs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}
+.pair{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff}
+.pair .duo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.pair .duo .av{width:34px;height:34px;font-size:12px}
+.pair .x{font-size:13px;color:var(--muted);font-weight:700}
+.pair h4{font-size:14.5px;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.pair p{font-size:12.5px;line-height:1.55;color:var(--muted)}
+.threads{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.thread{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:13px 20px;border-bottom:1px solid var(--paper-2);align-items:baseline}
+.thread:last-child{border-bottom:none}
+.thread:nth-child(even){background:var(--paper-2)}
+.thread .who{font-size:12.5px;font-weight:700;color:var(--ink)}
+.thread .what{font-size:13px;color:var(--muted);line-height:1.5}
+.clusters{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+.cluster{border:1px solid var(--line);border-radius:16px;padding:20px}
+.cluster h4{font-size:14px;color:var(--ink);margin-bottom:4px}
+.cluster .cs{font-size:12px;color:var(--muted);margin-bottom:12px}
+/* next */
+.next-list{list-style:none}
+.next-list li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--paper-2);font-size:14px;line-height:1.55;color:var(--ink-2)}
+.next-list li:last-child{border-bottom:none}
+.next-list .nb{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+footer{margin-top:56px;border-top:1px solid var(--line);padding:26px 0 44px;font-size:12px;color:var(--muted)}
+@media(max-width:820px){.pgrid,.pairs,.clusters{grid-template-columns:1fr}.m-body{grid-template-columns:1fr}.m-col + .m-col{border-left:none;border-top:1px solid var(--line)}.thread{grid-template-columns:1fr;gap:3px}}
+
+.skrow{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.sk{font-size:11px;font-weight:700;border-radius:999px;padding:4px 10px;letter-spacing:.02em}
+.sk.brand{background:#f3edff;color:var(--violet)}.sk.mkt{background:#e8f3ff;color:var(--blue)}
+.sk.ai{background:#eafaef;color:#1a9e46}.sk.legal{background:#fff3e6;color:#c77800}
+.sk.ops{background:#f0f0f5;color:#55556b}.sk.eng{background:#eceafd;color:var(--indigo)}
+.sk.cap{background:#ffefec;color:var(--coral)}.sk.res{background:#e6f7f9;color:#0b8a9e}
+.main-callout{border-left:3px solid var(--blue);background:#f2f8ff;border-radius:0 10px 10px 0;padding:11px 13px;margin-bottom:14px}
+.main-callout .rl{font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--blue);text-transform:uppercase}
+.main-callout p{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin-top:4px}
+.main-callout .rootline{font-size:12px;color:var(--coral);font-weight:600;margin-top:6px}
+.lens-chip{display:inline-flex;align-items:center;gap:7px;margin-top:12px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;color:var(--muted);background:#fff}
+.lens-chip b{color:var(--ink);font-weight:700}
+.mx{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:34px}
+.mxrow{display:grid;grid-template-columns:150px 1fr 1fr;gap:14px;padding:12px 20px;border-bottom:1px solid var(--paper-2);align-items:baseline}
+.mxrow:last-child{border-bottom:none}
+.mxrow.hd{background:var(--paper-2);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mxrow .ax{font-size:13px;font-weight:700;color:var(--ink)}
+.mxrow .cell{font-size:12.5px;color:var(--muted);line-height:1.5}
+.mxrow .cell b{color:var(--ink-2)}
+@media(max-width:820px){.skrow{margin-left:0;margin-top:8px}.m-head{flex-wrap:wrap}.mxrow{grid-template-columns:1fr;gap:4px}}
+
+
+.hone{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.hrow{display:grid;grid-template-columns:118px 1fr;gap:10px;padding:9px 12px;border-bottom:1px solid var(--paper-2);align-items:baseline}
+.hrow:last-child{border-bottom:none}
+.hrow .hl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.hrow .hv{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+.hrow .hv .tagm{display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;padding:2px 7px;background:var(--paper-2);border:1px solid var(--line);margin-right:4px}
+.hz{margin-top:14px;border-left:3px solid var(--amber);background:#fff9ee;border-radius:0 10px 10px 0;padding:11px 13px}
+.hz .klab{color:#b07500;margin-bottom:5px}
+.hz p{font-size:12.5px;line-height:1.55;color:var(--ink-2)}
+.fq{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fqc{border:1px solid var(--line);border-radius:16px;padding:20px}
+.fqc .num{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.fqc h4{font-size:15px;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.fqc p{font-size:12.5px;line-height:1.55;color:var(--muted)}
+.fqc .opts{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
+@media(max-width:820px){.fq{grid-template-columns:1fr}.hrow{grid-template-columns:1fr;gap:2px}}
+
+
+.breath{padding:16px 22px;border-bottom:1px solid var(--paper-2);background:linear-gradient(180deg,#fafafa,#fff)}
+.breath .bl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.breath p{font-family:'Instrument Serif',serif;font-style:italic;font-size:19.5px;line-height:1.4;color:var(--ink);letter-spacing:0}
+.mainch{border:1px solid #cfe4ff;background:#f2f8ff;border-radius:14px;padding:16px 18px;margin-bottom:16px}
+.mainch .rl{font-size:10.5px;font-weight:800;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}
+.mainch p{font-size:15.5px;line-height:1.5;color:var(--ink);font-weight:600;margin-top:6px;letter-spacing:-.01em}
+.mainch .meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.mainch .rootline{font-size:12px;color:var(--coral);font-weight:600;margin-top:10px}
+ol.chal2{list-style:none;counter-reset:c}
+ol.chal2 li{counter-increment:c;position:relative;padding:5px 0 5px 28px;font-size:13px;line-height:1.45;color:var(--ink-2)}
+ol.chal2 li::before{content:counter(c);position:absolute;left:0;top:6px;width:18px;height:18px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.gapbox{border-left:3px solid var(--violet);background:#f7f2ff;border-radius:0 10px 10px 0;padding:11px 13px;margin-top:14px}
+.gapbox .klab{color:var(--violet);margin-bottom:5px}
+.gapbox p{font-size:12.5px;line-height:1.55;color:var(--ink-2)}
+
+
+.lenses{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:14px}
+.lenses .lh{padding:10px 14px;border-bottom:1px solid var(--paper-2);font-size:10.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);background:var(--paper-2)}
+.lrow{display:flex;gap:10px;padding:9px 14px;border-bottom:1px solid var(--paper-2);align-items:flex-start}
+.lrow:last-child{border-bottom:none}
+.lb{flex:0 0 auto;width:24px;height:24px;border-radius:50%;color:#fff;font-size:9.5px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.lrow p{font-size:12.5px;line-height:1.5;color:var(--ink-2)}
+.lrow p b{color:var(--ink)}
+.loopline{margin-top:14px;font-size:13.5px;color:var(--muted)}
+.loopline b{color:var(--ink)}
+
+
+.nchip.tipd{position:relative;cursor:pointer;border-bottom:1px dashed var(--muted)}
+.nchip .tip{visibility:hidden;opacity:0;transition:opacity .15s;position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 8px);width:230px;background:var(--ink);color:#fff;font-size:11.5px;line-height:1.45;font-weight:500;padding:9px 11px;border-radius:10px;z-index:60;pointer-events:none;text-align:left}
+.nchip .tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--ink)}
+.nchip.tipd:hover .tip,.nchip.tipd.open .tip{visibility:visible;opacity:1}
+@media(max-width:640px){.nchip .tip{position:fixed;left:16px;right:16px;bottom:16px;top:auto;width:auto;transform:none}.nchip .tip::after{display:none}}
+
+
+.nextup{border:1px solid #cfe4ff;background:linear-gradient(180deg,#f2f8ff,#fff);border-radius:18px;padding:24px 26px;margin-top:30px}
+.nextup .nl{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.nextup h2{font-size:22px;margin-bottom:8px}
+.nextup p{font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:70ch}
+.nextup p + p{margin-top:10px}
+.fmt{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 4px}
+.fmtc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.fmtc .t{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fmtc .m{font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--ink);letter-spacing:0;margin:3px 0 4px}
+.fmtc p{font-size:12.5px;line-height:1.5;color:var(--muted)}
+.optl{list-style:none;margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.optl li{font-size:12.5px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--ink-2)}
+.mlinks{display:flex;gap:10px;margin-top:5px;flex-wrap:wrap}
+.mlinks a{font-size:11.5px;font-weight:600;color:var(--blue);border:1px solid #cfe4ff;background:#f6fbff;border-radius:999px;padding:3px 9px}
+.mlinks a:hover{background:#e8f3ff}
+@media(max-width:820px){.fmt{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="tb-in">
+  <a class="wordmark" href="https://bizcolab.com" style="color:var(--ink)">BizColab</a>
+  <span class="tb-div"></span>
+  <a class="pill" href="https://bizcolab.com/cohort-losangeles-001/"><span class="dot"></span>Cohort 01 &middot; Members</a>
+  <span class="tb-label">Meeting 1 recap &amp; next steps</span>
+</div></div>
+
+<div class="anchors"><div class="an-wrap">
+  <a href="#nextup" class="on">Next Monday</a>
+  <a href="#pattern">The thread</a>
+  <a href="#frame">The frame</a>
+  <a href="#six">The six</a>
+  <a href="#synergy">Synergies</a>
+  <a href="#next">Before Aug 24</a>
+</div></div>
+
+<div class="wrap">
+
+<div class="hero">
+  <div class="eyebrow">Cohort 01 · Session 1 · Aug 17, 2026</div>
+  <h1>Meeting 1 recap &amp; next steps</h1>
+  <p class="lead">Where each of the six landed after Session 1 — the business, one main challenge, the smaller ones under it, and what success looks like by Sep 14. Read your section, then confirm or correct it on Monday.</p>
+  <div class="rule-chip"><span class="rd"></span>Draft, not verdict — if we got your challenge wrong, say so Monday.</div>
+  <p class="loopline"><b>One challenge. Four loops.</b> Every Monday runs the same loop on your #1 challenge &mdash; Map it, Match it, Move it, Measure it.</p>
+  <p class="loopline" style="font-size:12.5px;margin-top:8px">This is a v1 concept, read at the high level &mdash; each member's own answers and the full session transcript come next, and this map gets revised with both.</p>
+</div>
+
+
+<section id="nextup" style="padding-top:34px">
+  <div class="nextup">
+    <div class="nl">Next Monday &middot; Aug 24 &middot; Session 2</div>
+    <h2>Everybody presents. Then the room goes to work.</h2>
+    <p><b>Four minutes to present your business as succinctly as you can</b> &mdash; then six minutes of roundtable. All six of you get the floor, ten minutes each.</p>
+    <div class="fmt">
+      <div class="fmtc"><div class="t">You present</div><div class="m">4 minutes</div><p>Your business, as succinctly as you can. Slides are fine &mdash; keep to time.</p></div>
+      <div class="fmtc"><div class="t">Roundtable</div><div class="m">6 minutes</div><p>The room works what you showed &mdash; real feedback, not applause.</p></div>
+    </div>
+    <p>Slides and graphics are welcome &mdash; just stay inside the four minutes. Treat it like you&rsquo;re pitching a client, or pitching us; however you&rsquo;d naturally present it. The point is that we understand what you actually do &mdash; then you elaborate on the challenges.</p>
+    <p><b>Before Monday, read your section below</b> and tell us whether we got your challenges right. If something&rsquo;s mislabeled, that correction <em class="serif">is</em> four minutes well spent.</p>
+    <ul class="optl">
+      <li>Pitch us like a client</li>
+      <li>Slides or graphics</li>
+      <li>Walk through your website</li>
+      <li>Show your deck or one-pager</li>
+      <li>Share collateral, ads or emails</li>
+    </ul>
+  </div>
+</section>
+
+<section id="pattern">
+  <h2>The common thread</h2>
+  <p class="sec-note">Six different businesses, six different challenges &mdash; but listen closely and they rhyme. Everyone described a version of &ldquo;I need more clients.&rdquo; Underneath, it’s one of two things &mdash; and neither is a lead problem.</p>
+  <div class="pgrid">
+    <div class="pcard">
+      <span class="tag" style="background:#f3edff;color:var(--violet)">Thread one</span>
+      <h3>The offer isn’t decided yet</h3>
+      <p>They can do many things well &mdash; but haven’t committed to <em class="serif">the one thing</em>: what exactly they sell, to whom, at what price. Until that’s decided, no website, ad, or referral can explain them &mdash; because there’s nothing crisp to repeat. The fix starts with a decision, not a marketing campaign.</p>
+      <div class="names"><span class="nchip tipd" tabindex="0">Roy<span class="tip">Roy said it himself: &ldquo;I'm having a hard time packaging the value and communicating it clearly enough.&rdquo;</span></span><span class="nchip tipd" tabindex="0">Renee<span class="tip">Renee's own words: &ldquo;I need something sexy&rdquo; &mdash; a two-word hook people instantly get and repeat.</span></span><span class="nchip tipd" tabindex="0">Svetlana<span class="tip">Svetlana: &ldquo;We have strategies to reach customers &mdash; we just haven't implemented or tested them yet.&rdquo;</span></span><span class="nchip tipd" tabindex="0">Sudeep<span class="tip">Sudeep is still defining the venture itself &mdash; corp structure, the pitch, who the customer is &mdash; while working up the courage of the ask.</span></span></div>
+    </div>
+    <div class="pcard">
+      <span class="tag" style="background:#e8f3ff;color:var(--blue)">Thread two</span>
+      <h3>The buyer isn’t chosen yet</h3>
+      <p>The business already works &mdash; real clients, real revenue. But it grew by saying yes to everyone, so it never had to pick its <em class="serif">best</em> customer. The cost shows up later: expensive acquisition, deals stalling with the person who actually signs. The fix is choosing who to double down on.</p>
+      <div class="names"><span class="nchip tipd" tabindex="0">Alex<span class="tip">Alex: &ldquo;It's not more clients &mdash; it's attracting more of the types of clients for whom churn is not an issue.&rdquo;</span></span><span class="nchip tipd" tabindex="0">Amy<span class="tip">Amy: risk managers use it and love it &mdash; but the CFOs and C-suite who actually sign are the ones she can't reach yet.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="frame">
+  <h2>Hone in — the three questions</h2>
+  <p class="sec-note">Honest read from Session 1: the room struggled to name its challenges — most came out surface-level, and underneath nearly all of them sits the same thing: a value proposition and differentiator that aren't crisp yet. Totally normal for week one. So before anyone builds anything, three questions. This should be fun — it's a puzzle, not a test.</p>
+  <div class="fq">
+    <div class="fqc"><div class="num">1</div><h4>Say the business in one or two sentences.</h4>
+      <p>Who you serve, what they get, why you. MBA speak: your <b>value proposition</b> and your <b>differentiator</b>. If it takes a paragraph, it's not a business yet — it's a collection of talents looking for a name. We drafted everyone's sentence below; your job is to make it yours.</p></div>
+    <div class="fqc"><div class="num">2</div><h4>Name the #1 challenge — and classify it.</h4>
+      <p>What kind of challenge is it, and what part of the business does it live in?</p>
+      <div class="opts"><span class="nchip">Growing it</span><span class="nchip">Sustaining it</span><span class="nchip">Selling it</span><span class="nchip">Just having one</span></div>
+      <div class="opts"><span class="nchip">The product</span><span class="nchip">The service</span><span class="nchip">The delivery</span><span class="nchip">The demand</span></div></div>
+    <div class="fqc"><div class="num">3</div><h4>Name the goal.</h4>
+      <p>Is the goal to solve this one problem — or to build a sustainable, revenue-generating business? They're different projects with different next steps. Every 4-week aim below is written as the second one, reached through the first.</p></div>
+  </div>
+</section>
+
+
+<section id="six">
+  <h2>The six &mdash; scannable</h2>
+  <p class="sec-note">Each card: the business in one breath, one main challenge, short sub-challenges, what success looks like by Sep 14 &mdash; and the gap: the piece they haven't articulated yet, which is what their email to Michael needs to fill.</p>
+
+  <div class="mcard">
+    <div class="m-head"><div class="av" style="background:linear-gradient(135deg,#0071e3,#5e5ce6)">RP</div>
+      <div><h3>Roy Pari</h3><div class="biz">CRE8 Intelligent Systems · AI adoption consulting · cre8is.ai</div><div class="mlinks"><a href="https://www.linkedin.com/in/cre8brands/" target="_blank" rel="noopener">LinkedIn &rarr;</a><a href="https://cre8is.ai/" target="_blank" rel="noopener">cre8is.ai &rarr;</a></div></div>
+      <div class="skrow"><span class="sk brand">Branding</span><span class="sk mkt">Marketing</span><span class="sk ai">AI</span><span class="sk ops">Workflow design</span></div></div>
+    <div class="breath"><div class="bl">In one breath</div><p>&ldquo;I help mid-size companies get real outcomes from AI &mdash; strategy plus a vetted build team &mdash; without overwhelming their people.&rdquo;</p></div>
+    <div class="m-body">
+      <div class="m-col">
+        <div class="klab">The business</div>
+        <p class="biz-p">Human-centered AI consulting: strategy plus vetted implementers (he keeps the strategy and account-director role; specialists handle HIPAA-grade builds). 20+ years of national campaigns &mdash; Toyota, T-Mobile, Disney &mdash; in general and Hispanic markets. First live project: an AI onboarding system for an insurance agency.</p>
+        <div class="mainch"><span class="rl">Main challenge</span><p>&ldquo;Turning my new AI consulting practice into a consistent pipeline of qualified clients &mdash; packaging it, communicating it clearly, and reaching the right decision-makers.&rdquo;</p><div class="meta"><span class="tagm">Growing it</span><span class="tagm">The product</span></div><div class="rootline">⚑ Root: one committed offer and identity &mdash; the pipeline can't exist until the promise does.</div></div>
+        <div class="klab">Sub-challenges</div>
+        <ol class="chal2"><li>Say the outcome, not the solution &mdash; buyers buy results, not AI.</li><li>Show how implementation works: who builds, how long, what changes.</li><li>Make the website say it clearly.</li><li>Retire the old site that outranks the new one.</li></ol>
+      </div>
+      <div class="m-col">
+        <div class="aim-box" style="margin-top:0"><div class="klab">Success by Sep 14</div><p class="aim-p">One named, priced offer with a defined buyer &mdash; and the old site redirected.</p></div>
+        <div class="gapbox"><div class="klab">The gap &mdash; what we still need</div><p>He articulated the challenge best in the room. Missing: the buyer. Who signs, at what price, for what outcome &mdash; in writing.</p></div>
+        <div class="lenses"><div class="lh">The five lenses on this challenge</div>
+          <div class="lrow"><span class="lb" style="background:var(--blue)">AH</span><p><b>One avatar, one Grand Slam Offer.</b> Price the promise, reverse the risk &mdash; stop selling &ldquo;AI&rdquo; and start selling one outcome.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--violet)">SG</span><p>Pick the <b>smallest viable market</b> &mdash; the niche where &ldquo;people like us hire people like Roy.&rdquo; Two websites is two stories; tell one.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--indigo)">DM</span><p><b>Productize the delivery.</b> Implementers run the build; Roy keeps the strategy &mdash; that's the leverage, protect it in the offer.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--mint)">JC</span><p><b>Two-minute-rule the packaging:</b> name the offer this week, badly if necessary. A draft name beats a perfect paragraph.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--coral)">TR</span><p>Prospects mirror certainty. <b>Sell from the outcome state,</b> not the explainer state &mdash; the overwhelm they feel starts in the pitch's energy.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mcard">
+    <div class="m-head"><div class="av" style="background:linear-gradient(135deg,#9a4ef6,#ff6f5e)">AT</div>
+      <div><h3>Amy Lee Tu</h3><div class="biz">ML Claims AI (ex-Mobotory) · AI for insurance risk · mlclaims.ai</div><div class="mlinks"><a href="https://www.linkedin.com/in/amyleetu/" target="_blank" rel="noopener">LinkedIn &rarr;</a><a href="https://mlclaims.ai/" target="_blank" rel="noopener">mlclaims.ai &rarr;</a></div></div>
+      <div class="skrow"><span class="sk ai">AI</span><span class="sk mkt">Marketing</span><span class="sk cap">Enterprise sales</span><span class="sk ops">Operations</span></div></div>
+    <div class="breath"><div class="bl">In one breath</div><p>&ldquo;Predictive and prescriptive analytics on claims risk and loss &mdash; neural-network AI purpose-built for claims, not a generic AI layer bolted onto legacy systems.&rdquo;</p></div>
+    <div class="m-body">
+      <div class="m-col">
+        <div class="klab">The business</div>
+        <p class="biz-p">Predictive and prescriptive analytics on claims risk and loss across GL, workers' comp, and property &mdash; for insurers and self-insured programs. Helps risk teams find loss drivers and decide earlier. Clients: Panda Express, McDonald's, Marriott, Hilton, Four Seasons, Gallagher. Endgame from Session 1: <b>sell the company within 2&ndash;3 years</b>.</p>
+        <div class="mainch"><span class="rl">Main challenge</span><p>&ldquo;Staying top-of-mind across all the people in an enterprise buying decision. One department says yes &mdash; and while another evaluates, priorities change, momentum stalls, or we fall off the radar.&rdquo;</p><div class="meta"><span class="tagm">Selling it</span><span class="tagm">Demand</span></div><div class="rootline">⚑ Her frame: a &ldquo;For Your Consideration&rdquo; campaign for a very small universe of buyers &mdash; with Session 1's caution attached: rented channels switch off; relationships don't.</div></div>
+        <div class="klab">Sub-challenges</div>
+        <ol class="chal2"><li>The users and the economic buyers are different people.</li><li>Enterprise deals need buy-in across multiple departments.</li><li>Google's targeting changes broke her retargeting playbook.</li><li>Messaging must support active deals <em class="serif">and</em> build brand credibility at once.</li></ol>
+      </div>
+      <div class="m-col">
+        <div class="aim-box" style="margin-top:0"><div class="klab">Success by Sep 14</div><p class="aim-p">Her words: a tested retargeting and messaging strategy with the first assets <b>built and running</b> against CFO, CEO, and MGA buyer personas &mdash; not just a plan on paper.</p></div>
+        <div class="gapbox"><div class="klab">Answered &mdash; her five things are in</div><p>&#10003; First to send her five things. Her top-3 picks: <b>Alex</b> (how finance/PE audiences evaluate companies like hers), <b>Sveta</b> (outside-industry positioning trade), <b>Sudeep</b> (scaling data/AI in regulated environments). Her offer to the room: a hands-on marketing and positioning audit &mdash; messaging, SEO, PPC, brand, or acquisition.</p></div>
+        <div class="lenses"><div class="lh">The five lenses on this challenge</div>
+          <div class="lrow"><span class="lb" style="background:var(--blue)">AH</span><p>Your $6M is a <b>value equation</b> waiting to be weaponized: proof up, time down, risk to zero &mdash; on one page a CFO reads in 90 seconds.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--violet)">SG</span><p><b>Permission beats interruption.</b> Be the brand the risk manager brags about internally &mdash; arm the tribe inside the account.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--indigo)">DM</span><p><b>Systematize the Marriott lesson.</b> A written buy-in playbook is leverage; re-improvising every deal is the hidden cost.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--mint)">JC</span><p><b>Habit-stack the outreach:</b> one champion-arming touch per named account per week. Twenty accounts, tiny reps, compound interest.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--coral)">TR</span><p>The lost speaking slot isn't lost energy &mdash; <b>create the room instead:</b> host the roundtable the CFOs attend.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mcard">
+    <div class="m-head"><div class="av" style="background:linear-gradient(135deg,#30d158,#0071e3)">SH</div>
+      <div><h3>Svetlana Heller</h3><div class="biz">Mandra Soul (with co-founder Olga) · luxury boho outdoor event experiences · LA &amp; OC</div><div class="mlinks"><a href="https://www.linkedin.com/in/svetlana-heller/" target="_blank" rel="noopener">LinkedIn &rarr;</a></div></div>
+      <div class="skrow"><span class="sk legal">IP / Trademark</span><span class="sk mkt">Marketing</span><span class="sk ops">Experience design</span></div></div>
+    <div class="breath"><div class="bl">In one breath</div><p>&ldquo;Mandra Soul sells luxury boho outdoor event experiences &mdash; styled, served, and cleared &mdash; so hosts just arrive and connect.&rdquo;</p></div>
+    <div class="m-body">
+      <div class="m-col">
+        <div class="klab">The business</div>
+        <p class="biz-p">&ldquo;We style, we serve, we clean &mdash; people come and just enjoy.&rdquo; Three signature setups &mdash; Sunrise Breakfast, Midday Pause, Sunset &mdash; plus photography, cakes, live music. Starting small, for couples. Not catering: the product is the experience and the intention behind it.</p>
+        <div class="mainch"><span class="rl">Main challenge</span><p>Getting from proven-on-paper to implemented &mdash; balancing the doer side against working <em class="serif">on</em> the business.</p><div class="meta"><span class="tagm">Just having one</span><span class="tagm">The service</span></div><div class="rootline">⚑ Root: no market verdict yet &mdash; the offer hasn't met its first paying customer.</div></div>
+        <div class="klab">Sub-challenges</div>
+        <ol class="chal2"><li>On the business, not in it &mdash; a weekly prioritization ritual (Eisenhower or 1-3-5).</li><li>Do the math: what to charge, how many events a month, what's enough.</li><li>Run 2&ndash;3 small channel and messaging experiments &mdash; one at a time.</li><li>Collateral that moves seeing &rarr; feeling &rarr; booking.</li></ol>
+      </div>
+      <div class="m-col">
+        <div class="aim-box" style="margin-top:0"><div class="klab">Success by Sep 14</div><p class="aim-p">One real event sold at a real price by Sep 14 &mdash; and the business math on one page: price, volume, break-even.</p></div>
+        <div class="gapbox"><div class="klab">The gap &mdash; what we still need</div><p>She defined the business beautifully &mdash; the model in the room. Missing: what a functioning, <em class="serif">scalable</em> Mandra Soul looks like &mdash; pricing, volume, and the revenue number that makes it real.</p></div>
+        <div class="lenses"><div class="lh">The five lenses on this challenge</div>
+          <div class="lrow"><span class="lb" style="background:var(--blue)">AH</span><p><b>Sell before you scale.</b> First five bookings by hand, full price. The market answers strategy questions faster than the binder does.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--violet)">SG</span><p>Boho luxury is a <b>Purple Cow</b> only if the story leads: sell the transformation &mdash; people actually connecting &mdash; not the tablescape.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--indigo)">DM</span><p><b>Buy back the doer time:</b> checklist the setups so the team runs them, and the founders sell.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--mint)">JC</span><p><b>Systems over goals:</b> one ask a day. Make the first no happen this week &mdash; it's a rep, not a verdict.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--coral)">TR</span><p><b>Action cures fear.</b> The admin work is anesthesia; get the state right, then make the scary call first, not last.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mcard">
+    <div class="m-head"><div class="av" style="background:linear-gradient(135deg,#1d1d1f,#5e5ce6)">AN</div>
+      <div><h3>Alex Nahai</h3><div class="biz">ASN Law Offices + Moonlight Capital · ~800 clients · alexnahailaw.com</div><div class="mlinks"><a href="https://www.linkedin.com/in/alexnahai/" target="_blank" rel="noopener">LinkedIn &rarr;</a><a href="https://www.alexnahailaw.com/" target="_blank" rel="noopener">alexnahailaw.com &rarr;</a></div></div>
+      <div class="skrow"><span class="sk legal">Legal</span><span class="sk cap">Capital</span><span class="sk ops">Deal structure</span></div></div>
+    <div class="breath"><div class="bl">In one breath</div><p>&ldquo;ASN Law gives VC/PE and commercial real estate clients deal-grade legal work &mdash; a referral-driven B2B practice, with a consumer side under review.&rdquo;</p></div>
+    <div class="m-body">
+      <div class="m-col">
+        <div class="klab">The business</div>
+        <p class="biz-p">Two-year-old practice, ~800 clients. B2B finance and CRE book is referral-led and healthy; consumer side costs ~$8K per client to acquire. Endgame: his own PE firm.</p>
+        <div class="mainch"><span class="rl">Main challenge</span><p>&ldquo;Attract more of the types of clients for whom churn is not an issue&rdquo; &mdash; longer tenure, quality over volume.</p><div class="meta"><span class="tagm">Sustaining it</span><span class="tagm">The service</span></div><div class="rootline">⚑ The open question: chase more clients &mdash; or increase the value of the top clients he already has, and nurture that business?</div></div>
+        <div class="klab">Sub-challenges</div>
+        <ol class="chal2"><li>Define the &ldquo;right client&rdquo; in writing.</li><li>One analysis to run: the 80/20 &mdash; where profit and tenure actually live.</li><li>Nurture the top clients &mdash; deepen before widening.</li><li>Reduce consumer CAC, or rethink the segment.</li><li>Say no to distractions.</li></ol>
+      </div>
+      <div class="m-col">
+        <div class="aim-box" style="margin-top:0"><div class="klab">Success by Sep 14</div><p class="aim-p">A clear answer to acquire-more vs. nurture-deeper &mdash; backed by the analysis, with a plan for the top clients.</p></div>
+        <div class="gapbox"><div class="klab">The gap &mdash; what we still need</div><p>Knows his book, hasn't committed it to paper. Missing: the written definition of the &ldquo;right client,&rdquo; and the goal &mdash; more clients, or more value per client.</p></div>
+        <div class="lenses"><div class="lh">The five lenses on this challenge</div>
+          <div class="lrow"><span class="lb" style="background:var(--blue)">AH</span><p><b>Constraint math:</b> profit per client, not client count. The $8K-CAC segment gets repriced 3x or released.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--violet)">SG</span><p>Referrals are &ldquo;people like us&rdquo; &mdash; <b>define the ideal client so precisely</b> your best clients can spot their twins at a dinner party.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--indigo)">DM</span><p><b>DRIP-matrix the book:</b> drop the drain, double the flywheel. 800 clients is an inventory problem pretending to be a marketing problem.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--mint)">JC</span><p>&ldquo;Saying no&rdquo; is a <b>system, not willpower</b> &mdash; a written client filter makes the decision so Alex doesn't have to, 800 times.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--coral)">TR</span><p><b>Where focus goes, energy flows</b> &mdash; and 800 clients splits focus 800 ways. The decision he's avoiding is the energy leak.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mcard">
+    <div class="m-head"><div class="av" style="background:linear-gradient(135deg,#ff6f5e,#ffb340)">RM</div>
+      <div><h3>Renee Miller</h3><div class="biz">The Miller Group · 36 years · millergroup.com</div><div class="mlinks"><a href="https://www.linkedin.com/in/themillergroup/" target="_blank" rel="noopener">LinkedIn &rarr;</a><a href="https://www.millergroup.com/" target="_blank" rel="noopener">millergroup.com &rarr;</a></div></div>
+      <div class="skrow"><span class="sk brand">Branding</span><span class="sk mkt">Marketing</span><span class="sk res">Consumer research</span></div></div>
+    <div class="breath"><div class="bl">In one breath</div><p>&ldquo;The Miller Group turns real-people video research into brand strategy for challenger brands &mdash; insight a focus group can't give, at a price they can.&rdquo;</p></div>
+    <div class="m-body">
+      <div class="m-col">
+        <div class="klab">The business</div>
+        <p class="biz-p">36-year firm for nonprofit, mid-size and challenger brands &mdash; Gelson's, the Skirball, MOLAA. New: a "man on the street" video research tool &mdash; street interviews distilled into a 2&ndash;3 minute video plus insights and next steps, with a sampling component &mdash; already validated with a CPG client; she'll run a test for anyone who covers expenses. WBENC woman-owned certified.</p>
+        <div class="mainch"><span class="rl">Main challenge</span><p>Inbound quality leads &mdash; not enough in the pipeline, and the thing that would fix it has no name yet.</p><div class="meta"><span class="tagm">Growing it</span><span class="tagm">The product</span></div><div class="rootline">⚑ Root, in her words: &ldquo;I need something sexy&rdquo; &mdash; her benchmark is <em class="serif">panic panties</em>: two words, instantly understood. A paragraph doesn't transmit; a name does.</div></div>
+        <div class="klab">Sub-challenges</div>
+        <ol class="chal2"><li>Name the tool &mdash; two words clear.</li><li>Build the case study from the CPG pilot &mdash; proof beats promise.</li><li>Define the combined offering: research + strategy + creative, in one clever package.</li><li>Stop margin-killing one-offs.</li><li>Stand up paid speaking.</li></ol>
+      </div>
+      <div class="m-col">
+        <div class="aim-box" style="margin-top:0"><div class="klab">Success by Sep 14</div><p class="aim-p">Tool named, case study in hand, offering defined &mdash; and one $15&ndash;20K curated client in the pipeline.</p></div>
+        <div class="gapbox"><div class="klab">The gap &mdash; what we still need</div><p>Goal is clear ($15&ndash;20K client). Missing: the business in one breath &mdash; and the tool's name, which is the same gap wearing two hats.</p></div>
+        <div class="lenses"><div class="lh">The five lenses on this challenge</div>
+          <div class="lrow"><span class="lb" style="background:var(--blue)">AH</span><p><b>Name it, price it, guarantee it.</b> A productized offer at a fixed price ends the $5K death spiral for good.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--violet)">SG</span><p><b>Lead with the Purple Cow.</b> The tool is remarkable; the firm is a category. Cows get talked about &mdash; categories get shortlisted.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--indigo)">DM</span><p><b>Stop selling hours.</b> Package the tool as a repeatable product &mdash; leverage over labor, margin over grind.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--mint)">JC</span><p><b>Identity change:</b> from &ldquo;the agency that does everything&rdquo; to &ldquo;the [name] company.&rdquo; Rep the new intro daily until it's reflex.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--coral)">TR</span><p>Her energy visibly spikes on the tool &mdash; <b>follow the energy.</b> That's the business telling her the answer out loud.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mcard">
+    <div class="m-head"><div class="av" style="background:linear-gradient(135deg,#5e5ce6,#30d158)">SD</div>
+      <div><h3>Sudeep Deshpande</h3><div class="biz">Idea lab / IP incubator · pre-incorporation</div><div class="mlinks"><a href="https://www.linkedin.com/in/sudeepdeshpande/" target="_blank" rel="noopener">LinkedIn &rarr;</a></div></div>
+      <div class="skrow"><span class="sk eng">Engineering</span><span class="sk ai">AI / Agents</span><span class="sk ops">Product / R&amp;D</span></div></div>
+    <div class="breath"><div class="bl">In one breath</div><p>&ldquo;An incubator that takes patent-worthy ideas from due diligence to exit &mdash; engineering rigor plus an AI agent that walks inventors through it.&rdquo;</p></div>
+    <div class="m-body">
+      <div class="m-col">
+        <div class="klab">The business</div>
+        <p class="biz-p">Large-vision incubator for ideas with patent potential &mdash; target: three active projects within a year. 20+ years systems-engineering product innovation, one exit (2011), a co-founder and an investor lined up; on the edge of filing incorporation.</p>
+        <div class="mainch"><span class="rl">Main challenge</span><p>&ldquo;ABC &mdash; always be closing. Robust sales muscle is my gap: raise capital, close deals, clear exits.&rdquo; Great at presenting the value; stops short of the ask.</p><div class="meta"><span class="tagm">Just having one</span><span class="tagm">The delivery</span></div><div class="rootline">⚑ To diagnose: practice, confidence, or articulation? His own words: &ldquo;a bit of cultural shame in asking someone to put money down&rdquo; &mdash; and &ldquo;a gamble on me.&rdquo;</div></div>
+        <div class="klab">Sub-challenges</div>
+        <ol class="chal2"><li>Finalize the business &mdash; corp structure, legal, fractional CFO/CPA/patent counsel.</li><li>Get in front of people &mdash; closing and capital-raising reps.</li><li>Articulate the offer: the pain, the FOMO, the de-risked path.</li><li>Cover the risk blind spots &mdash; HIPAA, FDA, IP.</li><li>Build the client-facing AI agent.</li></ol>
+      </div>
+      <div class="m-col">
+        <div class="aim-box" style="margin-top:0"><div class="klab">Success by Sep 14</div><p class="aim-p">Incorporated, team scoped, pitch rebuilt &mdash; and ten logged asks with amount, terms, and date.</p></div>
+        <div class="gapbox"><div class="klab">The gap &mdash; what we still need</div><p>Articulated his challenges most fully. Missing: the business definition &mdash; who is the customer, inventor or investor, and where does revenue come from.</p></div>
+        <div class="lenses"><div class="lh">The five lenses on this challenge</div>
+          <div class="lrow"><span class="lb" style="background:var(--blue)">AH</span><p>The offer isn't the idea &mdash; it's the <b>de-risked path:</b> milestones, proof, exit math. Make yes the safe choice.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--violet)">SG</span><p><b>Investors join stories in motion.</b> Show movement &mdash; a deal in diligence, a date on the calendar &mdash; and FOMO does the closing.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--indigo)">DM</span><p><b>The fractional team is a buyback:</b> rent the CFO/CPA/patent brain, keep founder hours for the ask.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--mint)">JC</span><p><b>Never miss twice.</b> Ten asks logged &mdash; track the streak, not the outcome. The rep is the win.</p></div>
+          <div class="lrow"><span class="lb" style="background:var(--coral)">TR</span><p><b>State before strategy.</b> The ask fails in the body before it fails in the room &mdash; rehearse the physiology, then the pitch.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="synergy">
+  <h2>Synergies — who helps whom, on what</h2>
+  <p class="sec-note">Three primary pairs matched on roots, not symptoms — each person is both helper and helped. Cross-room threads below are asks, not pairs.</p>
+  <div class="klab" style="margin-bottom:10px">Skills in the room &mdash; who has it, who needs it</div>
+  <div class="mx">
+    <div class="mxrow hd"><span>Axis</span><span>Has it</span><span>Needs it</span></div>
+    <div class="mxrow"><span class="ax">Branding</span><span class="cell"><b>Roy</b> (identity, campaigns) &middot; <b>Renee</b> (positioning, creative)</span><span class="cell">Svetlana (seeing &rarr; feeling &rarr; booking collateral) &middot; Amy (brand landing before the meeting)</span></div>
+    <div class="mxrow"><span class="ax">Marketing</span><span class="cell"><b>Renee</b> (36 yrs, research tool) &middot; <b>Amy</b> (SEO/PPC/retargeting) &middot; <b>Roy</b> (multicultural) &middot; <b>Svetlana</b> (personas)</span><span class="cell">Alex (referral engineering) &middot; Sudeep (deal-flow marketing)</span></div>
+    <div class="mxrow"><span class="ax">AI</span><span class="cell"><b>Amy</b> (predictive analytics) &middot; <b>Roy</b> (adoption, workflow) &middot; <b>Sudeep</b> (agentic, large data)</span><span class="cell">Renee (scaling the tool) &middot; Alex (80/20 analysis) &middot; Svetlana (leverage as a team of two)</span></div>
+    <div class="mxrow"><span class="ax">Legal</span><span class="cell"><b>Alex</b> (corp, contracts, deals) &middot; <b>Svetlana</b> (IP / trademark)</span><span class="cell">Sudeep (incorporation, HIPAA/FDA blind spots) &middot; Renee (protecting the tool's name)</span></div>
+    <div class="mxrow"><span class="ax">Operations</span><span class="cell"><b>Sudeep</b> (R&amp;D leadership) &middot; <b>Amy</b> (enterprise ops) &middot; <b>Roy</b> (workflow reduction)</span><span class="cell">Svetlana (task &amp; management structure) &middot; Alex (saying no, discipline systems)</span></div>
+    <div class="mxrow"><span class="ax">Engineering</span><span class="cell"><b>Sudeep</b> (systems, product, 20+ yrs)</span><span class="cell">Renee (tool defensibility) &middot; Amy (product depth) &middot; Roy (implementation bench)</span></div>
+    <div class="mxrow"><span class="ax">Capital &amp; deals</span><span class="cell"><b>Alex</b> (PE/VC, investor-side read) &middot; <b>Amy</b> (enterprise closes, exit path)</span><span class="cell">Sudeep (raise, close, exit) &middot; Alex himself (PE-firm ambition &mdash; Amy's exit journey is a preview)</span></div>
+  </div>
+
+  <div class="pairs">
+    <div class="pair">
+      <div class="duo"><div class="av" style="background:linear-gradient(135deg,#1d1d1f,#5e5ce6)">AN</div><span class="x">×</span><div class="av" style="background:linear-gradient(135deg,#5e5ce6,#30d158)">SD</div></div>
+      <h4>Alex ↔ Sudeep</h4>
+      <p>Mirror images — one won't run the analysis whose answer he fears, one won't make the ask whose answer he fears. Alex gives corp, contracts and an investor's read; Sudeep gives the data muscle to run the 80/20 in two weeks. Each holds the other to the avoided moment.</p>
+    </div>
+    <div class="pair">
+      <div class="duo"><div class="av" style="background:linear-gradient(135deg,#0071e3,#5e5ce6)">RP</div><span class="x">×</span><div class="av" style="background:linear-gradient(135deg,#9a4ef6,#ff6f5e)">AT</div></div>
+      <h4>Roy ↔ Amy</h4>
+      <p>Legibility meets portability. Amy is Roy's buyer — she forces the one-sentence offer and already started, live. Roy builds persuasion artifacts for a living — he makes her $6M case portable enough for her champion to carry into the CFO's office.</p>
+    </div>
+    <div class="pair">
+      <div class="duo"><div class="av" style="background:linear-gradient(135deg,#ff6f5e,#ffb340)">RM</div><span class="x">×</span><div class="av" style="background:linear-gradient(135deg,#30d158,#0071e3)">SH</div></div>
+      <h4>Renee ↔ Svetlana</h4>
+      <p>Both hiding behind breadth. Renee forces one real sale now — she has productized experiences for decades. Svetlana forces the tool's name now — the outsider's ear, plus NBC Universal trademark chops to protect the name once it's chosen.</p>
+    </div>
+  </div>
+  <div class="threads">
+    <div class="thread"><span class="who">Svetlana → Sudeep</span><span class="what">IP and trademark hygiene before he incorporates.</span></div>
+    <div class="thread"><span class="who">Renee → Amy</span><span class="what">Run the man-on-the-street tool as a C-suite message test.</span></div>
+    <div class="thread"><span class="who">Sudeep → Renee</span><span class="what">Agentic and large-dataset extrapolation to make the research tool defensible.</span></div>
+    <div class="thread"><span class="who">Roy → Renee</span><span class="what">Offer naming and packaging is his day job; her tool needs his craft.</span></div>
+    <div class="thread"><span class="who">Alex → Roy &amp; Amy</span><span class="what">The professional-services buyer's view of what makes a yes; a PE/M&amp;A lens on Amy's endgame.</span></div>
+    <div class="thread"><span class="who">Amy ↔ Svetlana</span><span class="what">Hospitality relationships meet events — and persona rigor for a new founder.</span></div>
+    <div class="thread"><span class="who">Everyone → Sudeep</span><span class="what">The room agreed all six work on the pitch — his rep circle.</span></div>
+  </div>
+  <div class="clusters">
+    <div class="cluster">
+      <h4>Cluster · Offer legibility</h4>
+      <div class="cs">One workshop lens for Week 3 hot seats</div>
+      <div class="names"><span class="nchip">Roy</span> <span class="nchip">Renee</span> <span class="nchip">Amy</span></div>
+    </div>
+    <div class="cluster">
+      <h4>Cluster · The avoided decision</h4>
+      <div class="cs">Accountability lens for Week 3 hot seats</div>
+      <div class="names"><span class="nchip">Alex</span> <span class="nchip">Sudeep</span> <span class="nchip">Svetlana</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <h2>Before Monday, Aug 24</h2>
+  <p class="sec-note">Three moves, five minutes each. Week 2 pairings get built from what you send &mdash; so what you send decides who works on your business.</p>
+  <ul class="next-list">
+    <li><span class="nb">1</span><span><b>Join the Slack.</b> Takes 30 seconds &mdash; it’s where assets, feedback and asks live between Mondays.</span></li>
+    <li><span class="nb">2</span><span><b>Email Michael your five things</b> (one or two sentences each): your business &middot; your #1 challenge &middot; 2&ndash;5 sub-challenges &middot; your goal by Sep 14 &middot; your URL plus any collateral. Then rank the 3 people here you’d most like to work with one-on-one, and why.</span></li>
+    <li><span class="nb">3</span><span><b>Post your website and brand assets in Slack</b> so the room can give real feedback on what your customer actually sees.</span></li>
+  </ul>
+</section>
+
+
+
+
+
+
+<footer>Cohort 01 &middot; Meeting 1 recap and next steps &middot; for the room only &mdash; please don't forward.</footer>
+</div>
+
+<script>
+// scrollspy
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.anchors a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var y=window.scrollY+120,i=0;
+    for(var j=0;j<secs.length;j++){if(secs[j]&&secs[j].offsetTop<=y)i=j}
+    links.forEach(function(a,k){a.classList.toggle('on',k===i)});
+  }
+  window.addEventListener('scroll',spy,{passive:true});spy();
+})();
+// no-widows pass
+(function(){
+  var MIN=3,SEL='p,li,h1,h2,h3,h4,.lead,.aim-p,.help-p,.biz-p';
+  function lastText(el){var t=null,w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);var n;while(n=w.nextNode()){if(n.textContent.trim())t=n}return t}
+  function count(node){
+    var txt=node.textContent,parts=txt.split(/\s+/).filter(Boolean);if(parts.length<2)return 99;
+    var r=document.createRange();r.selectNodeContents(node);var rect=r.getBoundingClientRect();
+    if(!rect.width&&!rect.height)return 99;
+    var idx=txt.length,c=0;
+    for(var i=parts.length-1;i>=0;i--){
+      idx=txt.lastIndexOf(parts[i],idx-1);
+      r.setStart(node,idx);r.setEnd(node,txt.length);
+      var rs=r.getClientRects();if(rs.length>1)break;c++;
+      if(c>=MIN)break;
+    }
+    return c;
+  }
+  function fix(){
+    document.querySelectorAll(SEL).forEach(function(el){
+      var n=lastText(el);if(!n)return;
+      if(n.__widowOrig)n.textContent=n.__widowOrig;else n.__widowOrig=n.textContent;
+      var binds=0;
+      while(count(n)<MIN&&binds<4){
+        var t=n.textContent,i=t.replace(/\s+$/,'').lastIndexOf(' ');
+        if(i<1)break;
+        n.textContent=t.slice(0,i)+' '+t.slice(i+1);binds++;
+      }
+    });
+  }
+  window.addEventListener('load',fix);window.addEventListener('resize',fix);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fix);
+})();
+
+// name-chip tooltips (tap to toggle on touch)
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.nchip.tipd'));
+  chips.forEach(function(c){c.addEventListener('click',function(e){
+    var was=c.classList.contains('open');
+    chips.forEach(function(x){x.classList.remove('open')});
+    if(!was)c.classList.add('open');
+    e.stopPropagation();
+  })});
+  document.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('open')})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')chips.forEach(function(x){x.classList.remove('open')})});
+})();
+</script>
+</body>
+</html>
