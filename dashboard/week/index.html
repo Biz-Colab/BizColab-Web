@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BizColab — Run the week</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#0a0a0a; --ink-2:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7; --paper:#fff; --paper-2:#f5f5f7;
+  --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e; --amber:#ffb340; --mint:#30d158; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Geist',system-ui,-apple-system,sans-serif; color:var(--ink-2); background:var(--paper-2); -webkit-font-smoothing:antialiased; letter-spacing:-0.011em; }
+.wrap { max-width:900px; margin:0 auto; padding:0 24px; }
+.topbar { position:sticky; top:0; z-index:150; background:rgba(255,255,255,.88); backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); border-bottom:1px solid var(--line); }
+.tb-wrap { max-width:900px; margin:0 auto; padding:0 24px; height:50px; display:flex; align-items:center; gap:12px; }
+.tb-logo { font-weight:700; font-size:15.5px; letter-spacing:-.022em; color:var(--ink); text-decoration:none; white-space:nowrap; }
+.tb-logo:hover { opacity:.6; }
+.tb-div { width:1px; height:18px; background:var(--line); flex:none; }
+.tb-hq { display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:var(--ink-2); text-decoration:none; padding:6px 13px; border:1px solid var(--line); border-radius:999px; background:#fff; white-space:nowrap; transition:border-color .18s, transform .18s; }
+.tb-hq::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--blue); flex:none; }
+.tb-hq:hover { border-color:#b4b4bb; transform:translateY(-1px); }
+.tb-here { margin-left:auto; font-size:11px; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:.07em; }
+@media (max-width:600px) { .tb-here { display:none; } }
+.hero { padding:52px 0 30px; }
+.hero h1 { font-size:clamp(32px,6vw,50px); font-weight:700; letter-spacing:-.045em; line-height:1.05; color:var(--ink); }
+.hero h1 em { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; }
+.hero p { margin-top:14px; font-size:15px; line-height:1.65; color:rgba(29,29,31,.62); max-width:620px; }
+.hero p b { color:var(--ink); font-weight:600; }
+.band { padding:8px 0 48px; }
+.section-label { font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+.rhythm { display:flex; gap:8px; margin-bottom:26px; flex-wrap:wrap; }
+.step { flex:1; min-width:160px; border:1px solid var(--line); border-radius:14px; padding:13px 15px; background:#fff; }
+.step i { display:block; font-style:normal; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin-bottom:5px; }
+.step b { display:block; font-size:13.5px; font-weight:600; color:var(--ink); letter-spacing:-.015em; }
+.step span { font-size:11.5px; color:var(--muted); }
+.step.live { background:var(--ink); border-color:var(--ink); }
+.step.live i { color:var(--mint); }
+.step.live b { color:#fff; }
+.step.live span { color:rgba(255,255,255,.6); }
+.p { border:1px solid #e8e8ed; border-radius:18px; overflow:hidden; background:#fff; margin-bottom:14px; }
+.ph { display:flex; align-items:center; gap:12px; padding:15px 18px; border-bottom:1px solid var(--line); }
+.num { width:28px; height:28px; border-radius:9px; display:grid; place-items:center; font-size:12.5px; font-weight:700; color:#fff; flex:none; background:var(--ink); }
+.pt { flex:1; min-width:0; }
+.pt b { display:block; font-size:14px; font-weight:600; color:var(--ink); letter-spacing:-.02em; }
+.pt span { font-size:11.5px; color:var(--muted); }
+.copy { font-family:'Geist',system-ui,sans-serif; font-size:11.5px; font-weight:600; padding:8px 15px; border-radius:999px; border:1px solid var(--ink); background:var(--ink); color:#fff; cursor:pointer; flex:none; transition:opacity .18s, background .18s; }
+.copy:hover { opacity:.78; }
+.copy.done { background:var(--mint); border-color:var(--mint); }
+.p pre { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; line-height:1.7; color:var(--ink-2); padding:17px 18px; margin:0; white-space:pre-wrap; word-break:break-word; background:var(--paper-2); }
+.trig { font-size:11.5px; color:var(--muted); padding:12px 18px; }
+.trig code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; background:var(--paper-2); padding:3px 8px; border-radius:6px; color:var(--indigo); }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+@media (max-width:680px) { .grid { grid-template-columns:1fr; } .step { min-width:100%; } }
+.pat { background:#fff; border:1px solid #e8e8ed; border-radius:14px; padding:16px 17px; }
+.pat b { display:block; font-size:13px; font-weight:600; color:var(--ink); margin-bottom:6px; }
+.pat span { display:block; font-size:12px; line-height:1.6; color:var(--muted); font-style:italic; }
+.note { background:#fff; border:1px solid #e8e8ed; border-radius:18px; padding:22px 24px; }
+.note h3 { font-size:16px; font-weight:600; letter-spacing:-.02em; margin-bottom:8px; }
+.note p { font-size:13.5px; line-height:1.65; color:rgba(29,29,31,.66); }
+.note p + p { margin-top:10px; }
+footer { padding:34px 0 56px; text-align:center; border-top:1px solid #e8e8ed; }
+footer p { font-size:12.5px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<nav class="topbar"><div class="tb-wrap">
+  <a class="tb-logo" href="https://bizcolab.com/">BizColab</a>
+  <span class="tb-div"></span>
+  <a class="tb-hq" href="https://bizcolab.com/dashboard/">HQ dashboard</a>
+  <span class="tb-here">Run the week</span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1>Run the <em>week</em></h1>
+  <p>Three standing prompts. Copy one, paste it in, done &mdash; the cohort context comes from project memory, so <b>you never retype the setup</b>. Everything that repeats gets written down once and never typed again.</p>
+</div></header>
+
+<section class="band"><div class="wrap">
+  <div class="section-label">The rhythm</div>
+  <div class="rhythm">
+    <div class="step"><i>Monday 4:45 PM</i><b>Prep the room</b><span>Prompt 1 &mdash; brief only, no edits</span></div>
+    <div class="step live"><i>Monday 5:30 PM</i><b>Facilitate</b><span>The only part that is you</span></div>
+    <div class="step"><i>Tuesday AM</i><b>Ship the recap</b><span>Prompt 2 &mdash; draft to you first</span></div>
+    <div class="step"><i>Any time</i><b>Change the site</b><span>Prompt 3 &mdash; patch, never rebuild</span></div>
+  </div>
+
+  <div class="section-label">The three prompts</div>
+
+  <div class="p">
+    <div class="ph"><span class="num">1</span><span class="pt"><b>Session prep</b><span>Run it 45 minutes before the room opens</span></span><button class="copy" type="button">Copy</button></div>
+    <pre>BizColab session prep for tonight.
+Pull the facilitator page run of show and confirm the Meet link is live on the member page. Give me: (a) block-by-block timing, (b) one sentence per member on what to steer them toward, (c) anything unresolved from last week I need to name out loud.
+No page edits. Just the brief.</pre>
+    <p class="trig">Skill trigger: <code>prep tonight&rsquo;s session</code></p>
+  </div>
+
+  <div class="p">
+    <div class="ph"><span class="num">2</span><span class="pt"><b>The recap</b><span>Tuesday morning, while it is still fresh</span></span><button class="copy" type="button">Copy</button></div>
+    <pre>Build the Cohort 01 Session N recap.
+Pull the Granola notes for last night. Follow the recap-session-1 structure exactly: next-week agenda first, then the common thread, then one card per member with main challenge, sub-challenges, success-by date, and gap box. Gate it with the member password. Patch the live page, do not rebuild it. Show me the diff summary before you commit.</pre>
+    <p class="trig">Skill trigger: <code>build the Session N recap</code></p>
+  </div>
+
+  <div class="p">
+    <div class="ph"><span class="num">3</span><span class="pt"><b>Website change</b><span>Any page, any time &mdash; guardrails included</span></span><button class="copy" type="button">Copy</button></div>
+    <pre>Patch this on bizcolab.com: &lt;what changed&gt;.
+Fetch the current live page pinned to the last commit SHA, make only that change, assert the replacement landed, re-encrypt with the existing salt, commit, and verify against the returned SHA. Tell me what you did NOT touch.</pre>
+    <p class="trig">Skill trigger: <code>patch bizcolab.com</code></p>
+  </div>
+
+  <div class="section-label" style="margin-top:34px">Three patterns worth stealing</div>
+  <div class="grid">
+    <div class="pat"><b>1&ndash;3&ndash;1</b><span>&ldquo;One problem: X. Three options with the tradeoff on each, then your recommendation and why. Under 200 words.&rdquo;</span></div>
+    <div class="pat"><b>The reverse brief</b><span>&ldquo;Before you build it, tell me back what you think I&rsquo;m asking for and what you need from me. Then wait.&rdquo;</span></div>
+    <div class="pat"><b>Name the failure mode</b><span>&ldquo;The way this usually goes wrong is X. Prevent that specifically.&rdquo;</span></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="section-label">Why this works</div>
+  <div class="note">
+    <h3>Write the prompt once. Then only ever type the trigger.</h3>
+    <p>The camcorder method says: record yourself doing the thing once, hand the recording over, never do it again. The version here is the same move &mdash; a repeated job becomes a saved skill, and after that you say four words instead of four paragraphs. Recaps, page patches and reminder texts are all replaceable and repeatable. The 90 minutes in the room is not.</p>
+    <p>Two rules underneath it. <b>Context beats cleverness</b> &mdash; say who it is for, what it replaces, and what done looks like. And <b>ask for the diff, not the doc</b> &mdash; &ldquo;patch the live page&rdquo; is cheap and safe, &ldquo;rebuild the page&rdquo; is how work gets silently reverted.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><p>&#9679; BizColab &middot; facilitator page &middot; not linked publicly</p></div></footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var txt = btn.closest('.p').querySelector('pre').innerText;
+    var ok = function(){ btn.textContent='Copied'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent='Copy'; btn.classList.remove('done'); }, 1600); };
+    function fb(){ var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); ok(); } catch(e) { btn.textContent='Select it'; }
+      document.body.removeChild(ta); }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(txt).then(ok, fb); } else { fb(); }
+  });
+});
+</script>
+</body>
+</html>
