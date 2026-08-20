@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nahai — Outside General Counsel for Technology, Media &amp; Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0C0F;
+  --ink-soft:#12161B;
+  --bone:#F3F2EF;
+  --bone-2:#E9E7E2;
+  --white:#FFFFFF;
+  --steel:#6B7480;
+  --steel-2:#9AA2AC;
+  --line:#DAD7D1;
+  --line-dk:rgba(255,255,255,.13);
+  --chrome:linear-gradient(96deg,#EDF1F6 0%,#B9C2CE 38%,#8E9AA9 55%,#E6EBF1 100%);
+  --volt:#2E5BFF;
+  --maxw:1320px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bone);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.6;font-weight:450;-webkit-font-smoothing:antialiased;letter-spacing:-.005em;overflow-x:hidden}
+h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;font-weight:600;line-height:1.02;letter-spacing:-.04em;margin:0;text-wrap:balance}
+p{text-wrap:pretty;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.tag{display:inline-flex;align-items:center;gap:9px;color:var(--steel)}
+.tag:before{content:"";width:5px;height:5px;background:var(--volt);border-radius:50%;flex:none}
+.dark .tag{color:var(--steel-2)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:90;transition:.4s var(--ease);
+  background:rgba(10,12,15,0);border-bottom:1px solid transparent}
+header.solid{background:rgba(10,12,15,.88);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line-dk)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:13px;color:#fff}
+.brand svg{width:26px;height:30px}
+.brand .wm{font-family:"Inter Tight";font-size:19px;font-weight:600;letter-spacing:.34em;
+  background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav nav{display:flex;gap:34px}
+.nav nav a{color:#C3C9D1;font-size:14px;font-weight:500;letter-spacing:-.01em;position:relative;padding:4px 0}
+.nav nav a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--volt);transition:width .35s var(--ease)}
+.nav nav a:hover{color:#fff}
+.nav nav a:hover:after{width:100%}
+.nav-right{display:flex;align-items:center;gap:22px}
+.pill{border:1px solid rgba(255,255,255,.28);color:#fff;padding:11px 20px;border-radius:100px;font-size:13.5px;font-weight:500;transition:.3s var(--ease)}
+.pill:hover{background:#fff;color:var(--ink);border-color:#fff}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--ink);color:#fff;overflow:hidden;padding-bottom:56px}
+.hero .mesh{position:absolute;inset:-20%;background:
+  radial-gradient(48% 40% at 72% 22%,rgba(46,91,255,.20),transparent 62%),
+  radial-gradient(40% 44% at 18% 78%,rgba(180,196,220,.13),transparent 65%);
+  filter:blur(6px);animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(-3%,2%,0) scale(1.06)}}
+.hero .rules{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);pointer-events:none}
+.hero .rules i{border-left:1px solid rgba(255,255,255,.055)}
+.hero-in{position:relative;z-index:3;width:100%}
+.hero h1{font-size:clamp(42px,6.2vw,94px);font-weight:600;letter-spacing:-.05em;max-width:15ch}
+.hero h1 .cx{background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-top{padding-top:132px}
+.hero-lede{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-top:54px;padding-top:34px;border-top:1px solid var(--line-dk)}
+.hero-lede p{font-size:19px;color:#B9C1CB;max-width:52ch}
+.hero-cta{display:flex;gap:14px;justify-content:flex-end;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:100px;font-size:14.5px;font-weight:550;letter-spacing:-.01em;transition:.32s var(--ease);border:1px solid transparent;cursor:pointer;font-family:Inter}
+.btn-volt{background:#fff;color:var(--ink)}
+.btn-volt:hover{background:var(--volt);color:#fff;transform:translateY(-2px)}
+.btn-line{border-color:rgba(255,255,255,.3);color:#fff}
+.btn-line:hover{border-color:#fff;background:rgba(255,255,255,.07)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:var(--volt);transform:translateY(-2px)}
+.btn-ink-line{border-color:var(--ink);color:var(--ink)}
+.btn-ink-line:hover{background:var(--ink);color:#fff}
+.scrollnote{position:absolute;right:40px;bottom:56px;z-index:3;writing-mode:vertical-rl;color:#69727E}
+
+/* TICKER */
+.ticker{background:var(--ink);border-top:1px solid var(--line-dk);padding:26px 0;overflow:hidden;color:#8C96A2}
+.tk-in{display:flex;gap:76px;white-space:nowrap;animation:slide 34s linear infinite;width:max-content}
+.tk-in span{font-family:"Inter Tight";font-size:22px;font-weight:500;letter-spacing:-.02em;color:#7B8592}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:132px 0;position:relative}
+.head{display:grid;grid-template-columns:.34fr 1fr;gap:56px;margin-bottom:72px}
+.head h2{font-size:clamp(30px,4.2vw,58px)}
+.head .sub{margin-top:24px;font-size:19px;color:var(--steel);max-width:62ch}
+.dark{background:var(--ink);color:#fff}
+.dark .head .sub{color:var(--steel-2)}
+.hair{height:1px;background:var(--line);border:0;margin:0}
+
+/* FIT */
+.fit{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fit>div{background:var(--bone);padding:44px 36px 40px;transition:.35s var(--ease)}
+.fit>div:hover{background:var(--white)}
+.fit h3{font-size:25px;margin-bottom:14px}
+.fit p{color:var(--steel);font-size:16px}
+.fit ul{margin:20px 0 0;padding:0;list-style:none}
+.fit li{font-size:14.5px;color:var(--steel);padding:9px 0;border-top:1px solid var(--line)}
+.exclude{margin-top:32px;display:flex;gap:18px;align-items:flex-start;color:var(--steel);font-size:16px;max-width:78ch}
+.exclude b{color:var(--ink);font-weight:600}
+
+/* ENGAGE */
+.eng{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px}
+.card{border:1px solid var(--line-dk);border-radius:4px;padding:40px 34px 34px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0));display:flex;flex-direction:column;transition:.4s var(--ease)}
+.card:hover{border-color:rgba(255,255,255,.3);transform:translateY(-4px)}
+.card.lead{background:linear-gradient(150deg,rgba(46,91,255,.20),rgba(255,255,255,.03) 58%);border-color:rgba(46,91,255,.42)}
+.card h3{font-size:29px;margin:16px 0 10px}
+.card .terms{font-size:13.5px;color:var(--steel-2);margin-bottom:20px;font-family:"IBM Plex Mono";letter-spacing:.02em}
+.card p{color:#AEB6C0;font-size:15.5px}
+.card ul{list-style:none;padding:0;margin:24px 0 28px}
+.card li{font-size:14.5px;color:#AEB6C0;padding:11px 0;border-top:1px solid var(--line-dk);display:flex;gap:12px}
+.card li:before{content:"→";color:var(--volt);font-size:13px}
+.card .go{margin-top:auto;font-size:14px;font-weight:550;color:#fff;display:inline-flex;gap:8px;align-items:center}
+.card .go:hover{color:var(--volt)}
+
+/* PROCESS */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.proc>div{padding:34px 30px 0 0;position:relative}
+.proc>div:before{content:"";position:absolute;top:-1px;left:0;width:38px;height:3px;background:var(--volt)}
+.proc h4{font-size:20px;margin:16px 0 10px}
+.proc p{font-size:15.5px;color:var(--steel)}
+
+/* CAPABILITIES INDEX */
+.idx{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:78px 1fr 1.05fr 44px;gap:28px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line);transition:.4s var(--ease);cursor:pointer}
+.row:hover{padding-left:16px;background:linear-gradient(90deg,rgba(255,255,255,.7),transparent)}
+.row h3{font-size:clamp(24px,2.7vw,36px);transition:.4s var(--ease)}
+.row:hover h3{color:var(--volt)}
+.row p{color:var(--steel);font-size:15.5px}
+.row .arw{justify-self:end;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:.4s var(--ease);font-size:14px}
+.row:hover .arw{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(-45deg)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dk);border:1px solid var(--line-dk)}
+.stats>div{background:var(--ink);padding:42px 30px}
+.stats b{display:block;font-family:"Inter Tight";font-size:clamp(36px,4.4vw,62px);font-weight:600;letter-spacing:-.05em;
+  background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats span{display:block;margin-top:12px;color:var(--steel-2);font-size:14px;line-height:1.45}
+
+/* BIO */
+.bio{display:grid;grid-template-columns:.78fr 1.22fr;gap:80px;align-items:center}
+.frame{aspect-ratio:4/5;background:linear-gradient(160deg,#1A2028,#0A0C0F);border:1px solid var(--line);position:relative;overflow:hidden}
+.frame:after{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 30% 20%,rgba(46,91,255,.22),transparent 70%)}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:grayscale(1) contrast(1.06);transition:filter .6s var(--ease),transform 1.2s var(--ease);z-index:1}
+.frame:hover img{filter:grayscale(0) contrast(1);transform:scale(1.03)}
+.frame:after{z-index:2;background:linear-gradient(180deg,rgba(10,12,15,0) 42%,rgba(10,12,15,.78) 100%),radial-gradient(60% 40% at 30% 15%,rgba(46,91,255,.16),transparent 70%)}
+.frame span{position:absolute;left:24px;bottom:22px;color:#C3C9D1;z-index:3}
+.bio h2{font-size:clamp(30px,4vw,52px);margin:20px 0 26px}
+.bio p{color:var(--steel);font-size:17.5px;margin-bottom:18px}
+.press{display:flex;flex-wrap:wrap;gap:14px 30px;margin:34px 0 32px;padding-top:26px;border-top:1px solid var(--line)}
+.press span{font-family:"Inter Tight";font-size:15.5px;font-weight:500;color:#8A929C;letter-spacing:-.02em}
+
+/* FEES */
+.fees{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;border-top:1px solid var(--line);padding-top:44px}
+.fees h4{font-size:21px;margin-bottom:12px}
+.fees p{color:var(--steel);font-size:15.5px}
+
+/* CTA */
+.cta{background:var(--ink);color:#fff;padding:130px 0 90px;position:relative;overflow:hidden}
+.cta .mesh{position:absolute;inset:0;background:radial-gradient(46% 50% at 82% 30%,rgba(46,91,255,.22),transparent 65%)}
+.cta-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:start}
+.cta h2{font-size:clamp(34px,5vw,68px);letter-spacing:-.05em}
+.cta .lede{color:#AEB6C0;font-size:19px;margin-top:26px;max-width:44ch}
+.form{border:1px solid var(--line-dk);border-radius:4px;padding:36px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01))}
+.form label{display:block;margin-bottom:8px;color:#8C96A2}
+.form input,.form select,.form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line-dk);color:#fff;
+  padding:14px 16px;font-family:Inter;font-size:15px;margin-bottom:20px;border-radius:3px;transition:.3s}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--volt);background:rgba(46,91,255,.06)}
+.form textarea{min-height:92px;resize:vertical}
+.form .btn{width:100%;justify-content:center}
+.fine{color:#69727E;font-size:12.5px;margin-top:16px;line-height:1.55}
+.offices{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:78px;padding-top:38px;border-top:1px solid var(--line-dk)}
+.office h5{font-family:"Inter Tight";font-size:17px;font-weight:600;margin:0 0 10px;letter-spacing:-.02em}
+.office p{color:#8C96A2;font-size:14.5px}
+.office a{color:var(--volt);font-size:13.5px;display:inline-block;margin-top:8px}
+
+footer{background:#06080A;color:#69727E;padding:52px 0;font-size:13.5px}
+.foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+footer a{color:#8C96A2}
+.disc{max-width:640px;line-height:1.6}
+
+/* rationale */
+.why{display:none;margin-top:26px;border-left:2px solid var(--volt);background:rgba(46,91,255,.055);padding:18px 22px;font-size:14.5px;color:#3C4450;max-width:92ch}
+.dark .why,.cta .why{background:rgba(46,91,255,.10);color:#AEB6C0;position:relative;z-index:2}
+.why b{color:var(--volt);font-weight:600}
+body.show-why .why{display:block}
+.concept-chip{position:fixed;left:26px;bottom:26px;z-index:95;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid var(--line);color:#3C4450;padding:11px 18px;border-radius:100px;font-size:12.5px;box-shadow:0 10px 30px rgba(0,0,0,.10)}
+.concept-chip .mono{color:var(--volt);margin-right:8px}
+@media(max-width:760px){.concept-chip{display:none}}
+.why-btn{position:fixed;right:26px;bottom:26px;z-index:95;background:var(--ink);color:#fff;border:1px solid rgba(255,255,255,.2);
+  padding:13px 22px;border-radius:100px;font-size:13px;font-weight:550;cursor:pointer;font-family:Inter;box-shadow:0 14px 40px rgba(0,0,0,.3);transition:.3s var(--ease)}
+.why-btn:hover{background:var(--volt);border-color:var(--volt)}
+
+@media(max-width:1080px){
+  .wrap{padding:0 22px}
+  .nav nav{display:none}
+  .head,.fit,.eng,.proc,.stats,.bio,.fees,.cta-grid,.offices{grid-template-columns:1fr;gap:26px}
+  .hero-lede{grid-template-columns:1fr;gap:28px}
+  .hero-cta{justify-content:flex-start}
+  .row{grid-template-columns:52px 1fr;gap:14px}
+  .row p,.row .arw{display:none}
+  section{padding:80px 0}
+  .scrollnote{display:none}
+  .bio{gap:34px}.frame{max-width:340px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 26 30" fill="none"><path d="M13 1 24.5 5v10.4C24.5 22.3 19.5 27 13 29 6.5 27 1.5 22.3 1.5 15.4V5L13 1Z" stroke="#9AA2AC" stroke-width="1.1"/><path d="M9 20V10l8 10V10" stroke="#EDF1F6" stroke-width="1.3"/></svg>
+      <span class="wm">NAHAI</span>
+    </a>
+    <nav>
+      <a href="#fit">Clients</a>
+      <a href="#engage">Engagements</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#firm">Firm</a>
+      <a href="#contact">Insights</a>
+    </nav>
+    <div class="nav-right">
+      <a class="mono" href="tel:310-697-8797" style="color:#8C96A2">310.697.8797</a>
+      <a class="pill" href="#contact">Request intake</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="mesh"></div>
+  <div class="rules"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap hero-in">
+    <div class="hero-top">
+      <div class="mono tag">Outside General Counsel · Los Angeles / Bay Area</div>
+      <h1 style="margin-top:34px">Counsel that <span class="cx">compounds</span> — not counsel you call in a crisis.</h1>
+    </div>
+    <div class="hero-lede">
+      <p>Nahai is a corporate, securities, and real estate firm retained by technology, media, and capital-markets companies as their standing legal function — from formation and financings through transactions and disputes.</p>
+      <div class="hero-cta">
+        <a class="btn btn-volt" href="#contact">Request an intake call</a>
+        <a class="btn btn-line" href="#engage">How engagements work</a>
+      </div>
+    </div>
+  </div>
+  <div class="mono scrollnote">Scroll</div>
+</div>
+
+<div class="ticker">
+  <div class="tk-in">
+    <span>FOX</span><span>Endeavor</span><span>Livestream</span><span>Sequoia</span><span>Section</span><span>The Wall Street Journal</span><span>Variety</span><span>MarketWatch</span><span>Business Insider</span><span>Yahoo Finance</span>
+    <span>FOX</span><span>Endeavor</span><span>Livestream</span><span>Sequoia</span><span>Section</span><span>The Wall Street Journal</span><span>Variety</span><span>MarketWatch</span><span>Business Insider</span><span>Yahoo Finance</span>
+  </div>
+</div>
+
+<!-- CLIENT FIT -->
+<section id="fit">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="mono tag">01 — Client fit</div>
+      <div>
+        <h2>We are built for three kinds of client.</h2>
+        <p class="sub">Most firms claim everyone. Naming the fit is faster for you and better for us — you'll know inside one call whether this is the right room.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap rv">
+    <div class="fit">
+      <div>
+        <div class="mono" style="color:var(--steel)">Growth-stage</div>
+        <h3 style="margin-top:14px">Venture-backed &amp; scaling companies</h3>
+        <p>Operators past product-market fit who need a legal function, not a series of one-off memos.</p>
+        <ul><li>Financings, options, cap-table hygiene</li><li>Commercial &amp; IP agreements</li><li>Board and governance support</li></ul>
+      </div>
+      <div>
+        <div class="mono" style="color:var(--steel)">Capital</div>
+        <h3 style="margin-top:14px">Funds, sponsors &amp; issuers</h3>
+        <p>Groups raising and deploying capital who need securities work done correctly the first time.</p>
+        <ul><li>Private placements &amp; PPMs</li><li>Secondaries and private equity</li><li>FINRA and regulatory matters</li></ul>
+      </div>
+      <div>
+        <div class="mono" style="color:var(--steel)">Property</div>
+        <h3 style="margin-top:14px">Real estate principals &amp; family offices</h3>
+        <p>Owners with a recurring pipeline of acquisitions, leases, and title matters.</p>
+        <ul><li>Commercial acquisitions &amp; JVs</li><li>Leasing and landlord-tenant</li><li>Quiet title and disputes</li></ul>
+      </div>
+    </div>
+    <div class="exclude"><span class="mono" style="color:var(--volt);white-space:nowrap">Not for</span><span><b>Personal injury, family law, criminal defense, and single-issue consumer matters.</b> We'll refer you to someone who does that work well rather than take the file.</span></div>
+    <div class="why"><b>Why →</b> The live site advertises "Call Us 24/7," which recruits urgent, one-off, price-shopping matters — the exact intake that produces short tenure and high churn. A named fit list plus an explicit not-for list is the cheapest filter available and costs no traffic worth having.</div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section id="engage" class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="mono tag">02 — Engagements</div>
+      <div>
+        <h2>Three ways to engage. One of them is a relationship.</h2>
+        <p class="sub">Most firms sell matters, and matters end. We lead with retained counsel because companies with continuous coverage make better decisions and spend less on legal over five years.</p>
+      </div>
+    </div>
+    <div class="eng rv">
+      <div class="card lead">
+        <div class="mono" style="color:#fff">Most clients start here</div>
+        <h3>Outside General Counsel</h3>
+        <div class="terms">Fixed monthly · 12-month term</div>
+        <p>Your legal department, on call. A defined scope, a predictable invoice, and a lawyer who already knows your cap table, your contracts, and your counterparties.</p>
+        <ul><li>Unlimited counsel calls in scope</li><li>Contract review &amp; templates</li><li>Governance, minutes, annual filings</li><li>Quarterly legal-risk review</li><li>Priority access on live deals</li></ul>
+        <a class="go" href="#contact">See what's in scope →</a>
+      </div>
+      <div class="card">
+        <div class="mono" style="color:var(--steel-2)">Transactions</div>
+        <h3>Deal Counsel</h3>
+        <div class="terms">Flat or capped · quoted upfront</div>
+        <p>Single transactions run end to end — an acquisition, a raise, a JV, a closing — at a fee you know before diligence starts.</p>
+        <ul><li>M&amp;A, buy and sell side</li><li>Placements &amp; secondaries</li><li>Commercial real estate</li></ul>
+        <a class="go" href="#contact">Request a quote →</a>
+      </div>
+      <div class="card">
+        <div class="mono" style="color:var(--steel-2)">Disputes</div>
+        <h3>Litigation Counsel</h3>
+        <div class="terms">Hourly or hybrid · budgeted</div>
+        <p>Business, securities, and real estate disputes handled with the same commercial lens as the deal work.</p>
+        <ul><li>Business &amp; partnership disputes</li><li>Securities and FINRA</li><li>Quiet title, unlawful detainer</li></ul>
+        <a class="go" href="#contact">Discuss a dispute →</a>
+      </div>
+    </div>
+    <div class="why"><b>Why →</b> This is the churn fix. A site organized by practice area sells episodes; a site organized by engagement model sells tenure. Putting a fixed-fee, 12-month retainer in the visual center makes the recurring relationship the default rather than an upsell — and gives you the script for converting the repeat clients you already have.</div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="mono tag">03 — First 30 days</div>
+      <div><h2>You'll know exactly what happens after you call.</h2></div>
+    </div>
+    <div class="proc rv">
+      <div><div class="mono" style="color:var(--volt)">01</div><h4>Intake call</h4><p>Twenty-five minutes with Alex, not a coordinator. We say plainly whether we're the right firm.</p></div>
+      <div><div class="mono" style="color:var(--volt)">02</div><h4>Legal audit</h4><p>A short written read on entity, contracts, IP, and exposure — gaps ranked by what they'd actually cost.</p></div>
+      <div><div class="mono" style="color:var(--volt)">03</div><h4>Scope &amp; fee</h4><p>A one-page engagement: what's covered, what isn't, what it costs. No surprise invoices.</p></div>
+      <div><div class="mono" style="color:var(--volt)">04</div><h4>Standing cadence</h4><p>A recurring check-in and a quarterly risk review, so legal arrives before the problem does.</p></div>
+    </div>
+    <div class="why"><b>Why →</b> Better clients evaluate carefully, and careful buyers don't convert off a phone number. Publishing the process removes the main reason a well-run company hesitates to switch counsel — and the legal audit is the natural on-ramp into the retainer.</div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="mono tag">04 — Capabilities</div>
+      <div><h2>Depth where business, capital, and property meet.</h2></div>
+    </div>
+    <div class="idx rv">
+      <a class="row" href="#"><span class="mono" style="color:var(--steel)">01</span><h3>Business &amp; Corporate</h3><p>Formation, governance, commercial contracts, transactions, and business litigation for companies at every stage.</p><span class="arw">→</span></a>
+      <a class="row" href="#"><span class="mono" style="color:var(--steel)">02</span><h3>Securities &amp; M&amp;A</h3><p>Offerings, private placements, secondaries, private equity, mergers and acquisitions, and securities disputes.</p><span class="arw">→</span></a>
+      <a class="row" href="#"><span class="mono" style="color:var(--steel)">03</span><h3>Intellectual Property</h3><p>Trademark, copyright, trade secret, licensing, and IP litigation for media, entertainment, and technology clients.</p><span class="arw">→</span></a>
+      <a class="row" href="#"><span class="mono" style="color:var(--steel)">04</span><h3>Real Estate</h3><p>Commercial and residential transactions, leasing, development, deed and title work, and real estate disputes.</p><span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="dark" style="padding:96px 0">
+  <div class="wrap">
+    <div class="stats rv">
+      <div><b>$1B+</b><span>In transactions overseen across technology, media, and real property</span></div>
+      <div><b>$100M</b><span>Typical capital-raise range supported for issuers and sponsors, from $10M–$100M</span></div>
+      <div><b>10+</b><span>Years advising companies, funds, and principals in California</span></div>
+      <div><b>3</b><span>Offices — Century City, Beverly Hills, San Jose</span></div>
+    </div>
+    <div class="why"><b>Why →</b> Placeholder metrics pulled from the live site. Three genuine anonymized matter narratives — situation, action, outcome — would outperform every other change on this page. Sophisticated buyers hire on evidence, not adjectives.</div>
+  </div>
+</section>
+
+<!-- FIRM -->
+<section id="firm">
+  <div class="wrap bio rv">
+    <div class="frame"><img src="alex-nahai.webp" alt="Alex Nahai, founding attorney"><span class="mono">Alex Nahai · Founding Attorney</span></div>
+    <div>
+      <div class="mono tag">05 — The firm</div>
+      <h2>A business lawyer who reads the deal before the document.</h2>
+      <p>Alex Nahai founded the firm to give companies and investors the counsel he delivered in-house — commercial, decisive, and available before the problem becomes a filing. He advises founders, operators, funds, and principals on corporate transactions, securities, real estate, intellectual property, and business disputes across Los Angeles, the Bay Area, and California.</p>
+      <p>More than a decade across technology, media, entertainment, and real estate — including senior in-house counsel roles — and matters totaling over $1 billion in value.</p>
+      <div class="press">
+        <span>The Wall Street Journal</span><span>MarketWatch</span><span>Yahoo Finance</span><span>Variety</span><span>Business Insider</span><span>Los Angeles Magazine</span>
+      </div>
+      <a class="btn btn-ink-line" href="#">Full attorney profile</a>
+      <div class="why"><b>Why →</b> The bio leads with the in-house perspective instead of the résumé. For a buyer choosing long-term counsel, "he has sat on your side of the table" is the differentiator; "over a decade of experience" is a claim every competitor also makes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="mono tag">06 — Fees</div>
+      <div><h2>How we bill, stated plainly.</h2></div>
+    </div>
+    <div class="fees rv">
+      <div><h4>Fixed monthly for ongoing counsel</h4><p>Retained clients pay one predictable figure. The scope is written down and reviewed with you quarterly as the business changes.</p></div>
+      <div><h4>Flat or capped on transactions</h4><p>Deal work is quoted before diligence begins. If scope changes materially, you hear it before the work happens — not on the invoice.</p></div>
+      <div><h4>Hourly only where warranted</h4><p>Disputes carry a budget and a monthly forecast. You should never be surprised by a legal bill.</p></div>
+    </div>
+    <div class="why"><b>Why →</b> Fee opacity is a leading reason companies leave a firm. Publishing the billing philosophy pre-qualifies the buyer, shortens the sales conversation, and signals the kind of relationship on offer. It costs nothing, and competitors won't copy it.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta" id="contact">
+  <div class="mesh"></div>
+  <div class="wrap">
+    <div class="cta-grid">
+      <div>
+        <div class="mono tag">07 — Start here</div>
+        <h2 style="margin-top:26px">Request a 25-minute intake call.</h2>
+        <p class="lede">Tell us what you're working on. You'll hear back the same business day with either a time to talk or an honest referral elsewhere.</p>
+        <p class="mono" style="margin-top:30px;color:#8C96A2">Direct — <a href="tel:310-697-8797" style="color:var(--volt)">310.697.8797</a></p>
+      </div>
+      <div class="form">
+        <label class="mono">Name</label><input placeholder="Your name">
+        <label class="mono">Company</label><input placeholder="Company or fund">
+        <label class="mono">Email</label><input type="email" placeholder="you@company.com">
+        <label class="mono">What do you need counsel on?</label>
+        <select><option>Ongoing outside general counsel</option><option>A transaction — M&amp;A, financing, real estate</option><option>Securities / capital raise</option><option>Intellectual property</option><option>A dispute</option><option>Not sure yet</option></select>
+        <label class="mono">Brief description</label><textarea placeholder="A few sentences is plenty."></textarea>
+        <button class="btn btn-volt">Request intake call</button>
+        <p class="fine">Submitting this form does not create an attorney-client relationship. Please do not include confidential information.</p>
+      </div>
+    </div>
+    <div class="offices">
+      <div class="office"><h5>Century City</h5><p>1875 Century Park East, Suite 1120<br>Los Angeles, CA 90067</p><a href="#" class="mono">Map →</a></div>
+      <div class="office"><h5>Beverly Hills</h5><p>375 North La Cienega<br>Los Angeles, CA 90048</p><a href="#" class="mono">Map →</a></div>
+      <div class="office"><h5>San Jose</h5><p>1777 Hamilton Avenue, Suite 2270<br>San Jose, CA 95125</p><a href="#" class="mono">Map →</a></div>
+    </div>
+    <div class="why" style="margin-top:36px"><b>Why →</b> "Call Us 24/7" is replaced by a structured intake with a matter-type selector and a same-day response promise. Round-the-clock availability signals commodity emergency work; a managed intake signals a firm running a book of ongoing clients — and routes the wrong inquiries away before they consume Alex's time.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div class="disc">
+      <p class="mono" style="color:#8C96A2;margin-bottom:14px">NAHAI — Business &amp; Corporate Counsel · Los Angeles · San Jose</p>
+      <p>Disclaimer: The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+    </div>
+    <div style="text-align:right">
+      <p style="margin-bottom:8px">© 2026 Alex Nahai Law. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms &amp; Conditions</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="concept-chip"><span class="mono">Concept</span> Homepage redesign prepared for Alex Nahai · BizColab Cohort 01</div>
+<button class="why-btn" onclick="document.body.classList.toggle('show-why');this.textContent=document.body.classList.contains('show-why')?'Hide rationale':'Why these changes?'">Why these changes?</button>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>60),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
