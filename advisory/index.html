@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BizColab Advisory — Fractional Executive Access</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0C;
+    --bone:#F4F1EA;
+    --accent:#2E5BFF;
+    --accent-2:#B7F04D;
+    --mut:rgba(244,241,234,.62);
+    --mut-d:rgba(11,11,12,.6);
+    --line:rgba(244,241,234,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--bone);font-family:'Inter Tight',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .serif{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  section{padding:96px 0}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .wordmark{font-weight:800;font-size:17px;letter-spacing:-.02em}
+  .wordmark .dot{color:var(--accent-2)}
+  .wordmark .tier{color:var(--mut);font-weight:500}
+  nav a.cta{background:var(--bone);color:var(--ink);text-decoration:none;font-weight:700;font-size:13px;padding:10px 20px;border-radius:100px}
+
+  /* hero */
+  .hero{padding:120px 0 100px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-40%;background:radial-gradient(ellipse 46% 34% at 72% 22%,rgba(46,91,255,.32),transparent 60%),radial-gradient(ellipse 30% 26% at 18% 78%,rgba(183,240,77,.10),transparent 60%);pointer-events:none}
+  .hero .wrap{position:relative}
+  .kicker{color:var(--accent-2);margin-bottom:26px;display:block}
+  h1{font-size:clamp(44px,7.2vw,84px);font-weight:900;letter-spacing:-.045em;line-height:.98;max-width:15ch}
+  h1 .serif{font-weight:400;letter-spacing:-.01em;color:var(--accent-2)}
+  .hero p.sub{margin-top:30px;font-size:20px;font-weight:500;color:var(--mut);max-width:52ch}
+  .hero p.sub b{color:var(--bone)}
+  .hero-ctas{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;padding:15px 28px;border-radius:100px}
+  .btn-solid{background:var(--accent);color:#fff}
+  .btn-ghost{border:1px solid var(--line);color:var(--bone)}
+  .hero .mono.note{display:block;margin-top:34px;color:var(--mut)}
+
+  /* stat strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .stat .n{font-weight:800;font-size:26px;letter-spacing:-.03em}
+  .stat .l{color:var(--mut);font-size:13px;margin-top:4px}
+
+  /* section heads */
+  .sec-k{color:var(--accent);display:block;margin-bottom:18px}
+  h2{font-size:clamp(30px,4.4vw,50px);font-weight:800;letter-spacing:-.04em;line-height:1.05;max-width:24ch}
+  .sec-sub{margin-top:18px;color:var(--mut);font-size:17px;max-width:60ch}
+
+  /* offer card */
+  .anchor-card{margin-top:48px;background:linear-gradient(140deg,rgba(46,91,255,.16),rgba(46,91,255,.04));border:1px solid rgba(46,91,255,.4);border-radius:20px;padding:44px}
+  .anchor-card h3{font-size:26px;font-weight:800;letter-spacing:-.03em}
+  .anchor-card .price{font-size:15px;color:var(--accent-2);font-weight:600;margin-top:6px}
+  .anchor-card p{margin-top:16px;color:var(--mut);max-width:64ch}
+  .anchor-card ul{margin-top:20px;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+  .anchor-card li{padding-left:22px;position:relative;font-size:15px}
+  .anchor-card li::before{content:"→";position:absolute;left:0;color:var(--accent-2)}
+
+  /* buckets */
+  .grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card{border:1px solid var(--line);border-radius:18px;padding:34px;background:rgba(244,241,234,.025)}
+  .card .idx{color:var(--accent);margin-bottom:16px;display:block}
+  .card h3{font-size:21px;font-weight:800;letter-spacing:-.02em}
+  .card p{margin-top:12px;color:var(--mut);font-size:15px}
+  .card .out{margin-top:16px;font-size:13px;color:var(--bone);border-top:1px solid var(--line);padding-top:14px}
+  .card .out span{color:var(--mut)}
+
+  /* light band — about */
+  .light{background:var(--bone);color:var(--ink)}
+  .light h2{color:var(--ink)}
+  .light .sec-sub{color:var(--mut-d)}
+  .cred{margin-top:44px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .cred div{border:1px solid rgba(11,11,12,.14);border-radius:16px;padding:26px}
+  .cred b{display:block;font-size:16px;letter-spacing:-.01em}
+  .cred span{font-size:14px;color:var(--mut-d);margin-top:6px;display:block}
+  .light .mono{color:rgba(11,11,12,.5)}
+
+  /* pricing */
+  .tiers{margin-top:48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .tier-c{border:1px solid var(--line);border-radius:18px;padding:34px;display:flex;flex-direction:column}
+  .tier-c.hot{border-color:var(--accent);background:rgba(46,91,255,.07)}
+  .tier-c .t{font-weight:800;font-size:19px;letter-spacing:-.02em}
+  .tier-c .p{font-size:30px;font-weight:900;letter-spacing:-.03em;margin-top:14px}
+  .tier-c .p small{font-size:14px;font-weight:500;color:var(--mut)}
+  .tier-c p.d{margin-top:14px;color:var(--mut);font-size:14px;flex:1}
+  .tier-c .for{margin-top:18px;font-size:12px;color:var(--accent-2)}
+
+  /* cta */
+  .final{padding:120px 0;text-align:center}
+  .final h2{margin:0 auto}
+  .final .btn{margin-top:36px}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mut);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+
+
+  @media(max-width:760px){
+    .strip .wrap{grid-template-columns:1fr 1fr}
+    .grid,.cred,.tiers{grid-template-columns:1fr}
+    .anchor-card ul{grid-template-columns:1fr}
+    section{padding:72px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="wordmark"><span class="dot">●</span> BizColab <span class="tier">/ Advisory</span></div>
+    <a class="cta" href="#book">Book a working session</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="mono kicker">Fractional executive access · AI-powered</span>
+    <h1>20 years of design, marketing, brand &amp; ops — <span class="serif">on&nbsp;your&nbsp;team.</span></h1>
+    <p class="sub">You don't need another agency or another hire. You need <b>executive-level judgment on tap</b>. AI is changing the game — one operator can now ship what used to take a team — but <b>leverage only multiplies judgment</b>. Knowing what to build, and what to skip, is the 20&nbsp;years.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="#problem">Bring me your one problem</a>
+      <a class="btn btn-ghost" href="#work">See how it works</a>
+    </div>
+    <span class="mono note">From the team behind the BizColab six-seat operator cohort</span>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><div class="n">20 yrs</div><div class="l">Design, marketing, brand &amp; operations</div></div>
+    <div class="stat"><div class="n">Architect</div><div class="l">Licensed — design is a discipline, not a taste</div></div>
+    <div class="stat"><div class="n">15+ companies</div><div class="l">Built, branded &amp; operated over 20 years</div></div>
+    <div class="stat"><div class="n">10+ yrs</div><div class="l">Operating LA real estate investments</div></div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <span class="mono sec-k">01 / The anchor offer</span>
+    <h2>The Operating Partner retainer</h2>
+    <p class="sec-sub">Not a consultant who leaves a deck. A senior operator embedded in your business who diagnoses what's actually broken, then builds the fix — with AI doing the production work, so you pay for judgment, not hours.</p>
+    <div class="anchor-card">
+      <h3>What a month looks like</h3>
+      <div class="price">Weekly working session · async access · everything built, not just recommended</div>
+      <p>We fix the constraint that's costing you the most, then move to the next one. Typical first-quarter arc:</p>
+      <ul>
+        <li>Operations audit — where the hours and margin leak</li>
+        <li>AI systems installed into your real workflow</li>
+        <li>Website rebuilt or sharpened to convert</li>
+        <li>Brand system that makes you look like the category leader</li>
+        <li>Content engine — social &amp; email shipping weekly on autopilot</li>
+        <li>Dashboards so you see the business in one screen</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="mono sec-k">02 / What gets built</span>
+    <h2>Four capabilities, one&nbsp;operator</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="mono idx">A — Operations &amp; AI</span>
+        <h3>The business runs without you in&nbsp;every&nbsp;loop</h3>
+        <p>Workflow audits, SOPs, CRM cleanup, AI agents for follow-up, reporting and admin. The stuff that turns a 60-hour week into a 40-hour one.</p>
+        <div class="out">Output: <span>systems live in your tools, team trained</span></div>
+      </div>
+      <div class="card">
+        <span class="mono idx">B — Marketing &amp; Social</span>
+        <h3>A content engine, not a&nbsp;content&nbsp;chore</h3>
+        <p>Positioning, campaigns, email, and a social pipeline that designs, writes and schedules itself — the same system running three brands right now.</p>
+        <div class="out">Output: <span>4–6 weeks of content shipping on schedule</span></div>
+      </div>
+      <div class="card">
+        <span class="mono idx">C — Web Design &amp; Build</span>
+        <h3>A site that closes before you&nbsp;pick&nbsp;up</h3>
+        <p>Designed with an architect's eye, built and shipped fast. Landing pages, full sites, gated client portals — live in days, not quarters.</p>
+        <div class="out">Output: <span>a live site, measured on conversion</span></div>
+      </div>
+      <div class="card">
+        <span class="mono idx">D — Brand &amp; Design</span>
+        <h3>Look like the one they'd pay&nbsp;more&nbsp;for</h3>
+        <p>Identity, decks, collateral and client-ready artifacts. Design that raises your price ceiling — because buyers judge the work by the wrapper.</p>
+        <div class="out">Output: <span>a brand system your whole team can use</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap" style="display:block;max-width:880px">
+    <span class="mono" style="color:var(--accent-2);display:block;margin-bottom:20px">The leverage truth</span>
+    <p style="font-size:clamp(22px,3.2vw,34px);font-weight:700;letter-spacing:-.03em;line-height:1.25">AI is the biggest leverage shift in a generation. But leverage <span class="serif" style="color:var(--accent-2)">multiplies</span> — it doesn't decide. Point it at the wrong thing and you get the wrong thing, faster. Twenty years of building companies is what tells it where&nbsp;to&nbsp;aim.</p>
+  </div>
+</div>
+
+<section class="light">
+  <div class="wrap">
+    <span class="mono sec-k" style="color:#2E5BFF">03 / Why Michael</span>
+    <h2>Judgment from three careers. Speed from&nbsp;AI.</h2>
+    <p class="sec-sub">Most advisors have theory. This practice is built on three decades of doing — and a production system most agencies don't have yet.</p>
+    <div class="cred">
+      <div><b>Agency founder, 15 years</b><span>Led a digital marketing agency — creative strategy plus data analytics, hundreds of campaigns.</span></div>
+      <div><b>Licensed architect</b><span>Trained to design systems people live in. Brand, web and spatial thinking from the same discipline.</span></div>
+      <div><b>Operator &amp; investor</b><span>10+ years in LA multifamily; principal agent at AMRE / Compass. Runs on margins, not vibes.</span></div>
+      <div><b>Founder, BizColab</b><span>Built the six-seat operator cohort — and the site, brand, content and systems behind it.</span></div>
+      <div><b>AI, applied properly</b><span>Uses AI as leverage across ops, content and web — with 20 years of judgment deciding what it builds and why.</span></div>
+      <div><b>Skin in the game</b><span>Everything recommended is running in his own businesses first. No untested theory.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="problem">
+  <div class="wrap">
+    <span class="mono sec-k">04 / The offer</span>
+    <h2>You have that one problem. I&nbsp;can&nbsp;help.</h2>
+    <p class="sec-sub">Every business has one — the site that doesn't convert, the marketing nobody owns, the operation that only runs when you do. You've been working around it for months.</p>
+    <div class="anchor-card">
+      <h3>Bring me that problem.</h3>
+      <p>We fix it first, together. You'll know inside one working session whether this is worth your money — and if I can't help, I'll tell you so and point you to who can. No pitch, no proposal deck, no lock-in.</p>
+      <p style="margin-top:14px;color:var(--bone);font-weight:600">One operator, a few clients at a time. When the seats are full, they're full.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="book">
+  <div class="wrap">
+    <span class="mono sec-k" style="display:block">05 / Start</span>
+    <h2 style="max-width:20ch;margin:0 auto">Bring the problem. Leave with&nbsp;the&nbsp;plan.</h2>
+    <a class="btn btn-solid" href="mailto:michael@bizcolab.com">Tell me your one problem</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><span style="color:var(--accent-2)">●</span> BizColab Advisory · Los Angeles</div>
+    <div class="mono">Fractional executive access</div>
+  </div>
+</footer>
+
+</body>
+</html>
