@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>BizColab — Design concept · StreetPulse</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@font-face{font-family:'Archivo Black';src:url(/assets/fonts/archivo-black-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Archivo';src:url(/assets/fonts/archivo-600.woff2) format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Archivo';src:url(/assets/fonts/archivo-800.woff2) format('woff2');font-weight:800;font-style:normal;font-display:swap}
+
+:root{--pink:#FF2E88;--orange:#FF6B00;--lime:#C6FF3D;--cobalt:#0038FF;--yellow:#FFD400;--ink:#0A0A0A;--paper:#FFF8F0}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#111;font-family:'Archivo',system-ui,-apple-system,sans-serif;font-weight:600;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 96px}
+.topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:12px 4px 20px;color:#fff}
+.topbar .t{font-family:'Archivo Black';font-weight:400;font-size:15px;letter-spacing:-.01em}
+.topbar .s{font-size:12px;color:#9a9aa2;line-height:1.55;max-width:520px;margin-top:4px}
+.stage{position:relative;width:100%;aspect-ratio:16/9;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.slide{position:absolute;inset:0;display:none;padding:60px 68px;overflow:hidden}
+.slide.on{display:block}
+h1,h2{font-family:'Archivo Black';font-weight:400;line-height:.92;letter-spacing:-.042em;text-transform:uppercase}
+.kicker{font-family:'Archivo Black';font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+.tiny{font-size:13px;line-height:1.6;opacity:.7}
+.lede{font-size:19px;line-height:1.4;font-weight:800;letter-spacing:-.015em}
+.num{font-family:'Archivo Black';font-weight:400;letter-spacing:-.05em;line-height:.84}
+.wm{display:inline-flex;align-items:center;gap:9px;font-family:'Archivo Black';font-weight:400;font-size:15px;letter-spacing:-.02em;text-transform:uppercase}
+.wm .dot{width:11px;height:11px;border-radius:50%;background:currentColor}
+.stamp{display:inline-block;font-family:'Archivo Black';font-weight:400;font-size:14px;letter-spacing:.01em;text-transform:uppercase;padding:8px 15px;border-radius:999px}
+.ph{display:inline-block;border:2px dashed currentColor;border-radius:9px;padding:3px 10px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.8;vertical-align:middle}
+.bub{display:inline-block;background:#fff;color:var(--ink);border-radius:18px 18px 18px 4px;padding:10px 15px;font-weight:800;font-size:16.5px;letter-spacing:-.02em;box-shadow:0 8px 22px rgba(0,0,0,.14)}
+/* reels */
+.reels{display:flex;gap:14px}
+.reel{position:relative;width:150px;aspect-ratio:9/16;border-radius:15px;overflow:hidden;box-shadow:0 16px 38px rgba(0,0,0,.32)}
+.reel img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.reel .top{position:absolute;top:10px;left:10px;right:10px;display:flex;align-items:center;gap:7px}
+.reel .play{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.reel .play:after{content:'';border-left:7.5px solid #0A0A0A;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+.reel .tag{font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#fff;background:rgba(10,10,10,.62);border-radius:999px;padding:4px 8px;line-height:1.15}
+.reel .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,0) 34%)}
+.cap{width:170px;margin-top:11px}
+.cap .q{background:#fff;color:var(--ink);border-radius:14px 14px 14px 4px;padding:10px 13px;font-weight:800;font-size:14.5px;line-height:1.24;letter-spacing:-.02em;white-space:nowrap;text-align:center}
+.cap .who{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin-top:7px;padding-left:3px}
+/* nav */
+.nav{position:fixed;left:0;right:0;bottom:0;background:rgba(10,10,12,.94);backdrop-filter:blur(10px);border-top:1px solid #26262c;padding:11px 18px;display:flex;align-items:center;gap:12px;justify-content:center;z-index:50}
+.nav button{font-family:'Archivo';font-weight:800;font-size:12.5px;color:#fff;background:#26262c;border:none;border-radius:999px;padding:8px 15px;cursor:pointer}
+.nav button:hover{background:#37373f}
+.dots{display:flex;gap:6px;margin:0 6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#3a3a42;cursor:pointer;display:block}
+.dots i.on{background:#fff;transform:scale(1.25)}
+.count{color:#9a9aa2;font-size:12px;font-weight:800;min-width:44px;text-align:center}
+.notes{max-width:1180px;margin:16px auto 0;color:#c9c9d2;background:#191920;border:1px solid #2a2a32;border-radius:14px;padding:16px 20px;font-size:13.5px;line-height:1.62;display:none}
+.notes.on{display:block}
+.notes b{color:#fff}
+@media print{.nav,.topbar,.notes{display:none}.wrap{padding:0;max-width:none}.stage{border-radius:0;box-shadow:none;page-break-after:always}.slide{display:block!important}}
+</style></head><body>
+<div class="wrap">
+ <div class="topbar">
+  <div><div class="t">StreetPulse &mdash; deck v2 <span style="color:#6f6f78">/ concept for Renee Miller</span></div>
+  <div class="s">Arrow keys or the buttons below. Press <b style="color:#fff">N</b> for the reasoning behind each page. Stills are real frames from the TMG StreetPulse Shorts.</div></div>
+  <div class="s" style="text-align:right;max-width:230px">Dashed outline = a number still to confirm.<br><a href="/cohort-losangeles-001/recap-session-1/" style="color:#9a9aa2;text-decoration:underline">&larr; Back to the Meeting 1 recap</a></div>
+ </div>
+ <div class="stage" id="stage">
+
+  <!-- 1 -->
+  <section class="slide on" style="background:var(--cobalt);color:#fff">
+   <div style="display:flex;flex-direction:column;height:100%;justify-content:space-between">
+    <div class="wm" style="color:var(--lime)"><span class="dot"></span>StreetPulse</div>
+    <div style="display:flex;align-items:flex-end;gap:38px">
+     <div style="flex:1">
+      <h1 style="font-size:70px"><span style="display:block;white-space:nowrap">What do they</span><span style="display:block;white-space:nowrap"><span style="color:var(--lime)">really</span> think?</span></h1>
+      <div style="margin-top:26px;display:flex;gap:9px;flex-wrap:wrap">
+       <span class="stamp" style="background:var(--yellow);color:var(--ink)">20 people</span>
+       <span class="stamp" style="background:var(--pink);color:#fff">3 minutes</span>
+       <span class="stamp" style="background:#fff;color:var(--ink)">one clear answer</span>
+      </div>
+     </div>
+     <div class="reels">
+      <div class="reel"><img src="/assets/streetpulse/sp-1-name-vs-generic.jpg" alt=""><div class="scrim"></div><div class="top"><span class="play"></span><span class="tag">Name brand<br>vs generic</span></div></div>
+      <div class="reel"><img src="/assets/streetpulse/sp-2-pink-tax.jpg" alt=""><div class="scrim"></div><div class="top"><span class="play"></span><span class="tag">The pink tax</span></div></div>
+      <div class="reel"><img src="/assets/streetpulse/sp-3-who-influences.jpg" alt=""><div class="scrim"></div><div class="top"><span class="play"></span><span class="tag">Who influences<br>your purchases</span></div></div>
+     </div>
+    </div>
+    <div class="tiny" style="opacity:.82">Consumer intelligence for challenger brands &middot; The Miller Group &middot; Since 1990</div>
+   </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide" style="background:var(--yellow);color:var(--ink)">
+   <div style="display:flex;flex-direction:column;height:100%;justify-content:space-between">
+    <div class="kicker">The problem</div>
+    <h1 style="font-size:86px">Marketing fails<br>when listening<br>happens too late.</h1>
+    <div style="display:flex;align-items:flex-end;gap:44px">
+     <p class="lede" style="flex:1;max-width:46ch">Brands commit the budget, book the media and ship the campaign &mdash; then find out they never heard from the one person they needed to persuade.</p>
+     <div style="display:flex;gap:34px;text-align:right;flex:0 0 auto">
+      <div><div class="num" style="font-size:70px">250+</div><div class="tiny" style="opacity:.7">brands<br>since 1990</div></div>
+      <div><div class="num" style="font-size:70px">36</div><div class="tiny" style="opacity:.7">years of the<br>same lesson</div></div>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide" style="background:var(--pink);color:#fff">
+   <div style="display:flex;flex-direction:column;height:100%;gap:26px;justify-content:center">
+    <div class="kicker" style="opacity:.75;position:absolute;top:60px;left:68px">The insight</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+     <div style="opacity:.6;border-right:2px solid rgba(255,255,255,.32);padding-right:40px">
+      <h2 style="font-size:40px">Dashboards show<br>you the what.</h2>
+      <p class="tiny" style="opacity:.95;margin-top:18px;font-size:14px">Social listening reads what people already posted. It cannot show a price, test a message or ask a follow-up &mdash; and half the market never posts at all.</p>
+     </div>
+     <div>
+      <h2 style="font-size:52px">We bring you<br><span style="color:var(--lime)">the why.</span></h2>
+      <p class="tiny" style="opacity:.95;margin-top:18px;font-size:14px">Real people, on camera, in the places they actually shop &mdash; including the ones who will never post a word about you.</p>
+     </div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+     <span class="bub">&ldquo;Wait, how much?&rdquo;</span>
+     <span class="bub">&ldquo;I&rsquo;d try it once.&rdquo;</span>
+     <span class="bub">&ldquo;Feels like it&rsquo;s for someone else.&rdquo;</span>
+    </div>
+   </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide" style="background:var(--lime);color:var(--ink)">
+   <div style="display:flex;flex-direction:column;height:100%;justify-content:space-between">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+     <div class="kicker">What it is &mdash; shown, not described</div><span class="ph">sample output</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:44px">
+     <div style="flex:0 0 auto">
+      <div class="num" style="font-size:172px">73%</div>
+      <h2 style="font-size:50px;margin-top:-4px">would buy it.</h2>
+     </div>
+     <div style="display:flex;gap:16px">
+      <div><div class="reel" style="width:170px"><img src="/assets/streetpulse/sp-3-who-influences.jpg" alt=""><div class="scrim"></div><div class="top"><span class="play"></span></div></div><div class="cap"><div class="q">&ldquo;Would try it.&rdquo;</div><div class="who">Century City</div></div></div>
+      <div><div class="reel" style="width:170px"><img src="/assets/streetpulse/sp-2-pink-tax.jpg" alt=""><div class="scrim"></div><div class="top"><span class="play"></span></div></div><div class="cap"><div class="q">&ldquo;Feels expensive.&rdquo;</div><div class="who">Grand Central Mkt</div></div></div>
+      <div><div class="reel" style="width:170px"><img src="/assets/streetpulse/sp-1-name-vs-generic.jpg" alt=""><div class="scrim"></div><div class="top"><span class="play"></span></div></div><div class="cap"><div class="q">&ldquo;Love the packaging.&rdquo;</div><div class="who">Abbot Kinney</div></div></div>
+     </div>
+    </div>
+    <div class="tiny" style="opacity:.72">StreetPulse interviewed 20 target consumers on camera. One three-minute film for the boardroom, one cut for social, one clear recommendation.</div>
+   </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide" style="background:var(--orange);color:var(--ink)">
+   <div style="display:flex;flex-direction:column;height:100%;justify-content:space-between">
+    <div class="kicker" style="opacity:.55">Use it when the room disagrees</div>
+    <h1 style="font-size:66px;color:#fff">They love the product.<br>The price? <span style="color:var(--yellow)">Not so much.</span></h1>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:13px">
+     <div style="background:var(--ink);color:#fff;border-radius:16px;padding:19px 18px"><div class="num" style="font-size:22px;line-height:1.08">Is our brand promise landing?</div><div class="tiny" style="margin-top:10px;opacity:.6;font-size:12.5px">or do they nod and walk away</div></div>
+     <div style="background:#fff;border-radius:16px;padding:19px 18px"><div class="num" style="font-size:22px;line-height:1.08">What do they say when we are not there?</div><div class="tiny" style="margin-top:10px;opacity:.6;font-size:12.5px">unfiltered, on camera</div></div>
+     <div style="background:var(--ink);color:#fff;border-radius:16px;padding:19px 18px"><div class="num" style="font-size:22px;line-height:1.08">Will the launch actually work?</div><div class="tiny" style="margin-top:10px;opacity:.6;font-size:12.5px">before the media is booked</div></div>
+     <div style="background:#fff;border-radius:16px;padding:19px 18px"><div class="num" style="font-size:22px;line-height:1.08">Is our AI change helpful or hostile?</div><div class="tiny" style="margin-top:10px;opacity:.6;font-size:12.5px">the question nobody wants to ask</div></div>
+    </div>
+   </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide" style="background:var(--ink);color:#fff">
+   <div style="display:flex;flex-direction:column;height:100%;gap:28px">
+    <div class="kicker" style="color:var(--lime);opacity:1;margin-bottom:6px">It already worked</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start">
+     <div>
+      <div class="num" style="font-size:134px;color:var(--lime)">6%</div>
+      <h2 style="font-size:33px;margin-top:6px">sales increase,<br>year over year</h2>
+      <p class="tiny" style="margin-top:12px;opacity:.72">Gelson&rsquo;s &mdash; a brand turnaround built on what shoppers actually said out loud.</p>
+     </div>
+     <div>
+      <div class="num" style="font-size:134px;color:var(--yellow)">11,000</div>
+      <h2 style="font-size:33px;margin-top:6px">new visitors in<br>one single year</h2>
+      <p class="tiny" style="margin-top:12px;opacity:.72">Skirball Cultural Center &mdash; content aimed at a real, heard audience.</p>
+     </div>
+    </div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:auto">
+     <span class="stamp" style="background:#1c1c22;color:#fff;font-size:13px">20 on-camera intercepts</span>
+     <span class="stamp" style="background:#1c1c22;color:#fff;font-size:13px">A moderator&rsquo;s guide, built with your team</span>
+     <span class="stamp" style="background:#1c1c22;color:#fff;font-size:13px">Three weeks, brief to finished film</span>
+     <span class="stamp" style="background:var(--lime);color:var(--ink);font-size:13px">One clear recommendation</span>
+    </div>
+    <div class="tiny" style="opacity:.6;border-top:1px solid #26262c;padding-top:14px">Every engagement ships a boardroom film, a social-ready cut, benchmarks agreed with your team before we shoot, and the themes and quotes behind the next right move.</div>
+   </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide" style="background:var(--paper);color:var(--ink)">
+   <div style="display:flex;flex-direction:column;height:100%;justify-content:space-between">
+    <div class="wm" style="color:var(--cobalt)"><span class="dot"></span>StreetPulse</div>
+    <div style="display:flex;align-items:flex-end;gap:40px">
+     <div style="flex:1">
+      <h1 style="font-size:84px">Real people.<br><span style="color:var(--pink)">Not a panel.</span></h1>
+      <p class="lede" style="margin-top:20px;max-width:42ch">Rigorous enough to carry into the board meeting. Good enough to run as an ad. One budget, two real deliverables.</p>
+      <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+       <span class="stamp" style="background:var(--ink);color:#fff;font-size:13px">No click farms</span>
+       <span class="stamp" style="background:var(--yellow);color:var(--ink);font-size:13px">No synthetic respondents</span>
+       <span class="stamp" style="background:#fff;color:var(--ink);font-size:13px;box-shadow:inset 0 0 0 2px var(--ink)">Footage you can actually run</span>
+      </div>
+     </div>
+     <div style="flex:0 0 318px;background:var(--cobalt);color:#fff;border-radius:20px;padding:25px 24px">
+      <div class="kicker" style="opacity:.8">One StreetPulse</div>
+      <div class="num" style="font-size:64px;margin-top:6px">$7,500</div>
+      <div style="margin-top:7px"><span class="ph">confirm this number</span></div>
+      <p class="tiny" style="margin-top:14px;opacity:.9;font-size:12.5px">Twenty on-camera intercepts, a moderator&rsquo;s guide built with your team, a boardroom film and a social cut &mdash; three weeks from brief to finished film.</p>
+      <div style="margin-top:18px;background:var(--lime);color:var(--ink);border-radius:999px;padding:12px 18px;font-family:'Archivo Black';font-weight:400;font-size:15px;text-align:center;text-transform:uppercase">Book the street &rarr;</div>
+     </div>
+    </div>
+    <div class="tiny" style="opacity:.6">The Miller Group &middot; millergroup.com/services/streetpulse &middot; WBENC woman-owned certified</div>
+   </div>
+  </section>
+
+ </div>
+ <div class="notes" id="notes"></div>
+</div>
+<div class="nav">
+ <button id="prev">&larr; Prev</button><div class="dots" id="dots"></div>
+ <div class="count" id="count">1 / 7</div>
+ <button id="next">Next &rarr;</button><button id="nbtn">Notes</button>
+</div>
+<script>
+const NOTES=[
+ "<b>Page 1 &mdash; the hook.</b> Her cover asked &ldquo;Your consumers are talking. Are you listening?&rdquo; &mdash; a question every buyer has heard. This asks the one they actually have. The three vertical stills are real frames from the TMG Shorts, so the format sells itself before a word of copy does.",
+ "<b>Page 2 &mdash; the problem, in your words.</b> The two numbers carry the credibility that a paragraph of agency history used to. 250+ brands and 36 years belong here as stamps, not as a bio.",
+ "<b>Page 3 &mdash; the wedge.</b> This kills the objection before it lands: &ldquo;we already have social listening.&rdquo; The faded left side is the incumbent. The speech bubbles are the deliverable no dashboard can produce.",
+ "<b>Page 4 &mdash; show, don&rsquo;t describe.</b> Her deck had a slide headed &ldquo;What it is.&rdquo; Nobody buys a definition. A number, three faces, three quotes, one caption. Flagged as sample output &mdash; swap in a real study the moment one exists.",
+ "<b>Page 5 &mdash; use cases as headlines.</b> The same four questions from the original, but each is now a card a CMO can point at. The headline names the real tension: consumers rarely reject the whole thing, they reject one variable.",
+ "<b>Page 6 &mdash; the proof that was missing.</b> Gelson&rsquo;s 6% and the Skirball&rsquo;s 11,000 are already on millergroup.com and were absent from the deck. Biggest single fix. Deliverables demoted to a footnote &mdash; they had a whole slide before.",
+ "<b>Page 7 &mdash; the close, with a price.</b> &ldquo;Real people. Not a panel.&rdquo; is the one claim AI interview platforms structurally cannot make. The price is a placeholder anchored against twenty in-depth interviews at $500&ndash;1,500 each, not against one focus group. Three weeks is framed brief-to-film, so it reads as production speed rather than data speed."
+];
+const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('dots'),notes=document.getElementById('notes');
+let i=0,notesOn=false;
+slides.forEach((s,k)=>{const d=document.createElement('i');d.onclick=()=>go(k);dots.appendChild(d)});
+function go(n){i=(n+slides.length)%slides.length;
+ slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+ [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i));
+ document.getElementById('count').textContent=(i+1)+' / '+slides.length;
+ notes.innerHTML=NOTES[i]; fixWidows();}
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('nbtn').onclick=()=>{notesOn=!notesOn;notes.classList.toggle('on',notesOn)};
+document.addEventListener('keydown',e=>{
+ if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(i+1)}
+ if(e.key==='ArrowLeft')go(i-1);
+ if(e.key.toLowerCase()==='n'){notesOn=!notesOn;notes.classList.toggle('on',notesOn)}});
+/* no-widows: never leave a single word alone on a line */
+function fixWidows(){
+ const MIN=2,SEL='.slide p,.slide h1,.slide h2,.slide .q,.slide .num,.slide .tiny,.slide .lede,.slide .stamp';
+ function lastText(el){const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let t=null,n;while(n=w.nextNode()){if(n.textContent.trim())t=n}return t}
+ function count(node){const txt=node.textContent,parts=txt.split(/\s+/).filter(Boolean);if(parts.length<2)return 99;
+  const r=document.createRange();r.selectNodeContents(node);const rect=r.getBoundingClientRect();
+  if(!rect.width&&!rect.height)return 99;let idx=txt.length,c=0;
+  for(let k=parts.length-1;k>=0;k--){idx=txt.lastIndexOf(parts[k],idx-1);r.setStart(node,idx);r.setEnd(node,txt.length);
+   if(r.getClientRects().length>1)break;c++;if(c>=MIN)break}
+  return c}
+ document.querySelectorAll(SEL).forEach(el=>{const n=lastText(el);if(!n)return;
+  if(n.__o)n.textContent=n.__o;else n.__o=n.textContent;
+  let b=0;while(count(n)<MIN&&b<6){const t=n.textContent,x=t.replace(/\s+$/,'').lastIndexOf(' ');
+   if(x<1)break;n.textContent=t.slice(0,x)+' '+t.slice(x+1);b++}})}
+window.__f=fixWidows;window.addEventListener('load',fixWidows);window.addEventListener('resize',fixWidows);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fixWidows);
+go(0);
+</script></body></html>
