@@ -165,10 +165,56 @@
   "about": [{"@type": "Thing","name": "Mastermind group"},{"@type": "Thing","name": "Entrepreneur accountability"},{"@type": "Thing","name": "Business growth"}]
 }
 </script>
+
+<style>
+/* ── v8 hero + bar + strip (bcx-*, scoped) ── */
+.bcx-bar{background:#0a0a0a;color:#fff;font-size:13.5px}
+.bcx-bar-in{max-width:1180px;margin:0 auto;padding:11px 24px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center}
+.bcx-chip{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.14);border-radius:5px;padding:4px 8px;font-weight:500}
+.bcx-bar-in a{color:#8FE3DA;font-weight:600;white-space:nowrap;text-decoration:none}
+.bcx-hero{padding:14px}
+.bcx-card{position:relative;border-radius:22px;overflow:hidden;min-height:clamp(430px,74vh,760px);display:flex;align-items:center;justify-content:center;text-align:center}
+.bcx-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;filter:brightness(.60) saturate(1.06)}
+.bcx-scrim{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 52%,rgba(6,10,20,.30),rgba(6,10,20,.52) 60%,rgba(6,10,20,.68)),linear-gradient(180deg,rgba(6,10,20,.34),rgba(6,10,20,.10) 42%,rgba(6,10,20,.46))}
+.bcx-in{position:relative;z-index:2;width:100%;max-width:940px;padding:74px 26px 66px;color:#fff}
+.bcx-eyebrow{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:26px}
+.bcx-h1{font-size:clamp(29px,6.1vw,78px);font-weight:600;letter-spacing:-.035em;line-height:1;text-shadow:0 2px 40px rgba(0,0,0,.28);margin:0}
+.bcx-h1 span{display:block;white-space:nowrap}
+.bcx-sub{margin:26px auto 0;max-width:52ch;font-size:clamp(15.5px,1.7vw,19px);line-height:1.55;color:rgba(255,255,255,.9)}
+.bcx-cta{display:flex;gap:22px;align-items:center;justify-content:center;margin-top:52px;flex-wrap:wrap}
+.bcx-lnk{color:rgba(255,255,255,.92);font-size:15px;font-weight:500;text-decoration:none}
+.bcx-lnk:hover{color:#fff}
+.bcx-btn{background:#fff;color:#0a0a0a;border-radius:999px;padding:15px 30px;font-size:15.5px;font-weight:600;text-decoration:none}
+.bcx-strip{border-bottom:1px solid #e4e8ef;background:#f6f8fb}
+.bcx-strip-in{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px}
+.bcx-strip-in>div{padding:28px 20px 28px 0}
+.bcx-strip-in b{display:block;font-size:clamp(23px,2.4vw,30px);font-weight:600;letter-spacing:-.03em;color:#0a0a0a}
+.bcx-strip-in>div:first-child b{color:#0a57ff}
+.bcx-strip-in span{display:block;font-size:13px;color:#5a6478;margin-top:7px;line-height:1.45}
+.bcx-sig{display:flex;align-items:center;gap:14px;margin-top:26px}
+.bcx-sig img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center 22%;flex:none}
+.bcx-sig-n{display:block;font-size:16px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a}
+.bcx-sig-r{display:block;font-size:13px;color:#6e6e73;margin-top:2px}
+.bcx-sig-l{display:inline-block;font-size:13px;font-weight:500;color:#0a57ff;margin-top:4px;text-decoration:none}
+@media(max-width:760px){
+ .bcx-hero{padding:10px}
+ .bcx-card{min-height:clamp(400px,70vh,560px);border-radius:18px}
+ .bcx-in{padding:46px 20px 42px}
+ .bcx-cta{gap:16px;margin-top:36px}
+ .bcx-chip{display:none}
+}
+</style>
 </head>
 <body>
 
 <!-- NAV -->
+<!-- ANNOUNCEMENT BAR -->
+<div class="bcx-bar"><div class="bcx-bar-in">
+  <span class="bcx-chip">Cohort 01 full</span>
+  <span>Six seats open for Cohort 02. Four consecutive Monday evenings.</span>
+  <a href="/join/">Request a seat &rarr;</a>
+</div></div>
+
 <header class="sticky top-0 z-50 glass hairline-b">
   <div class="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between text-[13px]">
     <div class="font-display font-semibold tracking-tight text-[15px]">BizColab</div>
@@ -184,56 +230,28 @@
 </header>
 
 <!-- HERO -->
-<section class="relative overflow-hidden pt-20 pb-24 md:pt-24 md:pb-28">
-  <div class="absolute inset-0 -z-10">
-    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[1100px] h-[1100px] rounded-full"
-         style="background:radial-gradient(closest-side,#c8e3ff 0%,#ffe0d4 35%,#fff 70%)"></div>
-    <div class="absolute top-40 -left-24 w-[420px] h-[420px] rounded-full float-slow"
-         style="background:radial-gradient(closest-side,#9a4ef6 0%,transparent 70%);opacity:.25"></div>
-    <div class="absolute top-10 -right-32 w-[480px] h-[480px] rounded-full float-fast"
-         style="background:radial-gradient(closest-side,#ff6f5e 0%,transparent 70%);opacity:.25"></div>
-  </div>
-
-  <div class="max-w-6xl mx-auto px-6 text-center">
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#d2d2d7] bg-white/70 text-[12px] font-medium rise" style="animation-delay:0ms">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
-      Now enrolling · Open to all applicants
+<!-- HERO -->
+<section class="bcx-hero">
+  <div class="bcx-card">
+    <img class="bcx-img" src="/assets/hero-room.jpg" alt="Six operators working a problem around one table" width="1500" height="845" />
+    <div class="bcx-scrim"></div>
+    <div class="bcx-in">
+      <span class="bcx-eyebrow">Cohort 01 sold out &middot; Cohort 02 open</span>
+      <h1 class="bcx-h1 font-display"><span>Empower entrepreneurs</span><span>through collaboration.</span></h1>
+      <p class="bcx-sub">Bring the one problem you've been stuck on. Leave with it named, worked and moving &mdash; in four Monday evenings.</p>
+      <div class="bcx-cta">
+        <a class="bcx-lnk" href="#how">See how it runs</a>
+        <a class="bcx-btn" href="/join/">Request a seat</a>
+      </div>
     </div>
-
-    <h1 class="font-display text-[44px] sm:text-6xl md:text-[88px] leading-[1.02] mt-7 rise" style="animation-delay:120ms">
-      <span class="gradient-text">Six founders.</span><br/>
-      One month.<br class="hidden sm:block" />
-      <span class="font-serif-i">The room you've been missing.</span>
-    </h1>
-
-    <p class="mt-6 max-w-2xl mx-auto text-[18px] md:text-[22px] leading-[1.45] rise" style="color:rgba(29,29,31,.8);animation-delay:220ms">
-      BizColab is a curated cohort of six business-minded operators who lift each other for thirty days —
-      through accountability, complementary skill sets, real plays shared live, and a network that outlasts the&nbsp;program.
-      <span class="block mt-3 text-[16px] md:text-[18px] font-medium" style="color:#0a0a0a">
-        Do you want to join the next cohort?
-      </span>
-    </p>
-
-    <div class="mt-9 flex items-center justify-center gap-3 rise" style="animation-delay:320ms">
-      <a href="/join/" class="btn-primary">
-        <span class="absolute inset-0 rounded-full pulse-ring"></span>
-        Request a seat
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-      <a href="#how" class="btn-ghost">See how it runs</a>
-    </div>
-
-    <div class="mt-10 flex items-center justify-center gap-2 rise" style="animation-delay:420ms">
-      <span class="seat-dot"></span>
-      <span class="seat-dot"></span>
-      <span class="seat-dot"></span>
-      <span class="seat-dot"></span>
-      <span class="seat-dot"></span>
-      <span class="seat-dot"></span>
-    </div>
-    <div class="mt-3 text-[13px] rise" style="color:#6e6e73;animation-delay:460ms">Cohort 001 is in session · Now enrolling Cohort 002 — applications reviewed on a rolling basis</div>
   </div>
 </section>
+
+<div class="bcx-strip"><div class="bcx-strip-in">
+  <div><b>1 problem</b><span>Yours. Named at the root, not the symptom.</span></div>
+  <div><b>90 minutes</b><span>A week. Four consecutive Monday evenings.</span></div>
+  <div><b>5 advisors</b><span>Six operators, one facilitator, no seventh seat.</span></div>
+</div></div>
 
 <!-- A NOTE FROM MICHAEL -->
 <section class="bg-white">
@@ -249,7 +267,14 @@
       Sign up
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
     </a>
-    <div class="mt-6 font-serif-i text-[18px]" style="color:#0a0a0a">— Michael</div>
+    <div class="bcx-sig">
+      <img src="/michael.jpg" alt="Michael Abraham" />
+      <div>
+        <span class="bcx-sig-n">Michael Abraham</span>
+        <span class="bcx-sig-r">Founder &amp; facilitator, BizColab</span>
+        <a class="bcx-sig-l" href="https://www.linkedin.com/in/michaelabraham-realtor/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      </div>
+    </div>
   </div>
 </section>
 
