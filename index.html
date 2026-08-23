@@ -202,7 +202,20 @@
  .bcx-in{padding:46px 20px 42px}
  .bcx-cta{gap:16px;margin-top:36px}
  .bcx-chip{display:none}
+ .bcx-fwrap{grid-template-columns:1fr;gap:24px}
+ .bcx-fcard{display:flex;align-items:center;gap:16px;padding:18px}
+ .bcx-fcard img{margin-bottom:0;width:72px;height:72px}
 }
+/* founder note */
+.bcx-fnote{max-width:1180px;margin:0 auto;padding:clamp(84px,10vw,148px) 24px}
+.bcx-fwrap{display:grid;grid-template-columns:284px 1fr;gap:clamp(30px,5vw,74px);align-items:start;margin-top:34px}
+.bcx-fcard{border:1px solid #e4e8ef;border-radius:18px;padding:24px;background:#fff}
+.bcx-fcard img{width:88px;height:88px;border-radius:17px;object-fit:cover;object-position:center 18%;display:block;margin-bottom:17px}
+.bcx-fn{display:block;font-size:17.5px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a}
+.bcx-fr{display:block;font-size:13.5px;color:#6e6e73;margin-top:5px;line-height:1.45}
+.bcx-fli{display:inline-flex;align-items:center;gap:7px;margin-top:15px;font-size:13.5px;font-weight:500;color:#0a57ff;text-decoration:none}
+.bcx-fli svg{width:15px;height:15px;fill:currentColor}
+.bcx-frow{margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -255,24 +268,31 @@
 
 <!-- A NOTE FROM MICHAEL -->
 <section class="bg-white">
-  <div class="max-w-3xl mx-auto px-6 py-16 md:py-20">
-    <div class="text-[12px] uppercase tracking-[0.22em] mb-4" style="color:#6e6e73">A note from the founder</div>
-    <p class="font-display text-[22px] md:text-[28px] leading-[1.4]" style="color:#0a0a0a">
-      I've thought about building this room for years. With everything technology makes possible now, I can finally bring it to life — simply and the way I always imagined&nbsp;it.
-    </p>
-    <p class="mt-5 text-[16px] md:text-[17px] leading-[1.65]" style="color:rgba(29,29,31,.75)">
-      The idea is straightforward. Six operators and one facilitator, one focused month. You get real accountability, five peers whose skills fill the gaps in yours, honest feedback on what you're actually building, and a network that keeps paying off long after the cohort ends. If that sounds like the room you've been missing, I'd love for you to&nbsp;join.
-    </p>
-    <a href="/join/" class="btn-primary mt-8">
-      Sign up
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-    </a>
-    <div class="bcx-sig">
-      <img src="/michael.jpg" alt="Michael Abraham" />
-      <div>
-        <span class="bcx-sig-n">Michael Abraham</span>
-        <span class="bcx-sig-r">Founder &amp; facilitator, BizColab</span>
-        <a class="bcx-sig-l" href="https://www.linkedin.com/in/michaelabraham-realtor/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+  <div class="bcx-fnote">
+    <div class="text-[12px] uppercase tracking-[0.22em]" style="color:#6e6e73">A note from the founder</div>
+    <div class="bcx-fwrap">
+      <aside class="bcx-fcard">
+        <img src="/michael.jpg" alt="Michael Abraham &mdash; founder, BizColab" width="88" height="88" />
+        <div>
+          <span class="bcx-fn">Michael Abraham</span>
+          <span class="bcx-fr">Founder &amp; facilitator, BizColab</span>
+          <a class="bcx-fli" href="https://www.linkedin.com/in/michaelabraham-realtor/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
+        </div>
+      </aside>
+      <div class="bcx-fbody">
+        <p class="font-serif-i text-[23px] md:text-[31px] leading-[1.34]" style="color:#0a0a0a">
+          I've thought about building this room for years. With everything technology makes possible now, I can finally bring it to life &mdash; simply and the way I always imagined&nbsp;it.
+        </p>
+        <p class="mt-6 text-[16px] md:text-[17px] leading-[1.65]" style="color:rgba(29,29,31,.75)">
+          The idea is straightforward. Six operators and one facilitator, one focused month. You get real accountability, five peers whose skills fill the gaps in yours, honest feedback on what you're actually building, and a network that keeps paying off long after the cohort ends. If that sounds like the room you've been missing, I'd love for you to&nbsp;join.
+        </p>
+        <div class="bcx-frow">
+          <a href="/join/" class="btn-primary">
+            Sign up
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <span class="font-serif-i text-[18px]" style="color:#0a0a0a">&mdash; Michael</span>
+        </div>
       </div>
     </div>
   </div>
