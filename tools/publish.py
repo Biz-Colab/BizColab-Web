@@ -14,7 +14,7 @@ Password is picked from the path: dashboard/*  -> BizColab##11, everything else 
 Flow: git fetch + abort if the target moved since clone -> decrypt -> patch -> encrypt via gate_cycle (byte-identical
 shell + round-trip check) -> commit -> push -> print SHA. Nothing is printed from the encrypted payload.
 """
-import argparse, hashlib, importlib.util, os, subprocess, sys, tempfile
+import argparse, hashlib, importlib.util, os, shutil, subprocess, sys, tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GC = os.path.join(ROOT, "tools", "gate_cycle.py")
@@ -72,7 +72,7 @@ def main():
         p2 = os.path.join(tmp, "plain2.html"); open(p2, "w", encoding="utf-8").write(s2)
         out = os.path.join(tmp, "gated.html")
         print(sh(f"python3 {GC} encrypt {p2} {page} {out} --password '{pw}'").splitlines()[-2:])
-        os.replace(out, os.path.join(ROOT, page))
+        shutil.copyfile(out, os.path.join(ROOT, page))
         print("plain md5", md5(p2), "bytes", len(s2.encode()))
         paths = [page]
 
@@ -82,7 +82,7 @@ def main():
         os.makedirs(os.path.dirname(os.path.join(ROOT, page)), exist_ok=True)
         out = os.path.join(tmp, "gated.html")
         print(sh(f"python3 {GC} encrypt {plain} {donor} {out} --password '{pw}'").splitlines()[-2:])
-        os.replace(out, os.path.join(ROOT, page))
+        shutil.copyfile(out, os.path.join(ROOT, page))
         print("plain md5", md5(plain))
         paths = [page]
 
