@@ -1,0 +1,47 @@
+{
+  "slug": "centra-credit-union",
+  "client": "Centra Credit Union",
+  "headline": "Better Money Decisions for Millennials",
+  "industry_label": "Financial services",
+  "industries": [
+    "financial"
+  ],
+  "channels": [
+    "Segmentation",
+    "Video",
+    "Outdoor",
+    "Social",
+    "In-branch POS",
+    "Activations"
+  ],
+  "pill": "Segmentation → Campaign",
+  "hero_img": "centra-main.jpg",
+  "gallery": [
+    {
+      "img": "centra-1.jpg",
+      "alt": "Centra billboard"
+    },
+    {
+      "img": "centra-2.jpg",
+      "alt": "Centra bus stop"
+    }
+  ],
+  "result": {
+    "value": "+20%",
+    "label": "Increase in millennial membership"
+  },
+  "summary": "Member acquisition against multinationals and online banks. “Adulting is hard, Centra makes it easier” — and millennial membership rose 20%.",
+  "question": {
+    "h": "Winning young members against big banks.",
+    "p": "Member acquisition and retention can be challenging for a credit union — even a heavyweight like Centra — and especially with competition from multinationals and online banking services."
+  },
+  "made": {
+    "h": "Adulting is hard — Centra makes it easier.",
+    "p": "We encouraged millennials to make better money decisions by making finance a little hip. Video, outdoor, social, even in-branch POS and activations reminded young prospects while “Adulting is hard, Centra makes it easier.” Segmentation drove message clarity and efficiency."
+  },
+  "happened": {
+    "h": "A flurry of inquiries, 20% more millennial members.",
+    "p": "The result: a flurry of inquiries and a whopping 20% increase in millennial membership."
+  },
+  "rationale": ""
+}

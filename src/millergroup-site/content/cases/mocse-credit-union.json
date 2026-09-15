@@ -1,0 +1,48 @@
+{
+  "slug": "mocse-credit-union",
+  "client": "Mocse Credit Union",
+  "headline": "Investing in People",
+  "industry_label": "Financial services",
+  "industries": [
+    "financial"
+  ],
+  "channels": [
+    "Member acquisition",
+    "Brand activations",
+    "Onsite messaging",
+    "Social",
+    "Print"
+  ],
+  "pill": "Community → Acquisition",
+  "hero_img": "mocse-1.jpg",
+  "gallery": [
+    {
+      "img": "mocse-main.jpg",
+      "alt": "Mocse social",
+      "portrait": true
+    },
+    {
+      "img": "mocse-2.jpg",
+      "alt": "Mocse in-branch posters"
+    }
+  ],
+  "result": {
+    "value": "1¢",
+    "label": "The idea: a penny from every transaction, made visible",
+    "note": "No figure published; campaign result not yet stated on millergroup.com"
+  },
+  "summary": "A community credit union with a penny-per-transaction giving program nobody was talking about. We built the acquisition campaign around the power of a single penny.",
+  "question": {
+    "h": "From community goodwill to new members.",
+    "p": "Founded in 1958, Mocse Credit Union serves nearly 30,000 members across four Northern California counties. As a longtime supporter of the annual Love Modesto event, Mocse wanted to use the occasion to attract new — and especially younger — members. We were tasked with turning community goodwill into a strategic member acquisition campaign."
+  },
+  "found": {
+    "h": "The penny was already there.",
+    "p": "Mocse donates a penny from every debit card transaction to the Love Stanislaus fund, reinforcing its commitment to community development, financial education, and local business."
+  },
+  "made": {
+    "h": "The power of a single penny.",
+    "p": "Building on this idea, we created a campaign around the power of a single penny — showing how small, everyday choices can grow into financial stability and a stronger community. Through bold brand activations and onsite messaging, we positioned the penny as both a symbol of smart money management and a meaningful way to give back."
+  },
+  "rationale": ""
+}

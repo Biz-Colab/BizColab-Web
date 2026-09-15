@@ -1,0 +1,24 @@
+{
+  "path": "/blog/",
+  "template": "blog.html",
+  "title": "Blog — notes from the street",
+  "description": "Thinking from The Miller Group on branding, creative, research and challenger marketing.",
+  "kicker": "Blog · Notes from the street",
+  "hero": {
+    "lines": ["Notes from", "the <span class=\"acc\">street.</span>"],
+    "lede": "Thinking on challenger brands, consumer research and the work that follows. Latest posts below link to the live millergroup.com blog until the archive migrates."
+  },
+  "posts": [
+    { "date": "Sep 14, 2026", "title": "Video Content Strategy That Earns Attention",        "href": "https://www.millergroup.com/blog/" },
+    { "date": "Sep 7, 2026",  "title": "Brand Consulting That Makes Marketing Matter",       "href": "https://www.millergroup.com/blog/" },
+    { "date": "Sep 5, 2026",  "title": "What a Brand Activation Agency Should Deliver",      "href": "https://www.millergroup.com/blog/" },
+    { "date": "Sep 3, 2026",  "title": "How Successful Purpose Campaigns Earn Trust",        "href": "https://www.millergroup.com/blog/" },
+    { "date": "Sep 2, 2026",  "title": "Why Hire a Creative Agency When Stakes Are High?",   "href": "https://www.millergroup.com/blog/" },
+    { "date": "Sep 1, 2026",  "title": "Creative Agency Versus Consultancy Compared",        "href": "https://www.millergroup.com/blog/" },
+    { "date": "Aug 31, 2026", "title": "What a Creative Campaign Agency Should Deliver",     "href": "https://www.millergroup.com/blog/" },
+    { "date": "Aug 29, 2026", "title": "Creative Agency Versus an In-House Team",            "href": "https://www.millergroup.com/blog/" }
+  ],
+  "all_href": "https://www.millergroup.com/blog/",
+  "all_label": "All 183 posts on millergroup.com →",
+  "rationale": "Placeholder by design. The blog has 183 posts (roughly one SEO post every 1–2 days since August) and is the one part of the site that argues for keeping WordPress as the CMS. Migration plan: WP REST export → one JSON per post → this template. Nothing is lost, and the URL map carries the 301s."
+}

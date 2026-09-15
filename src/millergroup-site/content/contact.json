@@ -1,0 +1,19 @@
+{
+  "path": "/contact/",
+  "template": "contact.html",
+  "title": "Contact — bring us the challenge",
+  "description": "Tell The Miller Group the question keeping your team in the conference room. Call 310-442-0101, email Renee, or book 30 minutes.",
+  "kicker": "Contact · Pacific Palisades, California",
+  "hero": {
+    "lines": ["We were wondering", "when you’d <span class=\"acc\">get here.</span>"],
+    "lede": "Most people don’t make it this far. But you’re not most people. Whatever you’ve got on your mind, we’re listening.",
+    "rationale": "Her contact copy is charming and stays. What changes: the form asks for the problem, not “how we can be of service,” because the whole site has been asking for the question; three ways in (form, call, book 30 minutes) sit side by side; and the form fires a form_submit event so the conversion is measurable."
+  },
+  "form": {
+    "prompt": "What’s the question keeping your team in the conference room?",
+    "placeholder": "The number is down, or flat, or fine — and nobody can say why. Tell us what you know so far.",
+    "button": "Send it →",
+    "rationale": "Same five fields as the current Bricks form (first, last, company, email, message) so nothing is lost in migration. On the live WordPress site this posts to the existing form handler; here it opens an email to Renee unless a form endpoint is set in site.json."
+  },
+  "calendly_label": "Pick a time on Renee’s calendar"
+}

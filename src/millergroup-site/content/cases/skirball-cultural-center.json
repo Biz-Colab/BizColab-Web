@@ -1,0 +1,57 @@
+{
+  "slug": "skirball-cultural-center",
+  "client": "Skirball Cultural Center",
+  "headline": "Wild Things are Happening",
+  "industry_label": "Non-profit · Culture",
+  "industries": [
+    "nonprofit"
+  ],
+  "channels": [
+    "Channel strategy",
+    "Paid social + search",
+    "Outdoor",
+    "Streaming TV"
+  ],
+  "pill": "Paid Social → Streaming TV",
+  "hero_img": "Skirball_img_1-main-1024x576.jpg",
+  "gallery": [
+    {
+      "img": "Skirball_img_2.jpg",
+      "alt": "Skirball outdoor"
+    },
+    {
+      "img": "Skirball_video3-poster.jpg",
+      "alt": "Skirball streaming TV spot",
+      "portrait": true
+    }
+  ],
+  "result": {
+    "value": "11,000",
+    "label": "New visitors in a single year",
+    "note": "Published on the StreetPulse page of millergroup.com"
+  },
+  "summary": "The brief: younger, more diverse audiences. We built the campaign around a Maurice Sendak exhibition — paid social, search, outdoor and streaming TV — and grew the house.",
+  "question": {
+    "h": "Younger, more diverse, and more of them.",
+    "p": "Skirball Cultural Center, one of the world’s most dynamic cultural institutions, wanted to increase visitation and membership, especially among a younger, and more diverse population."
+  },
+  "found": {
+    "h": "Sendak crosses generations.",
+    "p": "We knew a special exhibition of Maurice Sendak’s work would be a huge draw among multiple generations: the key was to guide Skirball in messaging and channel strategy."
+  },
+  "made": {
+    "h": "A campaign built around the exhibition.",
+    "p": "Paid social and search, targeted outdoor and streaming TV can be credited with reaching key target audiences, producing outsize results. StreetPulse content, folded into the broader campaign, helped bring the audience in."
+  },
+  "happened": {
+    "h": "11,000 new visitors in one year.",
+    "p": "The campaign helped bring 11,000 new visitors to the Skirball Cultural Center in a single year."
+  },
+  "quote": {
+    "text": "The Miller Group brought to us their expertise and really helped us expand our viewpoint in a lot of ways.",
+    "short": "They really helped us expand our viewpoint in a lot of ways.",
+    "name": "Jered Gold",
+    "org": "Skirball Cultural Center"
+  },
+  "rationale": "The 11,000 figure lives only on the StreetPulse page today — the case page never mentions it. Here the number leads."
+}

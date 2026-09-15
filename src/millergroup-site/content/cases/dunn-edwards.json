@@ -1,0 +1,47 @@
+{
+  "slug": "dunn-edwards",
+  "client": "Dunn-Edwards Paints",
+  "headline": "Painting the Town Green",
+  "industry_label": "Home improvement",
+  "industries": [
+    "home",
+    "retail"
+  ],
+  "channels": [
+    "Brand deep-dive",
+    "Positioning",
+    "Digital campaign",
+    "In-store"
+  ],
+  "pill": "Discovery → Positioning",
+  "hero_img": "dunn-edwards-main.jpg",
+  "gallery": [
+    {
+      "img": "dunn-edwards-1.jpg",
+      "alt": "Greener by Design campaign"
+    },
+    {
+      "img": "dunn-edwards-2.jpg",
+      "alt": "Greener by Design in store"
+    }
+  ],
+  "result": {
+    "value": "Sales ↑",
+    "label": "“Greener by Design” · year to date",
+    "note": "Direction only — the client publishes no figure"
+  },
+  "summary": "A regional paint maker under attack from a national competitor. A deep dive found the differentiator nobody was using: the first and only LEED Gold-certified paint manufacturer.",
+  "question": {
+    "h": "A national competitor moving in.",
+    "p": "Regional paint manufacturer Dunn-Edwards faced inroads from a major competitor in Northern California and needed fresh thinking to better differentiate itself."
+  },
+  "found": {
+    "h": "The first and only LEED Gold paint maker.",
+    "p": "Through a deep dive into this challenger brand’s product offerings, we discovered Dunn-Edwards is the first and only LEED Gold-certified paint manufacturer. This little-known fact created an important differentiator for consumers looking for a more sustainable brand."
+  },
+  "made": {
+    "h": "Greener by Design.",
+    "p": "“Greener by Design” developed as an ongoing digital and in-store campaign and is responsible for an increase in sales year to date."
+  },
+  "rationale": "A second pure diagnosis story after Gelson’s: the differentiator already existed inside the company; nobody had found it. Strong support for the “we find out” promise."
+}

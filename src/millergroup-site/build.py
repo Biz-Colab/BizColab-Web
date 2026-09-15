@@ -30,7 +30,7 @@ def main():
     B = site["build"]
     base, assets = B["base_path"].rstrip("/"), B["assets_path"].rstrip("/")
 
-    # ── content ────────────────────────────────────────────────────────────────────
+    # ── content ──────────────────────────────────────────────────────────
     pages = [load(p) for p in sorted((ROOT / "content").glob("*.json"))]
     cases = [load(p) for p in sorted((ROOT / "content" / "cases").glob("*.json"))]
     work = next(p for p in pages if p["path"] == "/work/")
@@ -45,7 +45,7 @@ def main():
         c["next"] = cases[(i + 1) % len(cases)]
     featured = [by_slug[s] for s in work.get("featured", order[:4])]
 
-    # ── jinja ──────────────────────────────────────────────────────────────────────
+    # ── jinja ────────────────────────────────────────────────────────────
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=False,
                       undefined=ChainableUndefined, trim_blocks=True, lstrip_blocks=True)
     env.filters["url"] = lambda p: p if p.startswith(("http", "tel:", "mailto:", "#")) else base + p
@@ -54,7 +54,7 @@ def main():
                        css=(ROOT / "assets" / "site.css").read_text(encoding="utf-8"),
                        js=(ROOT / "assets" / "site.js").read_text(encoding="utf-8"))
 
-    # ── render ─────────────────────────────────────────────────────────────────────
+    # ── render ───────────────────────────────────────────────────────────
     if DIST.exists(): shutil.rmtree(DIST)
     manifest = []
     for page in pages + cases:

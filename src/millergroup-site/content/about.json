@@ -1,0 +1,112 @@
+{
+  "path": "/about/",
+  "template": "about.html",
+  "title": "About — best friend of the challenger brand",
+  "description": "Since 1990, The Miller Group has helped underdogs punch above their weight. Woman-owned, WBENC-certified, Goldman Sachs 10,000 Small Businesses alumna. Meet the team.",
+  "kicker": "About · Los Angeles · Since 1990",
+  "hero": {
+    "lines": [
+      "Built by a challenger.",
+      "<span class=\"acc\">For challengers.</span>"
+    ],
+    "lede": "Since 1990, The Miller Group has helped underdogs punch above their weight. We know how to stretch budgets, outthink competitors, and turn overlooked brands into industry titans.",
+    "img": "about-gloves.jpg",
+    "img_alt": "Yellow boxing gloves",
+    "rationale": "Her About page copy, nearly verbatim — it is the best-written page on the current site and already says “best friend of the challenger brand.” What changes: the leadership grid gets a line of intent (senior team, the people in the pitch are the people on the work), and the credentials that live only on legacy industry pages (ADDY, Communication Arts, CUNA, MAC, The One Club) are surfaced here."
+  },
+  "story": {
+    "slab": "Who we are",
+    "h2": "Best friend of <span style=\"white-space:nowrap\">the <span class=\"acc\">challenger brand.</span></span>",
+    "paras": [
+      "We’ve been working with challenger brands for years, helping high-end home goods, non-profits, financial institutions, and CPG brands grab market share by asking hard questions, turning consumer input into insights, and coming up with innovative, cost-effective ways to reach audiences. We speak the language because we live it every day.",
+      "We’re not here to disrupt for the sake of it. We’re here to help smart marketers win — and make it look easy.",
+      "Renee Miller started The Miller Group in 1990 with one client and a point of view. Half the budget, none of the backup, all of the results — more than 250 engagements later, we’re still the small team beating bigger ones, which is exactly why we’re good at helping you do it."
+    ],
+    "kick": "You don’t need a bigger team. You need an ally who gets you."
+  },
+  "how": {
+    "slab": "How we work",
+    "h2": "Ask. Aim. <span class=\"acc\">Make.</span>",
+    "sub": "One senior team stays close from the first question through final execution — not three departments, but one loop.",
+    "steps": [
+      {
+        "key": "ask",
+        "tag": "ASK",
+        "title": "Discovery",
+        "text": "StreetPulse and stakeholder research. Real consumers, on camera, before a dollar goes to media."
+      },
+      {
+        "key": "aim",
+        "tag": "AIM",
+        "title": "Strategy",
+        "text": "Positioning and the value story — the argument for your brand that survives a board meeting and a shelf test."
+      },
+      {
+        "key": "make",
+        "tag": "MAKE",
+        "title": "Creative",
+        "text": "Brand, campaigns, content, experiential — built from what consumers actually said."
+      }
+    ]
+  },
+  "team": {
+    "slab": "Leadership",
+    "h2": "The people in the pitch are the people <span style=\"white-space:nowrap\">on the <span class=\"acc\">work.</span></span>",
+    "sub": "Six senior people. No hand-off to a junior team after the contract is signed.",
+    "members": [
+      {
+        "name": "Renee Miller",
+        "title": "Founder & Executive Creative Director",
+        "img": "team-renee.jpg"
+      },
+      {
+        "name": "Gary Bettman",
+        "title": "COO & Head of Production",
+        "img": "team-gary.jpg"
+      },
+      {
+        "name": "Bill Williams",
+        "title": "Director, Client Services & Research",
+        "img": "team-bill.jpg"
+      },
+      {
+        "name": "Kevin Magarity",
+        "title": "Senior Art Director",
+        "img": "team-kevin.jpg"
+      },
+      {
+        "name": "Maya Wynant",
+        "title": "Art Director",
+        "img": "team-maya.jpg"
+      },
+      {
+        "name": "Eugene Pogrensky",
+        "title": "Senior Web Developer",
+        "img": "team-eugene.jpg"
+      }
+    ],
+    "rationale": "Names, titles and headshots as published. Bios are absent on the current site — a one-line bio per person (what they have run, for whom) would be the single highest-value addition Renee could write."
+  },
+  "creds": {
+    "slab": "Credentials",
+    "h2": "Credentials, <span class=\"acc\">in writing.</span>",
+    "items": [
+      {
+        "b": "Founded 1990",
+        "text": "By Renee Miller, Founder & Executive Creative Director."
+      },
+      {
+        "b": "Woman-owned",
+        "text": "WBENC-certified — counts toward supplier-diversity goals."
+      },
+      {
+        "b": "Goldman Sachs 10KSB",
+        "text": "10,000 Small Businesses alumna."
+      },
+      {
+        "b": "Los Angeles",
+        "text": "Pacific Palisades, working nationally."
+      }
+    ]
+  }
+}

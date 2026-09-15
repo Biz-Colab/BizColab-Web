@@ -1,0 +1,92 @@
+{
+  "_comment": "GLOBAL SETTINGS. Everything that repeats across pages lives here — nav, footer, contact, stats, badges. Edit here once, rebuild, every page updates.",
+
+  "brand": {
+    "name": "The Miller Group",
+    "short": "The Miller Group",
+    "tagline": "A research-driven advertising and marketing agency for challenger brands.",
+    "city": "Los Angeles",
+    "founded": "1990",
+    "kicker": "Los Angeles · For challenger brands · Est. 1990"
+  },
+
+  "build": {
+    "base_path": "/cohort-losangeles-001/concepts/millergroup-site",
+    "assets_path": "/assets/millergroup",
+    "concept_mode": true,
+    "concept_label": "CONCEPT · Full-site build v1 — Sep 15, 2026",
+    "noindex": true
+  },
+
+  "nav": [
+    { "label": "Work",        "href": "/work/" },
+    { "label": "StreetPulse", "href": "/streetpulse/" },
+    { "label": "About",       "href": "/about/" },
+    { "label": "Blog",        "href": "/blog/" }
+  ],
+  "nav_cta": { "label": "Let’s talk", "href": "/contact/" },
+
+  "contact": {
+    "phone_display": "310-442-0101",
+    "phone_tel": "+13104420101",
+    "email": "renee@millergroupmarketing.com",
+    "location": "Pacific Palisades, California",
+    "calendly": "https://calendly.com/renee-9pc/30min",
+    "form_endpoint": "",
+    "form_success": "Thanks — we read every one of these. You’ll hear from Renee within one business day."
+  },
+
+  "socials": [
+    { "label": "Instagram", "href": "https://www.instagram.com/themillergroupmarketing/" },
+    { "label": "LinkedIn",  "href": "https://www.linkedin.com/company/the-miller-group-advertising-inc-/" },
+    { "label": "YouTube",   "href": "https://www.youtube.com/@millergroup" },
+    { "label": "Facebook",  "href": "https://www.facebook.com/millergroupmarketing" }
+  ],
+
+  "stats": [
+    { "value": "250+",  "label": "Engagements since 1990",                 "unverified": true },
+    { "value": "$1B+",  "label": "Client revenue generated",               "unverified": true },
+    { "value": "20",    "label": "Real consumers on camera, every StreetPulse" },
+    { "value": "3 wks", "label": "From brief to boardroom-ready film" }
+  ],
+
+  "badges": [
+    { "img": "certified-wbenc-womens-business-enterprise-logo-no-border-300x141.png", "alt": "WBENC Certified Women’s Business Enterprise" },
+    { "img": "Goldman-Sachs-Small-Business-Alumni-300x142.png", "alt": "Goldman Sachs 10,000 Small Businesses Alumni" }
+  ],
+
+  "recognized_by": ["ADDY Awards", "Communication Arts", "CUNA", "MAC Awards", "The One Club"],
+
+  "logos": [
+    { "img": "costco-png-logo-3043.png",          "alt": "Costco" },
+    { "img": "Remax-logo-black.png",              "alt": "RE/MAX" },
+    { "text": "7‑Eleven" },
+    { "img": "SimpleHuman-logo.png",              "alt": "simplehuman" },
+    { "img": "PockyLogo_black.png",               "alt": "Pocky" },
+    { "img": "DEPaints-03black.png",              "alt": "Dunn-Edwards Paints" },
+    { "img": "Skirball-logo-black.png",           "alt": "Skirball" },
+    { "img": "SA-Shield-black.png",               "alt": "The Salvation Army" },
+    { "img": "goodwillindustries_black.png",      "alt": "Goodwill" },
+    { "img": "GMGP_Horizontal_Logo_Black.png",    "alt": "Gloria Molina Grand Park" },
+    { "img": "pfister-faucets-logo.png",          "alt": "Pfister" },
+    { "img": "LOTUS-logo-black.png",              "alt": "Lotus Pet Food" },
+    { "img": "zyliss-logo-transparent.png",       "alt": "Zyliss" },
+    { "img": "Prezero-black.png",                 "alt": "PreZero" }
+  ],
+
+  "cta_band": {
+    "heading": "Bring us the challenge.",
+    "sub": "The best marketing doesn’t just get attention — it changes behavior and drives results. Tell us the question keeping your team in the conference room, and we’ll tell you how we’d answer it — and what it costs.",
+    "button": { "label": "Let’s talk →", "href": "/contact/" }
+  },
+
+  "tracking": {
+    "gtm_id": "",
+    "_comment": "Paste a GTM container ID (GTM-XXXXXXX) to enable Google Tag Manager on every page. Form submits push {event:'form_submit', form:'contact'} to dataLayer."
+  },
+
+  "footer": {
+    "note": "© The Miller Group. Woman-owned · WBENC certified · Goldman Sachs 10,000 Small Businesses alumna.",
+    "concept_note": "Prepared for Renee Miller / BizColab Cohort 01. Every metric, quote and claim on this site is published on millergroup.com today; photography, video, logos and badges are Miller Group assets, re-hosted and compressed for this concept. The 250+ engagements and $1B+ figures come from Renee’s own draft copy and are marked unverified until she confirms them."
+  }
+}

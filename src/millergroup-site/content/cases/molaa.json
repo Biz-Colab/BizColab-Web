@@ -1,0 +1,51 @@
+{
+  "slug": "molaa",
+  "client": "Museum of Latin American Art",
+  "headline": "Championing a Local Hero",
+  "industry_label": "Non-profit · Museum",
+  "industries": [
+    "nonprofit"
+  ],
+  "channels": [
+    "Exhibition campaigns",
+    "Membership",
+    "Donor programs",
+    "Volunteer program"
+  ],
+  "pill": "Campaigns → Self-sufficiency",
+  "hero_img": "molaa-main.jpg",
+  "gallery": [
+    {
+      "img": "molaa-1.jpg",
+      "alt": "MOLAA"
+    }
+  ],
+  "result": {
+    "value": "+37%",
+    "label": "Attendance, membership and corporate donations, year over year"
+  },
+  "summary": "A niche museum turned into a destination — and moved from foundation-funded to financially self-sufficient. Attendance, membership and corporate donations rose 37% year over year.",
+  "question": {
+    "h": "A niche museum that needed to stand on its own.",
+    "p": "We turned a niche museum (contemporary Latin American Art) into a destination akin to the Los Angeles County Museum of Art. And we moved it from foundation-funded to financial self-sufficiency."
+  },
+  "found": {
+    "h": "Special exhibitions pull in everyone, not just aficionados.",
+    "p": "It turns out special exhibitions are not just a magnet for art aficionados but general museumgoers, too."
+  },
+  "made": {
+    "h": "Campaigns for the shows, programs for the donors.",
+    "p": "We created targeted campaigns around a series of exciting special exhibits, increasing attendance, membership and corporate donations. Internally, we turned volunteers into brand ambassadors. Externally, we recognized our biggest donors and corporate supporters with exclusive programs and content."
+  },
+  "happened": {
+    "h": "37% up, year over year.",
+    "p": "The result was a 37% increase in attendance, membership and corporate donations year over year."
+  },
+  "quote": {
+    "text": "I’ve had the pleasure to work with The Miller Group on two different occasions. Their professionalism, creativity and collaborative approach each time made for an enriching experience that also brought great project results.",
+    "short": "An enriching experience that also brought great project results.",
+    "name": "Martha Guzman",
+    "org": "MOLAA"
+  },
+  "rationale": ""
+}

@@ -1,0 +1,42 @@
+{
+  "slug": "pier-39",
+  "client": "Pier 39",
+  "headline": "Fresh Waves for an Iconic Pier",
+  "industry_label": "Tourism",
+  "industries": [
+    "place"
+  ],
+  "channels": [
+    "Brand personality",
+    "Evergreen concept",
+    "Outdoor",
+    "Transit"
+  ],
+  "pill": "Concept → Campaign",
+  "hero_img": "pier39-2.jpg",
+  "gallery": [
+    {
+      "img": "pier39-main.jpg",
+      "alt": "Pier 39 Seal of Approval"
+    },
+    {
+      "img": "pier39-1.jpg",
+      "alt": "Pier 39 bus board"
+    }
+  ],
+  "result": {
+    "value": "Evergreen",
+    "label": "One concept, extendable across every channel and season",
+    "note": "No figure published. Source copy says “more than 10,000 visitors a year” — almost certainly a typo for 10 million; confirm before use"
+  },
+  "summary": "One of San Francisco’s top attractions, without a point of view. We gave it an evergreen concept — flexible, ownable, and producible on a modest budget.",
+  "question": {
+    "h": "Iconic, and out of date.",
+    "p": "Although Pier 39 is one of the top San Francisco attractions, the venue lacked a clear brand personality and point of view. Plus, messaging was dated and the venue wanted to reach a younger target."
+  },
+  "made": {
+    "h": "An evergreen concept.",
+    "p": "We presented an evergreen concept, one that’s extendable over time and across all channels, flexible, hardworking, authentic and ownable to Pier 39. Executions could be developed quickly and within a modest production budget."
+  },
+  "rationale": ""
+}

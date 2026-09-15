@@ -1,7 +1,7 @@
 /* THE MILLER GROUP — site.js
-   Small, dependency-free. Six jobs:
+   Small, dependency-free. Five jobs:
    1 mobile nav · 2 phones never fetch video · 3 work filters
-   4 contact form · 5 widow fixer (no line under 3 words / labels 2) + .fit · 6 concept "why" toggle */
+   4 contact form · 5 widow fixer (no line under 3 words / labels 2) · 6 concept "why" toggle */
 (function(){
   /* 1 ─ nav */
   var bar=document.querySelector('.bar'),tog=document.querySelector('.navtog');

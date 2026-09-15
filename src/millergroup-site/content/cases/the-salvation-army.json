@@ -1,0 +1,61 @@
+{
+  "slug": "the-salvation-army",
+  "client": "The Salvation Army",
+  "headline": "Reviving Hope",
+  "industry_label": "Non-profit",
+  "industries": [
+    "nonprofit"
+  ],
+  "channels": [
+    "Video",
+    "Social",
+    "PR",
+    "Regional activations",
+    "Online fundraiser"
+  ],
+  "pill": "Video → PR → Activations",
+  "hero_img": "tsa-main.jpg",
+  "gallery": [
+    {
+      "img": "TSA-Salvation-MillerG_redwall_01252023_0599-1024x683.jpg",
+      "alt": "Second Chances campaign"
+    },
+    {
+      "img": "tsa-graduation.jpg",
+      "alt": "ARC graduation"
+    },
+    {
+      "img": "tsa-interviews.jpg",
+      "alt": "Second Chances interviews"
+    }
+  ],
+  "result": {
+    "value": "Donations ↑",
+    "label": "“Second Chances” · ARC awareness campaign",
+    "note": "Direction only — the client publishes no figure"
+  },
+  "summary": "Everyone knows the name; almost nobody knew its Adult Rehabilitation Centers. “Second Chances” — video, social, PR, regional activations and an online fundraiser — lifted ARC awareness and donations.",
+  "question": {
+    "h": "A famous name, an unknown program.",
+    "p": "For more than 100 years, The Salvation Army (TSA) has been restoring people, clothing and home furnishings. While TSA enjoys strong name recognition, its Adult Rehabilitation Centers (ARC) suffer from low awareness. Yet ARC delivers one of the highest success rates in the nation for its six-month residential recovery program free to anyone who needs help overcoming substance abuse."
+  },
+  "found": {
+    "h": "One universal truth.",
+    "p": "We tapped into a simple, universal truth: everyone deserves a second chance. This message resonated deeply with donors and inspired staff and volunteers alike."
+  },
+  "made": {
+    "h": "Second Chances.",
+    "p": "Out of it came Second Chances, a multi-channel campaign spanning video, social, PR, regional activations and an online fundraiser with shopthesalvationarmy.com."
+  },
+  "happened": {
+    "h": "Greater awareness, renewed energy, a lift in donations.",
+    "p": "The campaign resulted in greater awareness of the ARC brand, renewed energy among staff and volunteers, and a lift in donations."
+  },
+  "quote": {
+    "text": "The Miller Group played a key role in building awareness of our ARC brand and in our fundraising efforts. They are a never-ending source of new ideas and award-winning creative — always finding ways to make whatever resources we have work harder. They are good thinkers, hard workers and true marketing partners.",
+    "short": "A never-ending source of new ideas and award-winning creative.",
+    "name": "Dalita Lovett",
+    "org": "The Salvation Army"
+  },
+  "rationale": "No figure is published, so the result claims direction (“Donations ↑”), never an invented number. Ask Renee whether TSA will release one."
+}

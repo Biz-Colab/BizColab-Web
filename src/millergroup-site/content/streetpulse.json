@@ -1,0 +1,121 @@
+{
+  "path": "/streetpulse/",
+  "template": "streetpulse.html",
+  "title": "StreetPulse™ — when the numbers stop making sense, ask the people behind them",
+  "description": "StreetPulse puts your business question to up to 20 real consumers, on camera, in the street — and returns a boardroom-ready film in three weeks. The Miller Group’s proprietary research method.",
+  "slab": "StreetPulse™ · The Miller Group’s proprietary method",
+  "hero": {
+    "lines": [
+      "When the numbers stop",
+      "making sense, ask the",
+      "<span class=\"acc\">people behind them.</span>"
+    ],
+    "lede": "Your messaging isn’t landing. Pricing is getting pushback. Sales have slowed and every department has a theory. The real answer isn’t in your data. It’s on the street, in the words of the people you’re trying to reach.",
+    "primary": {
+      "label": "Scope a StreetPulse →",
+      "href": "#contact"
+    },
+    "secondary": {
+      "label": "Watch one ↓",
+      "href": "#watch"
+    },
+    "rationale": "Her own headline, her own opening paragraph — the strongest copy on millergroup.com today, and it sits on a page that is one nav item among seven. StreetPulse is the mechanism behind the site’s promise (“we find what’s holding your brand back”), so it earns a top-level page, its own gradient built from her brand palette, and a CTA that books time rather than asking for a form."
+  },
+  "why": {
+    "slab": "Stop guessing why",
+    "h2": "Get out of the conference room.",
+    "paras": [
+      "StreetPulse gets your team out of the conference room and into unscripted conversations with consumers, on camera, in high-traffic locations, reacting to the exact challenge keeping you up at night: messaging, pricing, product attributes, service, AI, whatever it is.",
+      "We turn these conversations into a boardroom-ready 2–3 minute video, built from up to 20 candid interviews and shaped by a moderator’s guide we develop from your stakeholder input. We get raw, unfiltered reactions to the questions we pose — and from there, consumer insights we share with your team.",
+      "In three weeks, you’ll have a clear, camera-verified read on what consumers understand, question, resist, and want next, plus a social-ready cut your team can use immediately. Questions we have put to the street:"
+    ],
+    "questions": [
+      "Who really influences your purchases?",
+      "Celebrity-endorsed brands — do they work on you?",
+      "Name brand vs. generic: what are you actually paying for?",
+      "The Pink Tax — do you notice it?",
+      "Why did you stop shopping here?"
+    ]
+  },
+  "how": {
+    "slab": "How it works",
+    "h2": "Three weeks, one <span class=\"acc\">answer.</span>",
+    "steps": [
+      {
+        "key": "ask",
+        "tag": "WEEK 1",
+        "title": "The question",
+        "text": "We sit with your stakeholders and write the moderator’s guide, so twenty conversations answer the thing your team is actually arguing about."
+      },
+      {
+        "key": "aim",
+        "tag": "WEEK 2",
+        "title": "The street",
+        "text": "Candid, on-camera intercepts in high-traffic locations with the shoppers your category depends on. No online panel, no incentivised click farm, no bots."
+      },
+      {
+        "key": "make",
+        "tag": "WEEK 3",
+        "title": "The film",
+        "text": "A boardroom-ready 2–3 minute cut leadership will actually watch, the moment that changes the room time-stamped, plus the insights and a social-ready version."
+      }
+    ],
+    "facts": [
+      {
+        "b": "Up to 20 interviews",
+        "text": "Real consumers, on camera, per engagement."
+      },
+      {
+        "b": "2–3 minute film",
+        "text": "Built for the boardroom, not the archive."
+      },
+      {
+        "b": "3 weeks",
+        "text": "From brief to delivered cut."
+      },
+      {
+        "b": "Runs as media, too",
+        "text": "Crew-shot footage with releases — usable as paid social the following week."
+      }
+    ]
+  },
+  "watch": {
+    "slab": "Watch",
+    "h2": "Answered on <span class=\"acc\">camera.</span>",
+    "sub": "Real StreetPulse shorts from the Miller Group channel. Tap to watch on YouTube.",
+    "videos": [
+      {
+        "id": "w-macN9I1Xo",
+        "title": "StreetPulse: Who Are Your Purchases Influenced By?",
+        "caption": "Who really influences their purchases?"
+      },
+      {
+        "id": "H8ZzJXeiSS0",
+        "title": "StreetPulse short",
+        "caption": "Another question, put to the street"
+      },
+      {
+        "id": "1qHhuMpK27U",
+        "title": "StreetPulse short",
+        "caption": "Another question, put to the street"
+      }
+    ],
+    "more": "More street interviews on @millergroup →"
+  },
+  "proof": {
+    "slab": "Where it changed the answer",
+    "h2": "Two brands, two questions nobody <span style=\"white-space:nowrap\">could answer <span class=\"acc\">inside.</span></span>",
+    "sub": "At Gelson’s, everyone assumed price. At Skirball, the brief was a younger, more diverse audience. Both started on the street.",
+    "cases": [
+      "gelsons-west-la",
+      "skirball-cultural-center"
+    ],
+    "rationale": "The only two StreetPulse results published anywhere on her site. The Gelson’s case is the whole positioning in one story."
+  },
+  "cta": {
+    "heading": "Ready to hear what your customers <span style=\"white-space:nowrap\">are really saying?</span>",
+    "sub": "Let’s scope your StreetPulse engagement — the question, the locations, the timeline, and what it costs.",
+    "button": "Book 30 minutes with Renee →",
+    "alt": "Or send us the question"
+  }
+}

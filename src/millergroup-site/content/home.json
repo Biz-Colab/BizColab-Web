@@ -1,0 +1,102 @@
+{
+  "path": "/",
+  "template": "home.html",
+  "title": "The agency you call when you’re stuck",
+  "description": "A research-driven advertising and marketing agency for challenger brands. When the numbers move and nobody can say why, we find out — then build the work that answers it. Los Angeles, since 1990.",
+
+  "hero": {
+    "eyebrow": "For challenger brands",
+    "lines": ["We find what’s holding", "your brand <span class=\"acc\">back.</span>"],
+    "lede": "When the numbers move and nobody in the room can say why, that is the day to call — and we don’t stop at the diagnosis, we build the work that answers it.",
+    "primary":   { "label": "Let’s talk →",     "href": "/contact/" },
+    "secondary": { "label": "See the proof ↓",  "href": "#proof" },
+    "rationale": "This is the Aug 31 positioning, now the spine of the whole site rather than an A/B variant. It leads with the job you are hired for — finding out — because the buying question has moved from “who can do our marketing?” to “who can solve this particular problem?”. The old homepage sold an audience at the top and asked for “the question keeping your team in the conference room” at the bottom; the ending already believed this, the beginning did not. The lede answers the research-vendor objection in the same breath: diagnosis is the wedge, the work is the business."
+  },
+
+  "marquee": [
+    { "shape": "tall", "video": "Gelson_s-Do-You-Bite-Or-Lick-Ice-Cream-REEL.mp4", "poster": "Gelson_s-Do-You-Bite-Or-Lick-Ice-Cream-REEL-poster.jpg", "pill": "Gelson’s · Social" },
+    { "shape": "wide", "img": "Gelsons-billboard-1024x579.jpg", "alt": "Ask Gelson’s billboard", "pill": "Ask Gelson’s · OOH" },
+    { "shape": "tall", "img": "Gelsons-bus-stop.jpg", "alt": "Gelson’s bus stop ad", "pill": "Gelson’s · Transit" },
+    { "shape": "wide", "img": "Skirball_img_1-main-1024x576.jpg", "alt": "Skirball campaign", "pill": "Skirball · Campaign" },
+    { "shape": "tall", "video": "Skirball_video3.mp4", "poster": "Skirball_video3-poster.jpg", "pill": "Skirball · Streaming TV" },
+    { "shape": "wide", "img": "goodwill-1.jpg", "alt": "Goodwill Halloween campaign", "pill": "Goodwill · Halloween" },
+    { "shape": "tall", "img": "johnson-main.jpg", "alt": "Johnson PetDor campaign", "pill": "Johnson · Packaging" },
+    { "shape": "wide", "img": "centra-1.jpg", "alt": "Centra Credit Union billboard", "pill": "Centra · OOH" }
+  ],
+
+  "when": {
+    "slab": "When to call us",
+    "h2": "Bring us what’s <span style=\"white-space:nowrap\"><span class=\"acc\">not working</span> yet.</span>",
+    "big": "The number is down, or flat, or fine — and nobody in the room can say <em>why.</em> That is the day to call.",
+    "maybe": [
+      "Maybe the market has changed and your message has not.",
+      "Maybe the data shows something is wrong but cannot tell you why.",
+      "Maybe you have a strong product, a committed team and a story people are not hearing.",
+      "Or maybe you are simply too close to the problem to see what your customers see."
+    ],
+    "kick": "Finding out is the work — and we have done it across more than 250 engagements since 1990, then built the campaigns that answered it.",
+    "rationale": "The visitor should recognize their situation first and their category second. The four “Maybe…” lines are Renee’s own copy. The challenger definition survives underneath as the qualifier: it lets the wrong client move on without carrying the whole proposition."
+  },
+
+  "who": {
+    "h3": "Who this works best for.",
+    "p": "Challenger brands and social impact organizations — not the smallest in the category, the most <em>outnumbered.</em> The #2 (or #7) taking on a leader with ten times the budget, and ambition the media plan can’t keep up with.",
+    "marks": [
+      { "label": "Outspent",       "text": "The category leader owns the airwaves. You can’t buy your way in — so the idea has to do the heavy lifting." },
+      { "label": "Outnumbered",    "text": "Their marketing department is a floor of a building. Yours fits in a room — which means decisions ship in days, not quarters." },
+      { "label": "Underestimated", "text": "Retail, media and the market treat you as a footnote. Good. Nobody sees you coming." }
+    ]
+  },
+
+  "how": {
+    "slab": "How we work",
+    "h2": "Ask. Aim. <span class=\"acc\">Make.</span>",
+    "sub": "Every engagement starts with Discovery, and one senior team stays close from the first question through final execution — not three departments, but one loop.",
+    "steps": [
+      { "key": "ask",  "tag": "ASK",  "title": "Discovery", "text": "StreetPulse and stakeholder research. Real consumers, on camera, before a dollar goes to media — so strategy starts from evidence, not opinion." },
+      { "key": "aim",  "tag": "AIM",  "title": "Strategy",  "text": "Positioning and the value story — the argument for your brand that survives a board meeting and a shelf test." },
+      { "key": "make", "tag": "MAKE", "title": "Creative",  "text": "Brand, campaigns and content built from what consumers actually said — not from what a brainstorm hoped." }
+    ],
+    "loop": "At Gelson’s, the loop ran whole: consumers revealed a missing value story, strategy reframed it, creative shipped it — and sales rose 6% year over year.",
+    "rationale": "The current site lists six flat services; nothing says they compound. Three words name the loop, each stage carries a color, and the closing line proves the loop with her published number. This is also the answer to the vendor-trap risk: a diagnostic promise sells small unless the page shows the ladder from finding out to making the work."
+  },
+
+  "proof": {
+    "slab": "Proof",
+    "h2": "Receipts, not <span class=\"acc\">vibes.</span>",
+    "sub": "Each one started as a question the client could not answer on their own.",
+    "more": "All fourteen case studies →",
+    "rationale": "Four featured cases, each now a full page. Every number, quote and photo is published on millergroup.com today. Gelson’s leads because it is the positioning in one story: everyone assumed pricing, the finding was a missing value story. Salvation Army and simplehuman publish no figure, so those cards claim direction, not a number. The stat row carries the two volume numbers from Renee’s draft, marked * until she confirms them."
+  },
+
+  "sp": {
+    "slab": "The signature",
+    "lines": ["StreetPulse™.", "Our secret weapon."],
+    "sub": "“When the numbers stop making sense, ask the people behind them.” Up to 20 candid on-camera interviews, built around your business question.",
+    "facts": [
+      { "n": "WHO TALKS",        "b": "Real people, not a panel",     "text": "Candid intercepts in high-traffic locations. No online panel, no incentivised click farm, no bots — the shoppers your category actually depends on." },
+      { "n": "WHAT WE ASK",      "b": "Your business question",       "text": "A moderator’s guide built with your stakeholders, so twenty conversations answer the thing your team is actually arguing about." },
+      { "n": "WHAT YOU GET",     "b": "Brief to film in 3 weeks",     "text": "A boardroom-ready 2–3 minute cut that leadership will actually watch, with the moment that changes the room time-stamped." },
+      { "n": "WHAT IT ALSO DOES","b": "Research that runs as media",  "text": "Crew-shot footage with releases, so the same asset works as paid social the week after it settles the strategy debate." }
+    ],
+    "video": { "id": "w-macN9I1Xo", "title": "StreetPulse: Who Are Your Purchases Influenced By?", "caption": "Who really influences their purchases?" },
+    "more": "How StreetPulse works →",
+    "rationale": "StreetPulse is the mechanism behind the promise in the hero, and her only proprietary product — so it gets its own page and a permanent nav slot. Deliberately absent: any “faster/cheaper than a focus group” claim. Against AI-interview tools she loses that fight; the site claims what only she has: real people, on camera, in the street."
+  },
+
+  "why": {
+    "slab": "Why us",
+    "lines": ["Built by a challenger.", "<span class=\"acc\">For challengers.</span>"],
+    "sub": "Renee Miller started The Miller Group in 1990 with one client and a point of view. Half the budget, none of the backup, all of the results — more than 250 engagements and over $1 billion in client revenue later, we’re still the small team beating bigger ones, which is exactly why we’re good at helping you do it.",
+    "creds": [
+      { "b": "Founded 1990",       "text": "By Renee Miller, Founder & Executive Creative Director." },
+      { "b": "Woman-owned",        "text": "WBENC-certified — counts toward supplier-diversity goals." },
+      { "b": "Goldman Sachs 10KSB","text": "10,000 Small Businesses alumna." },
+      { "b": "Senior team only",   "text": "The people in the pitch are the people on the work." }
+    ],
+    "more": "Meet the team →",
+    "rationale": "Her best existing line — results with “half the budget and none of the backup” — reframed from scrappiness into shared identity with the challenger client. Badges are her real assets, shown rather than claimed."
+  },
+
+  "cta_rationale": "One site, one action. Nav, hero and every page’s close point at the same door, and promising a straight answer on cost speaks to the budget-constrained buyer (56% of CMOs say they lack budget to execute their 2026 plan — the reason for this offer, never a headline)."
+}

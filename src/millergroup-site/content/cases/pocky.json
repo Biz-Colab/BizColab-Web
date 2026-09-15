@@ -1,0 +1,42 @@
+{
+  "slug": "pocky",
+  "client": "Pocky",
+  "headline": "Making a Stateside Splash",
+  "industry_label": "Food · CPG",
+  "industries": [
+    "cpg"
+  ],
+  "channels": [
+    "Experiential",
+    "Street teams",
+    "Sampling",
+    "Brand ambassadors"
+  ],
+  "pill": "Experiential → Distribution",
+  "hero_img": "pocky-main.jpg",
+  "gallery": [
+    {
+      "img": "pocky-1.jpg",
+      "alt": "Pocky convoy"
+    }
+  ],
+  "result": {
+    "value": "Sales ↑",
+    "label": "Plus mass-market distribution: Target, Kroger, Walgreens, Walmart",
+    "note": "The CPG industry page cites +20%; the case page does not — confirm with Renee before using the number"
+  },
+  "summary": "A niche Japanese snack with big ambitions and a modest budget. We took the brand to the consumer — a cross-country Pocky convoy — and it landed in Target, Kroger, Walgreens and Walmart.",
+  "question": {
+    "h": "Big on ideas, modest on budget.",
+    "p": "Pocky, a niche Japanese snack food, dreamed of upping the ante by getting more brand awareness in the U.S. The assignment was big on ideas, and modest on budget."
+  },
+  "made": {
+    "h": "The Pocky convoy.",
+    "p": "We brought the consumer to the brand, with a cross-country road trip replete with brand ambassadors, street teams, and free samples. To “share happiness” (their tag line) we created a Pocky convoy."
+  },
+  "happened": {
+    "h": "Sales up, and onto the big shelves.",
+    "p": "The brand experienced a sales increase along with distribution in mass market, including Target, Kroger, Walgreens and Walmart."
+  },
+  "rationale": ""
+}

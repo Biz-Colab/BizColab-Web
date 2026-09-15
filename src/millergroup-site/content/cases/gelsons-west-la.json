@@ -1,0 +1,58 @@
+{
+  "slug": "gelsons-west-la",
+  "client": "Gelson’s",
+  "headline": "Recipe for a successful launch",
+  "industry_label": "Grocery · Retail",
+  "industries": [
+    "retail"
+  ],
+  "channels": [
+    "StreetPulse",
+    "Outdoor",
+    "Streaming radio",
+    "Paid + organic social",
+    "In-store events"
+  ],
+  "pill": "Diagnosis → Campaign",
+  "hero_img": "Gelsons-billboard-1024x579.jpg",
+  "gallery": [
+    {
+      "img": "Gelsons-bus-stop.jpg",
+      "alt": "Gelson’s bus stop ad"
+    },
+    {
+      "img": "Gelson_s-Do-You-Bite-Or-Lick-Ice-Cream-REEL-poster.jpg",
+      "alt": "Gelson’s social reel",
+      "portrait": true
+    }
+  ],
+  "result": {
+    "value": "+6%",
+    "label": "Year-over-year sales increase",
+    "note": "Published on the StreetPulse page of millergroup.com"
+  },
+  "summary": "Everyone assumed a pricing problem. StreetPulse showed the real gap was a missing value story — and the “Ask Gelson’s” campaign told it across outdoor, streaming radio, social and in-store.",
+  "question": {
+    "h": "A premium brand, an underperforming store.",
+    "p": "Gelson’s, a 28-store upscale regional grocery chain ranked #4 nationally by Consumer Reports, wanted to generate buzz for its newest West LA location. Known for curated selections, award-winning service, and top-quality fresh and center store items, Gelson’s needed a launch that matched its premium brand — and needed to understand why the location was underperforming."
+  },
+  "found": {
+    "h": "Not price, not signage — a missing value story.",
+    "p": "StreetPulse put the question to shoppers on camera. The real story behind the underperforming location was not price or a lack of signage — it was a missing value story."
+  },
+  "made": {
+    "h": "Ask Gelson’s.",
+    "p": "We created Ask Gelson’s — a multi-channel campaign spanning outdoor, streaming radio, paid and organic social, and weekly in-store events. To amplify visibility, we recommended bold, building-side graphics as a standout awareness driver and weekly farmers markets in the courtyard for the building’s tenants."
+  },
+  "happened": {
+    "h": "Sales rose 6% year over year.",
+    "p": "The fix drove a 6% year-over-year sales increase — the loop ran whole: consumers revealed the gap, strategy reframed it, creative shipped it."
+  },
+  "quote": {
+    "text": "The Miller Group is smart, collaborative, and conscientious. Fantastic research, good creative chops and a solid understanding of our goals, coupled with the ability to make strategic recommendations in social, online, digital, CTV + OTT.",
+    "short": "Smart, collaborative, and conscientious. Fantastic research, good creative chops.",
+    "name": "Yvonne Manganaro",
+    "org": "Gelson’s"
+  },
+  "rationale": "The flagship. Under the new positioning the money shot isn’t the 6% — it’s that the problem they hired you for was not the problem. The four-block structure (question → found → made → happened) is the site’s case format; it turns every Challenge/Solution write-up into evidence for “we find out, then we build.”"
+}

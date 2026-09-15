@@ -1,0 +1,20 @@
+{
+  "path": "/work/",
+  "template": "work.html",
+  "title": "Work — fourteen questions, fourteen answers",
+  "description": "Case studies from The Miller Group: Gelson’s, Skirball, The Salvation Army, Goodwill, MOLAA, Centra, Johnson PetDor and more. Every number published, none invented.",
+  "kicker": "Work · Fourteen engagements · Every number published",
+  "h1": "Receipts, not <span class=\"acc\">vibes.</span>",
+  "lede": "Each engagement started as a question the client could not answer on their own. Here is what we found, what we made, and what happened next.",
+  "filters": [
+    { "key": "nonprofit", "label": "Non-profit & culture" },
+    { "key": "retail",    "label": "Retail & grocery" },
+    { "key": "cpg",       "label": "Food, pet & CPG" },
+    { "key": "financial", "label": "Financial services" },
+    { "key": "home",      "label": "Home & design" },
+    { "key": "place",     "label": "Tourism & public space" }
+  ],
+  "order": ["gelsons-west-la","goodwill-southern-california","molaa","skirball-cultural-center","johnson-petdor","centra-credit-union","the-salvation-army","dunn-edwards","simplehuman","grand-park","pocky","lotus-pet-food","mocse-credit-union","pier-39"],
+  "featured": ["gelsons-west-la","skirball-cultural-center","the-salvation-army","simplehuman"],
+  "rationale": "Order is proof-first: the seven cases with a published number or a hard outcome lead, the concept-only cases follow. The old /work/ page is a wall of 14 equal tiles with no numbers; a buyer scanning for “have they done this for someone like me?” gets industry filters instead of a scroll. Every case now has a real page — today they are 85–140-word Challenge/Solution blurbs."
+}

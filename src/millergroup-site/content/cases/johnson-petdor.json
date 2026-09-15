@@ -1,0 +1,53 @@
+{
+  "slug": "johnson-petdor",
+  "client": "Johnson PetDor",
+  "headline": "Unleashing New Life into the Brand",
+  "industry_label": "Pet products · Home improvement",
+  "industries": [
+    "home",
+    "cpg"
+  ],
+  "channels": [
+    "Packaging",
+    "Cause tie-in",
+    "Retailer SPIFFs",
+    "Targeted ads",
+    "Guerrilla stunts"
+  ],
+  "pill": "Packaging → Trade → Stunts",
+  "hero_img": "johnson-main.jpg",
+  "gallery": [
+    {
+      "img": "johnson-1.jpg",
+      "alt": "Johnson PetDor ad"
+    },
+    {
+      "img": "johnson-2.jpg",
+      "alt": "Johnson PetDor ad"
+    }
+  ],
+  "result": {
+    "value": "+22%",
+    "label": "Lift in annual sales"
+  },
+  "summary": "A low-interest, crowded category and years of flat sales. We flipped the focus from door to dog — and lifted annual sales 22%. A buyout offer followed.",
+  "question": {
+    "h": "A low-interest category, years of flat sales.",
+    "p": "Pet doors are a low-interest, crowded category with little differentiation. Johnson’s outdated packaging, lack of branding, advertising, and consumer engagement left sales stagnant for years."
+  },
+  "made": {
+    "h": "From door to dog.",
+    "p": "We flipped the focus from door to dog. By refreshing packaging, tying the brand to a charitable cause, launching inventive retailer SPIFFs, running targeted ads, and staging guerrilla stunts at one of the industry’s biggest trade shows, we broke through the clutter."
+  },
+  "happened": {
+    "h": "22% more sales — then a buyout offer.",
+    "p": "A 22% lift in annual sales for this challenger brand. Not long afterwards, Johnson Pet-Dor received a buyout offer from a national pet products company."
+  },
+  "quote": {
+    "text": "The Miller Group was our advertising and marketing agency when I was the president of Johnson Pet-Dor, Inc. They were very creative in developing our successful marketing strategy, and extremely helpful in implementing and revitalizing the effort. Of particular note was a memorable guerrilla marketing promotion at the annual pet products convention and expo. Not long afterwards, Johnson Pet-Dor received a buyout offer from a national pet products company.",
+    "short": "Not long afterwards, Johnson Pet-Dor received a buyout offer from a national pet products company.",
+    "name": "Jim Zimring",
+    "org": "former President, Johnson Pet-Dor"
+  },
+  "rationale": ""
+}

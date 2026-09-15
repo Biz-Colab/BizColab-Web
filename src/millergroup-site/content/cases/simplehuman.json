@@ -1,0 +1,44 @@
+{
+  "slug": "simplehuman",
+  "client": "simplehuman",
+  "headline": "Entering the Luxury Suite",
+  "industry_label": "Home goods · Hospitality B2B",
+  "industries": [
+    "home"
+  ],
+  "channels": [
+    "B2B positioning",
+    "B2B website",
+    "Tradeshow",
+    "Eblasts",
+    "Activations",
+    "PR"
+  ],
+  "pill": "B2B → Trade → Email",
+  "hero_img": "simplehuman-with-purple.jpg",
+  "gallery": [
+    {
+      "img": "simplehuman-main.jpg",
+      "alt": "simplehuman hospitality eblast"
+    }
+  ],
+  "result": {
+    "value": "Sales ↑",
+    "label": "A new hospitality growth channel",
+    "note": "Direction only — the client publishes “a sharp uptick”"
+  },
+  "summary": "A consumer-market leader stuck outside hospitality, where buyers are budget-first. We positioned it in luxury venues with designer proof — and hospitality sales took a sharp uptick, opening VRBO and cruise-line markets.",
+  "question": {
+    "h": "Dominant at retail, invisible in hospitality.",
+    "p": "simplehuman dominates the consumer market with its sleek stainless steel mirrors and trash cans. But breaking into hospitality was tougher: the purchase process is complex, the competition cheaper, and design differentiation harder to prove to budget conscious buyers."
+  },
+  "made": {
+    "h": "Put it where it belonged.",
+    "p": "We positioned simplehuman where it belonged — in the world’s finest hotels, restaurants, and resorts — leveraging designer testimonials and a multi-channel campaign including a B2B website, tradeshow and support materials, eblasts, activations and PR that highlighted durability, functionality, and elevated guest satisfaction. We also opened new markets with VRBO and cruise lines."
+  },
+  "happened": {
+    "h": "A sharp uptick, and a new channel.",
+    "p": "The result: a sharp uptick in hospitality sales and a new growth channel for the brand."
+  },
+  "rationale": "Word-stat only (“Sales ↑”). This is the case that proves the agency sells into B2B, not just consumer."
+}

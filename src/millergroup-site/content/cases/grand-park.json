@@ -1,0 +1,53 @@
+{
+  "slug": "grand-park",
+  "client": "Gloria Molina Grand Park",
+  "headline": "Turning Up the Volume",
+  "industry_label": "Public space · Culture",
+  "industries": [
+    "nonprofit",
+    "place"
+  ],
+  "channels": [
+    "Intercept research",
+    "Brand identity",
+    "Logo",
+    "Style guide"
+  ],
+  "pill": "Research → Identity",
+  "hero_img": "grand-park-1.jpg",
+  "gallery": [
+    {
+      "img": "grand-park-main.jpg",
+      "alt": "Grand Park brand refresh"
+    },
+    {
+      "img": "grand-park-logo-pink.png",
+      "alt": "Gloria Molina Grand Park logo"
+    }
+  ],
+  "result": {
+    "value": "10 yrs",
+    "label": "A refreshed identity for the park’s tenth anniversary — and its renaming",
+    "note": "No performance figure published; the result is the identity itself"
+  },
+  "summary": "A 12-acre downtown gem eclipsed by Griffith Park’s 4,210 acres. We went straight to the visitors, then built the park’s first real identity — and rebuilt it again when the park was renamed.",
+  "question": {
+    "h": "Ten years old, still overlooked.",
+    "p": "Grand Park was approaching its 10th anniversary. Nestled next to the Music Center and often eclipsed by LA’s sprawling Griffith Park (4,210 acres), this 12-acre downtown gem wanted a brand refresh that could boost visibility, energize visitors, and cement its place as a cultural destination."
+  },
+  "found": {
+    "h": "Ask the people in the park.",
+    "p": "We went straight to the source: the visitors. Intercept research gave us unfiltered insights that became the springboard for change."
+  },
+  "made": {
+    "h": "A first style guide, a bold logo, and a second act.",
+    "p": "Based on those findings, we built a refreshed identity — new brand icons, a bold logo (plus a 10th anniversary edition), and the park’s first style guide. And when the park was renamed Gloria Molina Grand Park, we didn’t just update the look — we reimagined it again, keeping the brand as vibrant and dynamic as the park itself."
+  },
+  "quote": {
+    "text": "The Miller Group took the time and had the depth of experience to understand our brand and audience. They worked meaningfully from that place. That sensitivity and skill helped our 10th anniversary logo and brand refresh to be a meaningful next chapter, helping us not only to build but to evolve.",
+    "short": "They took the time and had the depth of experience to understand our brand and audience.",
+    "name": "Julia Diamond",
+    "org": "Gloria Molina Grand Park"
+  },
+  "rationale": ""
+}

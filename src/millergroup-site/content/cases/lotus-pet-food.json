@@ -1,0 +1,47 @@
+{
+  "slug": "lotus-pet-food",
+  "client": "Lotus Pet Food",
+  "headline": "Zen and the Art of Pet Food",
+  "industry_label": "Pet · CPG",
+  "industries": [
+    "cpg",
+    "retail"
+  ],
+  "channels": [
+    "Naming",
+    "Positioning",
+    "Packaging",
+    "In-store",
+    "Sampling",
+    "Advertising"
+  ],
+  "pill": "Naming → Brand",
+  "hero_img": "lotus-main.jpg",
+  "gallery": [
+    {
+      "img": "lotus-1.jpg",
+      "alt": "Lotus poster",
+      "portrait": true
+    },
+    {
+      "img": "lotus-2.jpg",
+      "alt": "Lotus poster",
+      "portrait": true
+    }
+  ],
+  "result": {
+    "value": "US + Asia",
+    "label": "A leading brand in independent pet stores",
+    "note": "No figure published; the result is market position"
+  },
+  "summary": "A regional pet retailer wanted to grow its footprint and shrink its footprint. We named, positioned and branded Lotus — now a leading brand in independent pet stores across the U.S. and Asia.",
+  "question": {
+    "h": "Grow the footprint, shrink the paw-print.",
+    "p": "Centinela Feed & Pet, a regional pet retailer, wanted to expand its sales footprint while shrinking its carbon paw-print. They needed a way to accelerate growth while keeping the planet thriving with their sustainable kibble."
+  },
+  "made": {
+    "h": "A name, a position, a brand.",
+    "p": "Based on consumer input and strategic insights, we named, positioned, and branded Lotus as a healthy, high-end alternative to grocery brands. Through eco-friendly packaging, in-store signage, storytelling, sampling, advertising and activations, Lotus has become a leading brand in independent pet stores throughout the U.S. and Asia."
+  },
+  "rationale": ""
+}
