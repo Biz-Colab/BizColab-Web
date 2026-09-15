@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+{% set p = page %}
+<header class="phero"><div class="wrap">
+  <div class="kicker mono">{{ p.kicker }}</div>
+  <h1>{% for l in p.hero.lines %}<span class="h-line">{{ l }}</span>{% endfor %}</h1>
+  <p class="lede">{{ p.hero.lede }}</p>
+</div></header>
+<section class="tight" style="padding-top:20px"><div class="wrap"><div class="memo">
+  {{ p.body }}
+</div></div></section>
+{% endblock %}

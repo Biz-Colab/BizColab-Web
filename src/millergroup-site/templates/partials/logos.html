@@ -1,0 +1,4 @@
+<div class="logos"><div class="lg-track">
+  {% for pass in [1,2] %}{% for l in site.logos %}{% if l.img %}<img loading="lazy" decoding="async" src="{{ l.img | asset }}" alt="{{ l.alt if pass==1 else '' }}">{% else %}<span>{{ l.text }}</span>{% endif %}
+  {% endfor %}{% endfor %}
+</div></div>

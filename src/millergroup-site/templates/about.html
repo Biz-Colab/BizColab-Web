@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body %}
+{% set p = page %}
+<header class="phero"><div class="wrap">
+  <div class="kicker mono">{{ p.kicker }}</div>
+  <h1>{% for l in p.hero.lines %}<span class="h-line">{{ l }}</span>{% endfor %}</h1>
+  <p class="lede">{{ p.hero.lede }}</p>
+  {% with text=p.hero.rationale, label='Why this page?' %}{% include "partials/rat.html" %}{% endwith %}
+</div></header>
+<section class="tight" style="padding-top:34px"><div class="wrap">
+  <div class="cs-main" style="margin-top:0;aspect-ratio:21/9"><img src="{{ p.hero.img | asset }}" alt="{{ p.hero.img_alt }}" decoding="async"></div>
+</div></section>
+<section class="tight"><div class="wrap">
+  <div class="slab mono">01 &mdash; {{ p.story.slab }}</div>
+  <h2>{{ p.story.h2 }}</h2>
+  <div class="prose" style="margin-top:22px">{% for para in p.story.paras %}<p>{{ para }}</p>{% endfor %}</div>
+  <p class="kick">{{ p.story.kick }}</p>
+</div></section>
+<section class="tight"><div class="wrap">
+  <div class="slab mono">02 &mdash; {{ p.how.slab }}</div>
+  <h2><span class="h-line">{{ p.how.h2 }}</span></h2>
+  <p class="sub">{{ p.how.sub }}</p>
+  <div class="grid3">{% for s in p.how.steps %}<div class="step s-{{ s.key }}"><span class="tag">{{ s.tag }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p></div>{% endfor %}</div>
+</div></section>
+<section class="tight"><div class="wrap">
+  <div class="slab mono">03 &mdash; {{ p.team.slab }}</div>
+  <h2>{{ p.team.h2 }}</h2>
+  <p class="sub">{{ p.team.sub }}</p>
+  <div class="team">{% for m in p.team.members %}<div class="tm"><div class="ph"><img loading="lazy" decoding="async" src="{{ m.img | asset }}" alt="{{ m.name }}"></div><b>{{ m.name }}</b><span>{{ m.title }}</span></div>{% endfor %}</div>
+  {% with text=p.team.rationale %}{% include "partials/rat.html" %}{% endwith %}
+</div></section>
+<section class="tight"><div class="wrap">
+  <div class="slab mono">04 &mdash; {{ p.creds.slab }}</div>
+  <h2>{{ p.creds.h2 }}</h2>
+  <div class="grid4">{% for c in p.creds["items"] %}<div class="cred"><b>{{ c.b }}</b><span>{{ c.text }}</span></div>{% endfor %}</div>
+  <div class="badges">{% for b in site.badges %}<img loading="lazy" decoding="async" src="{{ b.img | asset }}" alt="{{ b.alt }}">{% endfor %}</div>
+  <p class="recog"><b>Recognized by</b>{{ site.recognized_by | join(' · ') }}</p>
+  {% include "partials/statrow.html" %}
+</div></section>
+{% with rat='' %}{% include "partials/cta_band.html" %}{% endwith %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ page.client }} — {{ page.headline }}{% endblock %}
+{% block description %}{{ page.summary }}{% endblock %}
+{% block body %}
+{% set c = page %}
+<header class="cs-hero"><div class="wrap">
+  <div class="kicker mono"><a href="{{ '/work/' | url }}" style="text-decoration:none;color:inherit">Work</a> &middot; <b>{{ c.client }}</b> &middot; {{ c.industry_label }}</div>
+  <h1 class="fit">{{ c.headline }}</h1>
+  <p class="lede">{{ c.summary }}</p>
+  <div class="cs-meta">{% for ch in c.channels %}<span>{{ ch }}</span>{% endfor %}</div>
+  <div class="cs-main"><img src="{{ c.hero_img | asset }}" alt="{{ c.client }} — {{ c.headline }}" decoding="async"></div>
+</div></header>
+<section style="padding-top:64px"><div class="wrap">
+  <div class="cs-grid">
+    <div class="cs-result"><b>{{ c.result.value }}</b><span>{{ c.result.label }}</span>
+      {% if c.result.note and site.build.concept_mode %}<p class="mono" style="margin-top:14px;color:var(--ink2);text-transform:none;letter-spacing:0;font-size:12px">{{ c.result.note }}</p>{% endif %}</div>
+    <div>
+      <div class="cs-block"><span class="mono lbl">The question</span><h3>{{ c.question.h }}</h3><p>{{ c.question.p }}</p></div>
+      {% if c.found %}<div class="cs-block"><span class="mono lbl">What we found</span><h3>{{ c.found.h }}</h3><p>{{ c.found.p }}</p></div>{% endif %}
+      <div class="cs-block"><span class="mono lbl">What we made</span><h3>{{ c.made.h }}</h3><p>{{ c.made.p }}</p></div>
+      {% if c.happened %}<div class="cs-block"><span class="mono lbl">What happened</span><h3>{{ c.happened.h }}</h3><p>{{ c.happened.p }}</p></div>{% endif %}
+      {% if c.quote %}<blockquote class="quote"><span class="qq">“{{ c.quote.text }}”</span><cite>{{ c.quote.name }}{% if c.quote.org %} · {{ c.quote.org }}{% endif %}</cite></blockquote>{% endif %}
+    </div>
+  </div>
+  {% if c.gallery %}<div class="gallery">{% for g in c.gallery %}<div class="g{% if g.portrait %} portrait{% endif %}"><img loading="lazy" decoding="async" src="{{ g.img | asset }}" alt="{{ g.alt }}"></div>{% endfor %}</div>{% endif %}
+  {% with text=c.rationale, label='Why this case reads this way' %}{% include "partials/rat.html" %}{% endwith %}
+  <a class="nextcase" href="{{ c.next.path | url }}"><div><span class="mono">Next case</span><b>{{ c.next.client }} &mdash; {{ c.next.headline }}</b></div><span class="arr">&rarr;</span></a>
+</div></section>
+{% with rat='' %}{% include "partials/cta_band.html" %}{% endwith %}
+{% endblock %}

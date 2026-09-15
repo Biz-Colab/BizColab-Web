@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+{% set p = page %}
+<header class="phero"><div class="wrap">
+  <div class="kicker mono">{{ p.kicker }}</div>
+  <h1>{% for l in p.hero.lines %}<span class="h-line">{{ l }}</span>{% endfor %}</h1>
+  <p class="lede">{{ p.hero.lede }}</p>
+  {% with text=p.hero.rationale, label='Why this page?' %}{% include "partials/rat.html" %}{% endwith %}
+</div></header>
+<section class="tight" style="padding-top:20px"><div class="wrap">
+  <div class="cgrid">
+    <form class="form" method="post" action="#" data-endpoint="{{ site.contact.form_endpoint }}" data-mailto="mailto:{{ site.contact.email }}" novalidate>
+      <div class="fld"><label for="f-first">First name</label><input id="f-first" name="first" type="text" autocomplete="given-name" required></div>
+      <div class="fld"><label for="f-last">Last name</label><input id="f-last" name="last" type="text" autocomplete="family-name" required></div>
+      <div class="fld"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+      <div class="fld"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="fld full"><label for="f-msg">{{ p.form.prompt }}</label><textarea id="f-msg" name="message" required placeholder="{{ p.form.placeholder }}"></textarea></div>
+      <button class="btn" type="submit">{{ p.form.button }}</button>
+      <div class="ok">{{ site.contact.form_success }}</div>
+    </form>
+    <aside class="cside">
+      <div class="cred"><b>Call</b><span><a href="tel:{{ site.contact.phone_tel }}">{{ site.contact.phone_display }}</a></span></div>
+      <div class="cred"><b>Email</b><span><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></span></div>
+      <div class="cred"><b>Book 30 minutes</b><span><a href="{{ site.contact.calendly }}" target="_blank" rel="noopener">{{ p.calendly_label }}</a></span></div>
+      <div class="cred"><b>Where</b><span>{{ site.contact.location }}</span></div>
+    </aside>
+  </div>
+  {% with text=p.form.rationale %}{% include "partials/rat.html" %}{% endwith %}
+</div></section>
+{% endblock %}

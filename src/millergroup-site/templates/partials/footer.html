@@ -1,0 +1,22 @@
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <a class="logo" href="{{ '/' | url }}">{{ site.brand.short }}<i>.</i></a>
+      <p>{{ site.brand.tagline }}</p>
+      <p style="margin-top:6px"><span style="white-space:nowrap">{{ site.contact.location }}</span> · <a href="tel:{{ site.contact.phone_tel }}" style="display:inline;padding:0;white-space:nowrap">{{ site.contact.phone_display }}</a></p>
+    </div>
+    <div><b>Site</b>
+      {% for n in site.nav %}<a href="{{ n.href | url }}">{{ n.label }}</a>{% endfor %}
+      <a href="{{ '/contact/' | url }}">Contact</a>
+    </div>
+    <div><b>Follow</b>
+      {% for s in site.socials %}<a href="{{ s.href }}" target="_blank" rel="noopener">{{ s.label }}</a>{% endfor %}
+    </div>
+  </div>
+  {% if site.build.concept_mode %}
+  <div class="chip">{{ site.build.concept_label }}</div>
+  <p>{{ site.footer.concept_note }}</p>
+  {% else %}
+  <p>{{ site.footer.note }}</p>
+  {% endif %}
+</div></footer>

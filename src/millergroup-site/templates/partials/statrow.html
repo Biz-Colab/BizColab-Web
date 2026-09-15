@@ -1,0 +1,4 @@
+<div class="statrow">
+  {% for s in site.stats %}<div><b>{{ s.value }}{% if s.unverified and site.build.concept_mode %}<sup>*</sup>{% endif %}</b><span>{{ s.label }}</span></div>
+  {% endfor %}
+</div>

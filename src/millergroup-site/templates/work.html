@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+{% set p = page %}
+<header class="phero"><div class="wrap">
+  <div class="kicker mono">{{ p.kicker }}</div>
+  <h1>{{ p.h1 }}</h1>
+  <p class="lede">{{ p.lede }}</p>
+  <div class="filters" role="group" aria-label="Filter by industry">
+    <button type="button" data-f="all" aria-pressed="true">All work</button>
+    {% for f in p.filters %}<button type="button" data-f="{{ f.key }}" aria-pressed="false">{{ f.label }}</button>{% endfor %}
+  </div>
+  {% with text=p.rationale, label='Why this page?' %}{% include "partials/rat.html" %}{% endwith %}
+</div></header>
+<section class="tight" style="padding-top:44px"><div class="wrap">
+  <div class="grid3" style="margin-top:0;gap:22px 16px">{% for c in cases %}{% with c=c, small=true %}{% include "partials/case_card.html" %}{% endwith %}{% endfor %}</div>
+  {% include "partials/statrow.html" %}
+</div></section>
+{% with rat='' %}{% include "partials/cta_band.html" %}{% endwith %}
+{% endblock %}

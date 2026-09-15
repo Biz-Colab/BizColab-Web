@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block body %}
+{% set p = page %}
+<!-- HERO -->
+<header class="hero"><div class="wrap">
+  <div class="kicker mono">{{ site.brand.city }} &middot; <b>{{ p.hero.eyebrow }}</b> &middot; Est. {{ site.brand.founded }}</div>
+  <h1>{% for l in p.hero.lines %}<span class="h-line">{{ l }}</span>{% endfor %}</h1>
+  <p class="lede">{{ p.hero.lede }}</p>
+  <a class="btn" href="{{ p.hero.primary.href | url }}">{{ p.hero.primary.label }}</a><a class="btn ghost" href="{{ p.hero.secondary.href | url }}">{{ p.hero.secondary.label }}</a>
+  {% with text=p.hero.rationale, label='Why this hero?' %}{% include "partials/rat.html" %}{% endwith %}
+</div>
+
+<!-- WORK MARQUEE -->
+<div class="mq" id="reel"><div class="mq-track">
+  {% for pass in [1,2] %}{% for t in p.marquee %}
+  <div class="tile {{ t.shape }}">{% if t.video %}<video data-src="{{ t.video | asset }}" poster="{{ t.poster | asset }}" preload="none" autoplay muted loop playsinline></video>{% else %}<img loading="lazy" decoding="async" src="{{ t.img | asset }}" alt="{{ t.alt if pass==1 else '' }}">{% endif %}<span class="pill">{{ t.pill }}</span></div>
+  {% endfor %}{% endfor %}
+</div></div>
+{% include "partials/logos.html" %}
+</header>
+
+<!-- 01 WHEN TO CALL -->
+<section class="def" id="def"><div class="wrap">
+  <div class="slab mono">01 &mdash; {{ p.when.slab }}</div>
+  <h2>{{ p.when.h2 }}</h2>
+  <p class="big">{{ p.when.big }}</p>
+  <div class="mayb" style="margin-top:34px;border-top:0;padding-top:0">
+    <ul class="dash">{% for m in p.when.maybe %}<li>{{ m }}</li>{% endfor %}</ul>
+    <p class="kick">{{ p.when.kick }}</p>
+  </div>
+  <h3 class="who">{{ p.who.h3 }}</h3>
+  <p class="whop">{{ p.who.p }}</p>
+  <div class="grid3">{% for m in p.who.marks %}<div class="card"><span class="mono">{{ m.label }}</span><p>{{ m.text }}</p></div>{% endfor %}</div>
+  {% with text=p.when.rationale %}{% include "partials/rat.html" %}{% endwith %}
+</div></section>
+
+<!-- 02 HOW WE WORK -->
+<section id="engine" class="tight"><div class="wrap">
+  <div class="slab mono">02 &mdash; {{ p.how.slab }}</div>
+  <h2><span class="h-line">{{ p.how.h2 }}</span></h2>
+  <p class="sub">{{ p.how.sub }}</p>
+  <div class="grid3">{% for s in p.how.steps %}<div class="step s-{{ s.key }}"><span class="tag">{{ s.tag }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p></div>{% endfor %}</div>
+  <p class="oneloop">{{ p.how.loop }}</p>
+  {% with text=p.how.rationale %}{% include "partials/rat.html" %}{% endwith %}
+</div></section>
+
+<!-- 03 PROOF -->
+<section id="proof" class="tight"><div class="wrap">
+  <div class="slab mono">03 &mdash; {{ p.proof.slab }}</div>
+  <h2>{{ p.proof.h2 }}</h2>
+  <p class="sub">{{ p.proof.sub }}</p>
+  <div class="grid2">{% for c in featured %}{% with c=c, small=false %}{% include "partials/case_card.html" %}{% endwith %}{% endfor %}</div>
+  <p style="margin-top:34px"><a class="link" href="{{ '/work/' | url }}">{{ p.proof.more }}</a></p>
+  {% include "partials/statrow.html" %}
+  {% with text=p.proof.rationale %}{% include "partials/rat.html" %}{% endwith %}
+</div></section>
+
+<!-- 04 STREETPULSE -->
+<section class="sp" id="streetpulse"><div class="wrap">
+  <div class="slab mono">04 &mdash; {{ p.sp.slab }}</div>
+  <h2>{% for l in p.sp.lines %}<span class="h-line">{{ l }}</span>{% endfor %}</h2>
+  <p class="sub">{{ p.sp.sub }}</p>
+  <div class="sp-cols">
+    <div class="spfacts">{% for f in p.sp.facts %}<div class="sf"><span class="n">{{ '%02d' % loop.index }} &mdash; {{ f.n }}</span><b>{{ f.b }}</b><span>{{ f.text }}</span></div>{% endfor %}</div>
+    <div class="phone">{% with v=p.sp.video %}{% include "partials/phone.html" %}{% endwith %}
+    <a class="sp-more" href="{{ '/streetpulse/' | url }}">{{ p.sp.more }}</a></div>
+  </div>
+  {% with text=p.sp.rationale %}{% include "partials/rat.html" %}{% endwith %}
+</div></section>
+
+<!-- 05 WHY US -->
+<section id="why"><div class="wrap">
+  <div class="slab mono">05 &mdash; {{ p.why.slab }}</div>
+  <h2>{% for l in p.why.lines %}<span class="h-line">{{ l }}</span>{% endfor %}</h2>
+  <p class="sub">{{ p.why.sub }}</p>
+  <div class="grid4">{% for c in p.why.creds %}<div class="cred"><b>{{ c.b }}</b><span>{{ c.text }}</span></div>{% endfor %}</div>
+  <div class="badges">{% for b in site.badges %}<img loading="lazy" decoding="async" src="{{ b.img | asset }}" alt="{{ b.alt }}">{% endfor %}</div>
+  <p style="margin-top:30px"><a class="link" href="{{ '/about/' | url }}">{{ p.why.more }}</a></p>
+  {% with text=p.why.rationale %}{% include "partials/rat.html" %}{% endwith %}
+</div></section>
+
+{% with rat=p.cta_rationale %}{% include "partials/cta_band.html" %}{% endwith %}
+{% endblock %}

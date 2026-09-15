@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block body %}
+{% set p = page %}
+<header class="sp" style="margin-top:14px;padding:84px 0 90px"><div class="wrap">
+  <div class="slab mono">{{ p.slab }}</div>
+  <h1 style="font-size:clamp(25px,5.6vw,80px)">{% for l in p.hero.lines %}<span class="h-line">{{ l }}</span>{% endfor %}</h1>
+  <p class="lede" style="margin-left:0;text-align:left;max-width:680px">{{ p.hero.lede }}</p>
+  <a class="btn" href="{{ p.hero.primary.href | url }}">{{ p.hero.primary.label }}</a><a class="btn ghost" href="{{ p.hero.secondary.href | url }}">{{ p.hero.secondary.label }}</a>
+  {% with text=p.hero.rationale, label='Why this page?' %}{% include "partials/rat.html" %}{% endwith %}
+</div></header>
+
+<section><div class="wrap">
+  <div class="slab mono">01 &mdash; {{ p.why.slab }}</div>
+  <h2>{{ p.why.h2 }}</h2>
+  <div class="prose" style="margin-top:22px">{% for para in p.why.paras %}<p>{{ para }}</p>{% endfor %}</div>
+  <ul class="dash">{% for m in p.why.questions %}<li>{{ m }}</li>{% endfor %}</ul>
+</div></section>
+
+<section class="tight"><div class="wrap">
+  <div class="slab mono">02 &mdash; {{ p.how.slab }}</div>
+  <h2>{{ p.how.h2 }}</h2>
+  <div class="grid3">{% for s in p.how.steps %}<div class="step s-{{ s.key }}"><span class="tag">{{ s.tag }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p></div>{% endfor %}</div>
+  <div class="grid4" style="margin-top:16px">{% for f in p.how.facts %}<div class="cred"><b>{{ f.b }}</b><span>{{ f.text }}</span></div>{% endfor %}</div>
+</div></section>
+
+<section class="sp" style="padding:84px 0"><div class="wrap">
+  <div class="slab mono">03 &mdash; {{ p.watch.slab }}</div>
+  <h2>{{ p.watch.h2 }}</h2>
+  <p class="sub">{{ p.watch.sub }}</p>
+  <div class="phones">{% for v in p.watch.videos %}<div class="phone">{% with v=v %}{% include "partials/phone.html" %}{% endwith %}</div>{% endfor %}</div>
+  <a class="sp-more" href="https://www.youtube.com/@millergroup" target="_blank" rel="noopener">{{ p.watch.more }}</a>
+</div></section>
+
+<section><div class="wrap">
+  <div class="slab mono">04 &mdash; {{ p.proof.slab }}</div>
+  <h2>{{ p.proof.h2 }}</h2>
+  <p class="sub">{{ p.proof.sub }}</p>
+  <div class="grid2">{% for s in p.proof.cases %}{% with c=cases|selectattr('slug','equalto',s)|first, small=false %}{% include "partials/case_card.html" %}{% endwith %}{% endfor %}</div>
+  {% with text=p.proof.rationale %}{% include "partials/rat.html" %}{% endwith %}
+</div></section>
+
+<section class="cta-band" id="contact">
+  <h2>{{ p.cta.heading }}</h2>
+  <p class="sub">{{ p.cta.sub }}</p>
+  <a class="btn" href="{{ site.contact.calendly }}" target="_blank" rel="noopener">{{ p.cta.button }}</a>
+  <p class="details"><a href="{{ '/contact/' | url }}">{{ p.cta.alt }}</a> <span style="white-space:nowrap">&middot; <a href="tel:{{ site.contact.phone_tel }}">{{ site.contact.phone_display }}</a></span></p>
+</section>
+{% endblock %}

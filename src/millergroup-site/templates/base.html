@@ -1,0 +1,36 @@
+{# base.html — every page extends this. Blocks: title, description, body. #}
+{% set B = site.build %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% if B.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<title>{% block title %}{{ page.title }}{% endblock %} · {{ site.brand.name }}</title>
+<meta name="description" content="{% block description %}{{ page.description }}{% endblock %}">
+<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:description" content="{{ self.description() }}">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,650&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+{{ css }}
+</style>
+{% if site.tracking.gtm_id %}
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ site.tracking.gtm_id }}');</script>
+{% endif %}
+</head>
+<body>
+{% if site.tracking.gtm_id %}<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.tracking.gtm_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>{% endif %}
+{% include "partials/nav.html" %}
+
+{% block body %}{% endblock %}
+
+{% include "partials/footer.html" %}
+{% if B.concept_mode %}<button id="whyBtn" type="button">WHY THIS PAGE?</button>{% endif %}
+<script>
+{{ js }}
+</script>
+</body>
+</html>

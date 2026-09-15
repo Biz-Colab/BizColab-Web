@@ -1,0 +1,8 @@
+{% set c = site.cta_band %}
+<section class="cta-band" id="contact">
+  <h2><span class="h-line">{{ c.heading }}</span></h2>
+  <p class="sub">{{ c.sub }}</p>
+  <a class="btn" href="{{ c.button.href | url }}">{{ c.button.label }}</a>
+  <p class="details"><span style="white-space:nowrap">{{ site.contact.location }}</span> <span style="white-space:nowrap">· <a href="tel:{{ site.contact.phone_tel }}">{{ site.contact.phone_display }}</a></span></p>
+  {% if rat is defined and rat %}<div class="rat"><b>Why this section?</b>{{ rat }}</div>{% endif %}
+</section>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+{% set p = page %}
+<header class="phero"><div class="wrap">
+  <div class="kicker mono">{{ p.kicker }}</div>
+  <h1>{% for l in p.hero.lines %}<span class="h-line">{{ l }}</span>{% endfor %}</h1>
+  <p class="lede">{{ p.hero.lede }}</p>
+  {% with text=p.rationale, label='Why this page?' %}{% include "partials/rat.html" %}{% endwith %}
+</div></header>
+<section class="tight" style="padding-top:10px"><div class="wrap">
+  <ul class="posts">{% for post in p.posts %}<li><a href="{{ post.href }}" target="_blank" rel="noopener"><span class="d">{{ post.date }}</span><b>{{ post.title }}</b></a></li>{% endfor %}</ul>
+  <p style="margin-top:28px"><a class="link" href="{{ p.all_href }}" target="_blank" rel="noopener">{{ p.all_label }}</a></p>
+</div></section>
+{% with rat='' %}{% include "partials/cta_band.html" %}{% endwith %}
+{% endblock %}

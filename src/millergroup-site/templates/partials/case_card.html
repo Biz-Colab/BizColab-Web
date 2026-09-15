@@ -1,0 +1,7 @@
+{# usage: {% with c=case, small=true %}{% include "partials/case_card.html" %}{% endwith %} #}
+<a class="case{% if small is defined and small %} sm{% endif %}" href="{{ c.path | url }}" data-ind="{{ c.industries | join('|') }}">
+  <div class="ph"><img loading="lazy" decoding="async" src="{{ c.hero_img | asset }}" alt="{{ c.client }} — {{ c.headline }}"><span class="cname">{{ c.client }}</span><span class="pill">{{ c.pill }}</span></div>
+  <div class="stat"><b>{{ c.result.value }}</b><span>{{ c.result.label }}</span></div>
+  {% if not (small is defined and small) %}<p class="story">{{ c.summary }}</p>
+  {% if c.quote %}<p class="q"><span class="qq">“{{ c.quote.short or c.quote.text }}”</span><cite>{{ c.quote.name }}{% if c.quote.org %} · {{ c.quote.org }}{% endif %}</cite></p>{% endif %}{% endif %}
+</a>
