@@ -24,7 +24,7 @@ ap.add_argument("--repo", required=True)
 ap.add_argument("--budget", type=float, default=45)
 ap.add_argument("--push", action="store_true")
 ap.add_argument("-m", default="millergroup-site: rebuild")
-ap.add_argument("--donor", default="cohort-losangeles-001/concepts/millergroup/index.html")
+ap.add_argument("--donor", default="cohort-losangeles-001/concepts/millergroup-v3/index.html")
 a = ap.parse_args()
 
 repo = pathlib.Path(a.repo).resolve()
