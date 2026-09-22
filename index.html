@@ -291,7 +291,7 @@
   .bcx-rv-rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:14px 0 18px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
   .bcx-rv-rail::-webkit-scrollbar{height:6px}
   .bcx-rv-rail::-webkit-scrollbar-thumb{background:#d2d2d7;border-radius:999px}
-  .bcx-rv-card{scroll-snap-align:start;flex:0 0 372px;max-width:86vw;background:#fff;border:1px solid #e8e8ed;border-radius:24px;padding:26px;display:flex;flex-direction:column;margin:0}
+  .bcx-rv-card{scroll-snap-align:start;flex:0 0 calc((100% - 32px)/3);background:#fff;border:1px solid #e8e8ed;border-radius:24px;padding:26px;display:flex;flex-direction:column;margin:0}
   .bcx-rv-q{font-size:15px;line-height:1.62;color:rgba(29,29,31,.84);flex:1;margin:14px 0 0}
   .bcx-rv-q b{font-weight:600;color:#0a0a0a}
   .bcx-rv-foot{display:flex;gap:11px;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid #e8e8ed}
@@ -299,8 +299,9 @@
   .bcx-rv-nm{font-size:14px;font-weight:600;line-height:1.2}
   .bcx-rv-rl{font-size:12px;color:#6e6e73;margin-top:3px}
   .bcx-rv-more{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:14px;font-weight:500;color:#0a0a0a}
+  @media (max-width:900px){ .bcx-rv-card{flex:0 0 calc((100% - 16px)/2)} }
   @media (max-width:820px){ .bcx-rev{padding:64px 0 56px} .bcx-rv-arrows{display:none} .bcx-rv-head{margin-top:32px} }
-  @media (max-width:520px){ .bcx-rv-card{flex:0 0 84vw} }
+  @media (max-width:600px){ .bcx-rv-card{flex:0 0 calc(100% - 28px)} }
   @media (prefers-reduced-motion:reduce){ .bcx-rv-rail{scroll-behavior:auto} }
 </style>
   <div class="bcx-rev-in">
