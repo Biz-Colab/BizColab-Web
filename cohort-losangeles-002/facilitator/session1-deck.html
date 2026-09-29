@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BizColab — Cohort 02 Kickoff</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0a0a0a; --paper:#0a0a0a; --muted:rgba(255,255,255,.55); --line:rgba(255,255,255,.1);
+  --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e; --amber:#ffb340; --mint:#30d158;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; background:var(--ink); overflow:hidden; }
+body { font-family:'Geist',system-ui,-apple-system,sans-serif; color:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-.011em; }
+em { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; }
+
+.deck { position:relative; width:100vw; height:100vh; }
+.slide { position:absolute; inset:0; display:none; padding:7vh 8vw; overflow:hidden; }
+.slide.active { display:flex; flex-direction:column; }
+.slide-glow { position:absolute; top:-30vh; left:50%; transform:translateX(-50%); width:70vw; height:70vw; border-radius:50%; background:radial-gradient(closest-side, #1e3a5f 0%, rgba(10,10,10,0) 70%); opacity:.55; pointer-events:none; }
+
+.eyebrow { font-size:clamp(11px,1vw,13px); font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:18px; position:relative; z-index:1; }
+.eyebrow .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:currentColor; margin-right:8px; }
+h1.big { font-size:clamp(40px,6.4vw,84px); font-weight:700; letter-spacing:-.045em; line-height:1.03; position:relative; z-index:1; }
+h1.big em { color:var(--amber); }
+.lead { margin-top:22px; font-size:clamp(17px,1.73vw,23px); line-height:1.6; color:var(--muted); max-width:56ch; position:relative; z-index:1; }
+
+.body-wrap { flex:1; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:1; }
+
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,26px); margin-top:clamp(20px,4vh,44px); }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,2vw,26px); margin-top:clamp(20px,4vh,44px); }
+.gcard { background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:22px; padding:clamp(20px,2.2vw,32px); }
+.gcard .tag { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+.gcard h3 { font-size:clamp(17px,1.7vw,23px); font-weight:700; letter-spacing:-.02em; margin-bottom:14px; color:#fff; }
+.gcard ul { list-style:none; }
+.gcard li { font-size:clamp(15px,1.21vw,17.8px); line-height:1.6; color:var(--muted); padding-left:16px; position:relative; margin-bottom:11px; }
+.gcard li::before { content:''; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:currentColor; }
+
+.arc-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:clamp(24px,4vh,50px); position:relative; z-index:1; }
+.arc-row::before { content:''; grid-column:1/-1; }
+.arcbox { border:1px solid var(--line); border-radius:20px; padding:clamp(18px,2vw,28px); background:rgba(255,255,255,.03); }
+.arcbox .n { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
+.arcbox h4 { font-size:clamp(20px,2.2vw,30px); font-weight:700; letter-spacing:-.03em; margin-bottom:10px; color:#fff; }
+.arcbox p { font-size:clamp(14px,1.15vw,16.1px); line-height:1.55; color:var(--muted); }
+
+.timeline { margin-top:clamp(24px,5vh,56px); position:relative; z-index:1; }
+.trow { display:grid; grid-template-columns:120px 1fr; gap:24px; padding:clamp(12px,1.6vh,20px) 0; border-top:1px solid var(--line); align-items:baseline; }
+.trow:first-child { border-top:0; }
+.trow .time { font-size:clamp(15px,1.38vw,18.4px); font-weight:600; color:#fff; }
+.trow .what { font-size:clamp(15px,1.38vw,18.4px); color:var(--muted); }
+.trow .what b { color:#fff; font-weight:600; }
+
+.stat-row { display:flex; gap:clamp(24px,4vw,60px); margin-top:clamp(20px,4vh,40px); position:relative; z-index:1; flex-wrap:wrap; }
+.stat b { display:block; font-size:clamp(32px,4.5vw,58px); font-weight:700; letter-spacing:-.03em; }
+.stat span { font-size:clamp(11px,.9vw,13px); text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+
+.foot { position:absolute; bottom:5vh; left:8vw; right:8vw; display:flex; justify-content:space-between; font-size:clamp(11px,.9vw,13px); color:rgba(255,255,255,.32); z-index:1; }
+
+.progress { position:fixed; bottom:0; left:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--indigo),var(--coral),var(--amber),var(--mint)); transition:width .35s ease; z-index:10; }
+.navhint { position:fixed; top:24px; right:32px; font-size:12px; color:rgba(255,255,255,.3); z-index:10; }
+.dots { position:fixed; bottom:20px; right:32px; display:flex; gap:7px; z-index:10; }
+.dots span { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.2); transition:background .2s; }
+.dots span.on { background:#fff; }
+
+.sched { margin-top:clamp(20px,3.5vh,40px); position:relative; z-index:1; }
+.srow { display:grid; grid-template-columns:150px 130px 1fr; gap:26px; padding:clamp(11px,1.5vh,18px) 0; border-top:1px solid var(--line); align-items:baseline; }
+.srow:first-child { border-top:0; }
+.srow .sdate { font-size:clamp(15px,1.42vw,19px); font-weight:700; color:#fff; letter-spacing:-.02em; }
+.srow .sname { font-size:clamp(15px,1.42vw,19px); font-weight:700; letter-spacing:-.02em; }
+.srow .swhat { font-size:clamp(14px,1.27vw,17px); line-height:1.55; color:var(--muted); }
+.srow.skip { opacity:.45; }
+.srow.skip .sdate, .srow.skip .sname { font-weight:500; color:var(--muted); }
+
+/* The Room: 8 cards -> 4 x 2, tighter so it fits one screen */
+.roomgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.4vw,18px); margin-top:clamp(16px,2.6vh,30px); }
+.roomgrid .gcard { padding:clamp(15px,1.5vw,21px); border-radius:18px; }
+.roomgrid .gcard .tag { margin-bottom:9px; }
+.roomgrid .gcard h3 { font-size:clamp(15px,1.32vw,19px); margin-bottom:9px; }
+.roomgrid .gcard p { font-size:clamp(12.5px,1.02vw,14.5px) !important; line-height:1.5 !important; }
+
+/* About me: six ventures -> 3 x 2, compact */
+.sixgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(11px,1.3vw,17px); margin-top:clamp(13px,2.2vh,24px); }
+.sixgrid .gcard { padding:clamp(13px,1.4vw,19px); border-radius:18px; }
+.sixgrid .gcard .tag { margin-bottom:7px; font-size:10.5px; }
+.sixgrid .gcard h3 { font-size:clamp(14px,1.24vw,18px); margin-bottom:8px; }
+.sixgrid .gcard li { font-size:clamp(12.5px,1.02vw,14.6px); line-height:1.48; margin-bottom:5px; padding-left:14px; }
+.sixgrid .gcard li::before { top:7px; width:4px; height:4px; }
+@media (max-height: 880px) { .sixgrid { margin-top:clamp(10px,1.8vh,20px); } .sixgrid .gcard { padding:clamp(11px,1.2vw,16px); } }
+
+/* Shorter screens: tighten chrome, keep the larger body copy intact */
+@media (max-height: 880px) {
+  .slide { padding:5.5vh 7vw; }
+  h1.big { font-size:clamp(34px,5.3vw,62px); }
+  .lead { margin-top:16px; }
+  .grid3, .grid2 { margin-top:clamp(14px,2.6vh,28px); gap:clamp(12px,1.6vw,20px); }
+  .gcard { padding:clamp(15px,1.8vw,24px); }
+  .gcard li { margin-bottom:8px; }
+  .arc-row { margin-top:clamp(16px,2.8vh,32px); }
+  .arcbox { padding:clamp(14px,1.6vw,22px); }
+  .timeline { margin-top:clamp(14px,2.6vh,30px); }
+  .trow { padding:clamp(8px,1.1vh,14px) 0; }
+  .sched { margin-top:clamp(14px,2.4vh,26px); }
+  .srow { padding:clamp(8px,1.1vh,14px) 0; }
+  .roomgrid { margin-top:clamp(12px,2vh,22px); }
+  .foot { bottom:3.5vh; }
+}
+@media (max-height: 780px) {
+  .slide { padding:4.5vh 6.5vw; }
+  h1.big { font-size:clamp(30px,4.7vw,54px); }
+  .lead { margin-top:13px; font-size:clamp(15px,1.5vw,19px); }
+  .grid3, .grid2 { margin-top:clamp(11px,2vh,22px); }
+  .gcard { padding:clamp(13px,1.5vw,20px); }
+  .gcard h3 { margin-bottom:10px; }
+  .gcard li { margin-bottom:6px; }
+  .trow { padding:clamp(6px,.9vh,11px) 0; }
+  .srow { padding:clamp(6px,.9vh,11px) 0; }
+}
+/* --- Typography: no widows. Never leave 1-2 words alone on a final line. --- */
+p, li, h1, h2, h3, h4, .lead, .swhat, .sname { text-wrap: pretty; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- 1. COVER -->
+  <section class="slide active">
+    <div class="slide-glow"></div>
+    <div class="body-wrap" style="justify-content:center; align-items:flex-start; text-align:left;">
+      <div class="eyebrow"><span class="dot"></span>Cohort 02 &middot; Session 1 &middot; Oct 5, 2026</div>
+      <h1 class="big">BizColab<br><em>Cohort 02</em></h1>
+      <p class="lead">Los Angeles &middot; Seven operators, four Mondays, one high-leverage move each. Oct 5 &ndash; Oct 26, 5:30&ndash;7:00 PM PT on Google Meet.</p>
+      <div class="stat-row">
+        <div class="stat"><b>7</b><span>Operators</span></div>
+        <div class="stat"><b>4</b><span>Mondays</span></div>
+        <div class="stat"><b>1</b><span>Move each</span></div>
+        <div class="stat"><b>90</b><span>Min / session</span></div>
+      </div>
+    </div>
+    <div class="foot"><span>Michael Abraham, Founder</span><span>bizcolab.com</span></div>
+  </section>
+
+  <!-- 2. WHAT BIZCOLAB IS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>What this is</div>
+    <h1 class="big">The room <em>is the product.</em></h1>
+    <p class="lead">This isn't a course, and I'm not the product. It's seven operators pushing each other's businesses forward, on purpose, every Monday, with a real deliverable at the end.</p>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Not</div><h3>A course</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">No modules, no homework you do alone, nothing to binge-watch. Nobody's teaching a framework at you.</p></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Not</div><h3>Networking</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">No business cards, no small talk for its own sake, no "let's grab coffee sometime."</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Is</div><h3>Structured peer pressure</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">One challenge each, a hard timer, real accountability &mdash; a room that won't let it slide.</p></div>
+    </div>
+    <p class="lead" style="margin-top:22px">Seven people, four weeks, one seat each &mdash; small enough that everyone's problem gets real airtime.</p>
+  </section>
+
+  <!-- 3. THE ARC -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>The four weeks</div>
+    <h1 class="big">Map. Match. Move. <em>Measure.</em></h1>
+    <div class="arc-row">
+      <div class="arcbox" style="color:var(--blue)"><div class="n">Week 1 &middot; Oct 5</div><h4>Map</h4><p>Name your #1 challenge. The room learns who's in it &mdash; offers and needs get logged live.</p></div>
+      <div class="arcbox" style="color:var(--indigo)"><div class="n">Week 2 &middot; Oct 12</div><h4>Match</h4><p>DMAIC &mdash; Define. Turn your challenge into one solution-free sentence the room can actually work.</p></div>
+      <div class="arcbox" style="color:var(--coral)"><div class="n">Week 3 &middot; Oct 19</div><h4>Move</h4><p>Assumption test &mdash; four thematic blocks, the whole room pressure-testing what you believe is true.</p></div>
+      <div class="arcbox" style="color:var(--mint)"><div class="n">Week 4 &middot; Oct 26</div><h4>Measure</h4><p>Results round: what shipped, what didn't, and what's next for the group.</p></div>
+    </div>
+    <p class="lead" style="margin-top:26px">You already met the room at the Sep 28 Meet &amp; Greet &mdash; tonight is Week 1 of four, the ones that count. Same Google Meet link every week; the dashboard tracks who's committed to what.</p>
+  </section>
+
+  <!-- 4. WHY I BUILT THIS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Why I built this</div>
+    <h1 class="big">Peers, <em>not gurus.</em></h1>
+    <div class="grid2">
+      <div class="gcard" style="color:var(--blue)"><h3>What I learned the hard way</h3><ul>
+        <li>Every real unlock in my own businesses came from other operators in the room &mdash; not books, not consultants</li>
+        <li>The advice that actually worked came from someone one step ahead, in the trenches with me, not someone selling a framework</li>
+        <li>Most "communities" are content feeds with a Slack bolted on &mdash; nobody's actually accountable to anybody</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--amber)"><h3>So I built the room</h3><ul>
+        <li>A room built for that on purpose &mdash; not networking, not content, not a course</li>
+        <li>Just people pushing each other's businesses forward, on a clock, every Monday</li>
+        <li>Small by design: seven seats, one cohort, so every problem gets real attention</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- 5. ABOUT ME -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>A little about me</div>
+    <h1 class="big">A few careers, <em>one habit.</em></h1>
+    <p class="lead">I'm Michael Abraham. Twenty years of running businesses &mdash; architect, agency owner, investor, Realtor, community builder &mdash; and every one of them with partners, never alone.</p>
+    <div class="sixgrid">
+
+      <div class="gcard" style="color:var(--blue)"><div class="tag">01 &middot; Where it started</div><h3>Licensed Architect</h3><ul>
+        <li>Years of drawings, permits, budgets, contractors &mdash; and clients who needed it built, not explained</li>
+        <li>Trained to see a problem as a system: structure, constraints, sequence</li>
+        <li>First real lesson in business: nothing gets built by one person</li>
+      </ul></div>
+
+      <div class="gcard" style="color:var(--violet)"><div class="tag">02 &middot; ~15 years</div><h3>C/C/G &mdash; Marketing &amp; Design</h3><ul>
+        <li>Founded and ran a creative marketing and design firm for nearly 15 years</li>
+        <li>Close to a thousand businesses: brand, positioning, campaigns, packaging, web</li>
+        <li>A team, a payroll, a P&amp;L &mdash; and a front-row seat to a thousand other people's problems</li>
+      </ul></div>
+
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">03 &middot; Own account</div><h3>Hilex &mdash; Real Estate Investment</h3><ul>
+        <li>Buying, renovating and holding property with my own capital at risk</li>
+        <li>Underwriting, financing, contractors, timelines &mdash; the whole stack, start to finish</li>
+        <li>Where the architecture training turned into an investment thesis</li>
+      </ul></div>
+
+      <div class="gcard" style="color:var(--coral)"><div class="tag">04 &middot; Today</div><h3>AMRE Real Estate Group</h3><ul>
+        <li>Licensed Realtor and founder of AMRE</li>
+        <li>Built the practice the way I'd build a brand: systems, marketing, referrals</li>
+        <li>Buyers, sellers and investors &mdash; representing people through the biggest number they'll ever sign</li>
+      </ul></div>
+
+      <div class="gcard" style="color:var(--amber)"><div class="tag">05 &middot; Today</div><h3>Haps Club &mdash; Community</h3><ul>
+        <li>Founded Haps Club: Los Angeles events and a weekly newsletter</li>
+        <li>Audience built from zero &mdash; curation, cadence, showing up every single week</li>
+        <li>Proof that a room of people is an asset, not a nice-to-have</li>
+      </ul></div>
+
+      <div class="gcard" style="color:var(--mint)"><div class="tag">06 &middot; Tonight</div><h3>BizColab &mdash; Collaboration</h3><ul>
+        <li>The habit under all five: the unlocks came from other operators, never from going it alone</li>
+        <li>So I built the room on purpose &mdash; six or seven operators, four Mondays, one real move each</li>
+        <li>Not a guru. Range, and a lot left to learn</li>
+      </ul></div>
+
+    </div>
+    <p class="lead" style="margin-top:16px">Ask me for branding, marketing, design, positioning, partnerships, property. And I'll have a challenge of my own on the board tonight, same as everyone else.</p>
+  </section>
+
+  <!-- 6. WHAT I HOPE YOU GET -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>What I hope you get</div>
+    <h1 class="big">One real move, <em>shipped.</em></h1>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><h3>Not a binder of ideas</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">One high-leverage thing that actually moved by Week 4 &mdash; a real number, not a plan you never ran.</p></div>
+      <div class="gcard" style="color:var(--indigo)"><h3>People you'd still call</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">A handful of operators in this room you'd reach out to a year from now, not just for four Mondays.</p></div>
+      <div class="gcard" style="color:var(--amber)"><h3>Permission to ask</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">To say the real ask out loud &mdash; the specific, uncomfortable one &mdash; instead of the polished version.</p></div>
+    </div>
+    <p class="lead" style="margin-top:22px">If everyone leaves Week 4 with one thing genuinely moved &mdash; and a number they can point at &mdash; this format worked. That's the only bar.</p>
+  </section>
+
+  <!-- 7. HOUSE RULES -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>House rules</div>
+    <h1 class="big">Six things that <em>make this work.</em></h1>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><h3>Show up</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">All four Mondays. Missing one costs the room more than it costs you.</p></div>
+      <div class="gcard" style="color:var(--indigo)"><h3>The room stays in the room</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Numbers, deals, struggles &mdash; nothing leaves without permission.</p></div>
+      <div class="gcard" style="color:var(--violet)"><h3>Experience over advice</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">"Here's what happened when I tried it" beats "you should."</p></div>
+      <div class="gcard" style="color:var(--coral)"><h3>Make specific asks</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">"Help me grow" gets nothing. "Who's hired a fractional CFO?" gets three names.</p></div>
+      <div class="gcard" style="color:var(--amber)"><h3>Give first</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Offer the intro, the template, the contact before you're asked for it.</p></div>
+      <div class="gcard" style="color:var(--mint)"><h3>Notes, not recordings</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">A note-taker writes up decisions, asks and commitments. No video, no audio.</p></div>
+    </div>
+  </section>
+
+  <!-- 8. THE ROOM -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>The room</div>
+    <h1 class="big">Who's <em>in it.</em></h1>
+    <p class="lead">Seven operators, seated in join order. Full bios and links live on the dashboard &mdash; open it while intros run.</p>
+    <div class="roomgrid">
+      <div class="gcard" style="color:var(--amber)"><div class="tag">Host</div><h3>Michael Abraham</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Founder, AMRE Real Estate Group &middot; Haps Club. Facilitating, and in the same seat as you.</p></div>
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Seat 01</div><h3>Jason Taylor</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Owner, FirstLight Home Care of Marina del Rey. 20 years in product marketing &mdash; Activision, Google, SEGA.</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Seat 02</div><h3>Kristen Hetzel</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Founder, Team Hetzel &mdash; concierge mobile physical therapy &amp; training, LA Westside.</p></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Seat 03</div><h3>Ania De Pourbaix</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Co-Founder, AMRE Real Estate Group &mdash; Los Angeles.</p></div>
+      <div class="gcard" style="color:var(--amber)"><div class="tag">Seat 04</div><h3>Mark Fachler</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Founder, ZeroHired &mdash; AI-powered outbound prospecting. Previously CEO, Veestro.</p></div>
+      <div class="gcard" style="color:var(--blue)"><div class="tag">Seat 05</div><h3>Clark Vautier</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Marketing &amp; growth advisor, Santa Monica &mdash; since 2005.</p></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Seat 06</div><h3>Chelsea Gottfurcht, Psy.D.</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Private-practice psychologist, LA/Santa Monica &mdash; highly regarded in her field, practice built on reputation.</p></div>
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">Seat 07</div><h3>Debbie Postil, Esq.</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Civil rights &amp; mass tort attorney, Slater Slater Schulman LLP.</p></div>
+          </div>
+    <p class="lead" style="margin-top:22px">By the end of intros every offer and every need is written down &mdash; that list becomes next Monday's pairings.</p>
+  </section>
+
+  <!-- 9. HOW TONIGHT WORKS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Tonight</div>
+    <h1 class="big">How the next <em>90 minutes</em> go.</h1>
+    <div class="timeline">
+      <div class="trow"><div class="time">5:30</div><div class="what"><b>Hellos</b> &mdash; names, where you're dialing in from, and the logistics: Google Meet, Slack, the member page.</div></div>
+      <div class="trow"><div class="time">5:35</div><div class="what"><b>This overview</b> &mdash; 5 minutes on what BizColab is, why it exists, and how the four Mondays run.</div></div>
+      <div class="trow"><div class="time">5:40</div><div class="what"><b>Your business + your one challenge</b> &mdash; 3 minutes each, hard timer (through 6:01, seven of you). Everything goes on the table first. No feedback yet.</div></div>
+      <div class="trow"><div class="time">6:01</div><div class="what"><b>Break</b> &mdash; 5 minutes. Grab water, stretch, back on at 6:06.</div></div>
+      <div class="trow"><div class="time">6:06</div><div class="what"><b>Open forum</b> &mdash; 6 minutes on each person, one at a time (through 6:48). No turns, no order &mdash; the room just works the problem. Bring a direction, an offer, or an ask. I'm logging all of it live.</div></div>
+      <div class="trow"><div class="time">6:48</div><div class="what"><b>Close</b> &mdash; what Week 2 looks like, and the one thing to do before next Monday.</div></div>
+    </div>
+    <p class="lead" style="margin-top:20px">You leave tonight with the room&rsquo;s answers to your one challenge &mdash; written down. That list is next Monday’s pairing map.</p>
+  </section>
+
+  <!-- 10. HOW TO DO YOUR INTRO -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Your three minutes</div>
+    <h1 class="big">Three questions, <em>that's it.</em></h1>
+    <div class="grid3">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">01 &middot; ~60 sec</div><h3>What you do</h3><ul>
+        <li>The business, who it's for, roughly how big</li>
+        <li>Skip the origin story &mdash; save it for Slack</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">02 &middot; ~90 sec</div><h3>Your one challenge</h3><ul>
+        <li>The thing actually keeping you stuck &mdash; pick one</li>
+        <li>Say where the number sits <b>today</b></li>
+      </ul></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">03 &middot; ~30 sec</div><h3>What would help most</h3><ul>
+        <li>The one kind of help you'd take right now</li>
+        <li>The more specific it is, the more this room can do with it</li>
+      </ul></div>
+    </div>
+    <p class="lead" style="margin-top:22px">Hard timer &mdash; 3 minutes. Hold your offers and advice for the open forum after the break; that's what the back half of the night is for.</p>
+  </section>
+
+  <!-- 11. WHAT A GOOD CHALLENGE SOUNDS LIKE -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Your one challenge</div>
+    <h1 class="big">From <em>X</em> to <em>Y</em>, by <em>when.</em></h1>
+    <div class="grid2">
+      <div class="gcard" style="color:var(--coral)"><div class="tag">Too vague</div><h3>Won't survive four weeks</h3><ul>
+        <li>"Grow revenue"</li>
+        <li>"Get better at marketing"</li>
+        <li>"Figure out my pricing"</li>
+        <li>Nobody can help you, and you can't tell if it moved</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">Specific enough</div><h3>The room can act on this</h3><ul>
+        <li>"From 2 inbound leads/month to 8, by Oct 26"</li>
+        <li>"Land one $15&ndash;20K client from a warm intro"</li>
+        <li>"Ship the new pricing page and test it on 10 calls"</li>
+        <li>Where it sits <b>today</b>, where you want it, and by when</li>
+      </ul></div>
+    </div>
+    <p class="lead" style="margin-top:22px">Write down today's number when you say it &mdash; that's what we measure against on Oct 26. Not sure yet? Say your best version out loud and sharpen it in Slack by Wednesday. Naming it beats perfecting it.</p>
+  </section>
+
+  <!-- 11.5 WHAT'S COMING — DMAIC -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Looking ahead &mdash; Session 2, Oct 12</div>
+    <h1 class="big">Five steps. <em>You'll only need one Monday.</em></h1>
+    <p class="lead">Session 2 borrows a Six Sigma framework called DMAIC to turn a vague complaint into a problem you can actually fix. We only run the first step Oct 12 &mdash; the rest is here so you know where it's headed.</p>
+    <div class="sixgrid">
+      <div class="gcard" style="color:var(--blue)"><div class="tag">D &middot; Oct 12</div><h3>Define</h3><ul>
+        <li>Write the problem as one solution-free sentence</li>
+        <li>&ldquo;I don't know why visitors leave without booking a call&rdquo; &mdash; not &ldquo;I need a better website&rdquo;</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--indigo)"><div class="tag">M &middot; later</div><h3>Measure</h3><ul>
+        <li>Get the actual number behind it, not a feeling</li>
+        <li>&ldquo;400 visits/month, 2% book a call&rdquo;</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--violet)"><div class="tag">A &middot; later</div><h3>Analyze</h3><ul>
+        <li>Find the root cause, not the first guess</li>
+        <li>&ldquo;Booking link is buried below the fold on mobile&rdquo;</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--coral)"><div class="tag">I &middot; later</div><h3>Improve</h3><ul>
+        <li>Test one specific fix and see if the number moves</li>
+        <li>&ldquo;Move the button above the fold, recheck in two weeks&rdquo;</li>
+      </ul></div>
+      <div class="gcard" style="color:var(--mint)"><div class="tag">C &middot; later</div><h3>Control</h3><ul>
+        <li>Lock in whatever worked so it doesn't quietly slide back</li>
+        <li>&ldquo;Booking rate becomes a standing monthly metric&rdquo;</li>
+      </ul></div>
+    </div>
+    <p class="lead" style="margin-top:16px">The rule for Oct 12: <b>if your problem statement contains a solution, it's not the problem.</b> Come with the real one, not the fix you've already decided on.</p>
+  </section>
+
+  <!-- 12. BETWEEN MONDAYS -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>The weekly loop</div>
+    <h1 class="big">Mondays start it. <em>The week does it.</em></h1>
+    <div class="arc-row">
+      <div class="arcbox" style="color:var(--blue)"><div class="n">Monday</div><h4>Commit</h4><p>Say the one thing you're moving this week, in the room and in Slack.</p></div>
+      <div class="arcbox" style="color:var(--indigo)"><div class="n">Tue&ndash;Thu</div><h4>Move</h4><p>30 focused minutes a day on it. Not more, not zero.</p></div>
+      <div class="arcbox" style="color:var(--coral)"><div class="n">Friday</div><h4>Report</h4><p>Post what shipped and what blocked you. Two lines is enough.</p></div>
+      <div class="arcbox" style="color:var(--mint)"><div class="n">Next Monday</div><h4>Compound</h4><p>Bring the blocker back to the room. Repeat with more momentum.</p></div>
+    </div>
+    <p class="lead" style="margin-top:26px">Four weeks is short. The people who get the most out of this are the ones doing something small between Mondays &mdash; not the ones with the best plan.</p>
+  </section>
+
+  <!-- 13. CLOSE -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="body-wrap" style="justify-content:center; align-items:flex-start; text-align:left;">
+      <div class="eyebrow"><span class="dot"></span>Let's go</div>
+      <h1 class="big">By 7pm tonight,<br><em>you'll know your one thing.</em></h1>
+      <p class="lead">The next seven days matter more than tonight did. Here's the work between now and next Monday, Oct 12 &mdash; week 2 of four.</p>
+      <div class="grid3" style="margin-top:30px">
+        <div class="gcard" style="color:var(--blue)"><div class="tag">This week</div><h3>Sharpen the number</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Go find the real figure your challenge starts from and post it in Slack by Wednesday.</p></div>
+        <div class="gcard" style="color:var(--coral)"><div class="tag">This week</div><h3>Make one move</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">30 minutes a day on the one thing. Small and actually done beats a perfect plan.</p></div>
+        <div class="gcard" style="color:var(--mint)"><div class="tag">This week</div><h3>Use somebody</h3><p style="color:var(--muted);font-size:16.1px;line-height:1.6">Reach out to one person from tonight. Ask them the specific thing you couldn't ask a stranger.</p></div>
+      </div>
+      <p class="lead" style="margin-top:22px">Post what shipped and what blocked you by Friday &mdash; two lines is plenty. That's what we open with next Monday.</p>
+    </div>
+    <div class="foot"><span>The room is the product.</span><span>Let's get to work.</span></div>
+  </section>
+
+
+  <!-- 14. FULL SCHEDULE -->
+  <section class="slide">
+    <div class="slide-glow"></div>
+    <div class="eyebrow"><span class="dot"></span>Put these in your calendar</div>
+    <h1 class="big">Four Mondays, <em>5:30&ndash;7:00 PM PT.</em></h1>
+    <div class="sched">
+      <div class="srow skip">
+        <div class="sdate">Mon, Sep 28</div>
+        <div class="sname">Meet &amp; Greet</div>
+        <div class="swhat">Already happened &mdash; informal hello before the four Mondays that count.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Oct 5</div>
+        <div class="sname" style="color:var(--blue)">Map</div>
+        <div class="swhat">Intros. Everyone leaves with one named challenge and the number it starts from.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Oct 12</div>
+        <div class="sname" style="color:var(--indigo)">Match</div>
+        <div class="swhat">DMAIC &mdash; Define. Turn your challenge into one solution-free sentence the room can work.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Oct 19</div>
+        <div class="sname" style="color:var(--coral)">Move</div>
+        <div class="swhat">Assumption test &mdash; four thematic blocks, the whole room pressure-testing what you believe is true.</div>
+      </div>
+      <div class="srow">
+        <div class="sdate">Mon, Oct 26</div>
+        <div class="sname" style="color:var(--mint)">Measure</div>
+        <div class="swhat">Results: what shipped, what didn't, what the number did, and what happens after this.</div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:26px">Same Google Meet link every week &mdash; it's on the dashboard at bizcolab.com/cohort-losangeles-002. Five-minute break in the middle of every session.</p>
+    <div class="foot"><span>The room is the product.</span><span>See you Oct 12.</span></div>
+  </section>
+
+</div>
+
+<div class="navhint" id="navhint"></div>
+<div class="dots" id="dots"></div>
+<div class="progress" id="progress"></div>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let i = 0;
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_,idx)=>{ const d=document.createElement('span'); if(idx===0) d.classList.add('on'); dotsEl.appendChild(d); });
+  const dots = Array.from(dotsEl.children);
+
+  function render(){
+    slides.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+    dots.forEach((d,idx)=> d.classList.toggle('on', idx===i));
+    document.getElementById('navhint').textContent = (i+1)+' / '+total+'  ·  ← → or click';
+    document.getElementById('progress').style.width = ((i+1)/total*100)+'%';
+  }
+  function next(){ i = Math.min(i+1, total-1); render(); }
+  function prev(){ i = Math.max(i-1, 0); render(); }
+
+  document.addEventListener('keydown', e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); next(); }
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    if(e.key==='Home'){ i=0; render(); }
+    if(e.key==='End'){ i=total-1; render(); }
+  });
+  document.getElementById('deck').addEventListener('click', e=>{
+    const x = e.clientX / window.innerWidth;
+    if (x < 0.3) prev(); else next();
+  });
+  render();
+})();
+</script>
+
+<script>
+/* No-widows pass. Guarantees at least MIN words on the last line of every text
+   block by binding trailing words with non-breaking spaces. Slides are
+   display:none until active, so we measure on activation, load, font-ready and
+   resize. Original text is cached so re-runs never compound. */
+(function(){
+  var MIN = 3, MAX_BIND = 4;
+  var SEL = 'p,li,h1,h2,h3,h4,figcaption,.lead,.swhat,.sname,.gcard h3';
+  var SP = /[ \t\n\r\f]/;
+
+  function tailNode(el){
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false), n, last = null;
+    while ((n = w.nextNode())) { if (n.nodeValue.replace(/[\s\u00A0]/g,'') !== '') last = n; }
+    return last;
+  }
+  function wordSpans(v){
+    var out = [], re = /[^\s\u00A0]+/g, m;
+    while ((m = re.exec(v))) out.push([m.index, m.index + m[0].length]);
+    return out;
+  }
+  function lastLineWords(node){
+    var v = node.nodeValue, ws = wordSpans(v);
+    if (!ws.length) return 99;
+    var r = document.createRange(), tops = [], i, start = Math.max(0, ws.length - 8);
+    for (i = start; i < ws.length; i++){
+      r.setStart(node, ws[i][0]); r.setEnd(node, ws[i][1]);
+      var rect = r.getBoundingClientRect();
+      if (!rect.width && !rect.height) return 99; /* hidden - cannot measure */
+      tops.push(Math.round(rect.top));
+    }
+    var lastTop = tops[tops.length-1], c = 0;
+    for (i = tops.length-1; i >= 0; i--){ if (Math.abs(tops[i]-lastTop) <= 1) c++; else break; }
+    if (c === tops.length && ws.length <= 8) return 99; /* single line */
+    return c;
+  }
+  function bindOne(node){
+    var v = node.nodeValue, i = v.length;
+    while (i > 0 && SP.test(v[i-1])) i--;
+    while (i > 0 && !SP.test(v[i-1])) i--;
+    if (i === 0) return false;
+    var j = i;
+    while (j > 0 && SP.test(v[j-1])) j--;
+    if (j === 0) return false;
+    node.nodeValue = v.slice(0, j) + '\u00A0' + v.slice(i);
+    return true;
+  }
+  function fix(el){
+    var n = tailNode(el); if (!n) return;
+    if (n.__widowOrig == null) n.__widowOrig = n.nodeValue; else n.nodeValue = n.__widowOrig;
+    for (var k = 0; k < MAX_BIND; k++){
+      if (lastLineWords(n) >= MIN) break;
+      if (!bindOne(n)) break;
+    }
+  }
+  function run(){
+    var root = document.querySelector('.slide.active') || document.body;
+    var els = root.querySelectorAll(SEL);
+    for (var i = 0; i < els.length; i++) fix(els[i]);
+  }
+  var raf;
+  function schedule(){
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(function(){ raf = 0; run(); });
+  }
+  window.addEventListener('load', schedule);
+  window.addEventListener('resize', schedule);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+  var deck = document.getElementById('deck');
+  if (deck && window.MutationObserver) new MutationObserver(schedule)
+    .observe(deck, {attributes:true, attributeFilter:['class'], subtree:true});
+  schedule();
+  window.__fixWidows = run;
+})();
+</script>
+
+</body>
+</html>
