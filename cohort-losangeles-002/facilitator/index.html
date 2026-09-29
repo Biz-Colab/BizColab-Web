@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BizColab — Cohort 02 · Facilitator</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#0a0a0a; --ink-2:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7; --paper:#fff; --paper-2:#f5f5f7;
+  --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e; --amber:#ffb340; --mint:#30d158; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Geist',system-ui,-apple-system,sans-serif; color:var(--ink-2); background:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-0.011em; }
+.wrap { max-width: 900px; margin:0 auto; padding:0 24px; }
+.section-label { font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+
+nav { position:sticky; top:0; z-index:50; background:rgba(255,255,255,.9); backdrop-filter:blur(20px); border-bottom:.5px solid rgba(0,0,0,.1); }
+.nav-inner { max-width:900px; margin:0 auto; padding:0 24px; height:48px; display:flex; align-items:center; justify-content:space-between; }
+.nav-logo { font-size:15px; font-weight:700; letter-spacing:-.04em; color:var(--ink); text-decoration:none; }
+.nav-badge { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#b45309; background:#fef3c7; padding:5px 11px; border-radius:999px; }
+
+.hero { padding:56px 0 40px; }
+.hero-badge { display:inline-flex; align-items:center; gap:7px; padding:6px 13px; border:1px solid var(--line); border-radius:999px; font-size:12px; font-weight:500; color:#b45309; background:#fffbeb; margin-bottom:20px; }
+.hero h1 { font-size:clamp(34px,6vw,54px); font-weight:700; letter-spacing:-.045em; line-height:1.05; color:var(--ink); }
+.hero h1 em { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; }
+.hero p { margin-top:14px; font-size:15px; line-height:1.6; color:rgba(29,29,31,.66); max-width:560px; }
+
+.band { padding:44px 0; border-top:1px solid #ebebef; }
+.band h2 { font-size:clamp(24px,4vw,32px); font-weight:700; letter-spacing:-.04em; margin-bottom:10px; }
+.band h2 em { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; }
+.band .lead { font-size:14px; line-height:1.6; color:rgba(29,29,31,.62); max-width:600px; margin-bottom:26px; }
+
+.principles { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+.pr { background:var(--paper-2); border-radius:14px; padding:16px 18px; }
+.pr h4 { font-size:13.5px; font-weight:600; margin-bottom:5px; }
+.pr p { font-size:12.5px; line-height:1.55; color:var(--muted); }
+@media (max-width:640px) { .principles { grid-template-columns:1fr; } }
+
+.sess { border:1px solid #e8e8ed; border-radius:20px; padding:26px 26px 24px; margin-bottom:18px; }
+.sess-tag { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:6px; }
+.sess-name { font-size:26px; font-weight:700; letter-spacing:-.04em; }
+.sess-date { font-size:12.5px; color:var(--muted); margin-top:3px; margin-bottom:18px; }
+.run { border-collapse:collapse; width:100%; margin-bottom:16px; }
+.run td { font-size:12.5px; line-height:1.55; vertical-align:top; padding:8px 0; border-top:1px solid #f0f0f2; }
+.run td:first-child { width:78px; font-weight:600; color:var(--ink); white-space:nowrap; padding-right:14px; }
+.run tr:first-child td { border-top:0; }
+.run td:last-child strong { color:var(--ink); }
+.watch { background:#fff7ed; border-left:3px solid var(--amber); border-radius:4px 12px 12px 4px; padding:12px 15px; }
+.watch .lbl { font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#b45309; margin-bottom:5px; }
+.watch p { font-size:12.5px; line-height:1.55; color:#78350f; }
+
+.log { border:1px dashed var(--line); border-radius:16px; padding:20px 22px; margin-bottom:14px; }
+.log-head { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:10px; flex-wrap:wrap; }
+.log-head h4 { font-size:16px; font-weight:600; }
+.log-status { font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); background:var(--paper-2); padding:4px 10px; border-radius:999px; }
+.log-body p { font-size:13px; line-height:1.6; color:var(--muted); }
+.log-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:10px; }
+.log-grid .lg-h { font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+.log-grid p { font-size:12.5px; color:rgba(29,29,31,.6); }
+@media (max-width:600px) { .log-grid { grid-template-columns:1fr; } }
+
+footer { padding:36px 0 56px; text-align:center; border-top:1px solid #ebebef; }
+footer p { font-size:12.5px; color:var(--muted); }
+footer a { color:var(--ink-2); font-weight:500; text-decoration:none; }
+
+.topbar { position:sticky; top:0; z-index:150; background:rgba(255,255,255,.88); backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); border-bottom:1px solid var(--line); }
+.tb-wrap { max-width:900px; margin:0 auto; padding:0 24px; height:50px; display:flex; align-items:center; gap:12px; }
+.tb-logo { font-weight:700; font-size:15.5px; letter-spacing:-.022em; color:var(--ink); text-decoration:none; white-space:nowrap; transition:opacity .18s; }
+.tb-logo:hover { opacity:.6; }
+.tb-div { width:1px; height:18px; background:var(--line); flex:none; }
+.tb-hq { display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; letter-spacing:-.01em; color:var(--ink-2); text-decoration:none; padding:6px 13px; border:1px solid var(--line); border-radius:999px; background:#fff; white-space:nowrap; transition:border-color .18s, box-shadow .18s, transform .18s; }
+.tb-hq::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--blue); flex:none; }
+.tb-hq:hover { border-color:#b4b4bb; box-shadow:0 6px 16px rgba(10,10,10,.07); transform:translateY(-1px); }
+.tb-hq.on { background:var(--ink); color:#fff; border-color:var(--ink); cursor:default; }
+.tb-hq.on::before { background:var(--mint); }
+.tb-hq.on:hover { transform:none; box-shadow:none; border-color:var(--ink); }
+.tb-here { margin-left:auto; font-size:11px; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:.07em; white-space:nowrap; }
+@media (max-width:600px) { .tb-here { display:none; } .tb-wrap { gap:10px; } }
+
+/* ---- section anchor nav ---- */
+.anchors { position:sticky; top:50px; z-index:140; background:rgba(255,255,255,.92); backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); border-bottom:1px solid var(--line); }
+.an-wrap { max-width:900px; margin:0 auto; padding:0 24px; height:46px; display:flex; align-items:center; gap:4px; overflow-x:auto; scrollbar-width:none; }
+.an-wrap::-webkit-scrollbar { display:none; }
+.anchors a { font-size:13px; font-weight:550; color:var(--muted); text-decoration:none; padding:6px 11px; border-radius:8px; white-space:nowrap; transition:background .16s, color .16s; }
+.anchors a:hover { background:var(--paper-2); color:var(--ink); }
+.anchors a.on { background:var(--ink); color:#fff; }
+section[id], header[id] { scroll-margin-top:104px; }
+
+/* ---- key-point callouts ---- */
+.keys { display:grid; gap:12px; margin-top:22px; }
+.key { display:grid; grid-template-columns:30px 1fr; gap:14px; align-items:start; background:var(--paper-2); border-radius:14px; padding:18px 20px; }
+.key .kn { width:30px; height:30px; border-radius:50%; background:var(--ink); color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.key h4 { font-size:16px; font-weight:650; letter-spacing:-.02em; margin-bottom:5px; color:var(--ink); }
+.key p { font-size:14px; line-height:1.6; color:#3a3a3c; }
+.key p + p { margin-top:8px; }
+.key .do { font-size:13.5px; line-height:1.6; color:var(--ink); background:#fff; border-left:3px solid var(--blue); border-radius:3px 10px 10px 3px; padding:10px 13px; margin-top:10px; }
+.key .do b { font-weight:650; }
+.key cite { display:block; margin-top:9px; font-size:12px; font-style:normal; color:var(--muted); }
+.key cite a { color:var(--muted); text-decoration:underline; text-underline-offset:2px; }
+.key cite a:hover { color:var(--blue); }
+
+/* ---- problem/fix table ---- */
+.fix { width:100%; border-collapse:collapse; margin-top:20px; }
+.fix th { text-align:left; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); padding:0 0 10px; border-bottom:1px solid var(--line); }
+.fix td { padding:15px 0; border-bottom:1px solid #ebebef; font-size:14px; line-height:1.6; vertical-align:top; }
+.fix td:first-child { width:34%; padding-right:24px; font-weight:600; color:var(--ink); }
+.fix td:last-child { color:#3a3a3c; }
+
+/* ---- growth cards ---- */
+.gr { border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin-top:14px; }
+.gr h4 { font-size:16.5px; font-weight:650; letter-spacing:-.02em; margin-bottom:8px; }
+.gr p { font-size:14px; line-height:1.65; color:#3a3a3c; }
+.gr p + p { margin-top:9px; }
+.gr ul { margin:10px 0 0 0; list-style:none; }
+.gr li { font-size:14px; line-height:1.6; color:#3a3a3c; padding-left:17px; position:relative; margin-bottom:7px; }
+.gr li::before { content:''; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:var(--c,var(--blue)); }
+.gr .tagline { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--c,var(--blue)); margin-bottom:9px; }
+
+/* ---- checklist ---- */
+.ck { list-style:none; margin-top:18px; }
+.ck li { position:relative; padding:13px 0 13px 34px; border-bottom:1px solid #ebebef; font-size:14.5px; line-height:1.6; color:#3a3a3c; }
+.ck li::before { content:''; position:absolute; left:0; top:15px; width:17px; height:17px; border:1.5px solid var(--line); border-radius:5px; }
+.ck li b { color:var(--ink); font-weight:650; }
+
+.srcs { margin-top:26px; padding-top:20px; border-top:1px solid var(--line); }
+.srcs h5 { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:11px; }
+.srcs li { font-size:13px; line-height:1.75; color:var(--muted); list-style:none; }
+.srcs a { color:var(--ink-2); text-decoration:underline; text-underline-offset:2px; }
+
+/* ---- practitioner lens chips ---- */
+.lens { display:inline-flex; gap:6px; vertical-align:middle; margin-left:7px; }
+.lens-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:11px; align-items:center; }
+.lens-row .ll { font-size:10px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-right:2px; }
+.lp { position:relative; display:inline-flex; }
+.lp > button { width:26px; height:26px; border-radius:50%; border:0; cursor:pointer; font-family:inherit; font-size:10px; font-weight:750; color:#fff; background:var(--lc,#555); display:flex; align-items:center; justify-content:center; transition:transform .15s, box-shadow .15s; padding:0; }
+.lp > button:hover, .lp > button:focus-visible { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,.25); outline:none; }
+.lp > button:focus-visible { box-shadow:0 0 0 3px rgba(0,113,227,.4); }
+/* source content only — the visible tooltip is one body-level node, so no ancestor with
+   overflow (card wrappers, the arc scroller) can ever clip it */
+.lp-pop { display:none; }
+
+.rp:hover { border-color:var(--lc); }
+#lens-tip { position:fixed; z-index:9999; width:min(330px,calc(100vw - 32px)); background:#0a0a0a; color:#fff; border-radius:14px; padding:15px 17px; box-shadow:0 16px 46px rgba(0,0,0,.36); text-align:left; pointer-events:none; opacity:0; visibility:hidden; transform:translateY(4px); transition:opacity .17s, transform .17s, visibility .17s; }
+#lens-tip.show { opacity:1; visibility:visible; transform:translateY(0); }
+#lens-tip::after { content:''; position:absolute; top:100%; left:var(--ax,50%); transform:translateX(-50%); border:7px solid transparent; border-top-color:#0a0a0a; }
+#lens-tip.below::after { top:auto; bottom:100%; border-top-color:transparent; border-bottom-color:#0a0a0a; }
+#lens-tip .who { display:block; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--lc,#9aa); margin-bottom:7px; }
+#lens-tip .what { display:block; font-size:13.5px; line-height:1.62; color:rgba(255,255,255,.9); }
+#lens-tip .what b { color:#fff; font-weight:650; }
+#lens-tip .src { display:block; margin-top:9px; font-size:11px; color:rgba(255,255,255,.45); }
+@media (max-width:640px) { #lens-tip { left:16px !important; top:auto !important; bottom:16px; width:calc(100vw - 32px); } #lens-tip::after { display:none; } }
+
+.roster { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+.rp { cursor:help; position:relative; display:flex; align-items:center; gap:9px; border:1px solid var(--line); border-radius:999px; padding:6px 14px 6px 6px; }
+.rp .dot { width:26px; height:26px; border-radius:50%; background:var(--lc); color:#fff; font-size:10px; font-weight:750; display:flex; align-items:center; justify-content:center; }
+.rp .nm { font-size:13px; font-weight:600; color:var(--ink); }
+.rp .fd { font-size:12px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<nav class="topbar"><div class="tb-wrap">
+  <a class="tb-logo" href="https://bizcolab.com/" title="bizcolab.com">BizColab</a>
+  <span class="tb-div"></span>
+  <a class="tb-hq" href="https://bizcolab.com/dashboard/">HQ dashboard</a>
+  <span class="tb-here">Cohort 02 &middot; Facilitator</span>
+</div></nav>
+
+
+
+
+<nav class="anchors"><div class="an-wrap">
+  <a href="#decisions">Decisions</a>
+  <a href="#principles">Principles</a>
+  <a href="#craft">The research</a>
+  <a href="#scripts">Run-of-shows</a>
+  <a href="#diagnose">Fixing a room</a>
+  <a href="#growth">The business</a>
+  <a href="#log">Session log</a>
+  <a href="#newfac">New facilitators</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="hero-badge">&#128274; Facilitator handbook &mdash; not linked from the member page, keep this URL to yourself</div>
+  <h1>Run the room <em>the BizColab way</em></h1>
+  <p>Everything a facilitator needs to run a cohort: the operating principles, what the research says about keeping a room productive, the four run-of-shows, how to fix a room that isn't working, and the business decisions behind the program.</p>
+  <p style="margin-top:14px;font-size:13.5px"><strong>Google Meet (M&amp;G + all 4 sessions):</strong> <a href="https://meet.google.com/mta-qpjv-anf" target="_blank" rel="noopener">https://meet.google.com/mta-qpjv-anf</a> &middot; dial +1 218-481-0567 PIN 183 320 471#</p>
+  <p style="margin-top:8px;font-size:13.5px"><strong>Session decks:</strong> not built yet &mdash; the Session 1 deck goes up before Oct 5. Tonight&rsquo;s Meet &amp; Greet runs off this page only.</p>
+</div></header>
+
+<section class="band" id="decisions"><div class="wrap">
+  <div class="section-label">Program decisions &mdash; Sep 28, 2026</div>
+  <h2>What changed <em>after Cohort 01</em></h2>
+  <p class="lead">Folded in from the Sep 3 1:1 check-ins with Renee, Amy and Alex. Michael's calls:</p>
+  <ul class="ck">
+    <li><b>9&ndash;12 week program &mdash; rejected.</b> Cohort 02 stays 4 weeks.</li>
+    <li><b>Startup-only next cohort &mdash; rejected.</b> Cohort 02 stays cross-industry, mixed-stage.</li>
+    <li><b>Long-form first session &mdash; adopted, shortened.</b> Became tonight's 45-min Meet &amp; Greet ahead of Session 1, instead of Amy's full 30+30 pitch/Q&amp;A format.</li>
+    <li><b>Required &ldquo;ask&rdquo; field on the application &mdash; skipped.</b> Not implementing.</li>
+    <li><b>&ldquo;Business advisor,&rdquo; never &ldquo;coach&rdquo; &mdash; confirmed as standing terminology.</b> Use it in all facilitator- and member-facing copy going forward.</li>
+    <li><b>Cohort grew to seven</b> (Kristen replaced Katie; Debbie added Sep 28) &mdash; see the Session 1 timing below for how that adjusts the math against the &ldquo;cap at six&rdquo; guidance further down this page.</li>
+  </ul>
+</div></section>
+
+<section class="band" id="principles"><div class="wrap">
+  <div class="section-label">Facilitation principles</div>
+  <h2>Before you <em>open the room</em></h2>
+  <p class="lead">The same four habits carry every session. Everything below is detail on top of these.</p>
+  <div class="principles">
+    <div class="pr"><h4>Timer visible, always</h4><p>Share your screen with a running timer during every timed block. Silence is more persuasive than interrupting.</p></div>
+    <div class="pr"><h4>Vague &rarr; specific</h4><p>&ldquo;Grow sales&rdquo; gets one follow-up: &ldquo;what number, by when?&rdquo; Don't let it pass uncaptured.</p></div>
+    <div class="pr"><h4>Call on the quiet ones</h4><p>Airtime skews to whoever talks first. Name the person who hasn't spoken before moving on.</p></div>
+    <div class="pr"><h4>End every block with a stated action</h4><p>No block closes on discussion alone. Someone says out loud what happens next, and you write it down.</p></div>
+  </div>
+</div></section>
+
+
+<section class="band" id="craft"><div class="wrap">
+  <div class="section-label">What the research says</div>
+  <h2>Six things that decide <em>whether a room works</em></h2>
+  <p class="lead">These aren't opinions about facilitation &mdash; they're the findings that hold up across the research on groups and meetings. Each one has a specific thing you do about it.</p>
+  <div class="roster">
+    <span class="rp" style="--lc:var(--blue)"><span class="dot">AH</span><span class="nm">Alex Hormozi</span><span class="fd">offers &amp; pricing</span><span class="lp-pop"><span class="who">Alex Hormozi &middot; Founder, Acquisition.com</span><span class="what">Built and exited a portfolio of gym and fitness businesses before founding Acquisition.com, and wrote <b>$100M Offers</b>, <b>$100M Leads</b> and <b>$100M Money Models</b>. We reference him for making an offer specific, measurable and hard to say no to &mdash; the same discipline that turns a vague challenge into one you can actually move.</span><span class="src">Why this lens is on the page</span></span></span>
+    <span class="rp" style="--lc:var(--violet)"><span class="dot">SG</span><span class="nm">Seth Godin</span><span class="fd">marketing &amp; brand</span><span class="lp-pop"><span class="who">Seth Godin &middot; Marketing author &amp; founder</span><span class="what">Author of more than twenty books on marketing including <b>Purple Cow</b>, <b>Permission Marketing</b> and <b>This Is Marketing</b>; founded Yoyodyne and Squidoo and has published a daily blog for two decades. We reference him for positioning, audience and culture &mdash; particularly why the safe, agreeable answer is usually the worthless one.</span><span class="src">Why this lens is on the page</span></span></span>
+    <span class="rp" style="--lc:var(--indigo)"><span class="dot">DM</span><span class="nm">Dan Martell</span><span class="fd">operations &amp; leverage</span><span class="lp-pop"><span class="who">Dan Martell &middot; SaaS founder &amp; coach</span><span class="what">Founded and exited several SaaS companies &mdash; Clarity.fm among them &mdash; and now coaches SaaS founders through SaaS Academy; author of <b>Buy Back Your Time</b>. We reference him for operations and leverage: protecting the hours your one challenge actually needs instead of hoping willpower finds them.</span><span class="src">Why this lens is on the page</span></span></span>
+    <span class="rp" style="--lc:var(--mint)"><span class="dot">JC</span><span class="nm">James Clear</span><span class="fd">habits &amp; follow-through</span><span class="lp-pop"><span class="who">James Clear &middot; Author, Atomic Habits</span><span class="what">Wrote <b>Atomic Habits</b>, one of the best-selling books on behaviour change ever published, after years of writing about habit formation and small-margin improvement. We reference him for the part of this program everyone underestimates &mdash; what actually happens between Mondays.</span><span class="src">Why this lens is on the page</span></span></span>
+    <span class="rp" style="--lc:var(--coral)"><span class="dot">TR</span><span class="nm">Tony Robbins</span><span class="fd">state &amp; energy</span><span class="lp-pop"><span class="who">Tony Robbins &middot; Performance strategist</span><span class="what">Four decades as a performance strategist and author of <b>Unlimited Power</b>, <b>Awaken the Giant Within</b> and <b>Money: Master the Game</b>, having coached athletes, founders and public figures. We reference him for state and energy &mdash; the thing that quietly decides whether anyone in the room says what is actually going on.</span><span class="src">Why this lens is on the page</span></span></span>
+  </div>
+  <p style="margin-top:14px;font-size:13px;line-height:1.6;color:var(--muted)">Hover a name above to see why that lens is here. Hover or tap a badge for that lens on the point beside it &mdash; these are each practitioner&rsquo;s published framework applied to facilitating a room, paraphrased, not quoted.</p>
+
+
+  <div class="keys">
+
+    <div class="key">
+      <div class="kn">1</div>
+      <div>
+        <h4>Equal airtime beats having smart people in the room</h4>
+        <p>The best-known study on group intelligence found that a group's collective performance was <em>not</em> predicted by the average or maximum IQ of its members. What predicted it: how evenly conversational turns were distributed, and how socially perceptive members were. Groups where one or two people dominated performed worse &mdash; on every kind of task.</p>
+        <div class="do"><b>Do this:</b> keep a visible tally of who has spoken. Before closing any block, name the person who hasn't. &ldquo;Sudeep, you haven't weighed in &mdash; what are you seeing?&rdquo; This is the single highest-leverage thing a facilitator does.</div>
+        <cite>Woolley, Chabris, Pentland, Hashmi &amp; Malone, <a href="https://www.science.org/doi/10.1126/science.1193147" target="_blank" rel="noopener">&ldquo;Evidence for a Collective Intelligence Factor in the Performance of Human Groups,&rdquo;</a> <em>Science</em>, 2010</cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">Robbins&rsquo; frame is that <b>where focus goes, energy flows</b> &mdash; and in a group the facilitator is the one directing focus. If you let attention drift to whoever is loudest, that&rsquo;s a choice you made by not making one.</span><span class="src">Robbins &mdash; focus &amp; state</span></span></span><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin&rsquo;s <b>&ldquo;people like us do things like this&rdquo;</b> is about culture as observed behaviour. Whatever you tolerate in session one becomes the norm &mdash; if one person runs the room and nobody stops it, that <em>is</em> the culture now.</span><span class="src">Godin, This Is Marketing</span></span></span></div>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="kn">2</div>
+      <div>
+        <h4>People only say the useful thing if it's safe to be wrong</h4>
+        <p>Psychological safety &mdash; the shared belief that you won't be punished for speaking up &mdash; is what separates teams that learn from teams that don't. When Google studied 180 of its own teams, it was the strongest differentiator they found, ahead of who was on the team.</p>
+        <p>In a peer room this is the whole ballgame. Members arrived to talk about what <em>isn't</em> working. If the first person to admit a real problem gets advice-splained, nobody else will go there.</p>
+        <div class="do"><b>Do this:</b> go first with your own unresolved problem, and be specific about it. Frame the session as a learning problem, not a performance review. When someone shares something hard, thank them out loud before anyone responds.</div>
+        <cite>Edmondson, <a href="https://journals.sagepub.com/doi/10.2307/2666999" target="_blank" rel="noopener">&ldquo;Psychological Safety and Learning Behavior in Work Teams,&rdquo;</a> <em>ASQ</em>, 1999 &middot; <a href="https://psychsafety.com/googles-project-aristotle/" target="_blank" rel="noopener">Google Project Aristotle</a></cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">Robbins works <b>state before strategy</b>: a person who feels judged is physiologically defensive, and no amount of good advice reaches them there. Change how the room feels first, then work the problem.</span><span class="src">Robbins &mdash; state</span></span></span><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi is blunt that the useful conversation is the one about what&rsquo;s <b>actually broken</b>. A room where everyone reports that things are going well is a room producing nothing.</span><span class="src">Hormozi &mdash; constraint thinking</span></span></span></div>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="kn">3</div>
+      <div>
+        <h4>Everyone writes before anyone talks</h4>
+        <p>Open group brainstorming reliably produces <em>fewer</em> and lower-quality ideas than the same people thinking alone and pooling afterward. Two reasons: you can't form a thought while listening to someone else (production blocking), and once an idea is in the air the group anchors on it.</p>
+        <div class="do"><b>Do this:</b> before any open discussion &mdash; hot seats especially &mdash; give 60&ndash;90 seconds of silence for everyone to write their answer down. Then go around. You'll get ideas that would never have surfaced, from people who'd otherwise have stayed quiet.</div>
+        <cite>Diehl &amp; Stroebe, &ldquo;Productivity Loss in Brainstorming Groups,&rdquo; <em>JPSP</em>, 1987 &middot; <a href="https://en.wikipedia.org/wiki/Production_blocking" target="_blank" rel="noopener">overview</a></cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s third law is <b>make it easy</b> &mdash; lower the friction on the behaviour you want. Speaking up cold in front of five peers is high-friction; reading something you already wrote down is not.</span><span class="src">Clear, Atomic Habits</span></span></span></div>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="kn">4</div>
+      <div>
+        <h4>Groups default to discussing what everyone already knows</h4>
+        <p>Deliberating groups fail in four predictable ways: they amplify individual errors rather than cancel them, they follow informational cascades (people echo whoever spoke first), they polarize toward more extreme versions of their starting view, and they suffer <em>hidden profiles</em> &mdash; the group talks about shared information and never surfaces what only one person knows.</p>
+        <p>That last one is why a room of six can still miss the obvious answer: the person holding it assumed it was already known, or didn't think it was their place.</p>
+        <div class="do"><b>Do this:</b> ask for unshared information directly. &ldquo;Who here has actually done this before?&rdquo; and &ldquo;What does everyone think we're missing?&rdquo; And speak last &mdash; if the facilitator opinionates first, you've set the anchor for the whole room.</div>
+        <cite>Sunstein &amp; Hastie, <a href="https://hls.harvard.edu/bibliography/four-failures-of-deliberating-groups" target="_blank" rel="noopener">&ldquo;Four Failures of Deliberating Groups&rdquo;</a> &middot; <em>Wiser</em>, HBR Press, 2015</cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin&rsquo;s <b>Purple Cow</b> argument: the safe, agreeable answer is the one everyone already has, and it is therefore worth nothing. The useful contribution is the one that sounds slightly wrong at first.</span><span class="src">Godin, Purple Cow</span></span></span><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi&rsquo;s version of hidden profiles: the real constraint is usually the thing the founder hasn&rsquo;t said out loud yet &mdash; sometimes because they haven&rsquo;t admitted it to themselves.</span><span class="src">Hormozi &mdash; constraint thinking</span></span></span></div>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="kn">5</div>
+      <div>
+        <h4>The agenda should be questions, not topics</h4>
+        <p>Meeting research is blunt about agendas: having one doesn't help by itself &mdash; plenty of terrible meetings have agendas. What helps is framing each block as a question the room has to answer, because a question has an obvious finish line and a topic doesn't. &ldquo;Pairings&rdquo; can run forever. &ldquo;Who is each person paired with, and what do they owe each other by Friday?&rdquo; ends when it's answered.</p>
+        <div class="do"><b>Do this:</b> the run-of-shows below are already written as outcomes. Before each block, say the question out loud. Before you move on, confirm it's been answered.</div>
+        <cite>Rogelberg, <a href="https://global.oup.com/academic/product/the-surprising-science-of-meetings-9780190689216" target="_blank" rel="noopener"><em>The Surprising Science of Meetings</em></a>, Oxford University Press, 2019</cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">A signature Robbins line: <b>the quality of your life is the quality of your questions</b>. Same for a meeting &mdash; a block framed as a question has an answer and therefore an ending. A block framed as a topic does not.</span><span class="src">Robbins &mdash; quality questions</span></span></span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell&rsquo;s <b>10-80-10</b> habit: define the outcome and the standard at the front, let the room do the middle 80%, and close it yourself. Vague at the start guarantees rework at the end.</span><span class="src">Martell, Buy Back Your Time</span></span></span></div>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="kn">6</div>
+      <div>
+        <h4>Nothing closes on discussion alone</h4>
+        <p>The most common way a good conversation produces nothing is that it ends warmly and vaguely. Everyone leaves feeling it went well; no one can say what happens next. The fix is mechanical, not motivational &mdash; someone states the action out loud, in their own words, and it gets written down where they'll see it again.</p>
+        <div class="do"><b>Do this:</b> every block ends with a named person saying a specific next action and a date. You write it down live, on screen, so the room watches it get recorded. That visibility is most of the accountability.</div>
+        <cite>Rogelberg, <em>The Surprising Science of Meetings</em> &middot; consistent with the commitment literature on public, specific goals</cite>
+        <div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s core claim: <b>you do not rise to the level of your goals, you fall to the level of your systems.</b> A stated intention is a goal. A named action, on a date, written where they&rsquo;ll see it again is the beginning of a system.</span><span class="src">Clear, Atomic Habits</span></span></span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell would ask who owns it and when it&rsquo;s due, every time. An action without a name attached is a wish the whole room quietly agreed to ignore.</span><span class="src">Martell, Buy Back Your Time</span></span></span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="srcs">
+    <h5>Sources</h5>
+    <ul>
+      <li><a href="https://www.science.org/doi/10.1126/science.1193147" target="_blank" rel="noopener">Woolley et al., &ldquo;Evidence for a Collective Intelligence Factor in the Performance of Human Groups,&rdquo; Science (2010)</a></li>
+      <li><a href="https://journals.sagepub.com/doi/10.2307/2666999" target="_blank" rel="noopener">Edmondson, &ldquo;Psychological Safety and Learning Behavior in Work Teams,&rdquo; Administrative Science Quarterly (1999)</a></li>
+      <li><a href="https://psychsafety.com/googles-project-aristotle/" target="_blank" rel="noopener">Google Project Aristotle &mdash; what makes teams effective</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Production_blocking" target="_blank" rel="noopener">Production blocking &mdash; why interacting brainstorming groups underperform</a></li>
+      <li><a href="https://hls.harvard.edu/bibliography/four-failures-of-deliberating-groups" target="_blank" rel="noopener">Sunstein, &ldquo;Four Failures of Deliberating Groups&rdquo;</a></li>
+      <li><a href="https://global.oup.com/academic/product/the-surprising-science-of-meetings-9780190689216" target="_blank" rel="noopener">Rogelberg, The Surprising Science of Meetings (Oxford, 2019)</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="band" id="scripts"><div class="wrap">
+  <div class="section-label">Session scripts</div>
+  <h2>Meet &amp; Greet <em>+ the four run-of-shows</em></h2>
+  <p class="lead">Cohort 02 is seven, not six &mdash; timings below are recalculated for seven where it matters. Sessions 2&ndash;4 carry the same shape as Cohort 01; member-specific prompts get added once each week's challenges are known (they aren't yet).</p>
+
+  <div class="sess" style="border-top:3px solid var(--violet)">
+    <div class="sess-tag" style="color:var(--violet)">Meet &amp; Greet &middot; optional</div>
+    <div class="sess-name">Say hello before the work starts</div>
+    <div class="sess-date">Mon Sep 28, 5:30&ndash;6:15 PM PT</div>
+    <table class="run">
+      <tr><td>5:30</td><td><strong>Welcome + logistics &mdash; 5 min.</strong> What BizColab is in one breath, how the four Mondays run (Oct 5/12/19/26), Slack + member page. No &ldquo;no pitching&rdquo; rule needed yet &mdash; save that framing for Session 1.</td></tr>
+      <tr><td>5:35</td><td><strong>Go-around &mdash; ~4 min each &times; 7 (ends 6:03).</strong> Name, what you do, one thing you're wrestling with right now. Light touch &mdash; this is a meet-and-greet, not the 3-minute Session 1 format. Hold deep feedback for Oct 5.</td></tr>
+      <tr><td>6:03</td><td><strong>Close &mdash; 12 min.</strong> Open floor / questions about format. Confirm everyone has the Meet link, Slack invite, and Oct 5 on their calendar.</td></tr>
+    </table>
+    <div class="watch"><div class="lbl">Watch for</div><p>Someone treating this as their real intro and going long &mdash; gently cap it, the real 3-minute version comes Oct 5. Anyone who can't make it live &mdash; it's marked optional, so don't let a no-show read as disengagement.</p></div>
+  </div>
+
+  <div class="sess" style="border-top:3px solid var(--blue)">
+    <div class="sess-tag" style="color:var(--blue)">Session 1 &middot; Map</div>
+    <div class="sess-name">Deep intros + open forum</div>
+    <div class="sess-date">Mon Oct 5, 5:30&ndash;7:00 PM PT</div>
+    <table class="run">
+      <tr><td>5:30</td><td><strong>Hellos &mdash; 5 min.</strong> Names, where everyone's dialing in from. Set the rule out loud: <strong>&ldquo;no pitching &mdash; real business, real constraint.&rdquo;</strong> State the confidentiality norm. Start the Meet timer.</td></tr>
+      <tr><td>5:35</td><td><strong>Deck &mdash; 5 min.</strong> What BizColab is, why it exists, how the four Mondays run.</td></tr>
+      <tr><td>5:40</td><td><strong>Business + one challenge &mdash; 3 min hard each &times; 7 (ends 6:01).</strong> ~60 sec on the business, ~90 sec on the one challenge <em>with today's number</em>, ~30 sec on what help they'd take. <strong>Hold all feedback.</strong> Log each person's challenge + ask as they go.</td></tr>
+      <tr><td>6:01</td><td><strong>Break &mdash; 5 minutes.</strong> Say the return time out loud (6:06), restart on the clock.</td></tr>
+      <tr><td>6:06</td><td><strong>Open forum &mdash; 6 min per person &times; 7 (ends 6:48).</strong> One person's challenge on the table at a time, no speaking order. <strong>Before closing each block, call on someone who hasn't spoken yet.</strong> Log direction / offer / ask per person &mdash; this is the Session 2 pairing map.</td></tr>
+      <tr><td>6:48</td><td><strong>Close &mdash; 12 min.</strong> Preview Session 2. Name the one thing to do before next Monday. Remind: Slack + member page password.</td></tr>
+    </table>
+    <div class="watch"><div class="lbl">Watch for</div><p>Seven people at 6 min each leaves less airtime-protection slack than Cohort 01's 8-min blocks &mdash; be quicker to redirect a monopolizing voice. One or two people eating the clock in intros &mdash; cut in kindly at the 2:30 mark. Challenges that are really symptoms (&ldquo;need more leads&rdquo;) &mdash; note it, revisit in Session 2.</p></div>
+  </div>
+
+  <div class="sess" style="border-top:3px solid var(--indigo)">
+    <div class="sess-tag" style="color:var(--indigo)">Session 2 &middot; Match</div>
+    <div class="sess-name">DMAIC &mdash; Define</div>
+    <div class="sess-date">Mon Oct 12, 5:30&ndash;7:00 PM PT</div>
+    <table class="run">
+      <tr><td>5:30</td><td>Chat + connect &mdash; 5 min. Start the Meet timer. Confidentiality + no pitching, said out loud.</td></tr>
+      <tr><td>5:35</td><td><strong>DMAIC &mdash; Define, 5 min.</strong> Define &middot; Measure &middot; Analyze &middot; Improve &middot; Control. Tonight is Define only. The rule: <strong>if the problem statement contains a solution, it&rsquo;s not the problem.</strong></td></tr>
+      <tr><td>5:40</td><td><strong>Members 1&ndash;4 &mdash; 8 min each (ends 6:12).</strong> ~3 min they walk through their #1 challenge, ~5 min open discussion (questions only, no solutions &mdash; parking lot). Close each block with a written one-line Define statement; call on whoever hasn't spoken before closing.</td></tr>
+      <tr><td>6:12</td><td><strong>Break &mdash; 5 minutes.</strong></td></tr>
+      <tr><td>6:17</td><td><strong>Members 5&ndash;7 &mdash; 8 min each (ends 6:41).</strong> Same shape.</td></tr>
+      <tr><td>6:41</td><td><strong>Recap &mdash; 10 min.</strong> Read all seven Define statements back to the room. Confirm the Session 3 order.</td></tr>
+      <tr><td>6:51</td><td>Buffer &mdash; absorbs overrun; if clear, open floor or early close.</td></tr>
+    </table>
+    <div class="watch"><div class="lbl">Watch for</div><p>A solution smuggled inside a problem statement &mdash; name it and re-ask. Narrative instead of numbers &mdash; ask for the actual number. Solutions creeping into open discussion &mdash; parking-lot them without killing the energy.</p></div>
+    <div class="watch"><div class="lbl">Define questions &mdash; per member</div><p>TBD once Session 1's challenges are logged &mdash; port the format from Cohort 01's Week 2 page (5 targeted questions per person, never supplying the number).</p></div>
+  </div>
+
+  <div class="sess" style="border-top:3px solid var(--coral)">
+    <div class="sess-tag" style="color:var(--coral)">Session 3 &middot; Move</div>
+    <div class="sess-name">Assumption test</div>
+    <div class="sess-date">Mon Oct 19, 5:30&ndash;7:00 PM PT</div>
+    <table class="run">
+      <tr><td>5:30</td><td>Check-in round &mdash; 30 sec each, one line on where the number sits. Ends 5:35.</td></tr>
+      <tr><td>5:35</td><td><strong>Four thematic blocks (not per-person hot seats &mdash; Cohort 01 dropped those for Session 3), ~20 min each (ends 6:55).</strong> Group the seven's Define statements into shared themes; each block tests one assumption together rather than one person's problem at a time.</td></tr>
+      <tr><td>6:15</td><td><strong>Break &mdash; 5 minutes</strong> (falls inside the block run &mdash; call it at the nearest natural pause).</td></tr>
+      <tr><td>6:55</td><td>Each person states their one assumption-test action out loud, then Session 4 preview.</td></tr>
+    </table>
+    <div class="watch"><div class="lbl">Watch for</div><p>Themes that don't actually share a root cause &mdash; better to run five short blocks than force a bad grouping. Advice turning into monologues &mdash; redirect to a specific, actionable ask.</p></div>
+  </div>
+
+  <div class="sess" style="border-top:3px solid var(--mint)">
+    <div class="sess-tag" style="color:var(--mint)">Session 4 &middot; Measure</div>
+    <div class="sess-name">Collective wrap</div>
+    <div class="sess-date">Mon Oct 26, 5:30&ndash;7:00 PM PT</div>
+    <table class="run">
+      <tr><td>5:30</td><td>Open.</td></tr>
+      <tr><td>5:35</td><td><strong>Results round, ~5 min each (ends 6:15).</strong> Prompt: commitment, what shipped, the number then vs. now, what's next. Hold people to the actual number.</td></tr>
+      <tr><td>6:15</td><td><strong>Break &mdash; 5 minutes.</strong></td></tr>
+      <tr><td>6:20</td><td>Honest group post-mortem on what didn't move and why.</td></tr>
+      <tr><td>6:40</td><td>Set standing accountability pairs and a recurring cadence. Gauge interest in Cohort 03 referrals.</td></tr>
+      <tr><td>6:55</td><td>Close &mdash; group photo / screenshot.</td></tr>
+    </table>
+    <div class="watch"><div class="lbl">Watch for</div><p>Letting the narrative replace the number &mdash; ask directly for the metric from Session 1 vs. today. Make sure every pair actually exchanges contact info before the call ends.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="diagnose"><div class="wrap">
+  <div class="section-label">Troubleshooting</div>
+  <h2>When the room <em>isn't working</em></h2>
+  <p class="lead">Most cohort problems show up as one of these. None of them fix themselves, and all of them get worse if you wait a week.</p>
+
+  <table class="fix">
+    <tr><th>What you're seeing</th><th>What to do about it, that session</th></tr>
+    <tr>
+      <td>One person is running the room</td>
+      <td>Go to a strict round-robin for the rest of the block &mdash; no open floor. Privately, after: thank them for engaging and ask them to hold back until three others have spoken. Almost always they don't realise.<div class="lens"><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin&rsquo;s point about norms cuts both ways &mdash; the dominant person is usually reading the room correctly and filling a silence nobody else claimed. Change the format, not the person.</span><span class="src">Godin &mdash; culture as behaviour</span></span></span></div></td>
+    </tr>
+    <tr>
+      <td>Someone has gone quiet for two sessions</td>
+      <td>Reach out between Mondays, not during. Quiet usually means their challenge got stale or they're embarrassed nothing moved. Give them a slot to reset it publicly &mdash; that's a normal outcome, not a failure.<div class="lens"><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s rule is <b>never miss twice</b>. One bad week is noise; two starts becoming an identity. Intervene between sessions, while it&rsquo;s still one.</span><span class="src">Clear, Atomic Habits</span></span></span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">Robbins would treat this as state, not laziness &mdash; people withdraw from what makes them feel incompetent. Give them a win they can actually get before asking for a bigger commitment.</span><span class="src">Robbins &mdash; state</span></span></span></div></td>
+    </tr>
+    <tr>
+      <td>Advice-giving instead of experience</td>
+      <td>Interrupt and reframe on the spot: &ldquo;have you done this yourself, or is it a hunch?&rdquo; Both are allowed, but the room needs to know which it's hearing. Say it once early and it holds for four weeks.<div class="lens"><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi&rsquo;s bias is toward whoever has done the thing. Opinions are free and abundant; a person who has actually run the play and can say what it cost is the scarce asset in the room.</span><span class="src">Hormozi &mdash; proof over opinion</span></span></span></div></td>
+    </tr>
+    <tr>
+      <td>Challenges are still vague in Week 2</td>
+      <td>Stop the agenda and fix it live &mdash; a vague challenge poisons Weeks 3 and 4, since there's nothing to solve or measure. One question does most of the work: &ldquo;what number, and by when?&rdquo;<div class="lens"><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">In Hormozi&rsquo;s value equation the <b>dream outcome</b> has to be concrete enough to be measured, or the other three terms are meaningless. &ldquo;Grow&rdquo; is not an outcome. &ldquo;From four to twelve by Sep 14&rdquo; is.</span><span class="src">Hormozi, $100M Offers</span></span></span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell would ask what specifically gets handed over and by when. If you can&rsquo;t describe the finished thing, nobody can help you build it.</span><span class="src">Martell, Buy Back Your Time</span></span></span></div></td>
+    </tr>
+    <tr>
+      <td>Nobody did anything between Mondays</td>
+      <td>Say it plainly and without blame, then shrink the ask. Weekly commitments should be small enough to finish in 30 minutes a day. If the whole room missed, the commitments were too big &mdash; that's a facilitation error, not a character flaw.<div class="lens"><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s <b>two-minute rule</b>: shrink the commitment until starting is trivially easy. A week of a two-minute version beats a week of an ambitious version nobody began.</span><span class="src">Clear, Atomic Habits</span></span></span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell&rsquo;s question is whether they were doing <b>production</b> work all week instead of investment work. Nobody moves their one thing while buried in the day job &mdash; the fix is calendar, not willpower.</span><span class="src">Martell &mdash; the DRIP matrix</span></span></span></div></td>
+    </tr>
+    <tr>
+      <td>Attendance is slipping</td>
+      <td>Most fixable in Week 1, not Week 3: the room has to be worth returning to on day one. Immediately &mdash; call the person, don't email. If two or more are drifting, the sessions aren't delivering and you should ask the room directly what's missing.<div class="lens"><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi treats price as a filter, not just revenue &mdash; what costs nothing gets treated like it costs nothing. If attendance is chronically soft across cohorts, look at what it took to get in.</span><span class="src">Hormozi, $100M Offers</span></span></span><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s environment-design point: attendance is mostly a <b>cue</b> problem. Same time, same link, a standing calendar hold and a reminder the room actually sees.</span><span class="src">Clear, Atomic Habits</span></span></span></div></td>
+    </tr>
+    <tr>
+      <td>It's pleasant but nothing is happening</td>
+      <td>The most dangerous state, because nobody complains. Symptom of too much sharing and too little committing. Cut discussion time, add hot seats, and make every block end with a named action.<div class="lens"><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell&rsquo;s framing: the room has slid into <b>production</b> &mdash; busy, comfortable, generating no leverage. Move it back to investment work, which almost always feels harder.</span><span class="src">Martell &mdash; the DRIP matrix</span></span></span><span class="lp" style="--lc:var(--blue)"><button type="button" aria-label="Alex Hormozi’s lens">AH</button><span class="lp-pop" role="tooltip"><span class="who">Alex Hormozi</span><span class="what">Hormozi&rsquo;s test is whether anything measurable moved. A room everyone enjoys and nobody profits from is a social club with a spreadsheet.</span><span class="src">Hormozi &mdash; outcome focus</span></span></span></div></td>
+    </tr>
+    <tr>
+      <td>Someone starts pitching the room</td>
+      <td>Shut it down immediately and warmly, in the moment. One tolerated pitch and every member re-reads the room as a sales environment &mdash; you'll never get honest problems again.<div class="lens"><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">This is Godin&rsquo;s <b>permission</b> argument exactly &mdash; attention given for one purpose can&rsquo;t be spent on another without breaking the deal. Interruption marketing inside a trust room destroys the room.</span><span class="src">Godin, Permission Marketing</span></span></span></div></td>
+    </tr>
+  </table>
+</div></section>
+
+
+<section class="band" id="growth"><div class="wrap">
+  <div class="section-label">The business behind the room</div>
+  <h2>Why the program is <em>built this way</em></h2>
+  <p class="lead">If you're running a cohort, these are the decisions that determine whether it becomes something durable or stays a nice group of people who met for a month. Adapted from an Alex Hormozi&ndash;framework review of the Cohort 01 model &mdash; useful mechanics, applied in BizColab's voice.</p>
+
+  <div class="gr" style="--c:var(--blue)">
+    <div class="tagline">The equation to keep in your head</div>
+    <h4>Value = (dream outcome &times; likelihood it happens) &divide; (time it takes &times; effort required)</h4>
+    <p>Every design choice in this program moves one of those four terms. Four weeks instead of twelve shortens time. Six people instead of thirty raises likelihood, because everyone gets real airtime. Ninety minutes a week plus thirty minutes a day is a deliberately small effort ask.</p>
+    <p>The weakest term for any new cohort is <b>likelihood</b> &mdash; a first cohort has no proof it works. That's the problem the next two cards solve.</p><div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin would attack the same term differently &mdash; not with proof but with <b>the smallest viable audience</b>. Six people who badly want this beat sixty who might.</span><span class="src">Godin, This Is Marketing</span></span></span></div>
+  </div>
+
+  <div class="gr" style="--c:var(--coral)">
+    <div class="tagline">Non-negotiable</div>
+    <h4>Capture the starting number in Session 1</h4>
+    <p>You cannot show a transformation you never baselined. If a member says &ldquo;more qualified leads&rdquo; and you don't write down that they had four last month, then in Week 4 you have a nice story and no evidence.</p>
+    <ul>
+      <li>Every commitment gets logged as <b>where it is today &rarr; where it's going &rarr; by when</b>, with the real figure</li>
+      <li>Log it somewhere durable the same night &mdash; not just spoken aloud</li>
+      <li>Week 4 is then a comparison, not a recollection</li>
+    </ul>
+    <p>This costs fifteen minutes and is the difference between a second cohort you have to sell and one that sells itself.</p><div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--mint)"><button type="button" aria-label="James Clear’s lens">JC</button><span class="lp-pop" role="tooltip"><span class="who">James Clear</span><span class="what">Clear&rsquo;s tracking principle applies to the program too: <b>what gets measured gets managed</b> &mdash; and what never got a baseline can&rsquo;t be either.</span><span class="src">Clear, Atomic Habits</span></span></span></div>
+  </div>
+
+  <div class="gr" style="--c:var(--violet)">
+    <div class="tagline">Timing matters more than you'd think</div>
+    <h4>Collect proof at the moment of the win</h4>
+    <p>The instinct is to ask for testimonials at the end, in the wrap-up. That's the worst moment &mdash; people are tired and summarising. Ask right after something breaks open: a hot seat that cracks a problem in Week 3, an intro that lands, a number that moves. Sixty seconds of phone video, right then, beats a polished paragraph a month later.</p><div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--coral)"><button type="button" aria-label="Tony Robbins’s lens">TR</button><span class="lp-pop" role="tooltip"><span class="who">Tony Robbins</span><span class="what">Robbins&rsquo; <b>peak state</b> logic &mdash; testimony captured at the emotional high is more specific and more credible than the same person&rsquo;s considered summary a month later.</span><span class="src">Robbins &mdash; peak state</span></span></span></div>
+  </div>
+
+  <div class="gr" style="--c:var(--amber)">
+    <div class="tagline">Pricing</div>
+    <h4>A founding cohort is priced once</h4>
+    <p>A first cohort with no track record can and probably should be cheap &mdash; you're buying proof, not revenue. Cohort 01 ran at $99 for exactly that reason.</p>
+    <p>The trap is repeating it. Price is not only revenue here, it's an attendance filter: a room that costs nothing gets treated like it costs nothing, and this format breaks if three people drift. Decide the next cohort's number before the current one ends, and say it out loud to the room &mdash; it makes the founding rate feel like what it is and gives members a reason to refer someone now.</p>
+  </div>
+
+  <div class="gr" style="--c:var(--mint)">
+    <div class="tagline">Worth adding once you have proof</div>
+    <h4>A guarantee, tied to the process</h4>
+    <p>Guarantee the thing you control, never someone else's business results. Something like: <em>show up to all four, do the weekly work, and if your challenge hasn't measurably moved, the next cohort is on us.</em> It removes the main objection and costs you one seat in the worst case.</p><div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin frames a guarantee as a <b>trust signal</b> rather than a discount &mdash; it says you&rsquo;ve seen this work often enough to take the risk yourself.</span><span class="src">Godin, This Is Marketing</span></span></span></div>
+  </div>
+
+  <div class="gr" style="--c:var(--indigo)">
+    <div class="tagline">The question to answer honestly</div>
+    <h4>What is this actually for?</h4>
+    <p>Six seats at a founding price is not a business on its own &mdash; it's roughly six hours of live facilitation for a few hundred dollars. That's fine, as long as you know which of these you're building:</p>
+    <ul>
+      <li><b>A standalone product</b> &mdash; then price, proof and a continuity offer are everything</li>
+      <li><b>A front door</b> &mdash; graduates roll into an ongoing paid room, which is where the economics actually work</li>
+      <li><b>A relationship channel</b> &mdash; the real return is depth with a handful of operators per quarter, in which case optimise purely for room quality and how memorable it is, and stop worrying about the fee</li>
+    </ul>
+    <p>All three are legitimate. Running one while quietly measuring yourself against another is what makes a good program feel like a failure.</p>
+  </div>
+</div></section>
+
+<section class="band" id="log"><div class="wrap">
+  <div class="section-label">After each Monday</div>
+  <h2>Session <em>log</em></h2>
+  <p class="lead">Send Michael the Granola transcript link after each call and ask for this section to be filled in &mdash; summary, commitments, decisions, and next steps land here.</p>
+
+  <div class="log">
+    <div class="log-head"><h4>Meet &amp; Greet &mdash; Sep 28</h4><span class="log-status">Not yet held</span></div>
+    <div class="log-body"><p>Summary and who confirmed for Session 1 post here after the call.</p></div>
+  </div>
+  <div class="log">
+    <div class="log-head"><h4>Session 1 &middot; Map &mdash; Oct 5</h4><span class="log-status">Not yet held</span></div>
+    <div class="log-body"><p>Summary, the 7 commitments, and next steps post here after the session.</p></div>
+  </div>
+  <div class="log">
+    <div class="log-head"><h4>Session 2 &middot; Match &mdash; Oct 12</h4><span class="log-status">Not yet held</span></div>
+    <div class="log-body"><p>Summary, Define statements, pairings, and next steps post here after the session.</p></div>
+  </div>
+  <div class="log">
+    <div class="log-head"><h4>Session 3 &middot; Move &mdash; Oct 19</h4><span class="log-status">Not yet held</span></div>
+    <div class="log-body"><p>Summary, assumption-test outcomes, and next steps post here after the session.</p></div>
+  </div>
+  <div class="log">
+    <div class="log-head"><h4>Session 4 &middot; Measure &mdash; Oct 26</h4><span class="log-status">Not yet held</span></div>
+    <div class="log-body"><p>Summary, final results, and what's next for the group post here after the session.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="newfac"><div class="wrap">
+  <div class="section-label">Onboarding</div>
+  <h2>Running <em>your own cohort</em></h2>
+  <p class="lead">If you're picking this up to facilitate a BizColab cohort, this is the shortest path from nothing to a room that works.</p>
+
+  <h4 style="font-size:16px;font-weight:650;margin-top:26px;letter-spacing:-.02em">Before Week 1</h4>
+  <ul class="ck">
+    <li><b>Read the run-of-shows end to end</b> &mdash; not just Week 1. Knowing where Week 4 lands changes how you run Week 1.</li>
+    <li><b>Cap the room at six.</b> Every member needs an uninterrupted intro plus a full block of the room working their challenge. At seven or eight the ninety minutes stop adding up.</li>
+    <li><b>Screen for one thing:</b> a real business with a real constraint, and a willingness to say it out loud. Not stage, revenue or industry.</li>
+    <li><b>Set up the recurring meeting link and calendar invites</b> for all sessions at once, and a group chat for between-session momentum.</li>
+    <li><b>Prepare your own challenge.</b> You go first, and it has to be genuine. A facilitator who won't be vulnerable gets a room that won't either.</li>
+  </ul>
+
+  <h4 style="font-size:16px;font-weight:650;margin-top:30px;letter-spacing:-.02em">Every session</h4>
+  <ul class="ck">
+    <li><b>Visible timer, shared on screen.</b> The clock enforces the format so you don't have to.</li>
+    <li><b>Track airtime.</b> A tally next to each name. Name whoever hasn't spoken before you close a block.</li>
+    <li><b>Silent writing before open discussion</b> &mdash; 60 to 90 seconds, every time.</li>
+    <li><b>Speak last</b> on anything substantive, so you don't anchor the room.</li>
+    <li><b>Every block ends with a named person, a specific action, and a date</b>, written down live.</li>
+    <li><b>Take the five-minute break.</b> Ninety minutes without one costs you the last thirty.</li>
+  </ul>
+
+  <h4 style="font-size:16px;font-weight:650;margin-top:30px;letter-spacing:-.02em">After every session</h4>
+  <ul class="ck">
+    <li><b>Post the commitments</b> where members will see them again before next week.</li>
+    <li><b>Fill in the session log</b> below while it's fresh &mdash; summary, commitments, decisions, next steps.</li>
+    <li><b>Note who was quiet</b> and reach out before the next session, not during it.</li>
+    <li><b>Capture proof when a win happens</b>, in the moment &mdash; see the business section above.</li>
+  </ul>
+
+  <div class="gr" style="--c:var(--coral);margin-top:30px">
+    <div class="tagline">The one rule under all of it</div>
+    <h4>You are not the product</h4>
+    <p>The temptation, especially if you know a lot, is to be the most useful person in the room. Resist it. Your job is to make everyone in the room useful to each other &mdash; the moment the room is oriented toward you, it stops being a peer group and becomes an audience, and audiences don't hold each other accountable.</p><div class="lens-row"><span class="ll">Also</span><span class="lp" style="--lc:var(--indigo)"><button type="button" aria-label="Dan Martell’s lens">DM</button><span class="lp-pop" role="tooltip"><span class="who">Dan Martell</span><span class="what">Martell&rsquo;s whole thesis is <b>leverage over effort</b> &mdash; the facilitator who does the work personally caps the room at their own capacity.</span><span class="src">Martell, Buy Back Your Time</span></span></span><span class="lp" style="--lc:var(--violet)"><button type="button" aria-label="Seth Godin’s lens">SG</button><span class="lp-pop" role="tooltip"><span class="who">Seth Godin</span><span class="what">Godin on <b>leading a tribe</b>: the leader&rsquo;s job is connecting members to each other, not broadcasting to them.</span><span class="src">Godin, Tribes</span></span></span></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><p>&#9679; BizColab &middot; Facilitator handbook &middot; internal &mdash; not for distribution</p></div></footer>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.anchors a'));
+  var secs = links.map(function(l){ return document.querySelector(l.getAttribute('href')); });
+  function onScroll(){
+    var y = window.scrollY + 130, best = 0;
+    for (var i=0;i<secs.length;i++){ if (secs[i] && secs[i].offsetTop <= y) best = i; }
+    links.forEach(function(l,i){ l.classList.toggle('on', i===best); });
+    var active = links[best];
+    if (active) {
+      var bar = active.parentNode;
+      var lo = active.offsetLeft, hi = lo + active.offsetWidth;
+      if (lo < bar.scrollLeft || hi > bar.scrollLeft + bar.clientWidth) {
+        bar.scrollTo({ left: lo - 16, behavior: 'smooth' });
+      }
+    }
+  }
+  document.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+<script>
+(function(){
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.lp, .rp'));
+  if (!chips.length) return;
+  var tip = document.createElement('div'); tip.id = 'lens-tip'; tip.setAttribute('role','tooltip');
+  document.body.appendChild(tip);
+  var current = null;
+
+  function hide(){ tip.classList.remove('show'); current = null;
+    chips.forEach(function(c){ c.classList.remove('open'); }); }
+
+  function position(p){
+    var btn = p.querySelector('button') || p;
+    var b = btn.getBoundingClientRect();
+    if (window.matchMedia('(max-width:640px)').matches) { tip.classList.remove('below'); return; }
+    var w = tip.offsetWidth, h = tip.offsetHeight, pad = 12;
+    var cx = b.left + b.width / 2;
+    var left = Math.max(pad, Math.min(cx - w / 2, window.innerWidth - w - pad));
+    var top = b.top - h - 11, below = false;
+    if (top < pad) { top = b.bottom + 11; below = true; }
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    tip.style.setProperty('--ax', Math.max(14, Math.min(cx - left, w - 14)) + 'px');
+    tip.classList.toggle('below', below);
+  }
+
+  function show(p){
+    var src = p.querySelector('.lp-pop'); if (!src) return;
+    current = p;
+    tip.innerHTML = src.innerHTML;
+    tip.style.setProperty('--lc', (p.style.getPropertyValue('--lc') || '#9aa').trim());
+    tip.classList.add('show');
+    position(p);
+  }
+
+  chips.forEach(function(p){
+    var btn = p.querySelector('button') || p;
+    p.addEventListener('mouseenter', function(){ show(p); });
+    p.addEventListener('mouseleave', function(){ if (!p.classList.contains('open')) hide(); });
+    btn.addEventListener('focus', function(){ show(p); });
+    btn.addEventListener('blur', function(){ if (!p.classList.contains('open')) hide(); });
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var was = p.classList.contains('open');
+      hide();
+      if (!was) { p.classList.add('open'); show(p); }
+    });
+  });
+
+  window.addEventListener('resize', function(){ if (current) position(current); });
+  window.addEventListener('scroll', function(){ if (current) position(current); }, {passive:true});
+  document.addEventListener('click', function(){ hide(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') hide(); });
+})();
+</script>
+</body>
+</html>
