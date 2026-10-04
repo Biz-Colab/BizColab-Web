@@ -165,6 +165,7 @@
       '.fx-q-a{display:flex;gap:10px;margin-top:24px}.fx-q-a button{flex:1;min-height:52px;border-radius:999px;border:1.5px solid #d2d2d7;background:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}' +
       '.fx-q-a button:hover,.fx-q-a button:focus-visible{background:#0a0a0a;border-color:#0a0a0a;color:#fff;outline:none}' +
       '.fx-q-o{display:flex;flex-direction:column;gap:8px;margin-top:20px}.fx-q-o button{min-height:48px;padding:0 18px;border-radius:14px;border:1.5px solid #d2d2d7;background:#fff;font:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}.fx-q-o button:hover,.fx-q-o button:focus-visible{background:#0a0a0a;border-color:#0a0a0a;color:#fff;outline:none}' +
+      '.fx-q-f{margin-top:18px;display:flex;flex-direction:column;gap:10px}.fx-q-r{display:flex;gap:10px}.fx-q-f input{flex:1;min-width:0;height:50px;border:1.5px solid #d2d2d7;border-radius:14px;padding:0 16px;font:inherit;font-size:16px;color:#0a0a0a;background:#fff}.fx-q-f input:focus{outline:none;border-color:#0a0a0a}.fx-q-err{min-height:18px;font-size:13px;color:#d70015}' +
       '.fx-q-res{text-align:center;padding:10px 4px 0}.fx-q-badge{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;margin:4px auto 14px;font-size:28px}' +
       '.fx-q-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:999px;background:#0a0a0a;color:#fff;text-decoration:none;font-weight:600;margin-top:22px;border:0;font:inherit;font-weight:600;cursor:pointer}' +
       '.fx-q-sec{display:block;margin:12px auto 0;background:none;border:0;color:#6e6e73;font:inherit;font-size:13px;cursor:pointer;text-decoration:underline}');
@@ -178,14 +179,34 @@
       else body = '<div class="fx-q-a"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div>';
       frame('<div class="fx-q-bar"><i style="width:' + (i / Q.length * 100) + '%"></i></div><div class="fx-q-n">Question ' + (i + 1) + ' of ' + Q.length + '</div><h3>' + q.t + '</h3><p>' + q.h + '</p>' + body);
       $$('.fx-q-a button,.fx-q-o button', dlg).forEach(function (b, k) {
-        b.onclick = function () { ans[i] = q.opts ? q.opts[+b.getAttribute('data-k')] : b.getAttribute('data-v') === '1'; i++; if (i < Q.length) ask(); else result(); };
+        b.onclick = function () { ans[i] = q.opts ? q.opts[+b.getAttribute('data-k')] : b.getAttribute('data-v') === '1'; i++; if (i < Q.length) ask(); else collect(); };
         if (k === 0) b.focus();
       });
+    }
+    var lead = null;
+    function send(l) {
+      var fit = (function () { var g = 0, t = 0; Q.forEach(function (q, k) { if (!q.yn) return; t++; if (q.rev ? !ans[k] : ans[k]) g++; }); return g + '/' + t; })();
+      var data = { full_name: (l.first + ' ' + l.last).trim(), first_name: l.first, last_name: l.last, email: l.email, source: 'homepage-fit-check', quiz_fit: fit, quiz_time: ans[5], quiz_goal: ans[6] };
+      try { fetch('https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec', { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(function () { }); } catch (e) { }
+      function go() { try { emailjs.init('yWt3TMJ6ysOrH3vH1'); emailjs.send('service_bpcodid', 'template_09f1pjl', data).catch(function () { }); emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function () { }); } catch (e) { } }
+      if (window.emailjs) go(); else { var sc = document.createElement('script'); sc.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js'; sc.onload = go; document.head.appendChild(sc); }
+    }
+    function collect() {
+      frame('<div class="fx-q-bar"><i style="width:100%"></i></div><div class="fx-q-n">Last step</div><h3>Where should we send your result?</h3><p>Your name and email, so we can follow up about the next cohort.</p>' +
+        '<form class="fx-q-f" novalidate><div class="fx-q-r"><input name="first" placeholder="First name" autocomplete="given-name" required><input name="last" placeholder="Last name" autocomplete="family-name" required></div>' +
+        '<input name="email" type="email" placeholder="Email" autocomplete="email" required><div class="fx-q-err" role="alert"></div><button class="fx-q-cta" type="submit" style="width:100%;margin-top:14px">See my result &rarr;</button></form>');
+      var f = $('.fx-q-f', dlg), err = $('.fx-q-err', dlg); f.first.focus();
+      f.onsubmit = function (e) {
+        e.preventDefault(); var v = { first: f.first.value.trim(), last: f.last.value.trim(), email: f.email.value.trim() };
+        if (!v.first || !v.last) { err.textContent = 'Please add your first and last name.'; return; }
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email)) { err.textContent = 'Please enter a valid email address.'; return; }
+        lead = v; send(v); result();
+      };
     }
     function result() {
       var good = 0, total = 0;
       Q.forEach(function (q, k) { if (!q.yn) return; total++; if (q.rev ? !ans[k] : ans[k]) good++; });
-      var r = good >= total ? { e: '\u2605', bg: '#e9f9ee', h: 'You\u2019re a fit', p: 'Everything you said is what BizColab is built around. Request a seat and we will take it from there.' }
+      var r = good >= total ? { e: '\u2605', bg: '#e9f9ee', h: (lead ? lead.first + ', you\u2019re a fit' : 'You\u2019re a fit'), p: 'Everything you said is what BizColab is built around. Request a seat and we will take it from there.' }
         : good >= total - 1 ? { e: '\u2713', bg: '#e9f9ee', h: 'Looks like a strong fit', p: 'You hit nearly everything. Apply, or grab 15 minutes with us and we will talk it through.' }
         : { e: '\u2248', bg: '#eef3ff', h: 'Let\u2019s talk it through', p: 'There are a few things worth a conversation, and that is fine. A 15-minute call is the easiest way to see if the room makes sense for you.' };
       var sum = '<p style="margin-top:14px;font-size:13px">' + '<b style="color:#1d1d1f">Your time:</b> ' + ans[5] + '<br><b style="color:#1d1d1f">Most wanted:</b> ' + ans[6] + '</p>';
