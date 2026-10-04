@@ -139,12 +139,15 @@
 
   /* ---------- 6. Fit-check quiz ---------- */
   var Q = [
-    { t: 'Is your business already bringing in revenue?', h: 'BizColab is for operators with something real to work on, not ideas on paper.', must: 1 },
-    { t: 'Can you give four consecutive Monday evenings, 5:30–7:00 PM Pacific?', h: 'The room only works when everyone is there every week.', must: 1 },
-    { t: 'Are you open to blunt, specific feedback from five peers?', h: 'Kind, but not polite. They will question your assumptions.' },
-    { t: 'Will you commit to one concrete move each week and report back on it?', h: 'Accountability is the whole point.' },
-    { t: 'Are you mainly looking for a course or a step-by-step curriculum?', h: 'There is no curriculum. The agenda is your business.', rev: 1 }
+    { t: 'Are you a founder or an entrepreneur?', h: 'Running your own business, or about to.', yn: 1 },
+    { t: 'Is your business bringing in revenue?', h: 'Any amount counts. We just want something real on the table.', yn: 1 },
+    { t: 'Will you give feedback and add value to the group, and take feedback in return?', h: 'It is a two-way room. You get as much as you give.', yn: 1 },
+    { t: 'Will you commit to one concrete move each week and report back on it?', h: 'Accountability is the whole point.', yn: 1 },
+    { t: 'Are you mainly looking for a course or a step-by-step curriculum?', h: 'There is no curriculum. The agenda is your business.', yn: 1, rev: 1 },
+    { t: 'Which session time works best for you?', h: 'Two rooms, fifteen minutes apart, 90 minutes each.', opts: ['Monday \u00b7 5:30\u20137:00 PM Pacific', 'Wednesday \u00b7 5:30\u20137:00 PM Pacific', 'Monday \u00b7 6:45\u20138:15 PM Eastern', 'Wednesday \u00b7 6:45\u20138:15 PM Eastern', 'Not sure yet'] },
+    { t: 'What do you most want out of the month?', h: 'Pick the one that matters most right now.', opts: ['Clarity on my #1 problem', 'Honest feedback', 'Accountability', 'Introductions and a network', 'Skills I am missing'] }
   ];
+
   function quiz() {
     var tr = $$('[data-fitcheck]');
     var host = $('#apply .text-center.max-w-2xl'), anchorBtn = null;
@@ -161,6 +164,7 @@
       '.fx-q-n{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#6e6e73}.fx-q h3{font-size:clamp(21px,3.4vw,26px);line-height:1.2;font-weight:600;letter-spacing:-.02em;margin:10px 0 8px}.fx-q p{font-size:14.5px;line-height:1.55;color:#6e6e73;margin:0}' +
       '.fx-q-a{display:flex;gap:10px;margin-top:24px}.fx-q-a button{flex:1;min-height:52px;border-radius:999px;border:1.5px solid #d2d2d7;background:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}' +
       '.fx-q-a button:hover,.fx-q-a button:focus-visible{background:#0a0a0a;border-color:#0a0a0a;color:#fff;outline:none}' +
+      '.fx-q-o{display:flex;flex-direction:column;gap:8px;margin-top:20px}.fx-q-o button{min-height:48px;padding:0 18px;border-radius:14px;border:1.5px solid #d2d2d7;background:#fff;font:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}.fx-q-o button:hover,.fx-q-o button:focus-visible{background:#0a0a0a;border-color:#0a0a0a;color:#fff;outline:none}' +
       '.fx-q-res{text-align:center;padding:10px 4px 0}.fx-q-badge{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;margin:4px auto 14px;font-size:28px}' +
       '.fx-q-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:999px;background:#0a0a0a;color:#fff;text-decoration:none;font-weight:600;margin-top:22px;border:0;font:inherit;font-weight:600;cursor:pointer}' +
       '.fx-q-sec{display:block;margin:12px auto 0;background:none;border:0;color:#6e6e73;font:inherit;font-size:13px;cursor:pointer;text-decoration:underline}');
@@ -169,20 +173,26 @@
     function close() { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
     function frame(inner) { dlg.innerHTML = '<div class="fx-q-card"><button class="fx-q-x" type="button" aria-label="Close">&times;</button>' + inner + '</div>'; $('.fx-q-x', dlg).onclick = close; }
     function ask() {
-      var q = Q[i]; frame('<div class="fx-q-bar"><i style="width:' + (i / Q.length * 100) + '%"></i></div><div class="fx-q-n">Question ' + (i + 1) + ' of ' + Q.length + '</div><h3>' + q.t + '</h3><p>' + q.h + '</p><div class="fx-q-a"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div>');
-      $$('.fx-q-a button', dlg).forEach(function (b, k) { b.onclick = function () { ans[i] = b.getAttribute('data-v') === '1'; i++; if (i < Q.length) ask(); else result(); }; if (k === 0) b.focus(); });
+      var q = Q[i], body;
+      if (q.opts) body = '<div class="fx-q-o">' + q.opts.map(function (o, k) { return '<button type="button" data-k="' + k + '">' + o + '</button>'; }).join('') + '</div>';
+      else body = '<div class="fx-q-a"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div>';
+      frame('<div class="fx-q-bar"><i style="width:' + (i / Q.length * 100) + '%"></i></div><div class="fx-q-n">Question ' + (i + 1) + ' of ' + Q.length + '</div><h3>' + q.t + '</h3><p>' + q.h + '</p>' + body);
+      $$('.fx-q-a button,.fx-q-o button', dlg).forEach(function (b, k) {
+        b.onclick = function () { ans[i] = q.opts ? q.opts[+b.getAttribute('data-k')] : b.getAttribute('data-v') === '1'; i++; if (i < Q.length) ask(); else result(); };
+        if (k === 0) b.focus();
+      });
     }
     function result() {
-      var blocker = null, soft = 0;
-      Q.forEach(function (q, k) { var yes = ans[k]; if (q.must && !yes) blocker = q; else if (q.rev) { if (yes) soft++; } else if (!q.must && !yes) soft++; });
-      var r;
-      if (blocker) r = { e: '⏳', bg: '#fff4e0', h: 'Not yet', p: blocker === Q[0] ? 'BizColab works best once there is a real business to work on. Come back when you have revenue and we would be glad to see you.' : 'The room only works when all six are there every Monday. If your schedule changes, apply for a later cohort.', cta: null };
-      else if (soft >= 2) r = { e: '≈', bg: '#eef3ff', h: 'Probably not the right fit', p: 'BizColab is a working room, not a course. If you want feedback and accountability on your own business, you are welcome to apply anyway.', cta: 'Apply anyway' };
-      else if (soft === 1) r = { e: '✓', bg: '#e9f9ee', h: 'Close, and worth a conversation', p: 'You hit the essentials. Apply and we will talk through the one area that gave you pause.', cta: 'Request a seat' };
-      else r = { e: '★', bg: '#e9f9ee', h: 'You’re a fit', p: 'Revenue, the schedule, the openness and the follow-through: that is exactly who BizColab is built for.', cta: 'Request a seat' };
-      frame('<div class="fx-q-res"><div class="fx-q-badge" style="background:' + r.bg + '">' + r.e + '</div><h3>' + r.h + '</h3><p>' + r.p + '</p>' + (r.cta ? '<a class="fx-q-cta" href="/join/">' + r.cta + ' &rarr;</a>' : '<button class="fx-q-cta" type="button" data-x>Close</button>') + '<button class="fx-q-sec" type="button" data-again>Retake</button></div>');
-      var x = $('[data-x]', dlg); if (x) x.onclick = close; $('[data-again]', dlg).onclick = function () { i = 0; ans = []; ask(); };
-      if (!blocker && soft === 0) setTimeout(function () { confetti({ x: innerWidth / 2, y: innerHeight * .4, count: 120 }); }, 200);
+      var good = 0, total = 0;
+      Q.forEach(function (q, k) { if (!q.yn) return; total++; if (q.rev ? !ans[k] : ans[k]) good++; });
+      var r = good >= total ? { e: '\u2605', bg: '#e9f9ee', h: 'You\u2019re a fit', p: 'Everything you said is what BizColab is built around. Request a seat and we will take it from there.' }
+        : good >= total - 1 ? { e: '\u2713', bg: '#e9f9ee', h: 'Looks like a strong fit', p: 'You hit nearly everything. Apply, or grab 15 minutes with us and we will talk it through.' }
+        : { e: '\u2248', bg: '#eef3ff', h: 'Let\u2019s talk it through', p: 'There are a few things worth a conversation, and that is fine. A 15-minute call is the easiest way to see if the room makes sense for you.' };
+      var sum = '<p style="margin-top:14px;font-size:13px">' + '<b style="color:#1d1d1f">Your time:</b> ' + ans[5] + '<br><b style="color:#1d1d1f">Most wanted:</b> ' + ans[6] + '</p>';
+      frame('<div class="fx-q-res"><div class="fx-q-badge" style="background:' + r.bg + '">' + r.e + '</div><h3>' + r.h + '</h3><p>' + r.p + '</p>' + sum +
+        '<a class="fx-q-cta" href="/join/">Request a seat &rarr;</a><a class="fx-q-sec" href="https://calendar.app.google/THqZBmvfREeCDE8k8" target="_blank" rel="noopener">Or book a 15-minute call</a><button class="fx-q-sec" type="button" data-again>Retake</button></div>');
+      $('[data-again]', dlg).onclick = function () { i = 0; ans = []; ask(); };
+      if (good >= total) setTimeout(function () { confetti({ x: innerWidth / 2, y: innerHeight * .4, count: 120 }); }, 200);
     }
     function open(e) { if (e) e.preventDefault(); i = 0; ans = []; ask(); if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); }
     tr.forEach(function (b) { b.addEventListener('click', open); });
