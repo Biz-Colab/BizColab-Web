@@ -1,9 +1,9 @@
 /*! BizColab section nav — sticky "you are here" bar with scroll-spy.
    Usage: add data-nav="Label" (and an id) to each <section>; load this file with <script src="/assets/secnav.js" defer>.
-   Optional on <body>: data-secnav-after="hero" (reveal after that element leaves view; default 240px). Skips pages that already ship .anchors. */
+   Optional on <body>: data-secnav-after="hero" (reveal after that element leaves view; default 240px). Skips pages that already ship .anchors or .subnav. */
 (function () {
   'use strict';
-  if (window.__bcSecNav || document.querySelector('.anchors')) return;
+  if (window.__bcSecNav || document.querySelector('.anchors,.subnav')) return;
   var secs = [].slice.call(document.querySelectorAll('[data-nav]'));
   if (secs.length < 3) return;
   window.__bcSecNav = true;
@@ -65,6 +65,18 @@
     nav.classList.toggle('dk', l < 0.35);
   }
 
+  // align the first tab with the page's content column (mode of left-aligned section headings)
+  function align() {
+    if (innerWidth < 760) { inn.style.maxWidth = ''; inn.style.margin = ''; inn.style.paddingLeft = ''; return; }
+    var counts = {}, best = 0, bl = null;
+    secs.forEach(function (s) {
+      var h = s.querySelector('h2,h1'); if (!h) return;
+      var cs = getComputedStyle(h); if (cs.textAlign === 'center') return;
+      var l = Math.round(h.getBoundingClientRect().left); if (l < 24 || l > innerWidth / 2) return;
+      counts[l] = (counts[l] || 0) + 1; if (counts[l] > best) { best = counts[l]; bl = l; }
+    });
+    if (bl !== null) { inn.style.maxWidth = 'none'; inn.style.margin = '0'; inn.style.paddingLeft = Math.max(12, bl - 11) + 'px'; }
+  }
   var cur = -1, afterEl = null, ticking = false, thresholdY = 240;
   var aft = document.body.getAttribute('data-secnav-after');
   if (aft) afterEl = document.querySelector(aft.charAt(0) === '.' || aft.charAt(0) === '#' ? aft : '.' + aft + ',#' + aft);
@@ -96,8 +108,8 @@
   }
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
   window.addEventListener('scroll', req, { passive: true });
-  window.addEventListener('resize', function () { req(); place(); });
-  window.addEventListener('load', function () { req(); place(); });
+  window.addEventListener('resize', function () { align(); req(); place(); });
+  window.addEventListener('load', function () { align(); req(); place(); });
 
   inn.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a') : null; if (!a) return;
@@ -112,5 +124,5 @@
       var t = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (t && secs.indexOf(t) > -1) setTimeout(function () { window.scrollTo(0, t.getBoundingClientRect().top + window.scrollY - (topOffset() + 44)); }, 60);
     });
   }
-  update();
+  align(); update();
 })();
