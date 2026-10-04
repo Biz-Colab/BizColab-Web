@@ -208,7 +208,7 @@
  .bcx-fcard img{margin-bottom:0;width:72px;height:72px}
 }
 /* founder note */
-.bcx-fnote{max-width:1180px;margin:0 auto;padding:clamp(42px,5vw,74px) 24px}
+.bcx-fnote{max-width:1152px;margin:0 auto;padding:clamp(42px,5vw,74px) 24px}
 .bcx-fwrap{display:grid;grid-template-columns:284px 1fr;gap:clamp(30px,5vw,74px);align-items:start;margin-top:34px}
 .bcx-fcard{border:1px solid #e4e8ef;border-radius:18px;padding:24px;background:#fff}
 .bcx-fcard img{width:88px;height:88px;border-radius:17px;object-fit:cover;object-position:center 18%;display:block;margin-bottom:17px}
@@ -223,9 +223,9 @@
 .bcx-mob{display:none}
 .bcx-fsec .bcx-rv{opacity:1;transform:none}
 .bcx-fsec.bcx-rv-on .bcx-rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
-.bcx-fsec.bcx-rv-on.bcx-in .bcx-rv{opacity:1;transform:none}
-.bcx-fsec.bcx-rv-on.bcx-in .bcx-rv:nth-child(2){transition-delay:.08s}
-.bcx-fsec.bcx-rv-on.bcx-in .bcx-rv:nth-child(3){transition-delay:.16s}
+.bcx-fsec.bcx-rv-on.bcx-fin .bcx-rv{opacity:1;transform:none}
+.bcx-fsec.bcx-rv-on.bcx-fin .bcx-rv:nth-child(2){transition-delay:.08s}
+.bcx-fsec.bcx-rv-on.bcx-fin .bcx-rv:nth-child(3){transition-delay:.16s}
 .bcx-fli,.bcx-acc-b,.bcx-more{-webkit-tap-highlight-color:transparent}
 @media(max-width:760px){
  section.bcx-fsec.bg-white{background:#f6f7fa}
@@ -262,7 +262,7 @@
 }
 </style>
 </head>
-<body>
+<body data-secnav-after=".bcx-hero">
 
 <!-- NAV -->
 <!-- ANNOUNCEMENT BAR -->
@@ -311,7 +311,7 @@
 </div></div>
 
 <!-- TESTIMONIALS - Google reviews, Cohort 001 -->
-<section class="bcx-rev bg-white" aria-labelledby="bcx-rev-h">
+<section class="bcx-rev bg-white" aria-labelledby="bcx-rev-h" data-nav="Reviews">
 <style>
   .bcx-rev{padding:80px 0 72px}
   .bcx-rev-in{max-width:1080px;margin:0 auto;padding:0 24px}
@@ -424,7 +424,7 @@
 </section>
 
 <!-- A NOTE FROM MICHAEL -->
-<section class="bg-white bcx-fsec" id="founder-note">
+<section class="bg-white bcx-fsec" id="founder-note" data-nav="Founder">
   <div class="bcx-fnote">
     <div class="text-[12px] uppercase tracking-[0.22em]" style="color:#6e6e73">A note from the founder</div>
     <div class="bcx-fwrap">
@@ -475,13 +475,13 @@
   });}
   if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
   sec.classList.add('bcx-rv-on');
-  var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){sec.classList.add('bcx-in');io.disconnect();}},{threshold:.15});
+  var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){sec.classList.add('bcx-fin');io.disconnect();}},{threshold:.15});
   io.observe(sec);
 })();
 </script>
 
 <!-- PROBLEM -->
-<section class="relative bg-[#0a0a0a] text-white py-20 md:py-24 grain overflow-hidden">
+<section class="relative bg-[#0a0a0a] text-white py-20 md:py-24 grain overflow-hidden" data-nav="The honest part">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full"
        style="background:radial-gradient(closest-side,rgba(255,111,94,.35),transparent)"></div>
   <div class="max-w-5xl mx-auto px-6 relative">
@@ -512,7 +512,7 @@
 </section>
 
 <!-- HOW IT RUNS -->
-<section id="how" class="py-20 md:py-24 bg-white">
+<section id="how" class="py-20 md:py-24 bg-white" data-nav="How it runs">
   <div class="max-w-6xl mx-auto px-6">
     <div class="max-w-3xl">
       <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">How it runs</div>
@@ -555,7 +555,7 @@
 </section>
 
 <!-- SIX PILLARS -->
-<section id="pillars" class="relative py-20 md:py-24 overflow-hidden" style="background:linear-gradient(180deg,#f0f7ff 0%,#fff 100%)">
+<section id="pillars" class="relative py-20 md:py-24 overflow-hidden" style="background:linear-gradient(180deg,#f0f7ff 0%,#fff 100%)" data-nav="Six pillars">
   <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full opacity-40 float-slow" style="background:radial-gradient(closest-side,#64d2ff,transparent)"></div>
   <div class="max-w-6xl mx-auto px-6 relative">
     <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#0071e3">What you actually get</div>
@@ -636,7 +636,7 @@
 </section>
 
 <!-- WHY GROUPS / ACCOUNTABILITY -->
-<section id="why-groups" class="py-20 md:py-24 bg-white">
+<section id="why-groups" class="py-20 md:py-24 bg-white" data-nav="Why a group">
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Why a room beats going solo</div>
     <h2 class="font-display text-4xl md:text-6xl leading-[1.05] max-w-3xl">
@@ -689,7 +689,7 @@
 </section>
 
 <!-- BENEFITS BEYOND THE MONTH -->
-<section class="py-20 md:py-24 bg-white">
+<section class="py-20 md:py-24 bg-white" data-nav="After">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#30d158">After the cohort</div>
     <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">
@@ -725,7 +725,7 @@
 </section>
 
 <!-- FOUNDER — TODO: Replace M.A. gradient block with real photo of Michael -->
-<section class="relative overflow-hidden py-20 md:py-24" style="background:linear-gradient(135deg,#fff4ec 0%,#ffe8e0 50%,#fde2f1 100%)">
+<section class="relative overflow-hidden py-20 md:py-24" style="background:linear-gradient(135deg,#fff4ec 0%,#ffe8e0 50%,#fde2f1 100%)" data-nav="Facilitator">
   <div class="absolute -top-10 -left-10 w-[420px] h-[420px] rounded-full float-slow" style="background:radial-gradient(closest-side,#ffb340,transparent);opacity:.4"></div>
   <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-5 gap-10 items-center relative">
     <div class="md:col-span-2">
@@ -761,7 +761,7 @@
 </section>
 
 <!-- WHAT WE ASK -->
-<section class="py-20 md:py-24 bg-white">
+<section class="py-20 md:py-24 bg-white" data-nav="The ask">
   <div class="max-w-4xl mx-auto px-6">
     <div class="rounded-[32px] p-10 md:p-14 relative overflow-hidden" style="background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1f 100%)">
       <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full" style="background:radial-gradient(closest-side,#30d158,transparent);opacity:.5"></div>
@@ -807,7 +807,7 @@
 </section>
 
 <!-- APPLY — Real inline form -->
-<section id="apply" class="py-20 md:py-24" style="background:linear-gradient(180deg,#fff 0%,#f5f5f7 100%)">
+<section id="apply" class="py-20 md:py-24" style="background:linear-gradient(180deg,#fff 0%,#f5f5f7 100%)" data-nav="Apply">
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto">
       <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Now enrolling</div>
@@ -851,7 +851,7 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="py-20 md:py-24 bg-white">
+<section id="faq" class="py-20 md:py-24 bg-white" data-nav="FAQ">
   <div class="max-w-3xl mx-auto px-6">
     <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Questions</div>
     <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">The honest answers.</h2>
@@ -940,7 +940,7 @@
 
 <!-- FINAL CTA -->
 <section class="relative py-24 md:py-32 overflow-hidden text-white"
-         style="background:linear-gradient(135deg,#0071e3 0%,#5e5ce6 50%,#9a4ef6 100%)">
+         style="background:linear-gradient(135deg,#0071e3 0%,#5e5ce6 50%,#9a4ef6 100%)" data-nav="Join">
   <div class="absolute inset-0 grain"></div>
   <div class="absolute -bottom-20 -right-20 w-[500px] h-[500px] rounded-full float-slow" style="background:radial-gradient(closest-side,#ffb340,transparent);opacity:.45"></div>
   <div class="absolute -top-20 -left-20 w-[400px] h-[400px] rounded-full float-fast" style="background:radial-gradient(closest-side,#ff6f5e,transparent);opacity:.45"></div>
@@ -1286,5 +1286,6 @@
 </script>
 <!-- /BizColab Lead Capture Popup -->
 
+<script src="/assets/secnav.js" defer></script>
 </body>
 </html>
