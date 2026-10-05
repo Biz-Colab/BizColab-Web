@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BizColab — Cohort 02 Kickoff (v3)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#ffffff; --paper:#ffffff; --strong:#0a0a0a; --muted:rgba(10,10,10,.64); --line:rgba(10,10,10,.12);
+  --blue:#0071e3; --indigo:#5e5ce6; --violet:#8a3ff0; --coral:#e8503e; --amber:#d98200; --mint:#1c9c47;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; background:var(--ink); overflow:hidden; }
+body { font-family:'Geist',system-ui,-apple-system,sans-serif; color:var(--strong); -webkit-font-smoothing:antialiased; letter-spacing:-.011em; }
+em { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; }
+
+.deck { position:relative; width:100vw; height:100vh; }
+.slide { position:absolute; inset:0; display:none; padding:7vh 8vw; overflow:hidden; }
+.slide.active { display:flex; flex-direction:column; }
+.slide-glow { position:absolute; top:-30vh; left:50%; transform:translateX(-50%); width:70vw; height:70vw; border-radius:50%; background:radial-gradient(closest-side, #cfe0fa 0%, rgba(255,255,255,0) 70%); opacity:.8; pointer-events:none; }
+
+.eyebrow { font-size:clamp(11px,1vw,13px); font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:18px; position:relative; z-index:1; }
+.eyebrow .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:currentColor; margin-right:8px; }
+h1.big { font-size:clamp(40px,6.4vw,84px); font-weight:700; letter-spacing:-.045em; line-height:1.03; position:relative; z-index:1; }
+h1.big em { color:var(--amber); }
+.lead { margin-top:22px; font-size:clamp(17px,1.73vw,23px); line-height:1.6; color:var(--muted); max-width:75vw; position:relative; z-index:1; }
+
+.body-wrap { flex:1; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:1; }
+
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,26px); margin-top:clamp(20px,4vh,44px); }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,2vw,26px); margin-top:clamp(20px,4vh,44px); }
+.gcard { background:rgba(10,10,10,.035); border:1px solid var(--line); border-radius:22px; padding:clamp(20px,2.2vw,32px); }
+.gcard .tag { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+.gcard h3 { font-size:clamp(17px,1.7vw,23px); font-weight:700; letter-spacing:-.02em; margin-bottom:14px; color:var(--strong); }
+.gcard ul { list-style:none; }
+.gcard li { font-size:clamp(15px,1.21vw,17.8px); line-height:1.6; color:var(--muted); padding-left:16px; position:relative; margin-bottom:11px; }
+.gcard li::before { content:''; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:currentColor; }
+
+.arc-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:clamp(24px,4vh,50px); position:relative; z-index:1; }
+.arc-row::before { content:''; grid-column:1/-1; }
+.arcbox { border:1px solid var(--line); border-radius:20px; padding:clamp(18px,2vw,28px); background:rgba(10,10,10,.03); }
+.arcbox .n { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
+.arcbox h4 { font-size:clamp(20px,2.2vw,30px); font-weight:700; letter-spacing:-.03em; margin-bottom:10px; color:var(--strong); }
+.arcbox p { font-size:clamp(14px,1.15vw,16.1px); line-height:1.55; color:var(--muted); }
+
+.timeline { margin-top:clamp(24px,5vh,56px); position:relative; z-index:1; }
+.trow { display:grid; grid-template-columns:120px 1fr; gap:24px; padding:clamp(12px,1.6vh,20px) 0; border-top:1px solid var(--line); align-items:baseline; }
+.trow:first-child { border-top:0; }
+.trow .time { font-size:clamp(15px,1.38vw,18.4px); font-weight:600; color:var(--strong); }
+.trow .what { font-size:clamp(15px,1.38vw,18.4px); color:var(--muted); }
+.trow .what b { color:var(--strong); font-weight:600; }
+
+.stat-row { display:flex; gap:clamp(24px,4vw,60px); margin-top:clamp(20px,4vh,40px); position:relative; z-index:1; flex-wrap:wrap; }
+.stat b { display:block; font-size:clamp(32px,4.5vw,58px); font-weight:700; letter-spacing:-.03em; }
+.stat span { font-size:clamp(11px,.9vw,13px); text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+
+.foot { position:absolute; bottom:5vh; left:8vw; right:8vw; display:flex; justify-content:space-between; font-size:clamp(11px,.9vw,13px); color:rgba(10,10,10,.42); z-index:1; }
+
+.progress { position:fixed; bottom:0; left:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--indigo),var(--coral),var(--amber),var(--mint)); transition:width .35s ease; z-index:10; }
+.navhint { position:fixed; top:24px; right:32px; font-size:12px; color:rgba(10,10,10,.42); z-index:10; }
+.dots { position:fixed; bottom:20px; right:32px; display:flex; gap:7px; z-index:10; }
+.dots span { width:6px; height:6px; border-radius:50%; background:rgba(10,10,10,.18); transition:background .2s; }
+.dots span.on { background:#0a0a0a; }
+
+.sched { margin-top:clamp(20px,3.5vh,40px); position:relative; z-index:1; }
+.srow { display:grid; grid-template-columns:150px 130px 1fr; gap:26px; padding:clamp(11px,1.5vh,18px) 0; border-top:1px solid var(--line); align-items:baseline; }
+.srow:first-child { border-top:0; }
+.srow .sdate { font-size:clamp(15px,1.42vw,19px); font-weight:700; color:var(--strong); letter-spacing:-.02em; }
+.srow .sname { font-size:clamp(15px,1.42vw,19px); font-weight:700; letter-spacing:-.02em; }
+.srow .swhat { font-size:clamp(14px,1.27vw,17px); line-height:1.55; color:var(--muted); }
+.srow.skip { opacity:.45; }
+.srow.skip .sdate, .srow.skip .sname { font-weight:500; color:var(--muted); }
+
+/* The Room: 8 cards -> 4 x 2, tighter so it fits one screen */
+.roomgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.4vw,18px); margin-top:clamp(16px,2.6vh,30px); }
+.roomgrid .gcard { padding:clamp(15px,1.5vw,21px); border-radius:18px; }
+.roomgrid .gcard .tag { margin-bottom:9px; }
+.roomgrid .gcard h3 { font-size:clamp(15px,1.32vw,19px); margin-bottom:9px; }
+.roomgrid .gcard p { font-size:clamp(12.5px,1.02vw,14.5px) !important; line-height:1.5 !important; }
+
+/* About me: six ventures -> 3 x 2, compact */
+.sixgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(11px,1.3vw,17px); margin-top:clamp(13px,2.2vh,24px); }
+.sixgrid .gcard { padding:clamp(13px,1.4vw,19px); border-radius:18px; }
+.sixgrid .gcard .tag { margin-bottom:7px; font-size:10.5px; }
+.sixgrid .gcard h3 { font-size:clamp(14px,1.24vw,18px); margin-bottom:8px; }
+.sixgrid .gcard li { font-size:clamp(12.5px,1.02vw,14.6px); line-height:1.48; margin-bottom:5px; padding-left:14px; }
+.sixgrid .gcard li::before { top:7px; width:4px; height:4px; }
+@media (max-height: 880px) { .sixgrid { margin-top:clamp(10px,1.8vh,20px); } .sixgrid .gcard { padding:clamp(11px,1.2vw,16px); } }
+
+/* Shorter screens: tighten chrome, keep the larger body copy intact */
+@media (max-height: 880px) {
+  .slide { padding:5.5vh 7vw; }
+  h1.big { font-size:clamp(34px,5.3vw,62px); }
+  .lead { margin-top:16px; }
+  .grid3, .grid2 { margin-top:clamp(14px,2.6vh,28px); gap:clamp(12px,1.6vw,20px); }
+  .gcard { padding:clamp(15px,1.8vw,24px); }
+  .gcard li { margin-bottom:8px; }
+  .arc-row { margin-top:clamp(16px,2.8vh,32px); }
+  .arcbox { padding:clamp(14px,1.6vw,22px); }
+  .timeline { margin-top:clamp(14px,2.6vh,30px); }
+  .trow { padding:clamp(8px,1.1vh,14px) 0; }
+  .sched { margin-top:clamp(14px,2.4vh,26px); }
+  .srow { padding:clamp(8px,1.1vh,14px) 0; }
+  .roomgrid { margin-top:clamp(12px,2vh,22px); }
+  .foot { bottom:3.5vh; }
+}
+@media (max-height: 780px) {
+  .slide { padding:4.5vh 6.5vw; }
+  h1.big { font-size:clamp(30px,4.7vw,54px); }
+  .lead { margin-top:13px; font-size:clamp(15px,1.5vw,19px); }
+  .grid3, .grid2 { margin-top:clamp(11px,2vh,22px); }
+  .gcard { padding:clamp(13px,1.5vw,20px); }
+  .gcard h3 { margin-bottom:10px; }
+  .gcard li { margin-bottom:6px; }
+  .trow { padding:clamp(6px,.9vh,11px) 0; }
+  .srow { padding:clamp(6px,.9vh,11px) 0; }
+}
+/* --- Typography: no widows. Never leave 1-2 words alone on a final line. --- */
+p, li, h1, h2, h3, h4, .lead, .swhat, .sname { text-wrap: pretty; }
+
+/* subtext runs 3/4 of the page, no early wrapping */
+.lead { width:75vw; max-width:none; text-wrap:wrap; }
+.slide-glow { z-index:0; }
+.slide > *:not(.slide-glow):not(.foot) { position:relative; z-index:1; }
+
+/* ===== v3 ===== */
+:root { --u:min(1vw,1.65vh); }
+.slide.active { justify-content:center; }
+.eyebrow { font-size:clamp(12px,calc(1.0*var(--u)),16px); }
+h1.big { font-size:clamp(38px,calc(6.2*var(--u)),88px); }
+.lead { font-size:clamp(18px,calc(2.05*var(--u)),31px); line-height:1.5; color:rgba(10,10,10,.78); }
+.gcard .tag { font-size:clamp(12px,calc(1.05*var(--u)),16px); }
+.gcard h3 { font-size:clamp(20px,calc(2.0*var(--u)),30px); }
+.gcard li, .gcard p { font-size:clamp(16px,calc(1.6*var(--u)),26px) !important; line-height:1.5 !important; color:rgba(10,10,10,.75) !important; }
+.arcbox .n { font-size:clamp(12px,calc(1.05*var(--u)),16px); }
+.arcbox h4 { font-size:clamp(24px,calc(3.0*var(--u)),44px); }
+.arcbox p { font-size:clamp(16px,calc(1.5*var(--u)),24px); line-height:1.5; color:rgba(10,10,10,.75); }
+.trow { grid-template-columns:clamp(70px,calc(8*var(--u)),130px) 1fr; border-radius:10px; padding-left:10px; padding-right:10px; }
+.trow .time, .trow .what { font-size:clamp(16px,calc(1.55*var(--u)),25px); }
+.trow .what { color:rgba(10,10,10,.75); }
+.trow.now { background:rgba(0,113,227,.09); box-shadow:inset 4px 0 0 var(--blue); }
+.trow.now .time { color:var(--blue); }
+.stat span { font-size:clamp(12px,calc(1.05*var(--u)),16px); }
+.roomgrid .gcard p { font-size:clamp(13px,calc(1.2*var(--u)),19px) !important; line-height:1.45 !important; }
+.roomgrid .gcard h3 { font-size:clamp(16px,calc(1.55*var(--u)),23px); }
+.foot { font-size:clamp(12px,calc(1*var(--u)),15px); }
+.navhint, .dots { transition:opacity .5s; }
+body.idle .navhint, body.idle .dots { opacity:0; }
+.slide.slide > .bignum { position:absolute; right:6vw; top:50%; transform:translateY(-50%); font-size:calc(30*var(--u)); font-weight:800; letter-spacing:-.06em; line-height:1; color:rgba(0,113,227,.07); z-index:0; pointer-events:none; }
+.chips { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+.chip { border:1px solid var(--line); background:rgba(10,10,10,.035); border-radius:999px; padding:.55em 1.2em; font-size:clamp(14px,calc(1.35*var(--u)),21px); font-weight:600; color:var(--strong); }
+.track { display:grid; grid-template-columns:repeat(4,1fr); gap:2.4vw; margin-top:clamp(44px,8vh,80px); position:relative; }
+.track::before { content:''; position:absolute; left:0; right:0; top:13px; height:3px; border-radius:3px; background:linear-gradient(90deg,var(--blue),var(--indigo),var(--coral),var(--mint)); }
+.node { position:relative; padding-top:0; }
+.node .dot { width:28px; height:28px; border-radius:50%; background:#fff; border:4px solid currentColor; position:relative; z-index:1; }
+.node.now .dot { background:currentColor; box-shadow:0 0 0 9px rgba(0,113,227,.16); }
+.node .here { position:absolute; left:0; top:-30px; font-size:clamp(11px,calc(.95*var(--u)),14px); font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--blue); }
+.node .d { margin-top:18px; font-size:clamp(12px,calc(1.05*var(--u)),16px); font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+.node h4 { margin:8px 0 10px; font-size:clamp(28px,calc(3.6*var(--u)),52px); font-weight:700; letter-spacing:-.035em; color:var(--strong); }
+.node p { font-size:clamp(16px,calc(1.5*var(--u)),24px); line-height:1.5; color:rgba(10,10,10,.75); }
+.split .lead { width:auto; max-width:none; }
+.split { margin-top:26px; display:grid; grid-template-columns:1.05fr 1fr; gap:5vw; align-items:center; position:relative; z-index:1; }
+.quadwrap { display:grid; grid-template-columns:auto 1fr; grid-template-rows:1fr auto; gap:10px 14px; }
+.yax { writing-mode:vertical-rl; transform:rotate(180deg); text-align:center; font-size:clamp(12px,calc(1.1*var(--u)),17px); font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+.xax { grid-column:2; text-align:center; font-size:clamp(12px,calc(1.1*var(--u)),17px); font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+.quad { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:12px; min-height:clamp(220px,40vh,420px); }
+.q { border:1px solid var(--line); border-radius:18px; padding:clamp(12px,1.6vw,22px); display:flex; flex-direction:column; justify-content:center; background:rgba(10,10,10,.03); }
+.q b { font-size:clamp(18px,calc(2.1*var(--u)),32px); letter-spacing:-.025em; color:var(--strong); }
+.q span { font-size:clamp(13px,calc(1.25*var(--u)),19px); color:var(--muted); margin-top:4px; }
+.q.go { background:rgba(28,156,71,.12); border-color:rgba(28,156,71,.4); }
+@keyframes rise { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+.slide.active :is(.gcard,.arcbox,.trow,.node,.q,.chip,.stat) { animation:rise .6s cubic-bezier(.2,.7,.2,1) both; }
+.slide.active :is(.gcard,.arcbox,.trow,.node,.q,.chip,.stat):nth-child(2) { animation-delay:.07s; }
+.slide.active :is(.gcard,.arcbox,.trow,.node,.q,.chip,.stat):nth-child(3) { animation-delay:.14s; }
+.slide.active :is(.gcard,.arcbox,.trow,.node,.q,.chip,.stat):nth-child(4) { animation-delay:.21s; }
+.slide.active :is(.gcard,.arcbox,.trow,.node,.q,.chip,.stat):nth-child(5) { animation-delay:.28s; }
+.slide.active :is(.gcard,.arcbox,.trow,.node,.q,.chip,.stat):nth-child(6) { animation-delay:.35s; }
+.slide.active :is(.gcard,.arcbox,.trow,.node,.q,.chip,.stat):nth-child(n+7) { animation-delay:.42s; }
+@media (prefers-reduced-motion: reduce) { .slide.active * { animation:none !important; } }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+<section class="slide active"><div class="slide-glow"></div><div class="body-wrap" style="justify-content:center"><div class="eyebrow"><span class="dot"></span>While you join &middot; we start at 5:30</div><h1 class="big">What would make these four weeks <em>worth it?</em></h1><p class="lead">Drop one sentence in the chat.</p></div></section>
+<section class="slide"><div class="slide-glow"></div><div class="body-wrap" style="justify-content:center; align-items:flex-start; text-align:left;">
+<div class="eyebrow"><span class="dot"></span>Cohort 02 &middot; Session 1 &middot; Oct 5, 2026</div>
+<h1 class="big">BizColab <em>Cohort 02</em></h1>
+<p class="lead">Seven operators, four Mondays, one high-leverage move each.</p>
+<div class="stat-row"><div class="stat"><b>7</b><span>Operators</span></div><div class="stat"><b>4</b><span>Mondays</span></div><div class="stat"><b>1</b><span>Move each</span></div><div class="stat"><b>90</b><span>Min / session</span></div></div>
+</div><div class="foot"><span>Michael Abraham, Founder</span><span>Los Angeles &middot; 5:30&ndash;7:00 PM PT &middot; Google Meet</span></div></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>What this is</div><h1 class="big">The room <em>is the product.</em></h1><p class="lead">This isn&rsquo;t a course, and I&rsquo;m not the product. It&rsquo;s seven operators pushing each other&rsquo;s businesses forward, every Monday, with a real deliverable at the end.</p><div class="grid3"><div class="gcard" style="color:var(--blue)"><div class="tag">Not</div><h3>A course</h3><p>No modules, no homework you do alone. Nobody&rsquo;s teaching a framework at you.</p></div><div class="gcard" style="color:var(--coral)"><div class="tag">Not</div><h3>Networking</h3><p>No business cards, no small talk for its own sake, no &ldquo;let&rsquo;s grab coffee.&rdquo;</p></div><div class="gcard" style="color:var(--mint)"><div class="tag">Is</div><h3>Structured peer pressure</h3><p>One challenge each, a hard timer, and a room that won&rsquo;t let it slide.</p></div></div><p class="lead" style="margin-top:22px">Seven people, four weeks, one seat each. If everyone leaves with one thing genuinely moved, it worked.</p></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>Why I built this</div><h1 class="big">Peers, <em>not gurus.</em></h1><p class="lead">I&rsquo;m Michael Abraham. Twenty years running businesses, and every real unlock came from other operators in the room. So I built the room.</p><div class="grid3"><div class="gcard" style="color:var(--blue)"><div class="tag">01 &middot; Built things</div><h3>Architect, then C/C/G</h3><ul><li>Licensed architect</li><li>Ran C/C/G, a marketing and design firm, for nearly 15 years</li></ul></div><div class="gcard" style="color:var(--indigo)"><div class="tag">02 &middot; Own account</div><h3>Hilex and AMRE</h3><ul><li>Hilex: property bought and held with my own capital</li><li>AMRE: Realtor and founder</li></ul></div><div class="gcard" style="color:var(--amber)"><div class="tag">03 &middot; Community</div><h3>Haps Club and BizColab</h3><ul><li>Haps Club: LA events, weekly newsletter</li><li>BizColab: never go it alone</li></ul></div></div><p class="lead" style="margin-top:22px">Ask me about branding, marketing, design, positioning, partnerships, property. I&rsquo;ll have a challenge on the board too.</p></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>The four weeks</div><h1 class="big">Map. Match. Move. <em>Measure.</em></h1><div class="track"><div class="node now" style="color:var(--blue)"><div class="dot"></div><span class="here">You are here</span><div class="d">Mon, Oct 5</div><h4>Map</h4><p>Name your #1 challenge and the number it starts from.</p></div><div class="node" style="color:var(--indigo)"><div class="dot"></div><div class="d">Mon, Oct 12</div><h4>Match</h4><p>DMAIC &mdash; Define. One solution-free sentence the room can work.</p></div><div class="node" style="color:var(--coral)"><div class="dot"></div><div class="d">Mon, Oct 19</div><h4>Move</h4><p>Assumption test. The room pressure-tests what you believe is true.</p></div><div class="node" style="color:var(--mint)"><div class="dot"></div><div class="d">Mon, Oct 26</div><h4>Measure</h4><p>What shipped, what didn&rsquo;t, what the number did.</p></div></div><p class="lead" style="margin-top:28px">Every Monday, 5:30&ndash;7:00 PM PT, same Google Meet link. Dashboard: bizcolab.com/cohort-losangeles-002</p></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>House rules</div><h1 class="big">Six things that <em>make this work.</em></h1><div class="grid3"><div class="gcard" style="color:var(--blue)"><h3>Show up</h3><p>All four Mondays. Missing one costs the room more than it costs you.</p></div><div class="gcard" style="color:var(--indigo)"><h3>The room stays in the room</h3><p>Numbers, deals, struggles. Nothing leaves without permission.</p></div><div class="gcard" style="color:var(--violet)"><h3>Experience over advice</h3><p>&ldquo;Here&rsquo;s what happened when I tried it&rdquo; beats &ldquo;you should.&rdquo;</p></div><div class="gcard" style="color:var(--coral)"><h3>Make specific asks</h3><p>&ldquo;Help me grow&rdquo; gets nothing. &ldquo;Who&rsquo;s hired a fractional CFO?&rdquo; gets three names.</p></div><div class="gcard" style="color:var(--amber)"><h3>Give first</h3><p>Offer the intro, the template, the contact before you&rsquo;re asked.</p></div><div class="gcard" style="color:var(--mint)"><h3>Notes only</h3><p>A note-taker writes up decisions, asks and commitments. That&rsquo;s all that leaves the call.</p></div></div></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>The room</div><h1 class="big">Who&rsquo;s <em>in it.</em></h1><p class="lead">Seven operators. Full bios and links are on the dashboard.</p><div class="roomgrid"><div class="gcard" style="color:var(--amber)"><div class="tag">Host</div><h3>Michael Abraham</h3><p>Founder, AMRE Real Estate Group &middot; Haps Club.</p></div><div class="gcard" style="color:var(--blue)"><div class="tag">Seat 01</div><h3>Jason Taylor</h3><p>Owner, FirstLight Home Care of Marina del Rey. 20 years in product marketing.</p></div><div class="gcard" style="color:var(--mint)"><div class="tag">Seat 02</div><h3>Kristen Hetzel</h3><p>Founder, Team Hetzel &mdash; concierge mobile physical therapy, LA Westside.</p></div><div class="gcard" style="color:var(--coral)"><div class="tag">Seat 03</div><h3>Ania De Pourbaix</h3><p>Co-Founder, AMRE Real Estate Group.</p></div><div class="gcard" style="color:var(--amber)"><div class="tag">Seat 04</div><h3>Mark Fachler</h3><p>Founder, ZeroHired &mdash; AI digital workers for small teams. Ex-CEO, Veestro.</p></div><div class="gcard" style="color:var(--blue)"><div class="tag">Seat 05</div><h3>Clark Vautier</h3><p>Marketing &amp; growth advisor, Santa Monica, since 2005.</p></div><div class="gcard" style="color:var(--mint)"><div class="tag">Seat 06</div><h3>Chelsea Gottfurcht, Psy.D.</h3><p>Private-practice psychologist, LA/Santa Monica.</p></div><div class="gcard" style="color:var(--indigo)"><div class="tag">Seat 07</div><h3>Debbie Postil, Esq.</h3><p>Civil rights &amp; mass tort attorney, Slater Slater Schulman LLP.</p></div></div></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>Tonight</div><h1 class="big">How the next <em>90 minutes</em> go.</h1><div class="timeline"><div class="trow" data-start="1050"><div class="time">5:30</div><div class="what"><b>Overview</b> &mdash; how the four Mondays run, the five-step method, house rules. 6 min.</div></div><div class="trow" data-start="1056"><div class="time">5:36</div><div class="what"><b>Define your business</b> &mdash; 3 minutes each, hard timer. 21 min.</div></div><div class="trow" data-start="1077"><div class="time">5:57</div><div class="what"><b>1 &middot; Defining the focus</b> &mdash; one challenge each. The room asks &ldquo;why?&rdquo; twice. 15 min.</div></div><div class="trow" data-start="1092"><div class="time">6:12</div><div class="what"><b>2 &middot; Testing the assumption</b> &mdash; &ldquo;I believe ___. I&rsquo;d be wrong if ___.&rdquo; 15 min.</div></div><div class="trow" data-start="1107"><div class="time">6:27</div><div class="what"><b>Break</b> &mdash; back on at 6:30. 3 min.</div></div><div class="trow" data-start="1110"><div class="time">6:30</div><div class="what"><b>3 &middot; What you expect</b> &mdash; one number, today to Oct 26. 12 min.</div></div><div class="trow" data-start="1122"><div class="time">6:42</div><div class="what"><b>4 &middot; Accountability &amp; leverage</b> &mdash; Clark&rsquo;s high/low leverage exercise, then one move each and one person to help. 15 min.</div></div><div class="trow" data-start="1137"><div class="time">6:57</div><div class="what"><b>Close</b> &mdash; post your move in Slack by Wednesday. 3 min.</div></div></div><p class="lead" style="margin-top:16px">Everyone talks in every block.</p></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>Define your business &middot; 5:36 &middot; 21 min</div><h1 class="big">Three questions, <em>three minutes.</em></h1><div class="grid3"><div class="gcard" style="color:var(--blue)"><div class="tag">01 &middot; ~60 sec</div><h3>What you do</h3><ul><li>The business, who it&rsquo;s for, roughly how big</li><li>Skip the origin story</li></ul></div><div class="gcard" style="color:var(--indigo)"><div class="tag">02 &middot; ~90 sec</div><h3>Your one challenge</h3><ul><li>The thing keeping you stuck. Pick one</li><li>Say it as <b>X to Y by when</b>, with today&rsquo;s number</li></ul></div><div class="gcard" style="color:var(--coral)"><div class="tag">03 &middot; ~30 sec</div><h3>What would help most</h3><ul><li>The one kind of help you&rsquo;d take right now</li><li>The more specific, the better</li></ul></div></div><p class="lead" style="margin-top:22px">Hard timer. Hold your advice for the four blocks that follow.</p></section>
+<section class="slide"><div class="slide-glow"></div><div class="bignum">1</div><div class="eyebrow"><span class="dot"></span>Block 1 &middot; 5:57 &middot; 15 min</div><h1 class="big">Why is that <em>happening?</em></h1><p class="lead">Name your #1 challenge. The room asks &ldquo;why?&rdquo; twice before offering a fix.</p><div class="chips"><span class="chip">Questions first</span><span class="chip">No fixes yet</span><span class="chip">Everyone talks</span></div></section>
+<section class="slide"><div class="slide-glow"></div><div class="bignum">2</div><div class="eyebrow"><span class="dot"></span>Block 2 &middot; 6:12 &middot; 15 min</div><h1 class="big">I believe ___. <em>I&rsquo;d be wrong if ___.</em></h1><p class="lead">Then find the cheapest way to test it.</p><div class="chips"><span class="chip">One belief each</span><span class="chip">One cheap test</span></div></section>
+<section class="slide"><div class="slide-glow"></div><div class="bignum">3</div><div class="eyebrow"><span class="dot"></span>Block 3 &middot; 6:30 &middot; 12 min</div><h1 class="big">One number, <em>by Oct 26.</em></h1><p class="lead">What do you expect to move? Say the number you&rsquo;ll be measured against.</p><div class="chips"><span class="chip">Today&rsquo;s number</span><span class="chip">Oct 26 number</span></div></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>Block 4 &middot; 6:42 &middot; 15 min &middot; Clark leads</div><h1 class="big">High / low <em>leverage.</em></h1><div class="split"><div><p class="lead">Plot everything you do on two axes, impact and ease. Most of us spend time on what&rsquo;s easy or enjoyable, not on what moves the goal.</p><p class="lead" style="margin-top:16px">Then delegate it, eliminate it, or chunk it down. Each person names one high-leverage move for this week and one person in the room who can help.</p></div><div class="quadwrap"><div class="yax">Impact &rarr;</div><div class="quad"><div class="q"><b>Chunk it down</b><span>High impact, hard</span></div><div class="q go"><b>Do first</b><span>High impact, easy</span></div><div class="q"><b>Eliminate</b><span>Low impact, hard</span></div><div class="q"><b>Delegate</b><span>Low impact, easy</span></div></div><div class="xax">Ease &rarr;</div></div></div></section>
+<section class="slide"><div class="slide-glow"></div><div class="eyebrow"><span class="dot"></span>Close &middot; 6:57</div><h1 class="big">Mondays start it. <em>The week does it.</em></h1><div class="arc-row"><div class="arcbox" style="color:var(--blue)"><div class="n">Monday</div><h4>Commit</h4><p>Say the one thing you&rsquo;re moving this week.</p></div><div class="arcbox" style="color:var(--indigo)"><div class="n">Tue&ndash;Thu</div><h4>Move</h4><p>30 focused minutes a day on it.</p></div><div class="arcbox" style="color:var(--coral)"><div class="n">Friday</div><h4>Report</h4><p>Post what shipped and what blocked you.</p></div><div class="arcbox" style="color:var(--mint)"><div class="n">Next Monday</div><h4>Compound</h4><p>Bring the blocker back to the room.</p></div></div><p class="lead" style="margin-top:26px">Post your move in Slack by Wednesday. We open Oct 12 with what shipped.</p><div class="foot"><span>The room is the product.</span><span>See you Oct 12.</span></div></section>
+</div>
+
+<div class="navhint" id="navhint"></div>
+<div class="dots" id="dots"></div>
+<div class="progress" id="progress"></div>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let i = 0;
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_,idx)=>{ const d=document.createElement('span'); if(idx===0) d.classList.add('on'); dotsEl.appendChild(d); });
+  const dots = Array.from(dotsEl.children);
+
+  function render(){
+    slides.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+    dots.forEach((d,idx)=> d.classList.toggle('on', idx===i));
+    document.getElementById('navhint').textContent = (i+1)+' / '+total+'  ·  ← → or click';
+    document.getElementById('progress').style.width = ((i+1)/total*100)+'%';
+  }
+  function next(){ i = Math.min(i+1, total-1); render(); }
+  function prev(){ i = Math.max(i-1, 0); render(); }
+
+  document.addEventListener('keydown', e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); next(); }
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    if(e.key==='Home'){ i=0; render(); }
+    if(e.key==='End'){ i=total-1; render(); }
+  });
+  document.getElementById('deck').addEventListener('click', e=>{
+    const x = e.clientX / window.innerWidth;
+    if (x < 0.3) prev(); else next();
+  });
+  render();
+})();
+</script>
+
+<script>
+/* No-widows pass. Guarantees at least MIN words on the last line of every text
+   block by binding trailing words with non-breaking spaces. Slides are
+   display:none until active, so we measure on activation, load, font-ready and
+   resize. Original text is cached so re-runs never compound. */
+(function(){
+  var MIN = 1, MAX_BIND = 4;
+  var SEL = 'p,li,h1,h2,h3,h4,figcaption,.lead,.swhat,.sname,.gcard h3';
+  var SP = /[ \t\n\r\f]/;
+
+  function tailNode(el){
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false), n, last = null;
+    while ((n = w.nextNode())) { if (n.nodeValue.replace(/[\s\u00A0]/g,'') !== '') last = n; }
+    return last;
+  }
+  function wordSpans(v){
+    var out = [], re = /[^\s\u00A0]+/g, m;
+    while ((m = re.exec(v))) out.push([m.index, m.index + m[0].length]);
+    return out;
+  }
+  function lastLineWords(node){
+    var v = node.nodeValue, ws = wordSpans(v);
+    if (!ws.length) return 99;
+    var r = document.createRange(), tops = [], i, start = Math.max(0, ws.length - 8);
+    for (i = start; i < ws.length; i++){
+      r.setStart(node, ws[i][0]); r.setEnd(node, ws[i][1]);
+      var rect = r.getBoundingClientRect();
+      if (!rect.width && !rect.height) return 99; /* hidden - cannot measure */
+      tops.push(Math.round(rect.top));
+    }
+    var lastTop = tops[tops.length-1], c = 0;
+    for (i = tops.length-1; i >= 0; i--){ if (Math.abs(tops[i]-lastTop) <= 1) c++; else break; }
+    if (c === tops.length && ws.length <= 8) return 99; /* single line */
+    return c;
+  }
+  function bindOne(node){
+    var v = node.nodeValue, i = v.length;
+    while (i > 0 && SP.test(v[i-1])) i--;
+    while (i > 0 && !SP.test(v[i-1])) i--;
+    if (i === 0) return false;
+    var j = i;
+    while (j > 0 && SP.test(v[j-1])) j--;
+    if (j === 0) return false;
+    node.nodeValue = v.slice(0, j) + '\u00A0' + v.slice(i);
+    return true;
+  }
+  function fix(el){
+    var n = tailNode(el); if (!n) return;
+    if (n.__widowOrig == null) n.__widowOrig = n.nodeValue; else n.nodeValue = n.__widowOrig;
+    for (var k = 0; k < MAX_BIND; k++){
+      if (lastLineWords(n) >= MIN) break;
+      if (!bindOne(n)) break;
+    }
+  }
+  function run(){
+    var root = document.querySelector('.slide.active') || document.body;
+    var els = root.querySelectorAll(SEL);
+    for (var i = 0; i < els.length; i++) fix(els[i]);
+  }
+  var raf;
+  function schedule(){
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(function(){ raf = 0; run(); });
+  }
+  window.addEventListener('load', schedule);
+  window.addEventListener('resize', schedule);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+  var deck = document.getElementById('deck');
+  if (deck && window.MutationObserver) new MutationObserver(schedule)
+    .observe(deck, {attributes:true, attributeFilter:['class'], subtree:true});
+  schedule();
+  window.__fixWidows = run;
+})();
+</script>
+
+
+<script>
+(function(){
+  var idleT; function wake(){ document.body.classList.remove('idle'); clearTimeout(idleT); idleT=setTimeout(function(){document.body.classList.add('idle');},2500); }
+  ['mousemove','keydown','click','touchstart'].forEach(function(e){document.addEventListener(e,wake,{passive:true});}); wake();
+  function ptNow(){
+    var q=new URLSearchParams(location.search).get('now');
+    if(q){var m=q.split(':');return {ok:true,min:(+m[0])*60+(+m[1])};}
+    var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()).reduce(function(a,x){a[x.type]=x.value;return a;},{});
+    return {ok:(p.year+'-'+p.month+'-'+p.day==='2026-10-05'),min:(+p.hour%24)*60+(+p.minute)};
+  }
+  function mark(){
+    var rows=[].slice.call(document.querySelectorAll('.trow[data-start]')), n=ptNow(), cur=-1;
+    if(n.ok){ rows.forEach(function(r,i){ var s=+r.dataset.start, e=i<rows.length-1?+rows[i+1].dataset.start:1140; if(n.min>=s&&n.min<e) cur=i; }); }
+    rows.forEach(function(r,i){ r.classList.toggle('now',i===cur); });
+  }
+  mark(); setInterval(mark,15000);
+  new MutationObserver(mark).observe(document.getElementById('deck'),{attributes:true,attributeFilter:['class'],subtree:true});
+})();
+</script>
+</body>
+</html>
