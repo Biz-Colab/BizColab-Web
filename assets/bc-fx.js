@@ -186,7 +186,9 @@
     var lead = null;
     function send(l) {
       var fit = (function () { var g = 0, t = 0; Q.forEach(function (q, k) { if (!q.yn) return; t++; if (q.rev ? !ans[k] : ans[k]) g++; }); return g + '/' + t; })();
-      var data = { full_name: (l.first + ' ' + l.last).trim(), first_name: l.first, last_name: l.last, email: l.email, source: 'homepage-fit-check', quiz_fit: fit, quiz_time: ans[5], quiz_goal: ans[6] };
+      var yn = function (k) { return ans[k] ? 'Yes' : 'No'; };
+      var summary = 'Fit check ' + fit + ' \u00b7 Founder: ' + yn(0) + ' \u00b7 Revenue: ' + yn(1) + ' \u00b7 Gives & takes feedback: ' + yn(2) + ' \u00b7 Weekly commitment: ' + yn(3) + ' \u00b7 Wants a course: ' + yn(4) + ' \u00b7 Time: ' + ans[5] + ' \u00b7 Wants most: ' + ans[6];
+      var data = { full_name: (l.first + ' ' + l.last).trim(), first_name: l.first, last_name: l.last, email: l.email, business_description: summary, hear_about_us: 'Homepage fit check' };
       try { fetch('https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec', { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(function () { }); } catch (e) { }
       function go() { try { emailjs.init('yWt3TMJ6ysOrH3vH1'); emailjs.send('service_bpcodid', 'template_09f1pjl', data).catch(function () { }); emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function () { }); } catch (e) { } }
       if (window.emailjs) go(); else { var sc = document.createElement('script'); sc.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js'; sc.onload = go; document.head.appendChild(sc); }
