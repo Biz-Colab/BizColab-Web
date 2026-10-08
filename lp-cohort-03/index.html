@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BizColab — Your Mini Board of Directors</title>
+<meta name="theme-color" content="#0a57ff">
+<meta name="description" content="Join five business owners and one facilitator for four live weeks that turn your biggest challenge into a clear plan. BizColab Cohort 03 starts Nov 2.">
+<link rel="canonical" href="https://bizcolab.com/cohort-03/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="BizColab">
+<meta property="og:title" content="BizColab — Your Mini Board of Directors">
+<meta property="og:description" content="Four live weeks. Six seats. One clear plan. Cohort 03 starts Nov 2.">
+<meta property="og:url" content="https://bizcolab.com/cohort-03/"><meta property="og:image" content="https://bizcolab.com/og-home-v2.png">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--ink-2:#1d1d1f;--muted:#6e6e73;--line:#d2d2d7;--paper:#fff;--paper-2:#f5f5f7;
+  --blue:#0071e3;--indigo:#5e5ce6;--violet:#9a4ef6;--coral:#ff6f5e;--amber:#ffb340;--mint:#30d158}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:var(--ink-2);background:#fff;-webkit-font-smoothing:antialiased;letter-spacing:-.011em;line-height:1.55}
+p,li,h1,h2,h3,.lead{text-wrap:pretty}
+em.serif{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.06em;letter-spacing:0;font-weight:400}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+h2{font-size:clamp(30px,4.6vw,48px);line-height:1.06;letter-spacing:-.03em;color:var(--ink);font-weight:800;margin-bottom:14px}
+h3{font-size:20px;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px}
+.lead{font-size:19px;line-height:1.55;color:var(--muted);max-width:60ch}
+.btn{display:inline-block;background:var(--ink);color:#fff;font-weight:600;font-size:15px;padding:15px 28px;border-radius:999px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,113,227,.35)}
+.btn.blue{background:var(--blue)}
+.btn.white{background:#fff;color:var(--ink)}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(8px)}
+/* topbar */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:150;transition:background .25s,border-color .25s;border-bottom:1px solid transparent}
+.topbar.solid{background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(16px);border-bottom-color:var(--line)}
+.tb-in{max-width:1100px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:26px}
+.wordmark{font-weight:800;font-size:17px;color:#fff;letter-spacing:-.02em;transition:color .25s}
+.tb-in nav{display:flex;gap:22px;margin-left:auto;font-size:13.5px;font-weight:500}
+.tb-in nav a{color:rgba(255,255,255,.85);transition:color .25s}
+.tb-in .btn{padding:9px 18px;font-size:13px;background:#fff;color:var(--ink)}
+.topbar.solid .wordmark{color:var(--ink)}
+.topbar.solid nav a{color:var(--muted)}
+.topbar.solid .btn{background:var(--blue);color:#fff}
+/* HERO BANNER */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;background:#0b1220 url('https://bizcolab.com/assets/hero-room.jpg') center/cover no-repeat;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,24,.55) 0%,rgba(8,12,24,.35) 35%,rgba(8,12,24,.88) 100%),radial-gradient(900px 500px at 15% 90%,rgba(94,92,230,.45),transparent 60%)}
+.hero .wrap{position:relative;padding-top:140px;padding-bottom:64px;width:100%}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:600;color:#fff;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);margin-bottom:26px}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,111,94,.7)}100%{box-shadow:0 0 0 12px rgba(255,111,94,0)}}
+.hero h1{font-size:clamp(44px,8.6vw,104px);line-height:.98;letter-spacing:-.045em;font-weight:800;max-width:13ch}
+.hero h1 em.serif{color:var(--amber)}
+.hero .lead{color:rgba(255,255,255,.86);margin:26px 0 32px;font-size:clamp(17px,2vw,21px)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:48px}
+.stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(10px);border-radius:16px;padding:16px 22px;min-width:130px}
+.stat b{display:block;font-size:34px;letter-spacing:-.03em;line-height:1}
+.stat span{font-size:13px;opacity:.85;font-weight:500}
+/* marquee */
+.marquee{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0}
+.marquee div{display:inline-block;animation:slide 32s linear infinite;font-weight:700;font-size:15px;letter-spacing:.02em}
+.marquee span{margin:0 22px}.marquee span:nth-child(odd){color:var(--amber)}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:104px 0 8px}
+.band{background:var(--paper-2);padding:96px 0;margin-top:96px;border-block:1px solid var(--line)}
+.dark{background:linear-gradient(135deg,#0b1220,#1a1745 60%,#2a1a4d);color:#fff;padding:104px 0;margin-top:96px}
+.dark h2,.dark h3{color:#fff}.dark .lead{color:rgba(255,255,255,.75)}.dark .eyebrow{color:var(--amber)}
+/* statement */
+.statement{padding:120px 0 24px;text-align:center}
+.statement h2{font-size:clamp(34px,6.4vw,76px);line-height:1.02;letter-spacing:-.04em;max-width:17ch;margin:0 auto 22px}
+.statement .lead{margin:0 auto}
+/* outcomes */
+.outs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:44px}
+.out{border-radius:24px;padding:34px;color:#fff;min-height:290px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s}
+.out:hover{transform:translateY(-4px)}
+.out small{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-bottom:auto}
+.out h3{font-size:30px;line-height:1.05;letter-spacing:-.03em;color:#fff;margin-bottom:10px}
+.out p{opacity:.9;font-size:15px}
+.o1{background:linear-gradient(150deg,#0071e3,#5e5ce6)}
+.o2{background:linear-gradient(150deg,#9a4ef6,#ff6f5e)}
+.o3{background:linear-gradient(150deg,#ff6f5e,#ffb340)}
+.o4{background:linear-gradient(150deg,#1f9d4a,#30d158)}
+.o5{background:linear-gradient(150deg,#5e5ce6,#0071e3)}
+.o6{background:linear-gradient(150deg,#1d1d1f,#5e5ce6)}
+.out{min-height:240px}
+.cta-strip{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
+.btn.outline{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.infoform{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px;margin-top:28px}
+.infoform input,.infoform textarea{font:inherit;font-size:15px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.infoform textarea{grid-column:1/-1;min-height:96px;resize:vertical}
+.infoform .btn{grid-column:1/-1;border:0;cursor:pointer;justify-self:start}
+.card{border:1px solid var(--line);border-radius:20px;padding:26px;background:#fff}
+.card p{color:var(--muted);font-size:15px}
+.card h3{font-size:20px}
+@media(max-width:800px){.infoform{grid-template-columns:1fr}}
+/* cohort experience */
+.exp{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:44px}
+.xcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:26px}
+.xcard .wk{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:4px 9px;margin-bottom:16px;background:var(--amber);color:#1a1405}
+.xcard p{font-size:14.5px;color:rgba(255,255,255,.75)}
+.when{margin-top:30px;font-weight:600;color:var(--amber)}
+/* support */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.list{list-style:none;margin-top:8px}
+.list li{display:flex;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.list li:last-child{border-bottom:1px solid var(--line)}
+.list i{flex:0 0 38px;height:38px;border-radius:12px;display:grid;place-items:center;font-style:normal;font-weight:800;color:#fff;background:var(--blue)}
+.list li:nth-child(2) i{background:var(--violet)}.list li:nth-child(3) i{background:var(--coral)}.list li:nth-child(4) i{background:var(--mint)}
+.list b{display:block;color:var(--ink);font-size:17px}
+.list span{color:var(--muted);font-size:15px}
+/* testimonials */
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:40px}
+blockquote{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;font-size:18px;line-height:1.45;color:var(--ink);font-weight:500}
+blockquote::before{content:"“";display:block;font:64px/0.6 'Instrument Serif',serif;color:var(--blue);margin-bottom:8px}
+blockquote cite{display:block;margin-top:18px;font-size:13.5px;font-weight:700;color:var(--blue);font-style:normal}
+/* seats */
+.seat{max-width:540px;margin:36px auto 0;background:#fff;color:var(--ink-2);border-radius:26px;padding:38px;text-align:center}
+.dots{display:flex;gap:9px;justify-content:center;margin-bottom:8px}
+.dots i{width:18px;height:18px;border-radius:50%;border:2px solid var(--blue)}
+.dots i.f{background:var(--blue)}
+.seat ul{list-style:none;text-align:left;margin:22px 0 28px}
+.seat li{padding:10px 0 10px 28px;position:relative;border-bottom:1px solid var(--line);font-size:14.5px}
+.seat li::before{content:"✓";position:absolute;left:0;color:var(--mint);font-weight:800}
+/* faq */
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-weight:600;font-size:18px;color:var(--ink);list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--blue);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:70ch}
+/* final CTA */
+.final{position:relative;text-align:center;padding:120px 0;color:#fff;background:#0b1220 url('https://bizcolab.com/assets/hero-room.jpg') center/cover;margin-top:96px}
+.final::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,18,32,.88),rgba(42,26,77,.82))}
+.final .wrap{position:relative}
+.final h2{color:#fff;font-size:clamp(36px,6vw,68px);max-width:15ch;margin:0 auto 18px}
+.final .lead{color:rgba(255,255,255,.8);margin:0 auto 30px}
+footer{padding:32px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+/* mobile sticky CTA */
+.sticky{display:none}
+@media(max-width:800px){.tb-in nav{display:none}.tb-in .btn{margin-left:auto}.split{grid-template-columns:1fr;gap:28px}section{padding-top:68px}.band,.dark{padding:68px 0;margin-top:68px}.statement{padding-top:80px}.final{padding:84px 0;margin-top:68px}
+ .sticky{display:block;position:fixed;left:16px;right:16px;bottom:16px;z-index:200;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+ footer{padding-bottom:90px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.marquee div,.pill .dot{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="tb"><div class="tb-in">
+  <a class="wordmark" href="#">BizColab</a>
+  <nav><a href="#outcome">The outcome</a><a href="#cohort">The cohort</a><a href="#support">Ongoing support</a><a href="#proof">Results</a><a href="#info">Request info</a></nav>
+  <a class="btn" href="https://bizcolab.com/join/">Request a seat</a>
+</div></header>
+
+<!-- BANNER -->
+<div class="hero"><div class="wrap">
+  <div class="pill"><span class="dot"></span>Cohort 03 · Starts Nov 2 · 5 seats open</div>
+  <h1>Stop building alone.<br><em class="serif">Start building together.</em></h1>
+  <p class="lead">Join five business owners and one facilitator for four live weeks that turn the one challenge you've been putting off into a clear plan, real traction and a room of people who want you to win. Then keep the connections that helped you get there.</p>
+  <div class="cta-row">
+    <a class="btn white" href="https://bizcolab.com/join/">Claim my seat</a>
+    <a class="btn ghost" href="#info">Request more info</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>1</b><span>problem solved</span></div>
+    <div class="stat"><b>90</b><span>minutes a week</span></div>
+    <div class="stat"><b>5</b><span>advisors in your corner</span></div>
+  </div>
+</div></div>
+
+<div class="marquee"><div>
+  <span>Clearer pricing</span><span>Qualified leads</span><span>Sharper positioning</span><span>Less paid ads</span><span>More referrals</span><span>A real plan</span><span>A board of peers</span>
+  <span>Clearer pricing</span><span>Qualified leads</span><span>Sharper positioning</span><span>Less paid ads</span><span>More referrals</span><span>A real plan</span><span>A board of peers</span>
+</div></div>
+
+<!-- PAIN -->
+<section style="padding-bottom:0"><div class="wrap">
+  <div class="eyebrow rv">Sound familiar?</div>
+  <h2 class="rv" style="max-width:20ch">You're great at the work.<br>The business is still stuck on you.</h2>
+  <div class="outs">
+    <div class="card rv"><h3>The same problem, month after month</h3><p>Pricing, positioning or leads. You know it matters and keep pushing it to next week.</p></div>
+    <div class="card rv"><h3>Decisions made alone</h3><p>No one to pressure-test your thinking, so every big call rides on your gut.</p></div>
+    <div class="card rv"><h3>Busy, but not moving forward</h3><p>You work in the business all day and never get time to work on it.</p></div>
+  </div>
+</div></section>
+
+<!-- WHY BIZCOLAB + OUTCOMES (combined) -->
+<section id="outcome"><div class="wrap">
+  <div class="eyebrow rv">Why BizColab</div>
+  <h2 class="rv" style="max-width:20ch">Owners need a <em class="serif">board</em>, not another course.</h2>
+  <p class="lead rv">The best decisions come from people who've been there and will tell you the truth. BizColab puts that room around you, in any industry and at any stage. Another year of going it alone costs far more than a few weeks of fixing it.</p>
+  <h3 class="rv" style="font-size:clamp(22px,3vw,30px);margin-top:56px;letter-spacing:-.02em">What you walk away with</h3>
+  <div class="outs">
+    <div class="out o1 rv"><small>Clarity</small><h3>A clear plan</h3><p>Pricing, target market, positioning. Pick the one thing you've been putting off and finish it.</p></div>
+    <div class="out o2 rv"><small>Momentum</small><h3>Real traction</h3><p>Weekly actions and a room that checks in, so ideas turn into leads and results.</p></div>
+    <div class="out o3 rv"><small>Connection</small><h3>Five new allies</h3><p>Business owners who know your numbers, your goals and your blind spots.</p></div>
+    <div class="out o4 rv"><small>Confidence</small><h3>Better decisions</h3><p>A room that pressure-tests your thinking, so you make big calls with more certainty.</p></div>
+    <div class="out o5 rv"><small>Growth</small><h3>More of the right clients</h3><p>Sharper positioning and pricing that attract the customers you actually want.</p></div>
+    <div class="out o6 rv"><small>Support</small><h3>A room that stays</h3><p>A dashboard, a cohort Slack and connections that keep paying off after the program.</p></div>
+  </div>
+  <div class="cta-strip rv"><a class="btn blue" href="https://bizcolab.com/join/">Claim my seat</a><a class="btn outline" href="#info">Request more info</a></div>
+</div></section>
+
+<!-- COHORT EXPERIENCE -->
+<div class="dark" id="cohort"><div class="wrap">
+  <div class="eyebrow rv">The cohort experience</div>
+  <h2 class="rv">Four weeks.<br>One room.<br>Real progress.</h2>
+  <p class="lead rv">Six seats, live on Google Meet. Every session is built around your business, not a slideshow.</p>
+  <div class="exp">
+    <div class="xcard rv"><span class="wk">Week 01</span><h3>Map</h3><p>Name the one problem worth solving and map where your business stands today.</p></div>
+    <div class="xcard rv"><span class="wk">Week 02</span><h3>Match</h3><p>Get matched with the advice and ideas from the room that fit your problem.</p></div>
+    <div class="xcard rv"><span class="wk">Week 03</span><h3>Move</h3><p>Take action on what you've mapped, with the room backing you.</p></div>
+    <div class="xcard rv"><span class="wk">Week 04</span><h3>Measure</h3><p>See what changed and decide your next move.</p></div>
+  </div>
+  <p class="when">Four live weekly sessions starting Nov 2 · 90 minutes each · Pacific and Eastern times available</p>
+</div></div>
+
+<!-- ONGOING SUPPORT -->
+<section id="support"><div class="wrap split">
+  <div class="rv">
+    <div class="eyebrow">Support that outlasts the four weeks</div>
+    <h2>You don't just finish. You join the room.</h2>
+    <p class="lead">Four weeks gets you the plan. The people and the tools stay useful long after.</p>
+    <div style="margin-top:28px"><div class="cta-strip"><a class="btn blue" href="https://bizcolab.com/join/">Claim my seat</a><a class="btn outline" href="#info">Request more info</a></div></div>
+  </div>
+  <ul class="list rv">
+    <li><i>1</i><div><b>Your private dashboard</b><span>Recaps, action items and member links, all in one place.</span></div></li>
+    <li><i>2</i><div><b>A Slack with your cohort</b><span>Ask a question, share a win or get a second opinion any day of the week.</span></div></li>
+    <li><i>3</i><div><b>Connections that last</b><span>Five owners who know your business and want to see you win.</span></div></li>
+    <li><i>4</i><div><b>A facilitator who's done it</b><span>15 years in marketing and branding, with close to a thousand clients.</span></div></li>
+  </ul>
+</div></section>
+
+<!-- IDENTITY: who it's for / not for -->
+<section style="padding-bottom:0"><div class="wrap">
+  <div class="eyebrow rv">Is this you?</div>
+  <h2 class="rv">BizColab is for owners who decide to act.</h2>
+  <div class="qgrid">
+    <div class="card rv" style="border:1px solid var(--line);border-radius:20px;padding:28px"><h3 style="color:var(--blue)">It's for you if…</h3><ul style="list-style:none;color:var(--muted);line-height:1.9"><li>✓ You own a business and want it to grow</li><li>✓ You have one problem you're ready to solve</li><li>✓ You'll show up each week and take action</li><li>✓ You give advice as well as take it</li></ul></div>
+    <div class="card rv" style="border:1px solid var(--line);border-radius:20px;padding:28px"><h3 style="color:var(--coral)">It's not for you if…</h3><ul style="list-style:none;color:var(--muted);line-height:1.9"><li>✗ You want a lecture and no work</li><li>✗ You're not ready to share your numbers</li><li>✗ You'd rather keep doing it alone</li></ul></div>
+  </div>
+</div></section>
+
+<!-- PROOF -->
+<div class="band" id="proof"><div class="wrap">
+  <div class="eyebrow rv">What Cohort 01 said</div>
+  <h2 class="rv" style="max-width:20ch">Fixed pricing.<br>Qualified leads.<br>Referrals over paid ads.</h2>
+  <p class="lead rv">In four weeks. Straight from their Google reviews.</p>
+  <div class="qgrid">
+    <blockquote class="rv">Three weeks into the program, I had a clearer positioning and 3 qualified leads.<cite>Renee M.</cite></blockquote>
+    <blockquote class="rv">In four weeks, I fixed my pricing, finalized my target market, narrowed my focus to unique date and special-occasion experiences.<cite>Svetlana</cite></blockquote>
+    <blockquote class="rv">Four weeks in, I've stopped spending on paid ads, and I'm building a referral engine around the clients I already have.<cite>Alex N.</cite></blockquote>
+  </div>
+</div></div>
+
+<!-- SEATS -->
+<div class="dark"><div class="wrap" style="text-align:center">
+  <div class="eyebrow">Cohort 03</div>
+  <h2>Make the decision.<br>Take your seat.</h2>
+  <p class="lead" style="margin:0 auto;color:rgba(255,255,255,.8)">Only six seats, and the cohort starts Nov 2. When the room is full, the next one is a month away.</p>
+  <div class="seat">
+    <div class="dots"><i class="f"></i><i></i><i></i><i></i><i></i><i></i></div>
+    <p style="color:var(--muted);font-size:13px;font-weight:500">1 of 6 seats taken</p>
+    <ul>
+      <li>4 live weekly sessions starting Nov 2</li>
+      <li>A private room of cross-industry owners</li>
+      <li>A hot seat on your biggest challenge</li>
+      <li>Dashboard, recaps and cohort Slack</li>
+      <li>Founding-cohort pricing that rises each cohort</li>
+    </ul>
+    <a class="btn blue" href="https://bizcolab.com/join/">Request a seat</a>
+    <p style="margin-top:16px;font-size:13.5px;color:var(--muted)">Questions? <a href="https://calendar.app.google/THqZBmvfREeCDE8k8">Book a 15-minute call</a></p>
+  </div>
+</div></div>
+
+<!-- REQUEST MORE INFO -->
+<div class="band" id="info"><div class="wrap">
+  <div class="eyebrow rv">Not sure yet?</div>
+  <h2 class="rv" style="max-width:18ch">Request more info.</h2>
+  <p class="lead rv">Tell us a little about your business and we'll send details on Cohort 03, or grab 15 minutes to talk it through.</p>
+  <form class="infoform rv" id="infoform">
+    <input id="lfFirst" placeholder="First name" autocomplete="given-name" required>
+    <input id="lfLast" placeholder="Last name" autocomplete="family-name" required>
+    <input id="lfEmail" type="email" placeholder="Email" autocomplete="email" required style="grid-column:1/-1">
+    <button class="btn blue" type="submit" id="lfBtn">Send me the details</button>
+  </form>
+  <div id="lfDone" style="display:none;margin-top:28px;max-width:640px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px">
+    <h3 style="margin-bottom:6px">You're on the list<span id="lfName"></span>.</h3>
+    <p style="color:var(--muted)">We'll be in touch within 7 days. Want to fast-track your match? Complete the full application.</p>
+    <div class="cta-strip" style="margin-top:18px"><a class="btn blue" href="/sign-up/">Complete the full application</a></div>
+  </div>
+  <p class="rv" style="margin-top:18px;font-size:14.5px;color:var(--muted)">Prefer to talk? <a href="https://calendar.app.google/THqZBmvfREeCDE8k8">Book a 15-minute call</a> or <a href="https://bizcolab.com/join/">request a seat now</a>.</p>
+</div></div>
+
+<!-- FAQ -->
+<section id="faq"><div class="wrap" style="max-width:800px">
+  <div class="eyebrow">FAQ</div>
+  <h2>Quick answers.</h2>
+  <details><summary>Who is this for?</summary><p>Business owners in any industry and at any stage who want a sharper plan and a room of peers to test it with.</p></details>
+  <details><summary>How big is the group?</summary><p>Six participants plus one facilitator, so everyone gets real airtime.</p></details>
+  <details><summary>Where does it meet?</summary><p>Online on Google Meet, so you can join from anywhere.</p></details>
+  <details><summary>When are the sessions?</summary><p>Four weekly live sessions starting Nov 2, 90 minutes each. Pacific and Eastern times are available.</p></details>
+  <details><summary>How do I get a seat?</summary><p>Request a seat at bizcolab.com/join. We'll confirm and send your dashboard and invites.</p></details>
+  <div class="cta-strip"><a class="btn blue" href="https://bizcolab.com/join/">Claim my seat</a><a class="btn outline" href="#info">Request more info</a></div>
+</div></section>
+
+<!-- CLOSE -->
+<div class="final"><div class="wrap">
+  <h2>Ready to <em class="serif" style="color:var(--amber)">level up</em> your business?</h2>
+  <p class="lead">Five seats left in Cohort 03. Starts Nov 2.</p>
+  <div class="cta-row" style="justify-content:center"><a class="btn white" href="https://bizcolab.com/join/">Claim my seat</a><a class="btn ghost" href="#info">Request more info</a></div>
+</div></div>
+
+<footer><div class="wrap"><span>© 2026 BizColab</span><span><a href="https://bizcolab.com">bizcolab.com</a> · <a href="mailto:michael@bizcolab.com">michael@bizcolab.com</a></span></div></footer>
+
+<a class="btn blue sticky" href="https://bizcolab.com/join/">Request a seat</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+  if(typeof emailjs!=='undefined'){emailjs.init('yWt3TMJ6ysOrH3vH1')}
+  var SHEETS_URL='https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec';
+  var form=document.getElementById('infoform');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=document.getElementById('lfBtn');btn.disabled=true;btn.textContent='Sending...';
+    var first=document.getElementById('lfFirst').value.trim(),last=document.getElementById('lfLast').value.trim(),email=document.getElementById('lfEmail').value.trim();
+    var data={full_name:(first+' '+last).trim(),first_name:first,last_name:last,email:email,reply_to:email,to_name:(first+' '+last).trim()||email,to_email:email,inquiry_type:'Landing Page — Request More Info',source:'landing_cohort03'};
+    try{
+      emailjs.send('service_bpcodid','template_09f1pjl',Object.assign({},data,{to_email:'michael@bizcolab.com'})).catch(function(){});
+      emailjs.send('service_bpcodid','template_bt9vd63',data).catch(function(){});
+    }catch(err){}
+    try{fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){})}catch(err){}
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'lead_submit',form_type:'landing',form_source:'landing_cohort03',lead_value:25,currency:'USD'});
+    setTimeout(function(){document.getElementById('lfName').textContent=first?(', '+first):'';form.style.display='none';document.getElementById('lfDone').style.display='block'},700);
+  });
+})();
+(function(){
+  var tb=document.getElementById('tb');
+  function s(){tb.classList.toggle('solid',window.scrollY>40)}
+  s();window.addEventListener('scroll',s,{passive:true});
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>
