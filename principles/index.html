@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BizColab — 15 Principles for the Thing You've Been Meaning to Do</title>
+<meta name="description" content="What we've learned so far: 15 principles for working through the problem you keep putting off — name it, give it four weeks, test one thing a week, and build a board that calls it straight.">
+<link rel="canonical" href="https://bizcolab.com/principles/">
+<meta property="og:title" content="The thing you've been meaning to do — 15 principles">
+<meta property="og:description" content="What we've learned so far about working through the problem you keep putting off.">
+<meta property="og:url" content="https://bizcolab.com/principles/">
+<meta property="og:image" content="https://bizcolab.com/og-home-v2.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--ink-2:#1d1d1f;--muted:#6e6e73;--line:#d2d2d7;--paper:#fff;--paper-2:#f5f5f7;--card:#fff;--blue:#0071e3;--indigo:#5e5ce6;--violet:#9a4ef6;--coral:#ff6f5e;--amber:#ffb340;--mint:#30d158;--sky:#64d2ff;--body:rgba(29,29,31,.68)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f5f5f7;--ink-2:#e8e8ed;--muted:#9a9aa3;--line:#2c2c30;--paper:#0a0a0a;--paper-2:#151517;--card:#121214;--body:rgba(232,232,237,.7)}}
+:root[data-theme="dark"]{--ink:#f5f5f7;--ink-2:#e8e8ed;--muted:#9a9aa3;--line:#2c2c30;--paper:#0a0a0a;--paper-2:#151517;--card:#121214;--body:rgba(232,232,237,.7)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:var(--ink-2);background:var(--paper);-webkit-font-smoothing:antialiased;letter-spacing:-.011em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.wrap{padding:0 24px}}
+.section-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 16px;height:48px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:15px;font-weight:700;letter-spacing:-.04em;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:13px;color:var(--ink-2);text-decoration:none;opacity:.75}
+.nav-pill{font-size:13px;font-weight:500;padding:6px 14px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;white-space:nowrap}
+@media(max-width:600px){.nav-links a:not(.nav-pill){display:none}}
+.concept{background:var(--amber);color:#0a0a0a;font-size:12px;font-weight:600;text-align:center;padding:7px 12px;letter-spacing:.02em}
+.hero{padding:88px 0 64px;text-align:center;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:860px;height:860px;border-radius:50%;background:radial-gradient(closest-side,#d6eaff 0%,#ffe3dd 40%,transparent 72%);opacity:.9;z-index:0;pointer-events:none}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero-glow{opacity:.18}}
+.hero>.wrap{position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--paper) 70%,transparent);font-size:12px;font-weight:500;margin-bottom:28px}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--mint)}
+.hero h1{font-size:clamp(44px,8vw,88px);font-weight:700;letter-spacing:-.05em;line-height:1;color:var(--ink)}
+.hero h1 em,.h2 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.02em}
+.hero-sub{margin:22px auto 0;max-width:560px;font-size:clamp(16px,2.2vw,19px);line-height:1.55;color:var(--body)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:28px}
+.chip{font-size:13px;font-weight:500;padding:7px 14px;border-radius:999px;background:var(--paper-2);color:var(--ink-2)}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.h2{font-size:clamp(28px,4.5vw,44px);font-weight:700;letter-spacing:-.04em;line-height:1.06;margin-bottom:12px;color:var(--ink)}
+.lead{font-size:16px;line-height:1.6;color:var(--body);max-width:600px;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{position:relative;border:1px solid var(--line);border-radius:22px;padding:26px;overflow:hidden;background:var(--card);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(10,10,10,.08)}
+.bignum{position:absolute;top:-10px;right:14px;font-family:'Instrument Serif',serif;font-style:italic;font-size:88px;line-height:1;color:var(--ink);opacity:.05;pointer-events:none}
+.ico{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;margin-bottom:16px;font-size:22px}
+.card h3{font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.card p{margin-top:8px;font-size:14px;line-height:1.6;color:var(--body)}
+.card .try{margin-top:14px;font-size:13px;font-weight:600;color:var(--ink);display:flex;gap:8px;align-items:flex-start}
+.card .try span{flex:none;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:3px 7px;border-radius:6px;background:var(--paper-2);color:var(--muted);margin-top:1px}
+.rule{width:30px;height:3px;border-radius:2px;margin-top:16px}
+.dark{background:#0a0a0a;color:#fff;border-top:0}
+.dark .section-label{color:rgba(255,255,255,.45)}
+.dark .h2{color:#fff}.dark .h2 em{color:var(--amber)}
+.dark .lead{color:rgba(255,255,255,.6)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:800px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px;background:rgba(255,255,255,.04)}
+.step .wk{font-family:'Instrument Serif',serif;font-style:italic;font-size:34px;line-height:1;color:var(--amber)}
+.step h4{margin-top:12px;font-size:16px;font-weight:600;letter-spacing:-.02em}
+.step p{margin-top:6px;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.62)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:800px){.quotes{grid-template-columns:1fr}}
+.q{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--paper-2)}
+.q p{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.35;color:var(--ink)}
+.q small{display:block;margin-top:12px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.05em}
+.cta{text-align:center;padding:88px 0}
+.cta .h2{margin-bottom:14px}
+.btn{display:inline-block;margin-top:26px;padding:14px 26px;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:600;font-size:15px;text-decoration:none}
+.btn-ghost{display:inline-block;margin:26px 0 0 10px;padding:14px 22px;border-radius:999px;border:1px solid var(--line);color:var(--ink);font-weight:500;font-size:15px;text-decoration:none}
+footer{border-top:1px solid var(--line);padding:28px 0;font-size:12px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner"><a class="nav-logo" href="https://bizcolab.com/">BizColab</a><div class="nav-links"><a href="#principles">Principles</a><a href="#method">The 4 weeks</a><a href="#proof">What members said</a><a class="nav-pill" href="#join">Join a cohort</a></div></div></nav>
+
+<header class="hero"><div class="hero-glow"></div><div class="wrap">
+<div class="hero-badge"><span class="dot"></span>What we've learned so far</div>
+<h1>The thing you've been<br><em>meaning to do.</em></h1>
+<p class="hero-sub">You already know what the problem is. You've known for years. What's missing isn't more information. It's a deadline, a room that calls it straight, and one testable move a week. Here's what works.</p>
+<div class="chips"><span class="chip">15 principles</span><span class="chip">From real cohorts</span><span class="chip">Owner-operators only</span><span class="chip">4 weeks</span></div>
+</div></header>
+
+<section id="principles"><div class="wrap">
+<div class="section-label">Part one · Get honest</div>
+<h2 class="h2">Start with the <em>real</em> problem.</h2>
+<p class="lead">Most owners spend months fixing the easy thing so they don't have to look at the hard one. The first week is about saying it out loud.</p>
+<div class="grid">
+<div class="card"><div class="bignum">01</div><div class="ico" style="background:#fff1ee">🎯</div><h3>Name the real problem</h3><p>Not the one that's easy to say. The one you've been working around for years. If it feels a little embarrassing to say, you're close.</p><div class="try"><span>Try</span>Write one sentence: "The thing I keep avoiding is ___."</div><div class="rule" style="background:var(--coral)"></div></div>
+<div class="card"><div class="bignum">02</div><div class="ico" style="background:#eef6ff">🧭</div><h3>Work on it, not in it</h3><p>Running the business and building the business are two different jobs. Block the time for the second one or it never happens.</p><div class="try"><span>Try</span>Protect 90 minutes a week. Same day, same time.</div><div class="rule" style="background:var(--blue)"></div></div>
+<div class="card"><div class="bignum">03</div><div class="ico" style="background:#f3efff">🪑</div><h3>Build your board</h3><p>Five peers outside your industry beat one expert inside it. They don't share your blind spots, and they don't need you to look good.</p><div class="try"><span>Try</span>List five people who'd tell you the truth. Not friends. Peers.</div><div class="rule" style="background:var(--indigo)"></div></div>
+<div class="card"><div class="bignum">04</div><div class="ico" style="background:#fff7e6">🗣️</div><h3>Say it to the right person</h3><p>Clarity shows up when you state the problem to someone who'll push back. Not your spouse, not your team. Someone with nothing to lose.</p><div class="try"><span>Try</span>Explain your problem in 60 seconds. Watch where they get confused.</div><div class="rule" style="background:var(--amber)"></div></div>
+</div>
+
+<div style="height:64px"></div>
+<div class="section-label">Part two · Make it move</div>
+<h2 class="h2">Four weeks, <em>not</em> four years.</h2>
+<p class="lead">Big plans die in the planning. Short deadlines and small tests are how things actually change.</p>
+<div class="grid">
+<div class="card"><div class="bignum">05</div><div class="ico" style="background:#eef6ff">⏱️</div><h3>Set a short, fixed deadline</h3><p>Four weeks is long enough to do something real and short enough that you can't put it off. Open-ended goals stay open.</p><div class="try"><span>Try</span>Pick a date 28 days out. Tell someone.</div><div class="rule" style="background:var(--blue)"></div></div>
+<div class="card"><div class="bignum">06</div><div class="ico" style="background:#ecfbf0">🧪</div><h3>One test per week</h3><p>Don't plan the whole thing. Pick one assumption, test it this week, bring back what happened. Then pick the next one.</p><div class="try"><span>Try</span>"This week I'll find out if ___ by doing ___."</div><div class="rule" style="background:var(--mint)"></div></div>
+<div class="card"><div class="bignum">07</div><div class="ico" style="background:#fff1ee">📣</div><h3>Nobody knows you exist</h3><p>Most of the time the product is fine. The problem is reach. Whatever you think "enough" outreach is, it's about a tenth of what it takes.</p><div class="try"><span>Try</span>Count last week's real outreach. Now 10x it.</div><div class="rule" style="background:var(--coral)"></div></div>
+<div class="card"><div class="bignum">08</div><div class="ico" style="background:#fff7e6">🏷️</div><h3>Fix the price before the pitch</h3><p>More marketing on the wrong price or the wrong customer just makes the problem louder. Positioning and pricing come first.</p><div class="try"><span>Try</span>Who's your best client? Charge the next one like them.</div><div class="rule" style="background:var(--amber)"></div></div>
+<div class="card"><div class="bignum">09</div><div class="ico" style="background:#f3efff">🔁</div><h3>Referrals over ads</h3><p>The clients you already have are the growth engine you keep ignoring. Ask them. Build the ask into how you work.</p><div class="try"><span>Try</span>Call three happy clients this week. Ask for one name each.</div><div class="rule" style="background:var(--violet)"></div></div>
+<div class="card"><div class="bignum">10</div><div class="ico" style="background:#e9f8ff">🚫</div><h3>Keep it separate</h3><p>One focus, one lane. Mixing businesses, audiences, or offers feels efficient and reads as confusing. Pick the one that matters this month.</p><div class="try"><span>Try</span>Cut one thing from your plate for 4 weeks. See what happens.</div><div class="rule" style="background:var(--sky)"></div></div>
+</div>
+
+<div style="height:64px"></div>
+<div class="section-label">Part three · Make it stick</div>
+<h2 class="h2">Candor is <em>the product.</em></h2>
+<p class="lead">The room only works if people are honest. Honesty only works if trust is designed in.</p>
+<div class="grid">
+<div class="card"><div class="bignum">11</div><div class="ico" style="background:#fff1ee">🤝</div><h3>Design for trust</h3><p>Be clear about what's shared, with whom, and when it's deleted. People open up when they know the rules. Vague rules get vague answers.</p><div class="try"><span>Try</span>Before asking for honesty, say what you'll do with it.</div><div class="rule" style="background:var(--coral)"></div></div>
+<div class="card"><div class="bignum">12</div><div class="ico" style="background:#eef6ff">✍️</div><h3>Your words, not theirs</h3><p>Own the goal and the progress in your own language. Nobody should summarize your business for you. If it doesn't sound like you, it isn't yours yet.</p><div class="try"><span>Try</span>Rewrite your goal until you'd say it to a client.</div><div class="rule" style="background:var(--blue)"></div></div>
+<div class="card"><div class="bignum">13</div><div class="ico" style="background:#f3efff">🤖</div><h3>Keep the human parts human</h3><p>Automate what doesn't need judgment. Keep the conversations, the feedback, and the follow-up personal. People can tell.</p><div class="try"><span>Try</span>Send one note this week with no template.</div><div class="rule" style="background:var(--violet)"></div></div>
+<div class="card"><div class="bignum">14</div><div class="ico" style="background:#ecfbf0">📅</div><h3>Show up every week</h3><p>The commitment to the room is the real work. Missing one week breaks the chain for you and for the people counting on your feedback.</p><div class="try"><span>Try</span>Commit to all four. Not "most of them."</div><div class="rule" style="background:var(--mint)"></div></div>
+<div class="card"><div class="bignum">15</div><div class="ico" style="background:#fff7e6">🌱</div><h3>Keep the board</h3><p>Four weeks starts it. The compounding happens after, when the people who watched you commit are still there to ask how it went.</p><div class="try"><span>Try</span>Book the next check-in before the last session ends.</div><div class="rule" style="background:var(--amber)"></div></div>
+</div>
+</div></section>
+
+<section class="dark" id="method"><div class="wrap">
+<div class="section-label">How it works at BizColab</div>
+<h2 class="h2">The principles, <em>on a calendar.</em></h2>
+<p class="lead">Six owner-operators, one facilitator, four weekly 90-minute sessions. Each week picks up where the last one left off.</p>
+<div class="steps">
+<div class="step"><div class="wk">Wk 1</div><h4>Name it</h4><p>Say the real problem out loud to five people who'll push back. Leave with one sentence.</p></div>
+<div class="step"><div class="wk">Wk 2</div><h4>Focus it</h4><p>Pick the one move that matters. Set the test for the week. Cut what's in the way.</p></div>
+<div class="step"><div class="wk">Wk 3</div><h4>Say it to the right person</h4><p>Take it outside the room. Clients, prospects, partners. Bring back what happened.</p></div>
+<div class="step"><div class="wk">Wk 4</div><h4>Make it stick</h4><p>Lock in what worked. Decide what happens next. Keep the board.</p></div>
+</div>
+</div></section>
+
+<section id="proof"><div class="wrap">
+<div class="section-label">What members said</div>
+<h2 class="h2">Four weeks, <em>real</em> results.</h2>
+<p class="lead">Straight from their Google reviews.</p>
+<div class="quotes">
+<div class="q"><p>"Three weeks into the program, I had a clearer positioning and 3 qualified leads."</p><small>RENEE M.</small></div>
+<div class="q"><p>"In four weeks, I fixed my pricing, finalized my target market, narrowed my focus to unique date and special-occasion experiences."</p><small>SVETLANA</small></div>
+<div class="q"><p>"Four weeks in, I've stopped spending on paid ads, and I'm building a referral engine around the clients I already have."</p><small>ALEX N.</small></div>
+</div>
+</div></section>
+
+<section class="cta" id="join"><div class="wrap">
+<div class="section-label">Next cohort</div>
+<h2 class="h2">Bring the thing you've<br><em>been putting off.</em></h2>
+<p class="lead" style="margin:0 auto">Six seats. Four Mondays. Every seat starts with a quick call so we know it's the right room for you.</p>
+<a class="btn" href="https://bizcolab.com/join/">Apply for a seat</a><a class="btn-ghost" href="https://bizcolab.com/">About BizColab</a>
+</div></section>
+
+<footer><div class="wrap">© 2026 BizColab · <a href="https://bizcolab.com/privacy/" style="color:inherit">Privacy</a></div></footer>
+
+</body>
+</html>
