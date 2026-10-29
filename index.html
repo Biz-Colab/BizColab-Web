@@ -345,6 +345,25 @@
   @media (max-width:820px){ .bcx-rev{padding:64px 0 56px} .bcx-rv-arrows{display:none} .bcx-rv-head{margin-top:32px} }
   @media (max-width:600px){ .bcx-rv-card{flex:0 0 calc(100% - 28px)} }
   @media (prefers-reduced-motion:reduce){ .bcx-rv-rail{scroll-behavior:auto} }
+
+  /* --- NEW: rotating callout (slides) --- */
+  .bcx-rot{margin:44px auto 10px;max-width:1000px;text-align:center}
+  .bcx-rot-label{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:#6e6e73;margin-bottom:16px}
+  .bcx-rot-win{overflow:hidden}
+  .bcx-rot-track{display:flex;transition:transform .7s cubic-bezier(.4,0,.2,1);will-change:transform}
+  .bcx-rot-item{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 24px;box-sizing:border-box}
+  .bcx-rot-q{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(28px,4vw,48px);line-height:1.15;letter-spacing:-.015em;color:#0a0a0a;max-width:900px;text-wrap:balance}
+  .bcx-rot-q::before{content:"“"}.bcx-rot-q::after{content:"”"}
+  .bcx-rot-who{font-size:15px;color:#6e6e73}
+  .bcx-rot-who b{font-weight:600;color:#0a0a0a}
+  .bcx-rot-dots{display:flex;gap:6px;justify-content:center;margin-top:22px}
+  .bcx-rot-dot{width:6px;height:6px;border-radius:999px;background:#d2d2d7;border:0;padding:0;transition:background .3s,width .3s}
+  .bcx-rot-dot.is-on{background:#0a0a0a;width:18px}
+  @media (prefers-reduced-motion:reduce){ .bcx-rot-track{transition:none} }
+  /* --- NEW: shortened cards with More --- */
+  .bcx-rv-q.is-clamped{flex:0 0 auto;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .bcx-rv-more-btn{align-self:flex-start;margin-top:10px;margin-bottom:auto;background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:500;color:#0071e3;cursor:pointer}
+  .bcx-rv-more-btn:hover{text-decoration:underline}
 </style>
   <div class="bcx-rev-in">
     <div class="bcx-rev-lead">
@@ -355,6 +374,20 @@
         <span>Verbatim from Google reviews &middot; 5.0 average</span>
         <span class="bcx-rv-stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></span>
       </div>
+    </div>
+
+
+    <!-- NEW: rotating one-line callout -->
+    <div class="bcx-rot" aria-live="polite">
+      <div class="bcx-rot-label">In one line</div>
+      <div class="bcx-rot-win"><div class="bcx-rot-track" id="bcxRot">
+        <div class="bcx-rot-item"><div class="bcx-rot-q">Break out of the bubble you&rsquo;re in!</div><div class="bcx-rot-who"><b>Sudeep D.</b> &middot; Founder</div></div>
+        <div class="bcx-rot-item"><div class="bcx-rot-q">Three weeks in, I had a clearer positioning and three qualified leads.</div><div class="bcx-rot-who"><b>Renee M.</b> &middot; Brand strategist</div></div>
+        <div class="bcx-rot-item"><div class="bcx-rot-q">One of the most useful things I&rsquo;ve done for my business.</div><div class="bcx-rot-who"><b>Svetlana</b> &middot; Events founder</div></div>
+        <div class="bcx-rot-item"><div class="bcx-rot-q">Four weeks in, I&rsquo;ve stopped spending on paid ads and I&rsquo;m building a referral engine.</div><div class="bcx-rot-who"><b>Alex N.</b> &middot; Business &amp; real estate attorney</div></div>
+        <div class="bcx-rot-item"><div class="bcx-rot-q">Within four weeks I landed a paid consulting engagement.</div><div class="bcx-rot-who"><b>Sudeep D.</b> &middot; Founder</div></div>
+      </div></div>
+      <div class="bcx-rot-dots" id="bcxRotDots"></div>
     </div>
 
     <div class="bcx-rv-head">
@@ -419,6 +452,27 @@
   function step(){ var c=rail.querySelector('.bcx-rv-card'); return c?c.getBoundingClientRect().width+16:388; }
   document.querySelectorAll('[data-bcxrail]').forEach(function(b){
     b.addEventListener('click',function(){ rail.scrollBy({left:(b.dataset.bcxrail==='next'?1:-1)*step(),behavior:'smooth'}); });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var track=document.getElementById('bcxRot'); if(!track) return;
+  var items=track.children, dots=document.getElementById('bcxRotDots'), i=0, t;
+  for(var n=0;n<items.length;n++){ (function(n){ var d=document.createElement('button'); d.className='bcx-rot-dot'+(n?'':' is-on'); d.type='button'; d.setAttribute('aria-label','Quote '+(n+1)); d.onclick=function(){ go(n); restart(); }; dots.appendChild(d); })(n); }
+  function go(n){ dots.children[i].classList.remove('is-on'); i=n; track.style.transform='translateX(-'+(i*100)+'%)'; dots.children[i].classList.add('is-on'); }
+  function restart(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },4000); }
+  restart();
+  track.parentNode.addEventListener('mouseenter',function(){ clearInterval(t); });
+  track.parentNode.addEventListener('mouseleave',restart);
+  /* shorten cards + More */
+  document.querySelectorAll('.bcx-rv-q').forEach(function(q){
+    q.classList.add('is-clamped');
+    if(q.scrollHeight<=q.clientHeight+2){ q.classList.remove('is-clamped'); return; }
+    var b=document.createElement('button'); b.type='button'; b.className='bcx-rv-more-btn'; b.textContent='More';
+    b.onclick=function(){ var open=q.classList.toggle('is-clamped'); b.textContent=open?'More':'Less'; };
+    q.after(b);
   });
 })();
 </script>
