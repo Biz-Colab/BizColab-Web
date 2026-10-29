@@ -478,64 +478,6 @@
 </script>
 </section>
 
-<!-- A NOTE FROM MICHAEL -->
-<section class="bg-white bcx-fsec" id="founder-note">
-  <div class="bcx-fnote">
-    <div class="text-[12px] uppercase tracking-[0.22em]" style="color:#6e6e73">A note from the founder</div>
-    <div class="bcx-fwrap">
-      <aside class="bcx-fcard bcx-rv">
-        <img src="/michael.jpg" alt="Michael Abraham &mdash; founder, BizColab" width="88" height="88" />
-        <div>
-          <span class="bcx-fn">Michael Abraham</span>
-          <span class="bcx-fr">Founder &amp; facilitator, BizColab</span>
-          <a class="bcx-fli" href="https://www.linkedin.com/in/michaelabraham-realtor/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
-        </div>
-      </aside>
-      <div class="bcx-fbody bcx-rv">
-        <p class="font-serif-i bcx-flead" style="color:#0a0a0a">
-          I've thought about building this room for years. With everything technology makes possible now, I can finally bring it to life &mdash; simply and the way I always imagined&nbsp;it.
-        </p>
-        <div class="bcx-mob">
-          <p class="bcx-intro">Six operators and one facilitator, one focused month. Here&rsquo;s what you get:</p>
-          <ul class="bcx-acc">
-            <li><button type="button" class="bcx-acc-b" aria-expanded="false" aria-controls="bcx-a1" id="bcx-b1">Real accountability<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><div class="bcx-acc-p" id="bcx-a1" role="region" aria-labelledby="bcx-b1"><div><p>A weekly session and a standing reason to ship. The people in the room notice when you don&rsquo;t.</p></div></div></li>
-            <li><button type="button" class="bcx-acc-b" aria-expanded="false" aria-controls="bcx-a2" id="bcx-b2">Five peers who fill your gaps<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><div class="bcx-acc-p" id="bcx-a2" role="region" aria-labelledby="bcx-b2"><div><p>Operators whose skills cover what yours don&rsquo;t, so you&rsquo;re never solving it alone.</p></div></div></li>
-            <li><button type="button" class="bcx-acc-b" aria-expanded="false" aria-controls="bcx-a3" id="bcx-b3">Honest feedback<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><div class="bcx-acc-p" id="bcx-a3" role="region" aria-labelledby="bcx-b3"><div><p>Real pressure-testing of what you&rsquo;re actually building, not what you wish you were.</p></div></div></li>
-            <li><button type="button" class="bcx-acc-b" aria-expanded="false" aria-controls="bcx-a4" id="bcx-b4">A network that lasts<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><div class="bcx-acc-p" id="bcx-a4" role="region" aria-labelledby="bcx-b4"><div><p>The relationships keep paying off long after the cohort ends.</p></div></div></li>
-          </ul>
-          <p class="bcx-close">If that sounds like the room you&rsquo;ve been missing, I&rsquo;d love for you to&nbsp;join.</p>
-        </div>
-        <p class="bcx-desk mt-6 text-[16px] md:text-[17px] leading-[1.65]" style="color:rgba(29,29,31,.75)">
-          The idea is straightforward. Six operators and one facilitator, one focused month. You get real accountability, five peers whose skills fill the gaps in yours, honest feedback on what you're actually building, and a network that keeps paying off long after the cohort ends. If that sounds like the room you've been missing, I'd love for you to&nbsp;join.
-        </p>
-        <div class="bcx-frow">
-          <a href="/join/" class="btn-primary">
-            Sign up
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <button type="button" data-fitcheck class="fx-fitbtn fx-lg">Are you a fit?</button>
-          <span class="font-serif-i text-[18px]" style="color:#0a0a0a">&mdash; Michael</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<script>
-(function(){
-  var sec=document.getElementById('founder-note');if(!sec)return;
-  var bs=sec.querySelectorAll('.bcx-acc-b');
-  for(var i=0;i<bs.length;i++){bs[i].addEventListener('click',function(){
-    var open=this.getAttribute('aria-expanded')==='true';
-    for(var j=0;j<bs.length;j++)bs[j].setAttribute('aria-expanded','false');
-    if(!open)this.setAttribute('aria-expanded','true');
-  });}
-  if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
-  sec.classList.add('bcx-rv-on');
-  var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){sec.classList.add('bcx-fin');io.disconnect();}},{threshold:.15});
-  io.observe(sec);
-})();
-</script>
-
 <!-- PROBLEM -->
 <section class="relative bg-[#0a0a0a] text-white py-20 md:py-24 grain overflow-hidden">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full"
