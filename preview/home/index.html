@@ -299,14 +299,14 @@
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-<body data-home-version="v22">
+<body data-home-version="v23">
 
 <!-- NAV -->
 
 <script>
 /* BizColab homepage test v2: 6 banner versions. ?ab=1..6 forces one (used by ads); otherwise random, sticky per visitor. */
 (function(){
-  var V=[["Grow Faster With Founders in <span class=\"bcx-acc\">Your Corner.</span>", "A small peer group that helps you solve the one problem holding your business back."], ["Empowering Entrepreneurs Through <span class=\"bcx-acc\">Collaboration.</span>", "A founder community that helps you solve the problem holding your business back."], ["The Community Where <span class=\"bcx-acc\">Founders Grow.</span>", "Bring your biggest problem. Leave with a plan and people who have your back."], ["Stop Building <span class=\"bcx-acc\">Alone.</span>", "Join a community of founders who give honest feedback and real accountability."], ["Six Founders in <span class=\"bcx-acc\">Your Corner.</span>", "Four weeks to move the one problem holding your business back."], ["Your Business Needs <span class=\"bcx-acc\">a Board.</span>", "A founder community for honest feedback, real accountability, and faster growth."]], KEY='bc_ab_v2', v=null;
+  var V=[["Grow Faster With<br>Founders in <span class=\"bcx-acc\">Your Corner.</span>", "A small peer group that helps you solve the one problem holding your business back."], ["Empowering Entrepreneurs<br>Through <span class=\"bcx-acc\">Collaboration.</span>", "A founder community that helps you solve the problem holding your business back."], ["The Community Where<br><span class=\"bcx-acc\">Founders Grow.</span>", "Bring your biggest problem. Leave with a plan and people who have your back."], ["Stop Building <span class=\"bcx-acc\">Alone.</span>", "Join a community of founders who give honest feedback and real accountability."], ["Six Founders in<br><span class=\"bcx-acc\">Your Corner.</span>", "Four weeks to move the one problem holding your business back."], ["Your Business<br>Needs <span class=\"bcx-acc\">a Board.</span>", "A founder community for honest feedback, real accountability, and faster growth."]], KEY='bc_ab_v2', v=null;
   var q=location.search.match(/[?&]ab=([1-6])\b/);
   if(q){ v=q[1]; } else {
     try{ v=localStorage.getItem(KEY); }catch(e){}
@@ -332,8 +332,8 @@
     <a class="bcx-logo font-display" href="/">BizColab<span>.</span></a>
     <nav class="bcx-links">
       <a href="#how">How it works</a>
+      <a href="#cohort">The cohort</a>
       <a href="#audit">Free audit</a>
-      <a href="/principles/">Principles</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="bcx-nav-btn" href="/join/">Join</a>
@@ -347,7 +347,7 @@
     <img class="bcx-img" src="/assets/hero-room.jpg" alt="Six operators working a problem around one table" width="1500" height="845" />
     <div class="bcx-scrim"></div>
     <div class="bcx-in">
-      <h1 class="bcx-h1 font-display">Grow Faster With Founders in <span class="bcx-acc">Your Corner.</span></h1>
+      <h1 class="bcx-h1 font-display">Grow Faster With<br>Founders in <span class="bcx-acc">Your Corner.</span></h1>
       <p class="bcx-sub">A small peer group that helps you solve the one problem holding your business back.</p>
       <form class="bcx-join" id="bcxJoin" novalidate>
         <input type="email" id="bcxJoinEmail" placeholder="you@company.com" autocomplete="email" aria-label="Email" required>
@@ -371,7 +371,7 @@
 
 <style>
 /* ── v20 streamlined page ── */
-.bcx-h1{white-space:nowrap!important}
+.bcx-h1{white-space:nowrap!important;font-size:clamp(34px,6.6vw,96px)!important;line-height:1.02!important}
 .bcx-h1 span{display:inline!important;white-space:nowrap}
 .bcx-rot--hero{width:100%}
 .bcx-rot{margin:44px auto 10px;max-width:1000px;text-align:center}
@@ -395,6 +395,14 @@
 .bcx-rot--hero .bcx-rot-who b{color:#fff}
 .bcx-rot--hero .bcx-rot-dot{background:rgba(255,255,255,.35)}
 .bcx-rot--hero .bcx-rot-dot.is-on{background:#ff8c1a}
+
+.bc-weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border-top:3px solid #0a57ff}
+.bc-weeks>div{padding:26px 22px 0 0;position:relative}
+.bc-weeks>div:before{content:"";position:absolute;top:-9px;left:0;width:15px;height:15px;border-radius:50%;background:#ff8c1a;border:3px solid #f5f5f7}
+.bc-weeks span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#0a57ff;font-weight:700}
+.bc-weeks h3{font-size:26px;font-weight:700;letter-spacing:-.02em;margin:6px 0 0}
+.bc-weeks p{font-size:16px;color:#3a3a3c;line-height:1.55;margin-top:10px}
+@media(max-width:900px){.bc-weeks{grid-template-columns:1fr 1fr;row-gap:28px}.bc-founder img{max-width:260px}}
 .bc-sec{padding:96px 24px}
 .bc-in{max-width:1120px;margin:0 auto}
 .bc-eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#0a57ff;font-weight:600;margin-bottom:14px}
@@ -426,7 +434,8 @@
 .bc-doc-row dd{margin:0;color:#3a3a3c}
 .bc-doc-move{margin-top:16px;background:#fff4e8;border-left:4px solid #ff8c1a;border-radius:10px;padding:14px 16px;font-size:14px}
 .bc-doc-move b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#c25e00;margin-bottom:4px}
-.bc-founder img{width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:center 20%;border-radius:26px}
+.bc-founder{display:flex;justify-content:center}
+.bc-founder img{width:100%;max-width:340px;aspect-ratio:1/1;object-fit:cover;object-position:center 20%;border-radius:26px}
 .bc-cta{text-align:center}
 .bc-cta .bc-lead{margin-left:auto;margin-right:auto}
 .bc-cta .bcx-join{margin-top:34px;box-shadow:0 10px 30px rgba(10,20,50,.12);border:1px solid #e6e9ef}
@@ -469,8 +478,25 @@
   </div>
 </section>
 
+
+<!-- FOUR WEEKS -->
+<section id="cohort" class="bc-sec bc-gray">
+  <div class="bc-in">
+    <div class="bc-eyebrow">Inside a cohort</div>
+    <h2 class="bc-h2">Four weeks. Four moves.</h2>
+    <p class="bc-lead">One small group. One commitment a week. Real movement by day thirty.</p>
+    <div class="bc-weeks">
+      <div><span>Week 1</span><h3>Map</h3><p>Share your business in 10 minutes. The group finds your one highest-leverage move.</p></div>
+      <div><span>Week 2</span><h3>Match</h3><p>Pair up with members whose skills fill your gaps. Help each other ship.</p></div>
+      <div><span>Week 3</span><h3>Move</h3><p>Execution week. Everyone ships the move they committed to in Week 1.</p></div>
+      <div><span>Week 4</span><h3>Measure</h3><p>Review what worked and what comes next. The relationships stay.</p></div>
+    </div>
+    <a class="bc-btn" href="/join/">Request a seat &rarr;</a>
+  </div>
+</section>
+
 <!-- FREE AUDIT -->
-<section id="audit" class="bc-sec bc-gray">
+<section id="audit" class="bc-sec">
   <div class="bc-in bc-two">
     <div>
       <div class="bc-eyebrow">Free &middot; 15 minutes</div>
@@ -499,8 +525,8 @@
 </section>
 
 <!-- FOUNDER -->
-<section class="bc-sec">
-  <div class="bc-in bc-two">
+<section class="bc-sec bc-gray">
+  <div class="bc-in bc-two" style="grid-template-columns:.7fr 1.3fr">
     <div class="bc-founder"><img src="/michael.jpg" alt="Michael, BizColab founder and facilitator" loading="lazy"></div>
     <div>
       <div class="bc-eyebrow">Who runs the room</div>
@@ -512,7 +538,7 @@
   </div>
 </section>
 
-<section id="faq" class="py-20 md:py-24" style="background:#f5f5f7">
+<section id="faq" class="py-20 md:py-24 bg-white">
   <div class="max-w-3xl mx-auto px-6">
     <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Questions</div>
     <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">The honest answers.</h2>
@@ -649,7 +675,7 @@
   }
 
   /* bottom bar (trigger) */
-  .bizc-bar{ position:fixed; left:0; right:0; bottom:0; z-index:99998; transform:translateY(120%); transition:transform .45s cubic-bezier(.2,.7,.2,1); background:#0a0a0a; color:#fff; }
+  .bizc-bar{ position:fixed; left:0; right:0; bottom:0; z-index:99998; transform:translateY(120%); transition:transform .45s cubic-bezier(.2,.7,.2,1); background:#fff; color:#0a0a0a; border-top:1px solid #e6e9ef; box-shadow:0 -8px 30px rgba(10,20,50,.08); }
   .bizc-bar.bizc-show{ transform:translateY(0); }
   .bizc-bar-inner{ max-width:72rem; margin:0 auto; padding:14px 44px; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center; }
   .bizc-pill-new{ display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:9999px; font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:#ffb340; flex-shrink:0; }
@@ -726,7 +752,7 @@
     <button class="bizc-bar-close" id="bizcBarClose" aria-label="Dismiss">&times;</button>
     <div class="bizc-bar-inner">
       <span class="bizc-pill-new">New</span>
-      <span class="bizc-bar-hook">Six seats are open for the next cohort — grab one before it fills.</span>
+      <span class="bizc-bar-hook">Free 15-minute business audit — get your one-page snapshot.</span>
       <button class="bizc-bar-cta" id="bizcBarCta">Request a seat</button>
     </div>
   </div>
@@ -737,7 +763,7 @@
 
       <div id="bizcFormView">
         <div class="bizc-head">
-          <div class="bizc-badge"><span class="bizc-badge-dot"></span> Founding cohort now enrolling</div>
+          <div class="bizc-badge"><span class="bizc-badge-dot"></span> Next cohort now forming</div>
           <h3 id="bizcHeadline"><span>Six people</span> in your corner. <span>The team</span> you&rsquo;ve been missing.</h3>
           <p>A small cohort for people serious about growing their business &mdash; and just as passionate about helping others grow theirs. Add your name to join the process.</p>
         </div>
