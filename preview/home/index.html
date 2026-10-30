@@ -269,22 +269,22 @@
 .bcx-links{display:flex;gap:34px;font-size:15px;font-weight:500;color:#1d1d1f}
 .bcx-links a{text-decoration:none}
 .bcx-links a:hover{opacity:.6}
-.bcx-nav-btn{background:#0a0a0a;color:#fff;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
-.bcx-nav-btn:hover{background:#1f1f1f}
+.bcx-nav-btn{background:#ff6f5e;color:#fff;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
+.bcx-nav-btn:hover{background:#f25a48}
 .bcx-hero{padding:10px}
 .bcx-card{border-radius:26px;min-height:min(96vh,980px)}
 .bcx-img{object-position:50% 45%;filter:brightness(.42) saturate(1.0)}
 .bcx-scrim{background:linear-gradient(180deg,rgba(6,10,20,.30),rgba(6,10,20,.18) 45%,rgba(6,10,20,.62))}
 .bcx-in{max-width:1060px;padding:150px 26px 70px}
-.bcx-h1{font-size:clamp(34px,5.6vw,74px);white-space:nowrap;font-weight:600;letter-spacing:-.035em;line-height:1.04;white-space:normal}
-.bcx-h1 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em;font-size:1.08em}
+.bcx-h1{font-size:clamp(30px,6.2vw,84px);white-space:nowrap;font-weight:700;letter-spacing:-.04em;font-weight:600;letter-spacing:-.035em;line-height:1.04;white-space:normal}
+.bcx-acc{color:#ff6f5e}
 .bcx-sub{margin-top:22px;max-width:none;white-space:nowrap;font-size:clamp(15px,1.8vw,21px)}
 @media(max-width:560px){.bcx-sub{white-space:normal}}
 .bcx-join{margin:44px auto 0;display:flex;align-items:center;gap:6px;max-width:520px;background:#fff;border-radius:999px;padding:6px 6px 6px 22px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
 .bcx-join input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;color:#0a0a0a;padding:10px 0}
 .bcx-join input::placeholder{color:#8e8e93}
-.bcx-join button{flex:none;background:#0a57ff;color:#fff;border:0;border-radius:999px;padding:15px 24px;font:inherit;font-size:15.5px;font-weight:600;cursor:pointer}
-.bcx-join button:hover{background:#0747d1}
+.bcx-join button{flex:none;background:#ff6f5e;color:#fff;border:0;border-radius:999px;padding:15px 24px;font:inherit;font-size:15.5px;font-weight:600;cursor:pointer}
+.bcx-join button:hover{background:#f25a48}
 @media(max-width:900px){
   .bcx-links{display:none}
   .bcx-nav{top:12px;padding:0 12px}
@@ -298,7 +298,7 @@
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-<body data-home-version="v12">
+<body data-home-version="v13">
 
 <!-- NAV -->
 
@@ -322,8 +322,8 @@
     <img class="bcx-img" src="/assets/hero-room.jpg" alt="Six operators working a problem around one table" width="1500" height="845" />
     <div class="bcx-scrim"></div>
     <div class="bcx-in">
-      <h1 class="bcx-h1 font-display"><em>Collaboration</em>-powered businesses.</h1>
-      <p class="bcx-sub">Entrepreneurs, innovators, and founders connect, share, and grow.</p>
+      <h1 class="bcx-h1 font-display">Six Founders in <span class="bcx-acc">Your Corner.</span></h1>
+      <p class="bcx-sub">Work on your business, not in it. Entrepreneurs connect, share, and grow.</p>
       <form class="bcx-join" id="bcxJoin" novalidate>
         <input type="email" id="bcxJoinEmail" placeholder="you@company.com" autocomplete="email" aria-label="Email" required>
         <button type="submit">Join the community</button>
@@ -399,8 +399,8 @@
 .bcx-rot--hero .bcx-rot-who{color:rgba(255,255,255,.72)}
 .bcx-rot--hero .bcx-rot-who b{color:#fff}
 .bcx-rot--hero .bcx-rot-dot{background:rgba(255,255,255,.35)}
-.bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
-@media(max-width:900px){.bcx-h1{white-space:normal}.bcx-rot--hero{margin-top:48px}}
+.bcx-rot--hero .bcx-rot-dot.is-on{background:#ff6f5e}
+@media(max-width:900px){.bcx-h1{white-space:nowrap;font-size:clamp(26px,7.4vw,40px)}.bcx-rot--hero{margin-top:48px}}
 
   /* --- NEW: shortened cards with More --- */
   .bcx-rv-q.is-clamped{flex:0 0 auto;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
