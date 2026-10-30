@@ -278,13 +278,8 @@
 .bcx-in{max-width:1060px;padding:150px 26px 70px}
 .bcx-h1{font-size:clamp(30px,6.2vw,84px);white-space:nowrap;font-weight:700;letter-spacing:-.04em;font-weight:600;letter-spacing:-.035em;line-height:1.04;white-space:normal}
 .bcx-acc{color:#ff8c1a}
-/* A/B blue variant */
-body.ab-blue .bcx-acc{color:#5b9bff}
-body.ab-blue .bcx-join button,body.ab-blue .bcx-nav-btn{background:#0a57ff}
-body.ab-blue .bcx-join button:hover,body.ab-blue .bcx-nav-btn:hover{background:#0747d1}
-body.ab-blue .bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
 
-.bcx-sub{margin-top:22px;max-width:none;white-space:nowrap;font-size:clamp(15px,1.8vw,21px)}
+.bcx-sub{margin-top:22px;max-width:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(15px,1.8vw,21px)}
 @media(max-width:560px){.bcx-sub{white-space:normal}}
 .bcx-join{margin:44px auto 0;display:flex;align-items:center;gap:6px;max-width:520px;background:#fff;border-radius:999px;padding:6px 6px 6px 22px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
 .bcx-join input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;color:#0a0a0a;padding:10px 0}
@@ -304,29 +299,32 @@ body.ab-blue .bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-<body data-home-version="v17">
+<body data-home-version="v18">
 
 <!-- NAV -->
 
 <script>
-/* BizColab homepage A/B: headline (A/B) x accent (orange/blue). Sticky per visitor. */
+/* BizColab homepage test v2: 6 banner versions. ?ab=1..6 forces one (used by ads); otherwise random, sticky per visitor. */
 (function(){
-  var KEY='bc_ab_v1', v=null;
-  try{ v=localStorage.getItem(KEY); }catch(e){}
-  if(!/^(A|B)-(orange|blue)$/.test(v||'')){
-    v=(Math.random()<.5?'A':'B')+'-'+(Math.random()<.5?'orange':'blue');
-    try{ localStorage.setItem(KEY,v); }catch(e){}
+  var V=[["Grow Faster With Founders in <span class=\"bcx-acc\">Your Corner.</span>", "A small peer group that helps you solve the one problem holding your business back."], ["Empowering Entrepreneurs Through <span class=\"bcx-acc\">Collaboration.</span>", "A founder community that helps you solve the problem holding your business back."], ["The Community Where <span class=\"bcx-acc\">Founders Grow.</span>", "Bring your biggest problem. Leave with a plan and people who have your back."], ["Stop Building <span class=\"bcx-acc\">Alone.</span>", "Join a community of founders who give honest feedback and real accountability."], ["Six Founders in <span class=\"bcx-acc\">Your Corner.</span>", "Four weeks to move the one problem holding your business back."], ["Your Business Needs <span class=\"bcx-acc\">a Board.</span>", "A founder community for honest feedback, real accountability, and faster growth."]], KEY='bc_ab_v2', v=null;
+  var q=location.search.match(/[?&]ab=([1-6])\b/);
+  if(q){ v=q[1]; } else {
+    try{ v=localStorage.getItem(KEY); }catch(e){}
+    if(!/^[1-6]$/.test(v||'')) v=String(1+Math.floor(Math.random()*6));
   }
-  var q=location.search.match(/[?&]ab=((A|B)-(orange|blue))/); if(q) v=q[1];
+  try{ localStorage.setItem(KEY,v); }catch(e){}
   window.BC_AB=v;
-  if(v.indexOf('blue')>-1) document.body.classList.add('ab-blue');
-  var h=document.querySelector('.bcx-h1');
-  if(h && v.charAt(0)==='B') h.innerHTML='Stop Building <span class="bcx-acc">Alone.</span>';
-  window.dataLayer=window.dataLayer||[];
-  window.dataLayer.push({event:'ab_view',ab_variant:v});
-  document.addEventListener('click',function(e){
-    var t=e.target.closest('.bcx-join button,.bcx-nav-btn'); if(t) window.dataLayer.push({event:'ab_click',ab_variant:v});
-  },true);
+  document.addEventListener('DOMContentLoaded',apply); if(document.readyState!=='loading') apply();
+  function apply(){
+    var h=document.querySelector('.bcx-h1'), p=document.querySelector('.bcx-sub'); if(!h||h.dataset.ab) return;
+    h.dataset.ab=v; h.innerHTML=V[v-1][0]; if(p) p.textContent=V[v-1][1].replace(/&rsquo;/g,'\u2019');
+    fit(h); window.addEventListener('resize',function(){fit(h)});
+  }
+  function fit(h){ /* keep title on one line */
+    h.style.fontSize=''; var max=parseFloat(getComputedStyle(h).fontSize), w=h.parentNode.clientWidth;
+    var s=max; while(h.scrollWidth>w && s>22){ s-=2; h.style.fontSize=s+'px'; }
+  }
+  window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'ab_view',ab_variant:v});
 })();
 </script>
 <header class="bcx-nav" id="bcxNav">
@@ -349,8 +347,8 @@ body.ab-blue .bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
     <img class="bcx-img" src="/assets/hero-room.jpg" alt="Six operators working a problem around one table" width="1500" height="845" />
     <div class="bcx-scrim"></div>
     <div class="bcx-in">
-      <h1 class="bcx-h1 font-display">Six Founders in <span class="bcx-acc">Your Corner.</span></h1>
-      <p class="bcx-sub">Work on your business, not in it. Entrepreneurs connect, share, and grow.</p>
+      <h1 class="bcx-h1 font-display">Grow Faster With Founders in <span class="bcx-acc">Your Corner.</span></h1>
+      <p class="bcx-sub">A small peer group that helps you solve the one problem holding your business back.</p>
       <form class="bcx-join" id="bcxJoin" novalidate>
         <input type="email" id="bcxJoinEmail" placeholder="you@company.com" autocomplete="email" aria-label="Email" required>
         <button type="submit">Join the community</button>
