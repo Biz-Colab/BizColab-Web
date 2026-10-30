@@ -59,12 +59,29 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.08;font
 .foot{border-top:1px solid var(--line);padding:26px 24px;font-size:13px;color:#6e6e73;text-align:center}
 .foot a{color:#6e6e73;margin:0 8px}
 @media(max-width:860px){h1{white-space:normal}.hero{grid-template-columns:1fr;gap:34px;padding-top:10px}.photo{order:1}.photo img{aspect-ratio:4/3}.badge{left:12px;bottom:12px}.three,.quotes,.steps{grid-template-columns:1fr}form{grid-template-columns:1fr}.sec{padding:60px 20px}}
+
+.bn{padding:0 10px}
+.bn-card{position:relative;border-radius:26px;overflow:hidden;min-height:min(82vh,760px);display:flex;align-items:center;justify-content:center;text-align:center}
+.bn-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:brightness(.45)}
+.bn-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,.25),rgba(6,10,20,.15) 45%,rgba(6,10,20,.55))}
+.bn-in{position:relative;z-index:2;max-width:980px;padding:70px 24px;color:#fff}
+.bn-in .tag{background:rgba(255,255,255,.16);color:#fff}
+.bn-in h1{color:#fff;font-size:clamp(32px,5vw,66px);text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.bn-in .sub{color:#fff;margin:20px auto 0;max-width:46ch;font-weight:700}
+.bn-in form{margin:34px auto 0;max-width:720px;grid-template-columns:1fr 1.3fr auto;background:#fff;padding:8px;border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.bn-in input{grid-column:auto;border:0;padding:14px 14px}
+.bn-in input:focus{box-shadow:none;background:#f5f7fb}
+.bn-in button{grid-column:auto;padding:14px 22px;white-space:nowrap}
+.bn-in .note{color:rgba(255,255,255,.85);margin-top:14px}
+.bn-rv{margin-top:34px;font-size:14px;color:rgba(255,255,255,.9)}.bn-rv span{color:#ffb340;letter-spacing:2px;margin-right:8px}
+@media(max-width:860px){.bn-in input{border-bottom:1px solid #eef0f4}.bn-in{padding:48px 18px}.bn-in form{grid-template-columns:1fr}.bn-in h1{white-space:normal}.bn-card{min-height:auto}}
 </style></head>
-<body data-lp="audit" data-lp-version="v3">
+<body data-lp="audit" data-lp-version="v4">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top"><a class="logo" href="/">BizColab<span>.</span></a><span class="ver">Page C &middot; v3</span></div>
-<section class="hero">
-  <div>
+<div class="top"><a class="logo" href="/">BizColab<span>.</span></a><span class="ver">Page C &middot; v4</span></div>
+<section class="bn"><div class="bn-card">
+  <img src="/assets/hero-room.jpg" alt="Founders working together around one table"><div class="bn-scrim"></div>
+  <div class="bn-in">
     <div class="tag">Free &middot; 15 minutes &middot; No pitch</div>
     <h1>Your Free One-Page<br><span class="acc">Business Snapshot.</span></h1>
     <p class="sub">One 15-minute call. Leave with what&rsquo;s working, what&rsquo;s stuck and your next move.</p>
@@ -73,12 +90,10 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.08;font
       <input id="f3" name="e" type="email" placeholder="you@company.com" autocomplete="email" required>
       <button type="submit">Get my free snapshot &rarr;</button>
     </form>
-    <p class="note" id="nt">Your snapshot arrives by email after the call.</p>
-    
+    <p class="note">Your snapshot arrives by email after the call.</p>
+    <div class="bn-rv"><span>★★★★★</span>5-star Google reviews from Cohort 01 and 02 founders</div>
   </div>
-  <div class="photo"><img src="/michael.jpg" alt="Michael, BizColab founder and facilitator">
-    <div class="badge"><div class="stars">★★★★★</div><b>5-star Google reviews</b>From Cohort 01 and 02 founders</div></div>
-</section>
+</div></section>
 <section class="sec gray"><div class="in">
   <h2>What&rsquo;s on your snapshot</h2>
   <div class="three"><div class="card"><div class="n">1</div><h3>Where you stand</h3><p>Your business today, in one clear line.</p></div><div class="card"><div class="n">2</div><h3>What&rsquo;s holding you back</h3><p>The bottleneck behind the symptoms you keep fighting.</p></div><div class="card"><div class="n">3</div><h3>Your one next move</h3><p>Plus a simple 30-day plan, sent to you after the call.</p></div></div>
