@@ -253,6 +253,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       emailjs.send('service_bpcodid', 'template_09f1pjl', data).catch(function(e){ console.error('Lead email failed:', e); });
       emailjs.send('service_bpcodid', 'template_bt9vd63', data).catch(function(e){ console.error('Auto-reply failed:', e); });
       fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(data) }).catch(function(){});
+      window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_submit',form_type:'join_page',form_source:'join_page',lead_value:25,currency:'USD'});
 
       setTimeout(function(){
         document.getElementById('spName').textContent = first ? (', ' + first) : '';
