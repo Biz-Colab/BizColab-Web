@@ -75,13 +75,24 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.08;font
 .bn-in .note{color:rgba(255,255,255,.85);margin-top:14px}
 .bn-rv{margin-top:34px;font-size:14px;color:rgba(255,255,255,.9)}.bn-rv span{color:#ffb340;letter-spacing:2px;margin-right:8px}
 @media(max-width:860px){.bn-in input{border-bottom:1px solid #eef0f4}.bn-in{padding:48px 18px}.bn-in form{grid-template-columns:1fr}.bn-in h1{white-space:normal}.bn-card{min-height:auto}}
+
+/* split hero */
+.sp{max-width:1180px;margin:0 auto;padding:28px 24px 80px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.sp h1{white-space:normal;font-size:clamp(32px,3.7vw,50px)}
+.sp .sub{max-width:44ch}
+.sp form{grid-template-columns:1fr;max-width:480px}
+.sp .rv{margin-top:26px;font-size:14px;color:#6e6e73}.sp .rv span{color:#ffb340;letter-spacing:2px;margin-right:8px}
+.sp .photo img{aspect-ratio:4/4.4;border-radius:28px}
+.sp .badge{left:-22px;bottom:30px;max-width:320px}
+.sp .badge p{font-size:15px;font-weight:600;line-height:1.4;margin-top:4px}
+.sp .badge span{display:block;font-size:13px;color:#6e6e73;margin-top:6px}
+@media(max-width:860px){.sp{grid-template-columns:1fr;gap:30px;padding:8px 20px 56px}.sp .photo{order:-1}.sp .photo img{aspect-ratio:4/3}.sp .badge{left:12px;bottom:12px;max-width:260px}}
 </style></head>
-<body data-lp="seat" data-lp-version="v5">
+<body data-lp="seat" data-lp-version="v6">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top"><a class="logo" href="/">BizColab<span>.</span></a><span class="ver">Page A &middot; v5</span></div>
-<section class="bn"><div class="bn-card">
-  <img src="/assets/lp/seat-founder.jpg" alt="Founder mapping a plan on a wall of sticky notes"><div class="bn-scrim"></div>
-  <div class="bn-in">
+<div class="top"><a class="logo" href="/">BizColab<span>.</span></a><span class="ver">Page A &middot; v6</span></div>
+<section class="sp">
+  <div>
     <div class="tag">Cohort 004 &middot; Mondays or Wednesdays</div>
     <h1>Are You the Bottleneck<br>in <span class="acc">Your Own Business?</span></h1>
     <p class="sub">Join a small room of founders who help you fix the one problem holding you back in four weeks.</p>
@@ -91,9 +102,13 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.08;font
       <button type="submit">Request my seat &rarr;</button>
     </form>
     <p class="note">Every seat starts with a quick 15-minute call.</p>
-    <div class="bn-rv"><span>★★★★★</span>5-star Google reviews from Cohort 01 and 02 founders</div>
+    <div class="rv"><span>★★★★★</span>5-star Google reviews from Cohort 01 and 02 founders</div>
   </div>
-</div></section>
+  <div class="photo">
+    <img src="/assets/lp/seat-founder.jpg" alt="Founder mapping a plan on a wall of sticky notes" style="object-position:35% 50%">
+    <div class="badge"><div class="stars">★★★★★</div><p>&ldquo;Four weeks in, I stopped spending on paid ads and built a referral engine.&rdquo;</p><span>Alex N. · Attorney</span></div>
+  </div>
+</section>
 <section class="sec gray"><div class="in">
   <h2>What you get</h2>
   <div class="three"><div class="card"><div class="n">1</div><h3>One problem, named</h3><p>Bring the thing you&rsquo;ve been stuck on. The room finds the real cause, not the symptom.</p></div><div class="card"><div class="n">2</div><h3>Five founders in your corner</h3><p>Honest feedback from owners who run real businesses, not coaches or gurus.</p></div><div class="card"><div class="n">3</div><h3>Movement in four weeks</h3><p>One commitment a week, checked by the group. Real progress by day thirty.</p></div></div>
