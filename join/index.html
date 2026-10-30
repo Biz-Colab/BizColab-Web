@@ -68,12 +68,29 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.08;font
 .founder p{font-size:19px;color:var(--mu);margin-top:12px;max-width:52ch;text-wrap:pretty}
 .ctr{text-align:center}.ctr .sub{margin-left:auto;margin-right:auto}
 @media(max-width:860px){.who{grid-template-columns:1fr}.founder{grid-template-columns:1fr;text-align:center}.founder img{margin:0 auto;width:200px;height:200px}.founder p{margin-left:auto;margin-right:auto}}
+
+.bn{padding:0 10px}
+.bn-card{position:relative;border-radius:26px;overflow:hidden;min-height:min(82vh,760px);display:flex;align-items:center;justify-content:center;text-align:center}
+.bn-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:brightness(.45)}
+.bn-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,.25),rgba(6,10,20,.15) 45%,rgba(6,10,20,.55))}
+.bn-in{position:relative;z-index:2;max-width:980px;padding:70px 24px;color:#fff}
+.bn-in .tag{background:rgba(255,255,255,.16);color:#fff}
+.bn-in h1{color:#fff;font-size:clamp(32px,5vw,66px);text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.bn-in .sub{color:#fff;margin:20px auto 0;max-width:46ch;font-weight:700}
+.bn-in form{margin:34px auto 0;max-width:720px;grid-template-columns:1fr 1.3fr auto;background:#fff;padding:8px;border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.bn-in input{grid-column:auto;border:0;padding:14px 14px}
+.bn-in input:focus{box-shadow:none;background:#f5f7fb}
+.bn-in button{grid-column:auto;padding:14px 22px;white-space:nowrap}
+.bn-in .note{color:rgba(255,255,255,.85);margin-top:14px}
+.bn-rv{margin-top:34px;font-size:14px;color:rgba(255,255,255,.9)}.bn-rv span{color:#ffb340;letter-spacing:2px;margin-right:8px}
+@media(max-width:860px){.bn-in input{border-bottom:1px solid #eef0f4}.bn-in{padding:48px 18px}.bn-in form{grid-template-columns:1fr}.bn-in h1{white-space:normal}.bn-card{min-height:auto}}
 </style></head>
-<body data-join-version="v5">
+<body data-join-version="v2">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top"><span class="logo">BizColab<span>.</span></span><span class="ver">Join &middot; v1</span></div>
-<section class="hero">
-  <div>
+<div class="top"><span class="logo">BizColab<span>.</span></span><span class="ver">Join &middot; v2</span></div>
+<section class="bn"><div class="bn-card">
+  <img src="/assets/hero-room.jpg" alt="Founders working together around one table"><div class="bn-scrim"></div>
+  <div class="bn-in">
     <div class="tag">Cohort 004 &middot; Mondays or Wednesdays</div>
     <h1>Stop Building <span class="acc">Alone.</span></h1>
     <p class="sub">Six founders. Four weeks. One plan to move your biggest problem.</p>
@@ -83,10 +100,9 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.08;font
       <button type="submit">Request a Seat &rarr;</button>
     </form>
     <p class="note">Every seat starts with a quick 15-minute call.</p>
+    <div class="bn-rv"><span>★★★★★</span>5-star Google reviews from Cohort 01 and 02 founders</div>
   </div>
-  <div class="photo"><img src="/michael.jpg" alt="Michael, BizColab founder and facilitator">
-    <div class="badge"><div class="stars">★★★★★</div><b>5-star Google reviews</b>From Cohort 01 and 02 founders</div></div>
-</section>
+</div></section>
 <section class="sec gray"><div class="in">
   <h2>How it works</h2>
   <div class="three">
