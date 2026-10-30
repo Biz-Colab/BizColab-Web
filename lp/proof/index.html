@@ -75,13 +75,24 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.08;font
 .bn-in .note{color:rgba(255,255,255,.85);margin-top:14px}
 .bn-rv{margin-top:34px;font-size:14px;color:rgba(255,255,255,.9)}.bn-rv span{color:#ffb340;letter-spacing:2px;margin-right:8px}
 @media(max-width:860px){.bn-in input{border-bottom:1px solid #eef0f4}.bn-in{padding:48px 18px}.bn-in form{grid-template-columns:1fr}.bn-in h1{white-space:normal}.bn-card{min-height:auto}}
+
+/* split hero */
+.sp{max-width:1180px;margin:0 auto;padding:28px 24px 80px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.sp h1{white-space:normal;font-size:clamp(32px,3.7vw,50px)}
+.sp .sub{max-width:44ch}
+.sp form{grid-template-columns:1fr;max-width:480px}
+.sp .rv{margin-top:26px;font-size:14px;color:#6e6e73}.sp .rv span{color:#ffb340;letter-spacing:2px;margin-right:8px}
+.sp .photo img{aspect-ratio:4/4.4;border-radius:28px}
+.sp .badge{left:-22px;bottom:30px;max-width:320px}
+.sp .badge p{font-size:15px;font-weight:600;line-height:1.4;margin-top:4px}
+.sp .badge span{display:block;font-size:13px;color:#6e6e73;margin-top:6px}
+@media(max-width:860px){.sp{grid-template-columns:1fr;gap:30px;padding:8px 20px 56px}.sp .photo{order:-1}.sp .photo img{aspect-ratio:4/3}.sp .badge{left:12px;bottom:12px;max-width:260px}}
 </style></head>
-<body data-lp="proof" data-lp-version="v6">
+<body data-lp="proof" data-lp-version="v7">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top"><a class="logo" href="/">BizColab<span>.</span></a><span class="ver">Page B &middot; v6</span></div>
-<section class="bn"><div class="bn-card">
-  <img src="/assets/lp/proof-deal.jpg" alt="Founders shaking hands as the group applauds"><div class="bn-scrim"></div>
-  <div class="bn-in">
+<div class="top"><a class="logo" href="/">BizColab<span>.</span></a><span class="ver">Page B &middot; v7</span></div>
+<section class="sp">
+  <div>
     <div class="tag">What members said after four weeks</div>
     <h1>Six Founders.<br><span class="acc">Four Weeks.</span><br>Real Results.</h1>
     <p class="sub">Members fixed pricing, landed qualified leads and stopped wasting money on ads.</p>
@@ -91,9 +102,13 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.08;font
       <button type="submit">Join the community &rarr;</button>
     </form>
     <p class="note">Two rooms, Mondays or Wednesdays. Starting late November and December.</p>
-    <div class="bn-rv"><span>★★★★★</span>5-star Google reviews from Cohort 01 and 02 founders</div>
+    <div class="rv"><span>★★★★★</span>5-star Google reviews from Cohort 01 and 02 founders</div>
   </div>
-</div></section>
+  <div class="photo">
+    <img src="/assets/lp/proof-deal.jpg" alt="Founders shaking hands as the group applauds" style="object-position:60% 50%">
+    <div class="badge"><div class="stars">★★★★★</div><p>&ldquo;In four weeks, I fixed my pricing and finalized my target market.&rdquo;</p><span>Svetlana · Events founder</span></div>
+  </div>
+</section>
 <section class="sec gray"><div class="in">
   <h2>What you get</h2>
   <div class="three"><div class="card"><div class="n">1</div><h3>Clearer positioning</h3><p>Know exactly who you serve and why they should pick you.</p></div><div class="card"><div class="n">2</div><h3>Better pricing</h3><p>Stop guessing. Price with feedback from founders who&rsquo;ve done it.</p></div><div class="card"><div class="n">3</div><h3>More of the right clients</h3><p>Leave with a plan to land them, and people holding you to it.</p></div></div>
