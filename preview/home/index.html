@@ -276,18 +276,15 @@
 .bcx-img{object-position:50% 45%;filter:brightness(.42) saturate(1.0)}
 .bcx-scrim{background:linear-gradient(180deg,rgba(6,10,20,.30),rgba(6,10,20,.18) 45%,rgba(6,10,20,.62))}
 .bcx-in{max-width:1060px;padding:150px 26px 70px}
-.bcx-h1{font-size:clamp(34px,5.8vw,76px);font-weight:600;letter-spacing:-.035em;line-height:1.04;white-space:normal}
+.bcx-h1{font-size:clamp(34px,5.6vw,74px);white-space:nowrap;font-weight:600;letter-spacing:-.035em;line-height:1.04;white-space:normal}
 .bcx-h1 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em;font-size:1.08em}
-.bcx-sub{margin-top:22px;max-width:54ch;font-size:clamp(16px,1.7vw,20px)}
+.bcx-sub{margin-top:22px;max-width:none;white-space:nowrap;font-size:clamp(15px,1.8vw,21px)}
+@media(max-width:560px){.bcx-sub{white-space:normal}}
 .bcx-join{margin:44px auto 0;display:flex;align-items:center;gap:6px;max-width:520px;background:#fff;border-radius:999px;padding:6px 6px 6px 22px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
 .bcx-join input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;color:#0a0a0a;padding:10px 0}
 .bcx-join input::placeholder{color:#8e8e93}
 .bcx-join button{flex:none;background:#0a57ff;color:#fff;border:0;border-radius:999px;padding:15px 24px;font:inherit;font-size:15.5px;font-weight:600;cursor:pointer}
 .bcx-join button:hover{background:#0747d1}
-.bcx-quotes-lbl{margin-top:84px;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.72)}
-.bcx-quotes{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:left}
-.bcx-quotes blockquote{margin:0;padding:0 0 0 18px;border-left:2px solid rgba(255,255,255,.35);font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.92)}
-.bcx-quotes cite{display:block;margin-top:10px;font-style:normal;font-size:13px;font-weight:600;color:#8FE3DA}
 @media(max-width:900px){
   .bcx-links{display:none}
   .bcx-nav{top:12px;padding:0 12px}
@@ -297,13 +294,11 @@
   .bcx-join{flex-direction:column;gap:8px;border-radius:22px;padding:8px}
   .bcx-join input{width:100%;text-align:center}
   .bcx-join button{width:100%}
-  .bcx-quotes{grid-template-columns:1fr;gap:18px}
-  .bcx-quotes-lbl{margin-top:56px}
 }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-<body data-home-version="v9">
+<body data-home-version="v10">
 
 <!-- NAV -->
 
@@ -327,17 +322,22 @@
     <img class="bcx-img" src="/assets/hero-room.jpg" alt="Six operators working a problem around one table" width="1500" height="845" />
     <div class="bcx-scrim"></div>
     <div class="bcx-in">
-      <h1 class="bcx-h1 font-display">The <em>room</em> your business has been missing.</h1>
-      <p class="bcx-sub">Where founders meet, work the one problem they&rsquo;ve been stuck on, and move it in four weeks.</p>
+      <h1 class="bcx-h1 font-display">Work <em>on</em> your business, not in it.</h1>
+      <p class="bcx-sub">Six founders, one problem each, four Monday evenings.</p>
       <form class="bcx-join" id="bcxJoin" novalidate>
         <input type="email" id="bcxJoinEmail" placeholder="you@company.com" autocomplete="email" aria-label="Email" required>
         <button type="submit">Request a seat</button>
       </form>
-      <div class="bcx-quotes-lbl">What members said after four weeks</div>
-      <div class="bcx-quotes">
-        <blockquote>&ldquo;Three weeks in, I had a clearer positioning and three qualified leads.&rdquo;<cite>Renee M.</cite></blockquote>
-        <blockquote>&ldquo;I fixed my pricing, finalized my target market and narrowed my focus.&rdquo;<cite>Svetlana</cite></blockquote>
-        <blockquote>&ldquo;I&rsquo;ve stopped spending on paid ads and I&rsquo;m building a referral engine.&rdquo;<cite>Alex N.</cite></blockquote>
+      <div class="bcx-rot bcx-rot--hero" aria-live="polite">
+        <div class="bcx-rot-label">In one line</div>
+        <div class="bcx-rot-win"><div class="bcx-rot-track" id="bcxRotHero">
+          <div class="bcx-rot-item"><div class="bcx-rot-q">Break out of the bubble you&rsquo;re in!</div><div class="bcx-rot-who"><b>Sudeep D.</b> &middot; Founder</div></div>
+          <div class="bcx-rot-item"><div class="bcx-rot-q">Three weeks in, I had a clearer positioning and three qualified leads.</div><div class="bcx-rot-who"><b>Renee M.</b> &middot; Brand strategist</div></div>
+          <div class="bcx-rot-item"><div class="bcx-rot-q">One of the most useful things I&rsquo;ve done for my business.</div><div class="bcx-rot-who"><b>Svetlana</b> &middot; Events founder</div></div>
+          <div class="bcx-rot-item"><div class="bcx-rot-q">Four weeks in, I&rsquo;ve stopped spending on paid ads and I&rsquo;m building a referral engine.</div><div class="bcx-rot-who"><b>Alex N.</b> &middot; Business &amp; real estate attorney</div></div>
+          <div class="bcx-rot-item"><div class="bcx-rot-q">Within four weeks I landed a paid consulting engagement.</div><div class="bcx-rot-who"><b>Sudeep D.</b> &middot; Founder</div></div>
+        </div></div>
+        <div class="bcx-rot-dots" id="bcxRotHeroDots"></div>
       </div>
     </div>
   </div>
@@ -393,6 +393,15 @@
   .bcx-rot-dot{width:11px;height:11px;cursor:pointer;border-radius:999px;background:#d2d2d7;border:0;padding:0;transition:background .3s,width .3s}
   .bcx-rot-dot.is-on{background:#0a0a0a;width:32px}
   @media (prefers-reduced-motion:reduce){ .bcx-rot-track{transition:none} }
+.bcx-rot--hero{margin:72px auto 0;max-width:1000px}
+.bcx-rot--hero .bcx-rot-label{color:rgba(255,255,255,.7)}
+.bcx-rot--hero .bcx-rot-q{color:#fff;font-size:clamp(26px,3.6vw,44px)}
+.bcx-rot--hero .bcx-rot-who{color:rgba(255,255,255,.72)}
+.bcx-rot--hero .bcx-rot-who b{color:#fff}
+.bcx-rot--hero .bcx-rot-dot{background:rgba(255,255,255,.35)}
+.bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
+@media(max-width:900px){.bcx-h1{white-space:normal}.bcx-rot--hero{margin-top:48px}}
+
   /* --- NEW: shortened cards with More --- */
   .bcx-rv-q.is-clamped{flex:0 0 auto;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
   .bcx-rv-more-btn{align-self:flex-start;margin-top:10px;margin-bottom:auto;background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:500;color:#0071e3;cursor:pointer}
@@ -1330,6 +1339,18 @@
     if(bd){ bd.classList.add('bizc-open'); document.body.style.overflow='hidden'; try{sessionStorage.setItem('bizc_modal_shown','1');}catch(x){} }
     var fn=document.getElementById('bizcFirstName'); if(fn) setTimeout(function(){fn.focus();},50);
   });
+})();
+</script>
+<script>
+(function(){
+  var track=document.getElementById('bcxRotHero'); if(!track) return;
+  var items=track.children, dots=document.getElementById('bcxRotHeroDots'), i=0, t;
+  for(var n=0;n<items.length;n++){ (function(n){ var d=document.createElement('button'); d.className='bcx-rot-dot'+(n?'':' is-on'); d.type='button'; d.setAttribute('aria-label','Quote '+(n+1)); d.onclick=function(){ go(n); restart(); }; dots.appendChild(d); })(n); }
+  function go(n){ dots.children[i].classList.remove('is-on'); i=n; track.style.transform='translateX(-'+(i*100)+'%)'; dots.children[i].classList.add('is-on'); }
+  function restart(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },2800); }
+  restart();
+  track.parentNode.addEventListener('mouseenter',function(){ clearInterval(t); });
+  track.parentNode.addEventListener('mouseleave',restart);
 })();
 </script>
 </body>
