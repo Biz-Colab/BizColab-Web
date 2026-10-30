@@ -278,6 +278,12 @@
 .bcx-in{max-width:1060px;padding:150px 26px 70px}
 .bcx-h1{font-size:clamp(30px,6.2vw,84px);white-space:nowrap;font-weight:700;letter-spacing:-.04em;font-weight:600;letter-spacing:-.035em;line-height:1.04;white-space:normal}
 .bcx-acc{color:#ff8c1a}
+/* A/B blue variant */
+body.ab-blue .bcx-acc{color:#5b9bff}
+body.ab-blue .bcx-join button,body.ab-blue .bcx-nav-btn{background:#0a57ff}
+body.ab-blue .bcx-join button:hover,body.ab-blue .bcx-nav-btn:hover{background:#0747d1}
+body.ab-blue .bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
+
 .bcx-sub{margin-top:22px;max-width:none;white-space:nowrap;font-size:clamp(15px,1.8vw,21px)}
 @media(max-width:560px){.bcx-sub{white-space:normal}}
 .bcx-join{margin:44px auto 0;display:flex;align-items:center;gap:6px;max-width:520px;background:#fff;border-radius:999px;padding:6px 6px 6px 22px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
@@ -298,10 +304,31 @@
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-<body data-home-version="v14">
+<body data-home-version="v15">
 
 <!-- NAV -->
 
+<script>
+/* BizColab homepage A/B: headline (A/B) x accent (orange/blue). Sticky per visitor. */
+(function(){
+  var KEY='bc_ab_v1', v=null;
+  try{ v=localStorage.getItem(KEY); }catch(e){}
+  if(!/^(A|B)-(orange|blue)$/.test(v||'')){
+    v=(Math.random()<.5?'A':'B')+'-'+(Math.random()<.5?'orange':'blue');
+    try{ localStorage.setItem(KEY,v); }catch(e){}
+  }
+  var q=location.search.match(/[?&]ab=((A|B)-(orange|blue))/); if(q) v=q[1];
+  window.BC_AB=v;
+  if(v.indexOf('blue')>-1) document.body.classList.add('ab-blue');
+  var h=document.querySelector('.bcx-h1');
+  if(h && v.charAt(0)==='B') h.innerHTML='Stop Building <span class="bcx-acc">Alone.</span>';
+  window.dataLayer=window.dataLayer||[];
+  window.dataLayer.push({event:'ab_view',ab_variant:v});
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('.bcx-join button,.bcx-nav-btn'); if(t) window.dataLayer.push({event:'ab_click',ab_variant:v});
+  },true);
+})();
+</script>
 <header class="bcx-nav" id="bcxNav">
   <div class="bcx-nav-in">
     <a class="bcx-logo font-display" href="/">BizColab<span>.</span></a>
@@ -419,19 +446,6 @@
     </div>
 
 
-    <!-- NEW: rotating one-line callout -->
-    <div class="bcx-rot" aria-live="polite">
-      <div class="bcx-rot-label">In one line</div>
-      <div class="bcx-rot-win"><div class="bcx-rot-track" id="bcxRot">
-        <div class="bcx-rot-item"><div class="bcx-rot-q">Break out of the bubble you&rsquo;re in!</div><div class="bcx-rot-who"><b>Sudeep D.</b> &middot; Founder</div></div>
-        <div class="bcx-rot-item"><div class="bcx-rot-q">Three weeks in, I had a clearer positioning and three qualified leads.</div><div class="bcx-rot-who"><b>Renee M.</b> &middot; Brand strategist</div></div>
-        <div class="bcx-rot-item"><div class="bcx-rot-q">One of the most useful things I&rsquo;ve done for my business.</div><div class="bcx-rot-who"><b>Svetlana</b> &middot; Events founder</div></div>
-        <div class="bcx-rot-item"><div class="bcx-rot-q">Four weeks in, I&rsquo;ve stopped spending on paid ads and I&rsquo;m building a referral engine.</div><div class="bcx-rot-who"><b>Alex N.</b> &middot; Business &amp; real estate attorney</div></div>
-        <div class="bcx-rot-item"><div class="bcx-rot-q">Within four weeks I landed a paid consulting engagement.</div><div class="bcx-rot-who"><b>Sudeep D.</b> &middot; Founder</div></div>
-      </div></div>
-      <div class="bcx-rot-dots" id="bcxRotDots"></div>
-    </div>
-
     <div class="bcx-rv-head">
       <span class="bcx-rv-hint">Cohort 001, in their own words &mdash; swipe or drag to see them all</span>
       <div class="bcx-rv-arrows">
@@ -500,14 +514,14 @@
 
 <script>
 (function(){
-  var track=document.getElementById('bcxRot'); if(!track) return;
-  var items=track.children, dots=document.getElementById('bcxRotDots'), i=0, t;
+  var track=document.getElementById('bcxRot');
+  if(track){ var items=track.children, dots=document.getElementById('bcxRotDots'), i=0, t;
   for(var n=0;n<items.length;n++){ (function(n){ var d=document.createElement('button'); d.className='bcx-rot-dot'+(n?'':' is-on'); d.type='button'; d.setAttribute('aria-label','Quote '+(n+1)); d.onclick=function(){ go(n); restart(); }; dots.appendChild(d); })(n); }
   function go(n){ dots.children[i].classList.remove('is-on'); i=n; track.style.transform='translateX(-'+(i*100)+'%)'; dots.children[i].classList.add('is-on'); }
   function restart(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },2800); }
   restart();
   track.parentNode.addEventListener('mouseenter',function(){ clearInterval(t); });
-  track.parentNode.addEventListener('mouseleave',restart);
+  track.parentNode.addEventListener('mouseleave',restart); }
   /* shorten cards + More */
   document.querySelectorAll('.bcx-rv-q').forEach(function(q){
     q.classList.add('is-clamped');
@@ -1303,7 +1317,7 @@
       to_name:    (first + ' ' + last).trim() || email,
       to_email:   email,
       inquiry_type: 'Popup — Request a Seat',
-      source:     'homepage_popup'
+      source:     'homepage_popup' + (window.BC_AB ? ' | ab:' + window.BC_AB : '')
     };
 
     emailjs.send('service_bpcodid', 'template_09f1pjl', Object.assign({}, data, { to_email:'michael@bizcolab.com' }))
@@ -1315,7 +1329,7 @@
     } catch(err){}
 
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event:'lead_submit', form_type:'popup', form_source:'homepage_popup', lead_value:25, currency:'USD' });
+    window.dataLayer.push({ event:'lead_submit', form_type:'popup', form_source:'homepage_popup', ab_variant:(window.BC_AB||''), lead_value:25, currency:'USD' });
 
     setTimeout(function(){
       document.getElementById('bizcSpName').textContent = first ? (', ' + first) : '';
