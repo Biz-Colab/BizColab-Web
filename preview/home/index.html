@@ -1,171 +1,1336 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BizColab — Home concept v2</title>
-<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BizColab — A Mastermind Cohort for Founders &amp; Operators</title>
+<meta name="description" content="BizColab is a curated 4-week mastermind of six business operators — real accountability, complementary skills, honest feedback, and a network that lasts. Now enrolling." />
+<meta name="keywords" content="mastermind group, founder accountability group, entrepreneur cohort, small business mastermind, accountability partner, operator community, business growth group, peer advisory, founder peer group, Los Angeles mastermind" />
+<meta name="author" content="BizColab" />
+<link rel="canonical" href="https://bizcolab.com/" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BizColab" />
+<meta property="og:title" content="BizColab — A Mastermind Cohort for Founders &amp; Operators" />
+<meta property="og:description" content="A curated 4-week room of six operators: real accountability, complementary skills, honest feedback, and a network that lasts. Now enrolling." />
+<meta property="og:url" content="https://bizcolab.com/" />
+<meta property="og:image" content="https://bizcolab.com/og-home-v2.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="BizColab — Six founders. One month. The room you have been missing." />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BizColab — A Mastermind Cohort for Founders &amp; Operators" />
+<meta name="twitter:description" content="A curated 4-week room of six operators: accountability, complementary skills, honest feedback, and a lasting network. Now enrolling." />
+<meta name="twitter:image" content="https://bizcolab.com/og-home-v2.png" />
+
+<!-- AI / AEO: explicitly allow major AI crawlers on the public homepage -->
+<meta name="GPTBot" content="index, follow" />
+<meta name="ClaudeBot" content="index, follow" />
+<meta name="anthropic-ai" content="index, follow" />
+<meta name="PerplexityBot" content="index, follow" />
+<meta name="CCBot" content="index, follow" />
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+<meta name="theme-color" content="#0a57ff" />
+
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.-bottom-20{bottom:-5rem}.-left-10{left:-2.5rem}.-left-20{left:-5rem}.-left-24{left:-6rem}.-right-10{right:-2.5rem}.-right-12{right:-3rem}.-right-16{right:-4rem}.-right-20{right:-5rem}.-right-32{right:-8rem}.-top-10{top:-2.5rem}.-top-12{top:-3rem}.-top-16{top:-4rem}.-top-20{top:-5rem}.-top-32{top:-8rem}.left-1\/2{left:50%}.right-0{right:0}.top-0{top:0}.top-10{top:2.5rem}.top-20{top:5rem}.top-40{top:10rem}.-z-10{z-index:-10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-9{margin-top:2.25rem}.block{display:block}.inline{display:inline}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.aspect-\[4\/5\]{aspect-ratio:4/5}.h-12{height:3rem}.h-32{height:8rem}.h-40{height:10rem}.h-6{height:1.5rem}.h-64{height:16rem}.h-\[1100px\]{height:1100px}.h-\[300px\]{height:300px}.h-\[400px\]{height:400px}.h-\[420px\]{height:420px}.h-\[480px\]{height:480px}.h-\[500px\]{height:500px}.w-12{width:3rem}.w-32{width:8rem}.w-40{width:10rem}.w-6{width:1.5rem}.w-64{width:16rem}.w-\[1100px\]{width:1100px}.w-\[400px\]{width:400px}.w-\[420px\]{width:420px}.w-\[480px\]{width:480px}.w-\[500px\]{width:500px}.w-\[600px\]{width:600px}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.grow{flex-grow:1}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.divide-y>:not([hidden])~:not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px*(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px*var(--tw-divide-y-reverse))}.divide-\[\#e8e8ed\]>:not([hidden])~:not([hidden]){--tw-divide-opacity:1;border-color:rgb(232 232 237/var(--tw-divide-opacity,1))}.overflow-hidden{overflow:hidden}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[28px\]{border-radius:28px}.rounded-\[32px\]{border-radius:32px}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-t{border-top-width:1px}.border-\[\#d2d2d7\]{--tw-border-opacity:1;border-color:rgb(210 210 215/var(--tw-border-opacity,1))}.border-\[\#e8e8ed\]{--tw-border-opacity:1;border-color:rgb(232 232 237/var(--tw-border-opacity,1))}.border-\[\#ff6f5e\]\/20{border-color:rgba(255,111,94,.2)}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.border-white\/80{border-color:hsla(0,0%,100%,.8)}.bg-\[\#0a0a0a\]{--tw-bg-opacity:1;background-color:rgb(10 10 10/var(--tw-bg-opacity,1))}.bg-\[\#f5f5f7\]{--tw-bg-opacity:1;background-color:rgb(245 245 247/var(--tw-bg-opacity,1))}.bg-\[\#fafafa\]{--tw-bg-opacity:1;background-color:rgb(250 250 250/var(--tw-bg-opacity,1))}.bg-\[\#fff7f5\]{--tw-bg-opacity:1;background-color:rgb(255 247 245/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/70{background-color:hsla(0,0%,100%,.7)}.bg-white\/\[0\.03\]{background-color:hsla(0,0%,100%,.03)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.from-\[\#0a0a0a\]{--tw-gradient-from:#0a0a0a var(--tw-gradient-from-position);--tw-gradient-to:hsla(0,0%,4%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-\[\#3a2a1f\]{--tw-gradient-to:#3a2a1f var(--tw-gradient-to-position)}.p-1{padding:.25rem}.p-10{padding:2.5rem}.p-7{padding:1.75rem}.p-8{padding:2rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-7{padding-top:1.75rem;padding-bottom:1.75rem}.pb-24{padding-bottom:6rem}.pt-20{padding-top:5rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[11px\]{font-size:11px}.text-\[12px\]{font-size:12px}.text-\[13px\]{font-size:13px}.text-\[14px\]{font-size:14px}.text-\[15px\]{font-size:15px}.text-\[16px\]{font-size:16px}.text-\[17px\]{font-size:17px}.text-\[18px\]{font-size:18px}.text-\[20px\]{font-size:20px}.text-\[22px\]{font-size:22px}.text-\[24px\]{font-size:24px}.text-\[26px\]{font-size:26px}.text-\[44px\]{font-size:44px}.text-\[88px\]{font-size:88px}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\[1\.02\]{line-height:1.02}.leading-\[1\.05\]{line-height:1.05}.leading-\[1\.35\]{line-height:1.35}.leading-\[1\.45\]{line-height:1.45}.leading-\[1\.55\]{line-height:1.55}.leading-\[1\.6\]{line-height:1.6}.leading-tight{line-height:1.25}.tracking-\[0\.22em\]{letter-spacing:.22em}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.opacity-25{opacity:.25}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.opacity-60{opacity:.6}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}.hover\:bg-\[\#1f1f1f\]:hover{--tw-bg-opacity:1;background-color:rgb(31 31 31/var(--tw-bg-opacity,1))}.hover\:opacity-60:hover{opacity:.6}@media (min-width:640px){.sm\:block{display:block}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:text-6xl{font-size:3.75rem;line-height:1}}@media (min-width:768px){.md\:col-span-2{grid-column:span 2/span 2}.md\:col-span-3{grid-column:span 3/span 3}.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.md\:p-10{padding:2.5rem}.md\:p-14{padding:3.5rem}.md\:py-24{padding-top:6rem;padding-bottom:6rem}.md\:py-32{padding-top:8rem;padding-bottom:8rem}.md\:pb-28{padding-bottom:7rem}.md\:pt-24{padding-top:6rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-\[16px\]{font-size:16px}.md\:text-\[18px\]{font-size:18px}.md\:text-\[19px\]{font-size:19px}.md\:text-\[22px\]{font-size:22px}.md\:text-\[32px\]{font-size:32px}.md\:text-\[88px\]{font-size:88px}}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Geist (display + body) + Instrument Serif (italic accents only) -->
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --blue:#0a57ff; --ink:#0b0f1a; --muted:#5b6475; --line:#e6e9ef; --bg:#ffffff; --soft:#f5f7fb;
+    --ink:#0a0a0a; --paper:#fff; --paper-2:#f5f5f7; --muted:#6e6e73; --line:#d2d2d7;
+    --blue:#0071e3; --indigo:#5e5ce6; --violet:#9a4ef6; --coral:#ff6f5e;
+    --amber:#ffb340; --mint:#30d158; --sky:#64d2ff;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-  .version{position:fixed;right:14px;bottom:12px;font-size:11px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px;z-index:50}
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Geist', system-ui, sans-serif; color:var(--ink); background:#fff; -webkit-font-smoothing:antialiased; letter-spacing:-0.011em; }
 
-  /* ---------- Header ---------- */
-  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-  .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .logo{font-weight:800;font-size:22px;letter-spacing:-.02em}
-  .logo span{color:var(--blue)}
-  .links{display:flex;gap:34px;font-weight:500;font-size:15px;color:#2a3140}
-  .links a:hover{color:var(--blue)}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;transition:.15s}
-  .btn-primary{background:var(--blue);color:#fff}
-  .btn-primary:hover{background:#0747d1}
-  .btn-ghost{background:#fff;border-color:#d7dce6;color:var(--ink)}
-  .btn-ghost:hover{border-color:var(--ink)}
-  .burger{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:#fff}
+  .font-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; }
+  .font-serif-i{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; letter-spacing:-0.015em; }
 
-  /* ---------- Hero / banner ---------- */
-  .hero{padding:96px 0 72px}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-  .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--blue);background:#eaf0ff;border-radius:999px;padding:6px 12px;margin-bottom:22px}
-  .pill i{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
-  h1{font-size:clamp(40px,5.6vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin-bottom:22px}
-  h1 em{font-style:normal;color:var(--blue)}
-  .sub{font-size:20px;color:var(--muted);max-width:520px;margin-bottom:34px}
-  .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .cta small{display:block;width:100%;color:var(--muted);font-size:14px;margin-top:4px}
-  .proof{display:flex;gap:14px;align-items:center;margin-top:36px;color:var(--muted);font-size:14px}
-  .faces{display:flex}
-  .faces b{width:34px;height:34px;border-radius:50%;border:2px solid #fff;margin-left:-10px;background:linear-gradient(135deg,#c7d6ff,#0a57ff)}
-  .faces b:first-child{margin-left:0}
-  .stars{color:#f5a623;letter-spacing:1px}
+  @keyframes floatSlow{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(20px,-20px) rotate(8deg)}}
+  @keyframes floatFast{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-30px,15px) rotate(-6deg)}}
+  @keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+  @keyframes rise{from{opacity:0; transform:translateY(28px)}to{opacity:1; transform:translateY(0)}}
+  @keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(0,113,227,.35)}100%{box-shadow:0 0 0 18px rgba(0,113,227,0)}}
 
-  .photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/4.6;background:linear-gradient(160deg,#dfe8ff 0%,#f5f7fb 55%,#ffffff 100%);border:1px solid var(--line)}
-  .photo .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#7d88a0;font-size:14px;font-weight:500;text-align:center;padding:24px}
-  .card{position:absolute;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 10px 30px rgba(10,20,50,.08)}
-  .card b{display:block;font-size:22px;letter-spacing:-.02em}
-  .card span{font-size:13px;color:var(--muted)}
-  .c1{left:-18px;bottom:72px}
-  .c2{right:-14px;top:64px}
+  .rise{ animation:rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .float-slow{ animation:floatSlow 14s ease-in-out infinite; }
+  .float-fast{ animation:floatFast 10s ease-in-out infinite; }
+  .pulse-ring{ animation:pulseRing 2.2s ease-out infinite; }
 
-  /* ---------- Start here strip ---------- */
-  .start{background:var(--soft);padding:72px 0}
-  .start h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.03em;line-height:1.1;margin-bottom:10px}
-  .start p.lead{color:var(--muted);font-size:18px;margin-bottom:40px;max-width:620px}
-  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .step{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px}
-  .step .n{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
-  .step h3{font-size:24px;letter-spacing:-.02em;margin-bottom:6px}
-  .step .t{font-size:14px;font-weight:600;color:var(--muted);margin-bottom:12px}
-  .step p{color:#3a4252;font-size:15px;margin-bottom:18px}
-  .step a{font-weight:600;color:var(--blue)}
-
-  /* ---------- Logos / brand ---------- */
-  .logos{padding:48px 0;border-top:1px solid var(--line)}
-  .logos p{text-align:center;color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
-  .logos .row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;color:#9aa3b5;font-weight:700;font-size:18px}
-
-  @media (max-width:900px){
-    .links,.nav .btn-ghost{display:none}
-    .burger{display:block}
-    .hero{padding:56px 0 48px}
-    .hero-grid{grid-template-columns:1fr;gap:36px}
-    .photo{aspect-ratio:4/3}
-    .c1{left:12px;bottom:12px}.c2{right:12px;top:12px}
-    .three{grid-template-columns:1fr}
+  .gradient-text{
+    background:linear-gradient(90deg,#0071e3,#5e5ce6,#9a4ef6,#ff6f5e,#ffb340);
+    background-size:200% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:shimmer 8s linear infinite;
   }
+  .glass{ background:rgba(255,255,255,.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); }
+  .hairline-b{ box-shadow:inset 0 -1px 0 0 var(--line); }
+
+  .grain::before{
+    content:''; position:absolute; inset:0; pointer-events:none; opacity:.06;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/></svg>");
+    mix-blend-mode:overlay;
+  }
+
+  .btn-primary{ background:var(--ink); color:#fff; border-radius:9999px; padding:14px 26px; font-weight:500; display:inline-flex; align-items:center; gap:8px; transition:transform .2s,background .2s; position:relative; }
+  .btn-primary:hover{ background:#1f1f1f; transform:translateY(-1px); }
+  .btn-ghost{ border:1px solid var(--line); border-radius:9999px; padding:14px 26px; font-weight:500; display:inline-flex; align-items:center; gap:8px; transition:background .2s; }
+  .btn-ghost:hover{ background:var(--paper-2); }
+  .btn-light{ background:#fff; color:var(--ink); border-radius:9999px; padding:14px 26px; font-weight:500; display:inline-flex; align-items:center; gap:8px; transition:background .2s; }
+  .btn-light:hover{ background:rgba(255,255,255,.9); }
+  .btn-outline-light{ border:1px solid rgba(255,255,255,.4); color:#fff; border-radius:9999px; padding:14px 26px; font-weight:500; display:inline-flex; align-items:center; gap:8px; transition:background .2s; }
+  .btn-outline-light:hover{ background:rgba(255,255,255,.1); }
+
+  .faq-body{ overflow:hidden; max-height:0; transition:max-height .35s ease, margin-top .35s ease; color:rgba(29,29,31,.75); font-size:15px; line-height:1.6; }
+  .faq-open .faq-body{ max-height:280px; margin-top:12px; }
+  .faq-open .icon-plus{ display:none; }
+  .icon-minus{ display:none; }
+  .faq-open .icon-minus{ display:block; }
+
+  .seat-dot{ width:14px; height:14px; border-radius:9999px; background:#d2d2d7; display:inline-block; }
+  .seat-dot.taken{ background:#0a0a0a; }
+
+  .field-label{ display:block; font-size:13px; font-weight:500; margin-bottom:6px; color:#1d1d1f; }
+  .field-input{ width:100%; padding:14px 16px; border-radius:14px; border:1px solid #d2d2d7; background:#fff; font-family:inherit; font-size:15px; color:#0a0a0a; transition:border-color .2s, box-shadow .2s; }
+  .field-input:focus{ outline:none; border-color:#0a0a0a; box-shadow:0 0 0 4px rgba(10,10,10,.08); }
+  .field-input::placeholder{ color:#a1a1a6; }
+  textarea.field-input{ resize:vertical; min-height:96px; line-height:1.5; }
 </style>
-</head>
-<body>
 
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#">BizColab<span>.</span></a>
-    <nav class="links">
-      <a href="#start">Workshop</a>
-      <a href="#start">Cohorts</a>
-      <a href="#start">Newsletter</a>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization","EducationalOrganization"],
+  "name": "BizColab",
+  "url": "https://bizcolab.com/",
+  "logo": "https://bizcolab.com/favicon-512.png",
+  "description": "BizColab is a curated four-week mastermind cohort of six business operators, built around accountability, complementary skills, honest feedback, and a lasting network.",
+  "slogan": "Six founders. One month. The room you've been missing.",
+  "founder": {"@type": "Person","name": "Michael Abraham","jobTitle": "Founder","sameAs": "https://www.linkedin.com/in/michaelabraham-realtor/"},
+  "areaServed": "Worldwide",
+  "knowsAbout": ["entrepreneurship","business growth","accountability","masterminds","operator peer groups"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mastermind cohort program",
+  "provider": {"@type": "Organization","name": "BizColab","url": "https://bizcolab.com/"},
+  "name": "BizColab Mastermind Cohort",
+  "description": "A curated four-week mastermind: six operators meet weekly for accountability, complementary skill-sharing, honest feedback, and a network that outlasts the&nbsp;program.",
+  "offers": {"@type": "Offer","availability": "https://schema.org/InStock","url": "https://bizcolab.com/#apply","description": "Now enrolling — applications reviewed on a rolling basis. Nominal membership fee."},
+  "audience": {"@type": "Audience","audienceType": "Founders, business owners, and operators running a revenue-generating business"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "Who is BizColab for?","acceptedAnswer": {"@type": "Answer","text": "Business-minded operators running a real business who want a small, vetted room of peers to grow faster — not a course library, not a mastermind that meets twice a year."}},
+    {"@type": "Question","name": "Who is it not for?","acceptedAnswer": {"@type": "Answer","text": "Pre-revenue founders, people looking for a step-by-step course, or anyone who'd rather watch than participate. We assume you can ship; we make you ship&nbsp;better."}},
+    {"@type": "Question","name": "What does it cost?","acceptedAnswer": {"@type": "Answer","text": "There's a fee to join, and it's intentionally nominal — not prohibitive. When something is free, people don't show up for it; a modest cost is what holds you accountable. The knowledge you'll pull from a room of experienced operators should pay you back many times over. We share the exact figure with applicants we move forward."}},
+    {"@type": "Question","name": "Why only six people?","acceptedAnswer": {"@type": "Answer","text": "Every cohort is six operators plus one facilitator \u2014 seven people in the room. Six is the largest room where every voice still has weight and every member can still know every other member's business. Beyond that, attention dilutes and the network effect breaks."}},
+    {"@type": "Question","name": "How much time per week?","acceptedAnswer": {"@type": "Answer","text": "Plan on 3–4 hours: one 90-minute group call, plus async check-ins and one focused execution block. The thirty-day length forces concentration."}},
+    {"@type": "Question","name": "Is it in person or virtual?","acceptedAnswer": {"@type": "Answer","text": "The weekly calls are virtual. A short opening and closing in-person meetup is offered for members based in Los Angeles. Both are optional but encouraged."}},
+    {"@type": "Question","name": "What happens after the month?","acceptedAnswer": {"@type": "Answer","text": "The cohort stays connected. Most alumni keep a standing call, and there's an open-invitation alumni session each quarter. The relationships compound — the month is just the catalyst."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "BizColab — A Mastermind Cohort for Founders & Operators",
+  "url": "https://bizcolab.com/",
+  "description": "A curated four-week mastermind of six operators.",
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true,
+  "speakable": {"@type": "SpeakableSpecification","cssSelector": ["h1","h2"]},
+  "about": [{"@type": "Thing","name": "Mastermind group"},{"@type": "Thing","name": "Entrepreneur accountability"},{"@type": "Thing","name": "Business growth"}]
+}
+</script>
+
+<style>
+/* ── v8 hero + bar + strip (bcx-*, scoped) ── */
+.bcx-bar{background:#0a0a0a;color:#fff;font-size:13.5px}
+.bcx-bar-in{max-width:1180px;margin:0 auto;padding:11px 24px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center}
+.bcx-chip{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.14);border-radius:5px;padding:4px 8px;font-weight:500}
+.bcx-bar-in a{color:#8FE3DA;font-weight:600;white-space:nowrap;text-decoration:none}
+.bcx-hero{padding:14px}
+.bcx-card{position:relative;border-radius:22px;overflow:hidden;min-height:clamp(430px,74vh,760px);display:flex;align-items:center;justify-content:center;text-align:center}
+.bcx-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;filter:brightness(.60) saturate(1.06)}
+.bcx-scrim{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 52%,rgba(6,10,20,.30),rgba(6,10,20,.52) 60%,rgba(6,10,20,.68)),linear-gradient(180deg,rgba(6,10,20,.34),rgba(6,10,20,.10) 42%,rgba(6,10,20,.46))}
+.bcx-in{position:relative;z-index:2;width:100%;max-width:940px;padding:74px 26px 66px;color:#fff}
+.bcx-eyebrow{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:26px}
+.bcx-h1{font-size:clamp(29px,6.1vw,78px);font-weight:600;letter-spacing:-.035em;line-height:1;text-shadow:0 2px 40px rgba(0,0,0,.28);margin:0}
+.bcx-h1 span{display:block;white-space:nowrap}
+.bcx-sub{margin:26px auto 0;max-width:52ch;font-size:clamp(15.5px,1.7vw,19px);line-height:1.55;color:rgba(255,255,255,.9)}
+.bcx-cta{display:flex;gap:22px;align-items:center;justify-content:center;margin-top:52px;flex-wrap:wrap}
+.bcx-lnk{color:rgba(255,255,255,.92);font-size:15px;font-weight:500;text-decoration:none}
+.bcx-lnk:hover{color:#fff}
+.bcx-btn{background:#fff;color:#0a0a0a;border-radius:999px;padding:15px 30px;font-size:15.5px;font-weight:600;text-decoration:none}
+.bcx-strip{border-bottom:1px solid #e4e8ef;background:#f6f8fb}
+.bcx-strip-in{max-width:1020px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;justify-items:center}
+.bcx-strip-in>div{padding:32px 14px;text-align:center;max-width:30ch}
+.bcx-strip-in span{margin-left:auto;margin-right:auto;max-width:26ch}
+.bcx-strip-in b{display:block;font-size:clamp(23px,2.4vw,30px);font-weight:600;letter-spacing:-.03em;color:#0a0a0a}
+.bcx-strip-in>div:first-child b{color:#0a57ff}
+.bcx-strip-in span{display:block;font-size:13px;color:#5a6478;margin-top:7px;line-height:1.45}
+.bcx-sig{display:flex;align-items:center;gap:14px;margin-top:26px}
+.bcx-sig img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center 22%;flex:none}
+.bcx-sig-n{display:block;font-size:16px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a}
+.bcx-sig-r{display:block;font-size:13px;color:#6e6e73;margin-top:2px}
+.bcx-sig-l{display:inline-block;font-size:13px;font-weight:500;color:#0a57ff;margin-top:4px;text-decoration:none}
+@media(max-width:760px){
+ .bcx-hero{padding:10px}
+ .bcx-card{min-height:clamp(400px,70vh,560px);border-radius:18px}
+ .bcx-in{padding:46px 20px 42px}
+ .bcx-cta{gap:16px;margin-top:36px}
+ .bcx-chip{display:none}
+ .bcx-fwrap{grid-template-columns:1fr;gap:24px}
+ .bcx-fcard{display:flex;align-items:center;gap:16px;padding:18px}
+ .bcx-fcard img{margin-bottom:0;width:72px;height:72px}
+}
+/* founder note */
+.bcx-fnote{max-width:1152px;margin:0 auto;padding:clamp(42px,5vw,74px) 24px}
+.bcx-fwrap{display:grid;grid-template-columns:284px 1fr;gap:clamp(30px,5vw,74px);align-items:start;margin-top:34px}
+.bcx-fcard{border:1px solid #e4e8ef;border-radius:18px;padding:24px;background:#fff}
+.bcx-fcard img{width:88px;height:88px;border-radius:17px;object-fit:cover;object-position:center 18%;display:block;margin-bottom:17px}
+.bcx-fn{display:block;font-size:17.5px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a}
+.bcx-fr{display:block;font-size:13.5px;color:#6e6e73;margin-top:5px;line-height:1.45}
+.bcx-fli{display:inline-flex;align-items:center;gap:7px;margin-top:15px;font-size:13.5px;font-weight:500;color:#0a57ff;text-decoration:none}
+.bcx-fli svg{width:15px;height:15px;fill:currentColor}
+.bcx-frow{margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.bcx-flead{font-size:clamp(21px,2.55vw,31px);line-height:1.34;letter-spacing:-.01em;margin:0}
+.bcx-fbody>p+p{font-size:clamp(15.5px,1.35vw,17px);line-height:1.65}
+/* founder note — mobile + interactivity */
+.bcx-mob{display:none}
+.bcx-fsec .bcx-rv{opacity:1;transform:none}
+.bcx-fsec.bcx-rv-on .bcx-rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.bcx-fsec.bcx-rv-on.bcx-fin .bcx-rv{opacity:1;transform:none}
+.bcx-fsec.bcx-rv-on.bcx-fin .bcx-rv:nth-child(2){transition-delay:.08s}
+.bcx-fsec.bcx-rv-on.bcx-fin .bcx-rv:nth-child(3){transition-delay:.16s}
+.bcx-fli,.bcx-acc-b,.bcx-more{-webkit-tap-highlight-color:transparent}
+@media(max-width:760px){
+ section.bcx-fsec.bg-white{background:#f6f7fa}
+ .bcx-fnote{padding:40px 20px 44px}
+ .bcx-fwrap{grid-template-columns:minmax(0,1fr);margin-top:22px;gap:20px}
+ .bcx-fcard{display:flex;align-items:center;gap:16px}
+ .bcx-fcard img{margin-bottom:0}
+ .bcx-fcard{border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(10,10,10,.04)}
+ .bcx-fcard img{width:64px;height:64px;border-radius:14px}
+ .bcx-fli{margin-top:8px;min-height:44px;padding:0;align-items:center}
+ .bcx-flead{font-size:23px;line-height:1.3}
+ .bcx-desk{display:none}
+ .bcx-mob{display:block}
+ .bcx-intro{margin:18px 0 14px;font-size:15.5px;line-height:1.55;color:rgba(29,29,31,.75)}
+ .bcx-acc{list-style:none;margin:0;padding:0;border-radius:16px;background:#fff;border:1px solid #e4e8ef;overflow:hidden}
+ .bcx-acc>li+li{border-top:1px solid #eef0f4}
+ .bcx-acc-b{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:12px 16px;background:none;border:0;text-align:left;font:inherit;font-size:16px;font-weight:600;letter-spacing:-.01em;color:#0a0a0a;cursor:pointer}
+ .bcx-acc-b:focus-visible,.bcx-more:focus-visible{outline:2px solid #0a57ff;outline-offset:-2px;border-radius:12px}
+ .bcx-acc-b svg{flex:none;width:18px;height:18px;transition:transform .25s ease;color:#6e6e73}
+ .bcx-acc-b[aria-expanded="true"] svg{transform:rotate(45deg);color:#0a57ff}
+ .bcx-acc-p{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+ .bcx-acc-b[aria-expanded="true"]+.bcx-acc-p{grid-template-rows:1fr}
+ .bcx-acc-p>div{overflow:hidden}
+ .bcx-acc-p p{margin:0;padding:0 16px 16px;font-size:15px;line-height:1.55;color:rgba(29,29,31,.72)}
+ .bcx-close{margin:20px 0 0;font-size:15.5px;line-height:1.6;color:rgba(29,29,31,.75)}
+ .bcx-frow{margin-top:20px;flex-direction:column;align-items:stretch;gap:12px}
+ .bcx-frow .btn-primary{width:100%;justify-content:center;min-height:52px}
+ .bcx-sign{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+ .bcx-seats{font-size:13px;color:#6e6e73}
+}
+@media(prefers-reduced-motion:reduce){
+ .bcx-fsec.bcx-rv-on .bcx-rv{opacity:1;transform:none;transition:none}
+ .bcx-acc-p,.bcx-acc-b svg{transition:none}
+}
+
+/* ── v9 hero: floating nav, full-bleed banner, email capture, pull quotes ── */
+.bcx-nav{position:absolute;top:22px;left:0;right:0;z-index:60;padding:0 24px;pointer-events:none}
+.bcx-nav-in{pointer-events:auto;max-width:1180px;margin:0 auto;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 10px 0 28px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.bcx-logo{font-size:19px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;text-decoration:none}
+.bcx-logo span{color:#0a57ff}
+.bcx-links{display:flex;gap:34px;font-size:15px;font-weight:500;color:#1d1d1f}
+.bcx-links a{text-decoration:none}
+.bcx-links a:hover{opacity:.6}
+.bcx-nav-btn{background:#0a0a0a;color:#fff;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
+.bcx-nav-btn:hover{background:#1f1f1f}
+.bcx-hero{padding:10px}
+.bcx-card{border-radius:26px;min-height:min(96vh,980px)}
+.bcx-img{object-position:50% 45%;filter:brightness(.42) saturate(1.0)}
+.bcx-scrim{background:linear-gradient(180deg,rgba(6,10,20,.30),rgba(6,10,20,.18) 45%,rgba(6,10,20,.62))}
+.bcx-in{max-width:1060px;padding:150px 26px 70px}
+.bcx-h1{font-size:clamp(34px,5.8vw,76px);font-weight:600;letter-spacing:-.035em;line-height:1.04;white-space:normal}
+.bcx-h1 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em;font-size:1.08em}
+.bcx-sub{margin-top:22px;max-width:54ch;font-size:clamp(16px,1.7vw,20px)}
+.bcx-join{margin:44px auto 0;display:flex;align-items:center;gap:6px;max-width:520px;background:#fff;border-radius:999px;padding:6px 6px 6px 22px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.bcx-join input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;color:#0a0a0a;padding:10px 0}
+.bcx-join input::placeholder{color:#8e8e93}
+.bcx-join button{flex:none;background:#0a57ff;color:#fff;border:0;border-radius:999px;padding:15px 24px;font:inherit;font-size:15.5px;font-weight:600;cursor:pointer}
+.bcx-join button:hover{background:#0747d1}
+.bcx-quotes-lbl{margin-top:84px;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.72)}
+.bcx-quotes{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:left}
+.bcx-quotes blockquote{margin:0;padding:0 0 0 18px;border-left:2px solid rgba(255,255,255,.35);font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.92)}
+.bcx-quotes cite{display:block;margin-top:10px;font-style:normal;font-size:13px;font-weight:600;color:#8FE3DA}
+@media(max-width:900px){
+  .bcx-links{display:none}
+  .bcx-nav{top:12px;padding:0 12px}
+  .bcx-nav-in{height:56px;padding:0 6px 0 18px}
+  .bcx-nav-btn{padding:10px 16px;font-size:14px}
+  .bcx-in{padding:110px 20px 48px}
+  .bcx-join{flex-direction:column;gap:8px;border-radius:22px;padding:8px}
+  .bcx-join input{width:100%;text-align:center}
+  .bcx-join button{width:100%}
+  .bcx-quotes{grid-template-columns:1fr;gap:18px}
+  .bcx-quotes-lbl{margin-top:56px}
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+</head>
+<body data-home-version="v9">
+
+<!-- NAV -->
+
+<header class="bcx-nav" id="bcxNav">
+  <div class="bcx-nav-in">
+    <a class="bcx-logo font-display" href="/">BizColab<span>.</span></a>
+    <nav class="bcx-links">
+      <a href="#how">How it runs</a>
+      <a href="#why-groups">Why groups</a>
       <a href="/principles/">Principles</a>
-      <a href="/#founder">About</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <div style="display:flex;gap:10px;align-items:center">
-      <a class="btn btn-ghost" href="https://calendar.app.google/U7KZjhPkYHz8b4JN9">Book a 15‑min call</a>
-      <a class="btn btn-primary" href="#start">Get started</a>
-      <button class="burger" aria-label="Menu">☰</button>
-    </div>
+    <a class="bcx-nav-btn" href="/join/">Request a seat</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
+<!-- HERO -->
+<!-- HERO -->
+<section class="bcx-hero">
+  <div class="bcx-card">
+    <img class="bcx-img" src="/assets/hero-room.jpg" alt="Six operators working a problem around one table" width="1500" height="845" />
+    <div class="bcx-scrim"></div>
+    <div class="bcx-in">
+      <h1 class="bcx-h1 font-display">The <em>room</em> your business has been missing.</h1>
+      <p class="bcx-sub">Where founders meet, work the one problem they&rsquo;ve been stuck on, and move it in four weeks.</p>
+      <form class="bcx-join" id="bcxJoin" novalidate>
+        <input type="email" id="bcxJoinEmail" placeholder="you@company.com" autocomplete="email" aria-label="Email" required>
+        <button type="submit">Request a seat</button>
+      </form>
+      <div class="bcx-quotes-lbl">What members said after four weeks</div>
+      <div class="bcx-quotes">
+        <blockquote>&ldquo;Three weeks in, I had a clearer positioning and three qualified leads.&rdquo;<cite>Renee M.</cite></blockquote>
+        <blockquote>&ldquo;I fixed my pricing, finalized my target market and narrowed my focus.&rdquo;<cite>Svetlana</cite></blockquote>
+        <blockquote>&ldquo;I&rsquo;ve stopped spending on paid ads and I&rsquo;m building a referral engine.&rdquo;<cite>Alex N.</cite></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS - Google reviews, Cohort 001 -->
+<section class="bcx-rev bg-white" aria-labelledby="bcx-rev-h">
+<style>
+  .bcx-rev{padding:80px 0 72px}
+  .bcx-rev-in{max-width:1080px;margin:0 auto;padding:0 24px}
+  .bcx-rev-lead{display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+  .bcx-rev-eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:#30d158}
+  .bcx-rev-h{font-size:clamp(30px,4.6vw,56px);line-height:1.05;max-width:16ch}
+  .bcx-rv-badge{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;font-size:12px;color:#6e6e73}
+  .bcx-rv-g{width:15px;height:15px;display:block}
+  .bcx-rv-stars{display:flex;gap:2px}
+  .bcx-rv-stars svg{width:14px;height:14px;display:block}
+  .bcx-rv-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:40px}
+  .bcx-rv-hint{font-size:12px;color:#6e6e73}
+  .bcx-rv-arrows{display:flex;gap:8px}
+  .bcx-rv-arrow{width:38px;height:38px;border-radius:50%;border:1px solid #d2d2d7;background:#fff;display:grid;place-items:center;cursor:pointer;color:#0a0a0a;transition:background .18s ease,border-color .18s ease}
+  .bcx-rv-arrow:hover{background:#f5f5f7;border-color:#b8b8bf}
+  .bcx-rv-arrow:focus-visible{outline:2px solid #0071e3;outline-offset:2px}
+  .bcx-rv-arrow svg{width:16px;height:16px}
+  .bcx-rv-rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:14px 0 18px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .bcx-rv-rail::-webkit-scrollbar{height:6px}
+  .bcx-rv-rail::-webkit-scrollbar-thumb{background:#d2d2d7;border-radius:999px}
+  .bcx-rv-card{scroll-snap-align:start;flex:0 0 calc((100% - 32px)/3);background:#fff;border:1px solid #e8e8ed;border-radius:24px;padding:26px;display:flex;flex-direction:column;margin:0}
+  .bcx-rv-q{font-size:15px;line-height:1.62;color:rgba(29,29,31,.84);flex:1;margin:14px 0 0}
+  .bcx-rv-q b{font-weight:600;color:#0a0a0a}
+  .bcx-rv-foot{display:flex;gap:11px;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid #e8e8ed}
+  .bcx-rv-av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0}
+  .bcx-rv-nm{font-size:14px;font-weight:600;line-height:1.2}
+  .bcx-rv-rl{font-size:12px;color:#6e6e73;margin-top:3px}
+  .bcx-rv-more{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:14px;font-weight:500;color:#0a0a0a}
+  @media (max-width:900px){ .bcx-rv-card{flex:0 0 calc((100% - 16px)/2)} }
+  @media (max-width:820px){ .bcx-rev{padding:64px 0 56px} .bcx-rv-arrows{display:none} .bcx-rv-head{margin-top:32px} }
+  @media (max-width:600px){ .bcx-rv-card{flex:0 0 calc(100% - 28px)} }
+  @media (prefers-reduced-motion:reduce){ .bcx-rv-rail{scroll-behavior:auto} }
+
+  /* --- NEW: rotating callout (slides) --- */
+  .bcx-rot{margin:44px auto 10px;max-width:1000px;text-align:center}
+  .bcx-rot-label{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:#6e6e73;margin-bottom:16px}
+  .bcx-rot-win{overflow:hidden}
+  .bcx-rot-track{display:flex;transition:transform .7s cubic-bezier(.4,0,.2,1);will-change:transform}
+  .bcx-rot-item{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 24px;box-sizing:border-box}
+  .bcx-rot-q{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(28px,4vw,48px);line-height:1.15;letter-spacing:-.015em;color:#0a0a0a;max-width:900px;text-wrap:balance}
+  .bcx-rot-q::before{content:"“"}.bcx-rot-q::after{content:"”"}
+  .bcx-rot-who{font-size:15px;color:#6e6e73}
+  .bcx-rot-who b{font-weight:600;color:#0a0a0a}
+  .bcx-rot-dots{display:flex;gap:10px;justify-content:center;margin-top:22px}
+  .bcx-rot-dot{width:11px;height:11px;cursor:pointer;border-radius:999px;background:#d2d2d7;border:0;padding:0;transition:background .3s,width .3s}
+  .bcx-rot-dot.is-on{background:#0a0a0a;width:32px}
+  @media (prefers-reduced-motion:reduce){ .bcx-rot-track{transition:none} }
+  /* --- NEW: shortened cards with More --- */
+  .bcx-rv-q.is-clamped{flex:0 0 auto;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .bcx-rv-more-btn{align-self:flex-start;margin-top:10px;margin-bottom:auto;background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:500;color:#0071e3;cursor:pointer}
+  .bcx-rv-more-btn:hover{text-decoration:underline}
+</style>
+  <div class="bcx-rev-in">
+    <div class="bcx-rev-lead">
+      <div class="bcx-rev-eyebrow">What came out of four weeks</div>
+      <h2 id="bcx-rev-h" class="font-display bcx-rev-h">Real Business.<br/><span class="font-serif-i">Meaningful Impact.</span></h2>
+      <div class="bcx-rv-badge">
+        <svg class="bcx-rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.7v3h3.9c2.3-2.1 3.5-5.2 3.5-8.9z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-3a7.2 7.2 0 0 1-10.7-3.8H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.1 7.1 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.4.6 4.6 1.8l3.5-3.5A12 12 0 0 0 1.3 6.6l4 3.1A7.2 7.2 0 0 1 12 4.8z"/></svg>
+        <span>Verbatim from Google reviews &middot; 5.0 average</span>
+        <span class="bcx-rv-stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></span>
+      </div>
+    </div>
+
+
+    <!-- NEW: rotating one-line callout -->
+    <div class="bcx-rot" aria-live="polite">
+      <div class="bcx-rot-label">In one line</div>
+      <div class="bcx-rot-win"><div class="bcx-rot-track" id="bcxRot">
+        <div class="bcx-rot-item"><div class="bcx-rot-q">Break out of the bubble you&rsquo;re in!</div><div class="bcx-rot-who"><b>Sudeep D.</b> &middot; Founder</div></div>
+        <div class="bcx-rot-item"><div class="bcx-rot-q">Three weeks in, I had a clearer positioning and three qualified leads.</div><div class="bcx-rot-who"><b>Renee M.</b> &middot; Brand strategist</div></div>
+        <div class="bcx-rot-item"><div class="bcx-rot-q">One of the most useful things I&rsquo;ve done for my business.</div><div class="bcx-rot-who"><b>Svetlana</b> &middot; Events founder</div></div>
+        <div class="bcx-rot-item"><div class="bcx-rot-q">Four weeks in, I&rsquo;ve stopped spending on paid ads and I&rsquo;m building a referral engine.</div><div class="bcx-rot-who"><b>Alex N.</b> &middot; Business &amp; real estate attorney</div></div>
+        <div class="bcx-rot-item"><div class="bcx-rot-q">Within four weeks I landed a paid consulting engagement.</div><div class="bcx-rot-who"><b>Sudeep D.</b> &middot; Founder</div></div>
+      </div></div>
+      <div class="bcx-rot-dots" id="bcxRotDots"></div>
+    </div>
+
+    <div class="bcx-rv-head">
+      <span class="bcx-rv-hint">Cohort 001, in their own words &mdash; swipe or drag to see them all</span>
+      <div class="bcx-rv-arrows">
+        <button class="bcx-rv-arrow" type="button" data-bcxrail="prev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></button>
+        <button class="bcx-rv-arrow" type="button" data-bcxrail="next" aria-label="More reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="bcx-rv-rail" id="bcxRevRail" tabindex="0" role="group" aria-label="Google reviews from Cohort 001">
+      <figure class="bcx-rv-card">
+        <span class="bcx-rv-stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></span>
+        <blockquote class="bcx-rv-q">&ldquo;I&rsquo;ve always believed in building a business with a board of advisors around me. BizColab gave me a formal structure to make that happen, with access to top leaders in the network, and the support I needed to operationally accelerate my business. <b>Break out of the bubble you&rsquo;re&nbsp;in!</b> If you&rsquo;ve come to the realization that a fresh approach to take your business to the next level is unequivocally needed, I highly recommend looking into&nbsp;BizColab.&rdquo;</blockquote>
+        <figcaption class="bcx-rv-foot">
+          <div class="bcx-rv-av" style="background:linear-gradient(135deg,#0071e3,#30d158)">SD</div>
+          <div><div class="bcx-rv-nm"><a href="https://www.linkedin.com/in/sudeepdeshpande/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Sudeep D.</a></div><div class="bcx-rv-rl">Founder &middot; Los Angeles</div></div>
+        </figcaption>
+      </figure>
+      <figure class="bcx-rv-card">
+        <span class="bcx-rv-stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></span>
+        <blockquote class="bcx-rv-q">&ldquo;When I joined BizColab&rsquo;s first Los Angeles cohort, I was having a challenging year. As a result of the LA Wildfires, my business had slowed down significantly. <b>Three weeks into the program, I had a clearer positioning (&ldquo;champion for the challenger brand&rdquo;) and 3 qualified leads.</b> Michael Abraham is candid in a way most people aren&rsquo;t, and is an insightful group facilitator. If you run a small business in LA and want a peer group that works on your business for 90 minutes a week, this is&nbsp;it.&rdquo;</blockquote>
+        <figcaption class="bcx-rv-foot">
+          <div class="bcx-rv-av" style="background:linear-gradient(135deg,#ff6f5e,#ffb340)">RM</div>
+          <div><div class="bcx-rv-nm">Renee M.</div><div class="bcx-rv-rl">Brand strategist &middot; Los Angeles</div></div>
+        </figcaption>
+      </figure>
+      <figure class="bcx-rv-card">
+        <span class="bcx-rv-stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></span>
+        <blockquote class="bcx-rv-q">&ldquo;I joined BizColab as a new founder in the events space in Los Angeles, and it has been <b>one of the most useful things I&rsquo;ve done for my business.</b> In four weeks, I fixed my pricing, finalised my target market, narrowed my focus to unique date and special-occasion experiences, got listed on Yelp, and more. &hellip; I really enjoyed Michael&rsquo;s mentorship style. It feels personable, relatable, and like he genuinely cares about helping each of us achieve what we set out to&nbsp;do.&rdquo;</blockquote>
+        <figcaption class="bcx-rv-foot">
+          <div class="bcx-rv-av" style="background:linear-gradient(135deg,#9a4ef6,#5e5ce6)">S</div>
+          <div><div class="bcx-rv-nm">Svetlana</div><div class="bcx-rv-rl">Events founder &middot; Los Angeles</div></div>
+        </figcaption>
+      </figure>
+      <figure class="bcx-rv-card">
+        <span class="bcx-rv-stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></span>
+        <blockquote class="bcx-rv-q">&ldquo;As a business and real estate attorney in Los Angeles, I joined BizColab expecting a tactical marketing workshop. I got something more valuable: a peer group of experienced business owners and a facilitator who pushed me to rethink how I approach my firm and my career. <b>Four weeks in, I&rsquo;ve stopped spending on paid ads and I&rsquo;m building a referral engine around the clients I already have.</b> Four weeks is almost too short, you&rsquo;ll want to stay with the&nbsp;group.&rdquo;</blockquote>
+        <figcaption class="bcx-rv-foot">
+          <div class="bcx-rv-av" style="background:linear-gradient(135deg,#0071e3,#64d2ff)">AN</div>
+          <div><div class="bcx-rv-nm">Alex N.</div><div class="bcx-rv-rl">Business &amp; real estate attorney &middot; Los Angeles</div></div>
+        </figcaption>
+      </figure>
+      <figure class="bcx-rv-card">
+        <span class="bcx-rv-stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></span>
+        <blockquote class="bcx-rv-q">&ldquo;I&rsquo;m a founder standing up a new venture in Los Angeles after 20+ years in systems engineering, and BizColab gave me something I didn&rsquo;t have: structure and urgency. The weekly 90-minute session with a small group of experienced business owners forced me to set specific monthly goals and act on them. <b>Within four weeks I landed a paid consulting engagement</b> through a relationship I&rsquo;d been sitting on. It&rsquo;s a sounding board and an accountability group in&nbsp;one.&rdquo;</blockquote>
+        <figcaption class="bcx-rv-foot">
+          <div class="bcx-rv-av" style="background:linear-gradient(135deg,#30d158,#0071e3)">SD</div>
+          <div><div class="bcx-rv-nm">Sudeep D.</div><div class="bcx-rv-rl">Founder &middot; 20+ years in systems engineering</div></div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <a class="bcx-rv-more" href="https://www.google.com/search?q=BizColab+Los+Angeles+reviews" target="_blank" rel="noopener">
+      <svg class="bcx-rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.7v3h3.9c2.3-2.1 3.5-5.2 3.5-8.9z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-3a7.2 7.2 0 0 1-10.7-3.8H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.1 7.1 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.4.6 4.6 1.8l3.5-3.5A12 12 0 0 0 1.3 6.6l4 3.1A7.2 7.2 0 0 1 12 4.8z"/></svg> Read them on Google
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+<script>
+(function(){
+  var rail=document.getElementById('bcxRevRail'); if(!rail) return;
+  function step(){ var c=rail.querySelector('.bcx-rv-card'); return c?c.getBoundingClientRect().width+16:388; }
+  document.querySelectorAll('[data-bcxrail]').forEach(function(b){
+    b.addEventListener('click',function(){ rail.scrollBy({left:(b.dataset.bcxrail==='next'?1:-1)*step(),behavior:'smooth'}); });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var track=document.getElementById('bcxRot'); if(!track) return;
+  var items=track.children, dots=document.getElementById('bcxRotDots'), i=0, t;
+  for(var n=0;n<items.length;n++){ (function(n){ var d=document.createElement('button'); d.className='bcx-rot-dot'+(n?'':' is-on'); d.type='button'; d.setAttribute('aria-label','Quote '+(n+1)); d.onclick=function(){ go(n); restart(); }; dots.appendChild(d); })(n); }
+  function go(n){ dots.children[i].classList.remove('is-on'); i=n; track.style.transform='translateX(-'+(i*100)+'%)'; dots.children[i].classList.add('is-on'); }
+  function restart(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },2800); }
+  restart();
+  track.parentNode.addEventListener('mouseenter',function(){ clearInterval(t); });
+  track.parentNode.addEventListener('mouseleave',restart);
+  /* shorten cards + More */
+  document.querySelectorAll('.bcx-rv-q').forEach(function(q){
+    q.classList.add('is-clamped');
+    if(q.scrollHeight<=q.clientHeight+2){ q.classList.remove('is-clamped'); return; }
+    var b=document.createElement('button'); b.type='button'; b.className='bcx-rv-more-btn'; b.textContent='More';
+    b.onclick=function(){ var open=q.classList.toggle('is-clamped'); b.textContent=open?'More':'Less'; };
+    q.after(b);
+  });
+})();
+</script>
+</section>
+
+<!-- PROBLEM -->
+<section class="relative bg-[#0a0a0a] text-white py-20 md:py-24 grain overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full"
+       style="background:radial-gradient(closest-side,rgba(255,111,94,.35),transparent)"></div>
+  <div class="max-w-5xl mx-auto px-6 relative">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-4" style="color:#ff6f5e">The honest part</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05] max-w-4xl">
+      Growing alone is slow.<br/>
+      <span class="font-serif-i" style="color:#ffb340">Growing together compounds.</span>
+    </h2>
+    <p class="mt-6 text-[17px] md:text-[19px] max-w-2xl leading-[1.55]" style="color:rgba(255,255,255,.7)">
+      Most operators don't lack ideas. They lack a small group that knows their business well enough to challenge them, an ops partner across the table, and a standing reason to actually ship the thing they keep talking&nbsp;about.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-4">
+      <div class="rounded-3xl p-7 border border-white/10 bg-white/[0.03]">
+        <div class="font-display text-[22px] leading-tight">You're advising yourself.</div>
+        <div class="text-[14px] mt-3 leading-[1.6]" style="color:rgba(255,255,255,.65)">No one's pressure-testing your decisions. You're talking to yourself in a Google&nbsp;Doc.</div>
+      </div>
+      <div class="rounded-3xl p-7 border border-white/10 bg-white/[0.03]">
+        <div class="font-display text-[22px] leading-tight">Your circle isn't your industry.</div>
+        <div class="text-[14px] mt-3 leading-[1.6]" style="color:rgba(255,255,255,.65)">Friends and family love you, but they can't tell you why your funnel isn't&nbsp;converting.</div>
+      </div>
+      <div class="rounded-3xl p-7 border border-white/10 bg-white/[0.03]">
+        <div class="font-display text-[22px] leading-tight">You ship without witnesses.</div>
+        <div class="text-[14px] mt-3 leading-[1.6]" style="color:rgba(255,255,255,.65)">No deadline that matters. No one will notice if you push the launch another two&nbsp;weeks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT RUNS -->
+<section id="how" class="py-20 md:py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">How it runs</div>
+      <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">
+        Four weeks.<br/>
+        <span class="font-serif-i">Four moves.</span>
+      </h2>
+      <p class="mt-4 text-[18px] leading-[1.55]" style="color:rgba(29,29,31,.75)">
+        One curated group of six. One commitment per week. Real outcomes by day&nbsp;thirty.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-4 gap-5">
+      <div class="relative rounded-3xl p-7 bg-[#f5f5f7] overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-50" style="background:radial-gradient(closest-side,#0071e3,transparent)"></div>
+        <div class="font-display text-[14px] tracking-wider" style="color:#0071e3">WEEK 01</div>
+        <div class="font-display text-[24px] mt-2">Map</div>
+        <div class="text-[14px] mt-2 leading-[1.6]" style="color:rgba(29,29,31,.7)">Each member presents their business in 10 minutes. The group identifies your single highest-leverage move for the&nbsp;month.</div>
+      </div>
+      <div class="relative rounded-3xl p-7 bg-[#f5f5f7] overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-50" style="background:radial-gradient(closest-side,#5e5ce6,transparent)"></div>
+        <div class="font-display text-[14px] tracking-wider" style="color:#5e5ce6">WEEK 02</div>
+        <div class="font-display text-[24px] mt-2">Match</div>
+        <div class="text-[14px] mt-2 leading-[1.6]" style="color:rgba(29,29,31,.7)">We pair members with complementary skill sets. You ship something for someone in the room — they ship something for&nbsp;you.</div>
+      </div>
+      <div class="relative rounded-3xl p-7 bg-[#f5f5f7] overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-50" style="background:radial-gradient(closest-side,#9a4ef6,transparent)"></div>
+        <div class="font-display text-[14px] tracking-wider" style="color:#9a4ef6">WEEK 03</div>
+        <div class="font-display text-[24px] mt-2">Move</div>
+        <div class="text-[14px] mt-2 leading-[1.6]" style="color:rgba(29,29,31,.7)">Execution week. Live war-room. Daily check-ins. Everyone ships the move they committed to in Week 01 — together.</div>
+      </div>
+      <div class="relative rounded-3xl p-7 bg-[#f5f5f7] overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-50" style="background:radial-gradient(closest-side,#ff6f5e,transparent)"></div>
+        <div class="font-display text-[14px] tracking-wider" style="color:#ff6f5e">WEEK 04</div>
+        <div class="font-display text-[24px] mt-2">Measure</div>
+        <div class="text-[14px] mt-2 leading-[1.6]" style="color:rgba(29,29,31,.7)">Group review of outcomes. What worked, what didn't, what comes next. The relationships stay. The work&nbsp;continues.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIX PILLARS -->
+<section id="pillars" class="relative py-20 md:py-24 overflow-hidden" style="background:linear-gradient(180deg,#f0f7ff 0%,#fff 100%)">
+  <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full opacity-40 float-slow" style="background:radial-gradient(closest-side,#64d2ff,transparent)"></div>
+  <div class="max-w-6xl mx-auto px-6 relative">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#0071e3">What you actually get</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05] max-w-3xl">
+      Six pillars.<br/>
+      <span class="font-serif-i">No fluff between them.</span>
+    </h2>
+
+    <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#0071e3,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(0,113,227,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Accountability</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">You commit in writing to a single move for the month. The group sees your weekly progress. You can't quietly drop the ball, so you&nbsp;don't.</p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#9a4ef6,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(154,78,246,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9a4ef6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Complementary skill sets</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Every cohort is curated. You won't sit next to five versions of yourself. You'll sit next to the five people who fill the gaps in your&nbsp;business.</p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#ff6f5e,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(255,111,94,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Real plays, shared live</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">No theory. No "case studies from 2019." You see what's working — and what's failing — in six active businesses, this&nbsp;week.</p>
+
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#ffb340,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(255,179,64,.15)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb340" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 7 10 10"/><path d="M17 7 14 10"/><path d="M7 17 10 14"/><path d="M17 17 14 14"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">A network that outlasts the month</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">The cohort ends in 30 days. The relationships don't. Past members still trade intros, vendors, and warm leads long after their month is&nbsp;over.</p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#30d158,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(48,209,88,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Communication</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Pitching, persuading, and saying the hard thing out loud — you practice all of it in real time with people who'll tell you what landed and what didn't.</p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-8 bg-white border border-[#e8e8ed] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#5e5ce6,transparent)"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(94,92,230,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5e5ce6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="font-display text-[26px] leading-tight">Goal oriented</div>
+          <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Every session starts with a clear target and ends with a concrete next step. You're not here to brainstorm in circles — you're here to move the needle this week.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY GROUPS / ACCOUNTABILITY -->
+<section id="why-groups" class="py-20 md:py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Why a room beats going solo</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05] max-w-3xl">
+      Willpower is fragile.<br/><span class="font-serif-i">A group is structural.</span>
+    </h2>
+    <p class="mt-4 text-[18px] leading-[1.55] max-w-2xl" style="color:rgba(29,29,31,.75)">
+      The research is blunt about this: who's in the room changes whether the work gets done. An accountability partner isn't a nice-to-have — it's the mechanism that turns intentions into shipped outcomes.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <div class="rounded-3xl p-8 bg-[#f5f5f7] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#0071e3,transparent)"></div>
+        <div class="relative">
+          <div class="font-display text-5xl" style="color:#0071e3">65%</div>
+          <div class="font-display text-[20px] mt-3 leading-tight">Commit it out loud</div>
+          <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Simply committing a goal to another person makes you far more likely to hit it than keeping it in your own&nbsp;head.</p>
+        </div>
+      </div>
+      <div class="rounded-3xl p-8 bg-[#f5f5f7] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#9a4ef6,transparent)"></div>
+        <div class="relative">
+          <div class="font-display text-5xl" style="color:#9a4ef6">95%</div>
+          <div class="font-display text-[20px] mt-3 leading-tight">Add a standing check-in</div>
+          <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Pair that commitment with a regular check-in with the person you answer to, and completion climbs dramatically.</p>
+        </div>
+      </div>
+      <div class="rounded-3xl p-8 bg-[#f5f5f7] relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full opacity-25" style="background:radial-gradient(closest-side,#ff6f5e,transparent)"></div>
+        <div class="relative">
+          <div class="font-display text-5xl" style="color:#ff6f5e">5×</div>
+          <div class="font-display text-[20px] mt-3 leading-tight">Borrow five brains</div>
+          <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">In a room of six, every problem you bring gets five operators' worth of pattern-matching — not just your&nbsp;own.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 grid md:grid-cols-2 gap-5">
+      <div class="rounded-3xl p-8 border border-[#e8e8ed]">
+        <div class="font-display text-[22px] leading-tight">Momentum is contagious</div>
+        <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Watching peers ship makes you want to ship. Motivation isn't a personality trait you either have or don't — it's largely a property of the room you stand in. Put yourself next to people in motion and you&nbsp;move.</p>
+      </div>
+      <div class="rounded-3xl p-8 border border-[#e8e8ed]">
+        <div class="font-display text-[22px] leading-tight">Your blind spots get named</div>
+        <p class="mt-3 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">You're too close to your own business to see what's obvious to everyone else. An accountability partner says the thing your own head talks you out of — before it costs you a&nbsp;quarter.</p>
+      </div>
+    </div>
+
+    <p class="mt-6 text-[12px]" style="color:#a1a1a6">Figures reflect widely cited research on goal-setting and accountability (commonly attributed to a study by Dr. Gail Matthews). Directional, not a guarantee.</p>
+  </div>
+</section>
+
+<!-- BENEFITS BEYOND THE MONTH -->
+<section class="py-20 md:py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#30d158">After the cohort</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">
+      The benefits extend<br/><span class="font-serif-i">beyond the month.</span>
+    </h2>
+    <p class="mt-5 text-[18px] leading-[1.6] max-w-2xl mx-auto" style="color:rgba(29,29,31,.75)">
+      When your four weeks end, your access doesn't. You stay connected to the BizColab network — monthly check-ins keep momentum alive, and every new cohort expands the community you can tap into. It's a growing network of vetted operators, validated by the people in your cohort and every cohort that&nbsp;follows.
+    </p>
+    <div class="mt-10 grid md:grid-cols-3 gap-5 text-left">
+      <div class="rounded-3xl p-8 bg-[#f5f5f7]">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(48,209,88,.1)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="font-display text-[20px] leading-tight">Network access</div>
+        <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Stay plugged into the full BizColab alumni network — intros, referrals, and real conversations with operators who've been in your seat.</p>
+      </div>
+      <div class="rounded-3xl p-8 bg-[#f5f5f7]">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(0,113,227,.1)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="font-display text-[20px] leading-tight">Monthly check-ins</div>
+        <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Regular touchpoints keep you accountable and connected long after your cohort wraps. The rhythm doesn't stop just because the four weeks&nbsp;did.</p>
+      </div>
+      <div class="rounded-3xl p-8 bg-[#f5f5f7]">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center mb-5" style="background:rgba(154,78,246,.1)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9a4ef6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <div class="font-display text-[20px] leading-tight">An ever-expanding network</div>
+        <p class="mt-2 text-[15px] leading-[1.6]" style="color:rgba(29,29,31,.7)">Every new cohort adds more vetted operators to the community. The network you join today is bigger tomorrow — and every member has been validated by their&nbsp;peers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER — TODO: Replace M.A. gradient block with real photo of Michael -->
+<section class="relative overflow-hidden py-20 md:py-24" style="background:linear-gradient(135deg,#fff4ec 0%,#ffe8e0 50%,#fde2f1 100%)">
+  <div class="absolute -top-10 -left-10 w-[420px] h-[420px] rounded-full float-slow" style="background:radial-gradient(closest-side,#ffb340,transparent);opacity:.4"></div>
+  <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-5 gap-10 items-center relative">
+    <div class="md:col-span-2">
+      <div class="aspect-[4/5] rounded-3xl overflow-hidden relative">
+        <img src="/michael.jpg" alt="Michael Abraham — founder, BizColab" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%" />
+      </div>
+    </div>
+    <div class="md:col-span-3">
+      <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:rgba(10,10,10,.6)">Who runs the room</div>
+      <h2 class="font-display text-4xl md:text-5xl leading-[1.05]">
+        I built the room<br/><span class="font-serif-i">I wanted to be in.</span>
+      </h2>
+      <p class="mt-5 text-[17px] leading-[1.6]" style="color:rgba(29,29,31,.8)">
+        I'm Michael — and I've spent my career as an entrepreneur who refuses to stay in one lane. I've built, run, and reinvented businesses across architecture, branding, marketing, and design, and gone on to work as an investor and a realtor. Every pivot meant walking into a new profession and earning my place in it from&nbsp;scratch.
+      </p>
+      <p class="mt-4 text-[17px] leading-[1.6]" style="color:rgba(29,29,31,.8)">
+        That range is the whole point of BizColab. Most operators get stuck because they only see their business through one lens. The single biggest unlock in my own career was a small group of people who took my growth as seriously as I did — and who'd lived the problem I was facing. This is the room I wish I'd had at every pivot, built for five other people at a&nbsp;time.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Architecture</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Branding</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Marketing</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Design</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Investor</span>
+        <span class="text-[12px] px-3 py-1.5 rounded-full bg-white/70 border border-white/80">Realtor</span>
+      </div>
+      <a href="https://www.linkedin.com/in/michaelabraham-realtor/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-6 text-[14px] font-medium" style="color:#0a0a0a">
+        Connect on LinkedIn
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE ASK -->
+<section class="py-20 md:py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="rounded-[32px] p-10 md:p-14 relative overflow-hidden" style="background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1f 100%)">
+      <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full" style="background:radial-gradient(closest-side,#30d158,transparent);opacity:.5"></div>
+      <div class="relative">
+        <div class="text-[12px] uppercase tracking-[0.22em] mb-2" style="color:#30d158">What we ask of you</div>
+        <h3 class="font-display text-3xl md:text-5xl text-white leading-[1.05]">
+          The real exchange<br/>
+          <span class="font-serif-i" style="color:#ffb340">is your attention.</span>
+        </h3>
+        <p class="mt-5 text-[16px] leading-[1.6] max-w-xl" style="color:rgba(255,255,255,.7)">
+          There's a modest fee to join — kept deliberately low. Not because the room isn't worth more, but because a small amount of skin in the game is what makes you show up and do the work. We're not optimizing for the most members. We're optimizing for the right&nbsp;six. If these four things sound like you,&nbsp;apply.
+        </p>
+
+        <ul class="mt-8 space-y-4 text-white">
+          <li class="flex items-start gap-4">
+            <div class="mt-1 w-6 h-6 rounded-full grid place-items-center shrink-0" style="background:rgba(48,209,88,.2)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div><span class="font-medium">Show up.</span> <span style="color:rgba(255,255,255,.7)">Four weekly calls. You don't skip them. If something happens, you tell the&nbsp;group.</span></div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="mt-1 w-6 h-6 rounded-full grid place-items-center shrink-0" style="background:rgba(48,209,88,.2)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div><span class="font-medium">Bring a real business.</span> <span style="color:rgba(255,255,255,.7)">Doing real numbers. With real customers. We're not the right room for&nbsp;pre-revenue.</span></div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="mt-1 w-6 h-6 rounded-full grid place-items-center shrink-0" style="background:rgba(48,209,88,.2)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div><span class="font-medium">Help others as much as yourself.</span> <span style="color:rgba(255,255,255,.7)">The point of six is you get five advisors — and you give five people the&nbsp;same.</span></div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="mt-1 w-6 h-6 rounded-full grid place-items-center shrink-0" style="background:rgba(48,209,88,.2)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div><span class="font-medium">Bring your losses, not just your wins.</span> <span style="color:rgba(255,255,255,.7)">Honesty is the whole product. Highlight reels get&nbsp;cut.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY — Real inline form -->
+<section id="apply" class="py-20 md:py-24" style="background:linear-gradient(180deg,#fff 0%,#f5f5f7 100%)">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Now enrolling</div>
+      <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">
+        Six seats.<br/><span class="font-serif-i">All open.</span>
+      </h2>
+      <p class="mt-4 text-[17px]" style="color:rgba(29,29,31,.75)">
+        A short application. We respond within 7&nbsp;days&nbsp;— even if it's&nbsp;a&nbsp;no.
+      </p>
+    </div>
+
+    <div class="mt-12 max-w-2xl mx-auto rounded-[32px] p-1 relative" style="background:conic-gradient(from 180deg,#0071e3,#9a4ef6,#ff6f5e,#ffb340,#0071e3)">
+      <div class="rounded-[28px] bg-white p-8 md:p-10">
+        <div class="font-display text-[26px] md:text-[32px] text-center leading-tight">Request a seat</div>
+        <p class="mt-2 text-[15px] text-center" style="color:#6e6e73">A short form so we can match you with the right cohort. We respond within 7&nbsp;days.</p>
+
+        <a href="/join/" class="btn-primary w-full justify-center mt-7">
+          Open the application
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="https://calendar.app.google/THqZBmvfREeCDE8k8" target="_blank" rel="noopener" class="w-full justify-center mt-3" style="display:flex;align-items:center;gap:8px;min-height:52px;border:1.5px solid #d2d2d7;border-radius:999px;font-weight:600;font-size:16px;color:#0a0a0a;text-decoration:none;background:#fff">Or book a 15-minute call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></a>
+          <p class="text-[12px] text-center mt-3" style="color:#6e6e73">Application takes about 3&nbsp;minutes</p>
+        <p class="text-[13px] text-center mt-2 max-w-sm mx-auto" style="color:rgba(29,29,31,.55)">A few quick questions so we can place you with the right&nbsp;group.</p>
+
+        <div class="mt-8 pt-6 border-t border-[#e8e8ed] grid grid-cols-3 gap-3 text-center">
+          <div>
+            <div class="font-display text-[22px]">6</div>
+            <div class="text-[12px]" style="color:#6e6e73">Operators</div>
+          </div>
+          <div>
+            <div class="font-display text-[22px]">4</div>
+            <div class="text-[12px]" style="color:#6e6e73">Weeks</div>
+          </div>
+          <div>
+            <div class="font-display text-[22px]">1</div>
+            <div class="text-[12px]" style="color:#6e6e73">Curated room</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 md:py-24 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:#6e6e73">Questions</div>
+    <h2 class="font-display text-4xl md:text-6xl leading-[1.05]">The honest answers.</h2>
+
+    <div class="mt-10 divide-y divide-[#e8e8ed] border-t border-[#e8e8ed]">
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">Who is BizColab for?</div>
+          <div class="faq-body">Business-minded operators running a real business who want a small, vetted room of peers to grow faster — not a course library, not a mastermind that meets twice a year.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">Who is it not for?</div>
+          <div class="faq-body">Pre-revenue founders, people looking for a step-by-step course, or anyone who'd rather watch than participate. We assume you can ship; we make you ship&nbsp;better.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <!-- Pricing FAQ — addresses the unspoken question -->
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">What does it cost?</div>
+          <div class="faq-body">There's a fee to join, and it's intentionally nominal — not prohibitive. The reason is simple: when something is free, people don't show up for it. A modest cost is what holds you accountable to the room and the work. And the return is lopsided in your favor — the knowledge you'll pull from a room of operators bringing a decade of experience each should pay you back many times over. We share the exact figure with applicants we move forward.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">Why only six people?</div>
+          <div class="faq-body">Every cohort is six operators plus one facilitator &mdash; seven people in the room. Six is the largest room where every voice still has weight and every member can still know every other member's business. Beyond that, attention dilutes and the network effect breaks.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">How much time per week?</div>
+          <div class="faq-body">Plan on 3–4 hours: one 90-minute group call, plus async check-ins and one focused execution block. The thirty-day length forces concentration.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">Is it in person or virtual?</div>
+          <div class="faq-body">The four weekly calls are virtual. A short opening and closing in-person meetup is offered for members based in Los Angeles. Both are optional but encouraged.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+
+      <button class="faq-item w-full text-left py-5 flex items-start gap-6">
+        <div class="flex-1">
+          <div class="font-display text-[20px] md:text-[22px]">What happens after the month?</div>
+          <div class="faq-body">The cohort stays connected. Most alumni keep a Friday standing call, and we host a single open-invitation alumni session each quarter. The relationships compound. The month is just the catalyst.</div>
+        </div>
+        <div class="mt-1 shrink-0">
+          <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="icon-minus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="relative py-24 md:py-32 overflow-hidden text-white"
+         style="background:linear-gradient(135deg,#0071e3 0%,#5e5ce6 50%,#9a4ef6 100%)">
+  <div class="absolute inset-0 grain"></div>
+  <div class="absolute -bottom-20 -right-20 w-[500px] h-[500px] rounded-full float-slow" style="background:radial-gradient(closest-side,#ffb340,transparent);opacity:.45"></div>
+  <div class="absolute -top-20 -left-20 w-[400px] h-[400px] rounded-full float-fast" style="background:radial-gradient(closest-side,#ff6f5e,transparent);opacity:.45"></div>
+  <div class="max-w-4xl mx-auto px-6 text-center relative">
+    <div class="text-[12px] uppercase tracking-[0.22em] mb-3" style="color:rgba(255,255,255,.8)">The invitation</div>
+    <h2 class="font-display text-5xl md:text-7xl leading-[1.02]">
+      Do you want to join<br/>
+      <span class="font-serif-i">the next cohort?</span>
+    </h2>
+    <p class="mt-5 text-[18px] max-w-xl mx-auto" style="color:rgba(255,255,255,.85)">
+      Six seats. Thirty days. The room you've been telling yourself you'd build, already half&#8209;built.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a class="btn-light" href="/join/">Request a seat
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <button type="button" data-fitcheck class="btn-outline-light" style="cursor:pointer;font:inherit">Are you a fit?</button>
+      <a class="btn-outline-light" href="#how">See how it runs</a>
+    </div>
+    <div class="mt-8 text-[13px]" style="color:rgba(255,255,255,.7)">Cohort 001 is in session · Now enrolling Cohort 002 — applications reviewed on a rolling basis</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#0a0a0a] text-[13px]" style="color:rgba(255,255,255,.6)">
+  <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <div class="font-display text-[20px]" style="color:#fff">BizColab</div>
+      <div class="mt-3 max-w-sm leading-[1.55]">Six operators. One month. A different kind of company.</div>
+    </div>
     <div>
-      <div class="pill"><i></i> Cohort 03 starts Nov 2 · Next cohort opens December</div>
-      <h1>Six founders.<br>One problem each.<br><em>Four weeks</em> to move it.</h1>
-      <p class="sub">A small peer group that works on your business, not in it. Bring the thing you have been putting off for years. Leave with it named, worked and moving.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="#start">Join the free workshop</a>
-        <a class="btn btn-ghost" href="#start">See how a cohort runs</a>
-        <small>No pitch. 60 minutes. You leave with one clear next move.</small>
-      </div>
-      <div class="proof">
-        <div class="faces"><b></b><b></b><b></b><b></b><b></b></div>
-        <div><span class="stars">★★★★★</span> &nbsp;18 founders through 3 cohorts · 5‑star Google reviews</div>
-      </div>
+      <div class="font-medium mb-3" style="color:rgba(255,255,255,.8)">The program</div>
+      <ul class="space-y-2">
+        <li><a href="#how">How it runs</a></li>
+        <li><a href="#pillars">The six pillars</a></li>
+        <li><a href="#why-groups">Why groups</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
     </div>
-
-    <div class="photo">
-      <img src="/michael.jpg" alt="Michael Abraham, BizColab founder" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
-      <div class="card c1"><b>3 leads</b><span>in 3 weeks — Renee M.</span></div>
-      <div class="card c2"><b>6 seats</b><span>per cohort, by application</span></div>
+    <div>
+      <div class="font-medium mb-3" style="color:rgba(255,255,255,.8)">Apply</div>
+      <ul class="space-y-2">
+        <li><a href="/advisory/">Advisory</a></li>
+        <li><a href="#apply">Request a seat</a></li>
+        <li><a href="mailto:Michael@Bizcolab.com">Contact</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<section class="start" id="start">
-  <div class="wrap">
-    <h2>Getting started is one step.</h2>
-    <p class="lead">Pick the layer that fits where you are today. Most people start with the workshop.</p>
-    <div class="three">
-      <div class="step">
-        <div class="n">01 · Meet</div>
-        <h3>Free monthly workshop</h3>
-        <div class="t">60 min · Google Meet · once a month</div>
-        <p>See how the room works before you commit. Bring one stuck problem and we will work it live with the group.</p>
-        <a href="#">Save your spot →</a>
-      </div>
-      <div class="step">
-        <div class="n">02 · Learn</div>
-        <h3>Weekly newsletter</h3>
-        <div class="t">One idea · one tactic · 3‑minute read</div>
-        <p>What founders in the cohorts are testing, what worked and what did not. Straight from the sessions, in plain English.</p>
-        <a href="#">Subscribe free →</a>
-      </div>
-      <div class="step">
-        <div class="n">03 · Build</div>
-        <h3>Join a cohort</h3>
-        <div class="t">6 seats · 4 Monday evenings · by application</div>
-        <p>Your own mini board of five complementary founders and a facilitator. One problem, four weeks, real movement.</p>
-        <a href="/join/">Request a seat →</a>
-      </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px]">
+      <div>© 2026 BizColab. All rights reserved.</div>
+      <div class="flex items-center gap-4"><a href="/privacy/" class="hover:text-white">Privacy Policy</a><span>Built for operators, by operators.</span></div>
     </div>
   </div>
-</section>
+</footer>
 
-<section class="logos">
-  <div class="wrap">
-    <p>Founders have come from</p>
-    <div class="row"><span>Talaya Guides</span><span>mlclaims.ai</span><span>Fiddle School</span><span>+ 15 more</span></div>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const wasOpen = btn.classList.contains('faq-open');
+      document.querySelectorAll('.faq-item').forEach((b) => b.classList.remove('faq-open'));
+      if (!wasOpen) btn.classList.add('faq-open');
+    });
+  });
+
+  // Application is handled by an external Google Form (linked via the Apply buttons).
+
+</script>
+
+<!-- ============================================================
+     BizColab Lead-Capture Popup  (matches /join/ styling)
+     Self-contained block: fonts, style, markup, script.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  #bizc-popup-root, #bizc-popup-root *{ box-sizing:border-box; }
+  #bizc-popup-root{
+    --bizc-ink:#1a1a1a; --bizc-muted:#666; --bizc-indigo:#6366f1;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; color:var(--bizc-ink);
+  }
+
+  /* bottom bar (trigger) */
+  .bizc-bar{ position:fixed; left:0; right:0; bottom:0; z-index:99998; transform:translateY(120%); transition:transform .45s cubic-bezier(.2,.7,.2,1); background:#0a0a0a; color:#fff; }
+  .bizc-bar.bizc-show{ transform:translateY(0); }
+  .bizc-bar-inner{ max-width:72rem; margin:0 auto; padding:14px 44px; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center; }
+  .bizc-pill-new{ display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:9999px; font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:#ffb340; flex-shrink:0; }
+  .bizc-bar-hook{ font-size:14px; color:rgba(255,255,255,.9); }
+  .bizc-bar-cta{ background:#fff; color:#0a0a0a; border:none; border-radius:9999px; padding:9px 18px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background .2s, transform .2s; font-family:inherit; }
+  .bizc-bar-cta:hover{ background:rgba(255,255,255,.88); transform:translateY(-1px); }
+  .bizc-bar-close{ position:absolute; top:6px; right:10px; background:none; border:none; color:rgba(255,255,255,.5); font-size:16px; cursor:pointer; line-height:1; padding:6px; }
+  .bizc-bar-close:hover{ color:#fff; }
+
+  /* modal shell */
+  .bizc-backdrop{ position:fixed; inset:0; background:rgba(10,10,10,.5); backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); z-index:99999; opacity:0; visibility:hidden; transition:opacity .3s ease; display:flex; align-items:center; justify-content:center; padding:20px; overflow-y:auto; }
+  .bizc-backdrop.bizc-open{ opacity:1; visibility:visible; }
+  .bizc-modal{ position:relative; width:100%; max-width:520px; background:linear-gradient(135deg,#f5f3ff 0%,#fef5f0 50%,#f0f4ff 100%); border-radius:18px; box-shadow:0 24px 64px rgba(0,0,0,.28); padding:34px 28px 26px; transform:translateY(16px) scale(.98); opacity:0; transition:transform .35s cubic-bezier(.2,.7,.2,1), opacity .3s ease; max-height:92vh; overflow-y:auto; }
+  .bizc-backdrop.bizc-open .bizc-modal{ transform:translateY(0) scale(1); opacity:1; }
+  .bizc-modal-close{ position:absolute; top:14px; right:14px; width:30px; height:30px; border-radius:9999px; border:1px solid #e5e5e5; background:#fff; color:#888; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:2; }
+  .bizc-modal-close:hover{ color:#1a1a1a; }
+
+  /* header — mirrors /join/ */
+  .bizc-head{ text-align:center; margin-bottom:22px; }
+  .bizc-badge{ display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid #e5e5e5; padding:6px 14px; border-radius:999px; font-size:13px; color:#555; margin-bottom:18px; }
+  .bizc-badge-dot{ width:7px; height:7px; background:#6366f1; border-radius:50%; flex-shrink:0; }
+  .bizc-head h3{ font-family:'Geist', system-ui, sans-serif; font-size:30px; font-weight:700; line-height:1.15; color:#1a1a1a; margin:0 0 12px; letter-spacing:-1px; }
+  .bizc-head h3 span{
+    background:linear-gradient(90deg,#0071e3,#5e5ce6,#9a4ef6,#ff6f5e,#ffb340);
+    background-size:200% 100%; -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent; color:transparent; animation:bizc-shimmer 8s linear infinite;
+  }
+  @keyframes bizc-shimmer{ 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+  .bizc-head p{ font-size:15.5px; color:#666; line-height:1.6; max-width:420px; margin:0 auto; }
+
+  /* form card — mirrors /join/ .form-card */
+  .bizc-card{ background:#fff; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,.07); padding:28px 26px 24px; }
+  .bizc-group{ margin-bottom:18px; }
+  .bizc-card label{ display:block; font-size:14px; font-weight:500; color:#1a1a1a; margin-bottom:8px; }
+  .bizc-req{ color:#ec4899; margin-left:2px; }
+  .bizc-card input[type="text"], .bizc-card input[type="email"]{
+    width:100%; padding:12px 14px; border:1.5px solid #e0e0e0; border-radius:8px;
+    font-size:15px; font-family:inherit; color:#1a1a1a; background:#fafafa; transition:all .18s ease;
+  }
+  .bizc-card input:focus{ outline:none; border-color:#6366f1; background:#fff; box-shadow:0 0 0 3px rgba(99,102,241,.1); }
+  .bizc-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .bizc-btn{ width:100%; padding:14px; background:#1a1a1a; color:#fff; border:none; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; transition:all .2s ease; margin-top:4px; display:flex; align-items:center; justify-content:center; gap:8px; font-family:inherit; }
+  .bizc-btn:hover{ background:#333; transform:translateY(-1px); }
+  .bizc-btn:disabled{ background:#999; cursor:not-allowed; transform:none; }
+  .bizc-spinner{ width:16px; height:16px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:bizc-spin .8s linear infinite; display:none; }
+  @keyframes bizc-spin{ to{ transform:rotate(360deg); } }
+  .bizc-err{ display:none; padding:12px 16px; border-radius:8px; font-size:14px; margin-bottom:18px; line-height:1.5; background:#fef2f2; border:1.5px solid #fca5a5; color:#991b1b; }
+  .bizc-foot{ text-align:center; margin-top:16px; color:#8b8b93; font-size:13px; }
+
+  /* success panel — mirrors /join/ #successPanel */
+  .bizc-success{ text-align:center; padding:6px 4px 2px; display:none; }
+  .bizc-sp-check{ width:54px; height:54px; margin:0 auto 18px; border-radius:50%; background:#f0fdf4; border:1.5px solid #86efac; color:#16a34a; font-size:26px; display:flex; align-items:center; justify-content:center; }
+  .bizc-sp-title{ font-family:'Geist', system-ui, sans-serif; font-size:26px; font-weight:700; color:#1a1a1a; letter-spacing:-.5px; margin:0 0 8px; }
+  .bizc-sp-sub{ font-size:15px; color:#666; line-height:1.6; max-width:430px; margin:0 auto; }
+  .bizc-sp-rule{ height:1px; background:#ececf0; margin:22px auto; max-width:360px; }
+  .bizc-sp-kicker{ font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#9a4ef6; margin:0 0 10px; }
+  .bizc-sp-primary{ display:flex; align-items:center; justify-content:center; gap:8px; width:100%; max-width:420px; margin:20px auto 0; padding:14px; background:#1a1a1a; color:#fff; border-radius:8px; font-size:15px; font-weight:600; text-decoration:none; transition:all .2s ease; }
+  .bizc-sp-primary:hover{ background:#333; transform:translateY(-1px); }
+  .bizc-sp-ghost{ display:inline-block; margin-top:14px; color:#999; font-size:14px; text-decoration:none; background:none; border:none; cursor:pointer; font-family:inherit; }
+  .bizc-sp-ghost:hover{ color:#666; }
+
+  @media (max-width:600px){
+    .bizc-modal{ padding:28px 16px 20px; border-radius:16px; }
+    .bizc-card{ padding:24px 18px; }
+    .bizc-row{ grid-template-columns:1fr; }
+    .bizc-head h3{ font-size:24px; }
+    .bizc-bar-inner{ padding:14px 30px; }
+  }
+</style>
+
+<div id="bizc-popup-root">
+
+  <div class="bizc-bar" id="bizcBar">
+    <button class="bizc-bar-close" id="bizcBarClose" aria-label="Dismiss">&times;</button>
+    <div class="bizc-bar-inner">
+      <span class="bizc-pill-new">New</span>
+      <span class="bizc-bar-hook">Six seats are open for the next cohort — grab one before it fills.</span>
+      <button class="bizc-bar-cta" id="bizcBarCta">Request a seat</button>
+    </div>
   </div>
-</section>
 
-<div class="version">Home concept · v2</div>
+  <div class="bizc-backdrop" id="bizcBackdrop">
+    <div class="bizc-modal" role="dialog" aria-modal="true" aria-labelledby="bizcHeadline">
+      <button class="bizc-modal-close" id="bizcModalClose" aria-label="Close">&times;</button>
+
+      <div id="bizcFormView">
+        <div class="bizc-head">
+          <div class="bizc-badge"><span class="bizc-badge-dot"></span> Founding cohort now enrolling</div>
+          <h3 id="bizcHeadline"><span>Six people</span> in your corner. <span>The team</span> you&rsquo;ve been missing.</h3>
+          <p>A small cohort for people serious about growing their business &mdash; and just as passionate about helping others grow theirs. Add your name to join the process.</p>
+        </div>
+
+        <div class="bizc-card">
+          <div class="bizc-err" id="bizcErrorAlert">&#10007; Something went wrong. Please try again or email Michael@bizcolab.com</div>
+
+          <form id="bizcSeatForm">
+            <div class="bizc-row">
+              <div class="bizc-group">
+                <label for="bizcFirstName">First Name <span class="bizc-req">*</span></label>
+                <input type="text" id="bizcFirstName" name="firstName" placeholder="Jane" autocomplete="given-name" required>
+              </div>
+              <div class="bizc-group">
+                <label for="bizcLastName">Last Name <span class="bizc-req">*</span></label>
+                <input type="text" id="bizcLastName" name="lastName" placeholder="Smith" autocomplete="family-name" required>
+              </div>
+            </div>
+            <div class="bizc-group">
+              <label for="bizcEmail">Email <span class="bizc-req">*</span></label>
+              <input type="email" id="bizcEmail" name="email" placeholder="you@company.com" autocomplete="email" required>
+            </div>
+
+            <button type="submit" class="bizc-btn" id="bizcSubmitBtn">
+              <span class="bizc-spinner" id="bizcSpinner"></span>
+              <span id="bizcBtnText">Add my name &rarr;</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="bizc-foot">Just your name and email. Response within 7&nbsp;days.</div>
+      </div>
+
+      <div class="bizc-card bizc-success" id="bizcSuccess">
+        <div class="bizc-sp-check">&#10003;</div>
+        <h2 class="bizc-sp-title">You&rsquo;re on the list<span id="bizcSpName"></span>.</h2>
+        <p class="bizc-sp-sub">You&rsquo;re in for the next cohort &mdash; we&rsquo;ll be in touch within 7&nbsp;days.</p>
+        <div class="bizc-sp-rule"></div>
+        <p class="bizc-sp-kicker">Optional next step</p>
+        <p class="bizc-sp-sub">Want to fast-track your match? Complete the full application &mdash; it helps us pair you with the right people. There&rsquo;s no rush: do it now, or we&rsquo;ll email you the link to finish later.</p>
+        <a class="bizc-sp-primary" href="/sign-up/">Complete the full application &rarr;</a>
+        <button type="button" class="bizc-sp-ghost" id="bizcSuccessClose">I&rsquo;ll do this later</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+  if (typeof emailjs !== 'undefined' && !window.__bizcEmailjsInit) {
+    emailjs.init('yWt3TMJ6ysOrH3vH1');
+    window.__bizcEmailjsInit = true;
+  }
+
+  var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzc-I9B7BuMDBNRm9kOeeYa11ECI-Bo_spGJaKpMWodfxzyvUS4JiAw0RIPInF7nO-h/exec';
+
+  var root = document.getElementById('bizc-popup-root');
+  if (!root) return;
+
+  var bar        = document.getElementById('bizcBar');
+  var barCta     = document.getElementById('bizcBarCta');
+  var barClose   = document.getElementById('bizcBarClose');
+  var backdrop   = document.getElementById('bizcBackdrop');
+  var modalClose = document.getElementById('bizcModalClose');
+  var formView   = document.getElementById('bizcFormView');
+  var success    = document.getElementById('bizcSuccess');
+  var successX   = document.getElementById('bizcSuccessClose');
+  var form       = document.getElementById('bizcSeatForm');
+  var submitBtn  = document.getElementById('bizcSubmitBtn');
+  var spinner    = document.getElementById('bizcSpinner');
+  var btnText    = document.getElementById('bizcBtnText');
+  var errorAlert = document.getElementById('bizcErrorAlert');
+
+  var SS = window.sessionStorage;
+  function seen(key){ try { return SS.getItem(key) === '1'; } catch(e){ return false; } }
+  function mark(key){ try { SS.setItem(key, '1'); } catch(e){} }
+
+  function maybeShowBar(){
+    if (seen('bizc_bar_dismissed')) { window.removeEventListener('scroll', maybeShowBar); return; }
+    if (window.scrollY > 500) {
+      bar.classList.add('bizc-show');
+      window.removeEventListener('scroll', maybeShowBar);
+    }
+  }
+  window.addEventListener('scroll', maybeShowBar, { passive:true });
+
+  barClose.addEventListener('click', function(){
+    bar.classList.remove('bizc-show');
+    mark('bizc_bar_dismissed');
+  });
+
+  function openModal(){
+    backdrop.classList.add('bizc-open');
+    document.body.style.overflow = 'hidden';
+    mark('bizc_modal_shown');
+  }
+  function closeModal(){
+    backdrop.classList.remove('bizc-open');
+    document.body.style.overflow = '';
+  }
+  barCta.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  successX.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', function(e){ if (e.target === backdrop) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && backdrop.classList.contains('bizc-open')) closeModal(); });
+
+  function maybeAutoOpen(){
+    if (seen('bizc_modal_shown')) { window.removeEventListener('scroll', maybeAutoOpen); return; }
+    var doc = document.documentElement;
+    var depth = (window.scrollY + window.innerHeight) / doc.scrollHeight;
+    if (depth >= 0.5) {
+      openModal();
+      window.removeEventListener('scroll', maybeAutoOpen);
+    }
+  }
+  window.addEventListener('scroll', maybeAutoOpen, { passive:true });
+
+  document.addEventListener('mouseout', function(e){
+    if (seen('bizc_modal_shown')) return;
+    if (!e.relatedTarget && e.clientY <= 0) openModal();
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorAlert.style.display = 'none';
+    submitBtn.disabled = true;
+    spinner.style.display = 'block';
+    btnText.textContent = 'Sending...';
+
+    var first = document.getElementById('bizcFirstName').value.trim();
+    var last  = document.getElementById('bizcLastName').value.trim();
+    var email = document.getElementById('bizcEmail').value.trim();
+
+    var data = {
+      full_name:  (first + ' ' + last).trim(),
+      first_name: first,
+      last_name:  last,
+      email:      email,
+      reply_to:   email,
+      to_name:    (first + ' ' + last).trim() || email,
+      to_email:   email,
+      inquiry_type: 'Popup — Request a Seat',
+      source:     'homepage_popup'
+    };
+
+    emailjs.send('service_bpcodid', 'template_09f1pjl', Object.assign({}, data, { to_email:'michael@bizcolab.com' }))
+      .catch(function(err){ console.error('BizColab popup lead email failed:', err); });
+    emailjs.send('service_bpcodid', 'template_bt9vd63', data)
+      .catch(function(err){ console.error('BizColab popup auto-reply failed:', err); });
+    try {
+      fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(data) }).catch(function(){});
+    } catch(err){}
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event:'lead_submit', form_type:'popup', form_source:'homepage_popup', lead_value:25, currency:'USD' });
+
+    setTimeout(function(){
+      document.getElementById('bizcSpName').textContent = first ? (', ' + first) : '';
+      formView.style.display = 'none';
+      success.style.display = 'block';
+      mark('bizc_lead_captured');
+    }, 700);
+  });
+})();
+</script>
+<!-- /BizColab Lead Capture Popup -->
+
+<script src="/assets/bc-fx.js" defer></script>
+<script>
+(function(){
+  var f=document.getElementById('bcxJoin'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=document.getElementById('bcxJoinEmail'), target=document.getElementById('bizcEmail'), bd=document.getElementById('bizcBackdrop');
+    if(target&&em.value) target.value=em.value;
+    if(bd){ bd.classList.add('bizc-open'); document.body.style.overflow='hidden'; try{sessionStorage.setItem('bizc_modal_shown','1');}catch(x){} }
+    var fn=document.getElementById('bizcFirstName'); if(fn) setTimeout(function(){fn.focus();},50);
+  });
+})();
+</script>
 </body>
 </html>
