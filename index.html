@@ -8,6 +8,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PGZDKF5S');</script>
 <!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55HDKWHJ0E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-55HDKWHJ0E');
+  /* Forward BizColab site events to GA4 */
+  (function(){
+    var map={lead_submit:'generate_lead',ab_click:'cta_click',audit_click:'audit_click',ab_view:'ab_view'};
+    function send(o){
+      if(!o||typeof o!=='object'||!o.event||!map[o.event]) return;
+      var p={ab_variant:String(o.ab_variant||window.BC_AB||'')};
+      if(o.event==='lead_submit'){p.value=o.lead_value||25;p.currency=o.currency||'USD';p.form_source=o.form_source||'';}
+      if(o.cta) p.cta=o.cta;
+      if(o.event==='ab_view') gtag('set','user_properties',{ab_variant:p.ab_variant});
+      gtag('event',map[o.event],p);
+    }
+    var dl=window.dataLayer, orig=dl.push;
+    dl.forEach(send);
+    dl.push=function(){ for(var i=0;i<arguments.length;i++) send(arguments[i]); return orig.apply(dl,arguments); };
+  })();
+</script>
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -307,7 +330,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-<body data-home-version="v27">
+<body data-home-version="v28">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
