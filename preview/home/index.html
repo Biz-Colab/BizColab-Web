@@ -304,7 +304,7 @@ body.ab-blue .bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-<body data-home-version="v16">
+<body data-home-version="v17">
 
 <!-- NAV -->
 
@@ -1257,9 +1257,16 @@ body.ab-blue .bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
   var btnText    = document.getElementById('bizcBtnText');
   var errorAlert = document.getElementById('bizcErrorAlert');
 
-  var SS = window.sessionStorage;
-  function seen(key){ try { return SS.getItem(key) === '1'; } catch(e){ return false; } }
-  function mark(key){ try { SS.setItem(key, '1'); } catch(e){} }
+  /* v17: remember for 7 days across visits; a captured lead is never shown it again */
+  var WEEK = 7*24*60*60*1000;
+  function seen(key){
+    try {
+      if (localStorage.getItem('bizc_lead_captured')) return true;
+      var t = +localStorage.getItem(key);
+      return !!t && (Date.now() - t) < WEEK;
+    } catch(e){ return false; }
+  }
+  function mark(key){ try { localStorage.setItem(key, String(Date.now())); } catch(e){} }
 
   function maybeShowBar(){
     if (seen('bizc_bar_dismissed')) { window.removeEventListener('scroll', maybeShowBar); return; }
@@ -1359,7 +1366,7 @@ body.ab-blue .bcx-rot--hero .bcx-rot-dot.is-on{background:#fff}
     e.preventDefault();
     var em=document.getElementById('bcxJoinEmail'), target=document.getElementById('bizcEmail'), bd=document.getElementById('bizcBackdrop');
     if(target&&em.value) target.value=em.value;
-    if(bd){ bd.classList.add('bizc-open'); document.body.style.overflow='hidden'; try{sessionStorage.setItem('bizc_modal_shown','1');}catch(x){} }
+    if(bd){ bd.classList.add('bizc-open'); document.body.style.overflow='hidden'; try{localStorage.setItem('bizc_modal_shown',String(Date.now()));}catch(x){} }
     var fn=document.getElementById('bizcFirstName'); if(fn) setTimeout(function(){fn.focus();},50);
   });
 })();
