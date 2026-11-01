@@ -330,7 +330,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-<body data-home-version="v31">
+<body data-home-version="v32">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -415,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .bcx-rot{margin:44px auto 10px;max-width:1000px;text-align:center}
 .bcx-rot-label{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:#6e6e73;margin-bottom:16px}
 .bcx-rot-win{overflow:hidden}
-.bcx-rot-track{display:flex;transition:transform .7s cubic-bezier(.4,0,.2,1);will-change:transform}
+.bcx-rot-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
 .bcx-rot-item{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 24px;box-sizing:border-box}
 .bcx-rot-q{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(28px,4vw,48px);line-height:1.15;letter-spacing:-.015em;color:#0a0a0a;max-width:900px;text-wrap:balance}
 .bcx-rot-q::before{content:"“"}.bcx-rot-q::after{content:"”"}
@@ -1147,7 +1147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var items=track.children, dots=document.getElementById('bcxRotHeroDots'), i=0, t;
   for(var n=0;n<items.length;n++){ (function(n){ var d=document.createElement('button'); d.className='bcx-rot-dot'+(n?'':' is-on'); d.type='button'; d.setAttribute('aria-label','Quote '+(n+1)); d.onclick=function(){ go(n); restart(); }; dots.appendChild(d); })(n); }
   function go(n){ dots.children[i].classList.remove('is-on'); i=n; track.style.transform='translateX(-'+(i*100)+'%)'; dots.children[i].classList.add('is-on'); }
-  function restart(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },2800); }
+  function restart(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },2000); }
   restart();
   track.parentNode.addEventListener('mouseenter',function(){ clearInterval(t); });
   track.parentNode.addEventListener('mouseleave',restart);
