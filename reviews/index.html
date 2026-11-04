@@ -15,15 +15,23 @@ html{scroll-behavior:smooth}
 body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:#1d1d1f;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5;letter-spacing:-.011em}
 a{color:inherit}
 
-/* floating pill nav, same as homepage (fixed so it stays on screen; 50px bar) */
-.bcx-nav{position:fixed;top:12px;left:0;right:0;z-index:150;padding:0 24px;pointer-events:none}
-.bcx-nav-in{pointer-events:auto;max-width:1180px;margin:0 auto;height:50px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 6px 0 24px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
-.bcx-logo{font-size:19px;font-weight:600;letter-spacing:-.04em;color:var(--ink);text-decoration:none}
-.bcx-logo span{color:var(--blue)}
+.font-display{font-family:'Geist',system-ui,sans-serif;font-weight:600;letter-spacing:-0.04em}
+/* pill nav, identical to homepage */
+.bcx-nav{position:absolute;top:22px;left:0;right:0;z-index:150;padding:0 24px;pointer-events:none}
+.bcx-nav-in{pointer-events:auto;max-width:1180px;margin:0 auto;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 10px 0 28px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.bcx-logo{font-size:19px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;text-decoration:none}
+.bcx-logo span{color:#0a57ff}
 .bcx-links{display:flex;gap:34px;font-size:15px;font-weight:500;color:#1d1d1f}
-.bcx-links a{text-decoration:none}.bcx-links a:hover{opacity:.6}
-.bcx-nav-btn{background:var(--orange);color:#fff;border-radius:999px;padding:10px 22px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
+.bcx-links a{text-decoration:none}
+.bcx-links a:hover{opacity:.6}
+.bcx-nav-btn{background:#ff8c1a;color:#fff;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
 .bcx-nav-btn:hover{background:#ef7a05}
+@media(max-width:900px){
+  .bcx-links{display:none}
+  .bcx-nav{position:fixed;top:10px;padding:0 12px}
+  .bcx-nav-in{height:54px;padding:0 5px 0 18px;box-shadow:0 6px 24px rgba(0,0,0,.14)}
+  .bcx-nav-btn{padding:0 20px;min-height:44px;display:inline-flex;align-items:center}
+}
 
 /* hero card, same as homepage */
 .bcx-hero{padding:14px}
@@ -75,20 +83,22 @@ a{color:inherit}
 
 span.nw{white-space:nowrap;display:inline!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;margin:0!important}
 @media(max-width:860px){.cols{column-count:1}.bcx-links{display:none}}
-@media(max-width:640px){.bcx-nav{top:10px;padding:0 12px}.bcx-nav-in{padding:0 5px 0 18px}.bcx-nav-btn{padding:9px 16px;font-size:14px}.bcx-hero{padding:10px}.bcx-card{border-radius:18px}.bcx-in{padding:84px 18px 46px}.rv{padding:22px 20px}.pullsec{padding-top:50px}}
+@media(max-width:640px){.bcx-hero{padding:10px}.bcx-card{border-radius:18px}.bcx-in{padding:84px 18px 46px}.rv{padding:22px 20px}.pullsec{padding-top:50px}}
 </style></head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header class="bcx-nav">
   <div class="bcx-nav-in">
-    <a class="bcx-logo" href="/">BizColab<span>.</span></a>
+    <a class="bcx-logo font-display" href="/">BizColab<span>.</span></a>
     <nav class="bcx-links">
       <a href="/#how">How it works</a>
       <a href="/#cohort">The cohort</a>
       <a href="/#audit">Free audit</a>
       <a href="/audit/">Deep Audit</a>
       <a href="/compare/">Compare</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/#faq">FAQ</a>
     </nav>
     <a class="bcx-nav-btn" href="/join/">Join</a>
   </div>
