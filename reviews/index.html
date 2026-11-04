@@ -2,94 +2,138 @@
 <title>BizColab &mdash; Member reviews</title>
 <meta name="description" content="Seven 5-star Google reviews from BizColab members, word for word.">
 <link rel="icon" href="/favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PGZDKF5S');</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-55HDKWHJ0E"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-55HDKWHJ0E');</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--b:#0a57ff;--o:#ff8c1a;--ink:#0a0a0a;--mu:#3a3a3c;--line:#e6e9ef;--soft:#f5f5f7}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
+:root{--ink:#0a0a0a;--paper-2:#f5f5f7;--muted:#6e6e73;--line:#d2d2d7;--blue:#0a57ff;--orange:#ff8c1a}
+html{scroll-behavior:smooth}
+body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:#1d1d1f;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5;letter-spacing:-.011em}
 a{color:inherit}
-.topbar{position:sticky;top:0;z-index:150;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
-.tb-wrap{max-width:1100px;margin:0 auto;padding:0 24px;height:50px;display:flex;align-items:center;justify-content:space-between}
-.tb-logo{font-weight:700;font-size:17px;letter-spacing:-.03em;text-decoration:none;color:var(--ink)}.tb-logo span{color:var(--b)}
-.tb-cta{font-size:13px;font-weight:700;color:#fff;background:var(--o);text-decoration:none;padding:8px 16px;border-radius:999px}
-.tb-cta:hover{background:#ef7a05}
-.wrap{max-width:820px;margin:0 auto;padding:0 24px}
-.hero{padding:64px 0 28px;text-align:center}
-.tag{display:inline-block;font-size:13px;font-weight:700;color:var(--b);background:#eaf0ff;border-radius:999px;padding:7px 14px;margin-bottom:22px}
-h1{font-size:clamp(32px,5vw,54px);line-height:1.06;letter-spacing:-.04em;font-weight:800}
-.acc{color:var(--o)}
-.sub{font-size:19px;font-weight:500;color:var(--mu);margin:18px auto 0;max-width:46ch;text-wrap:balance}
-.stars{color:#ffb340;letter-spacing:2px}
-.callout{margin:34px auto 0;background:#eaf0ff;border-radius:24px;padding:34px 34px 30px;text-align:center}
-.score{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
-.score b{font-size:54px;font-weight:800;letter-spacing:-.04em;line-height:1}
-.score .stars{font-size:26px}
-.score span.n{font-size:16px;font-weight:600;color:var(--mu)}
-.pull{font-size:clamp(20px,2.6vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.3;margin:22px auto 0;max-width:30ch;text-wrap:balance}
-.pull-by{display:block;margin-top:12px;font-size:14px;font-weight:500;color:var(--mu)}
-.list{padding-top:40px;padding-bottom:20px}
-.list h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.03em;font-weight:800}
-.list .note{font-size:15px;color:#6e6e73;margin-top:6px}
-.rv{border:1px solid var(--line);border-radius:20px;padding:28px;margin-top:20px;background:#fff}
-.rv .stars{font-size:16px}
-.rv p{font-size:17px;color:var(--mu);margin-top:12px;line-height:1.6;text-wrap:pretty}
+
+/* floating pill nav, same as homepage (fixed so it stays on screen; 50px bar) */
+.bcx-nav{position:fixed;top:12px;left:0;right:0;z-index:150;padding:0 24px;pointer-events:none}
+.bcx-nav-in{pointer-events:auto;max-width:1180px;margin:0 auto;height:50px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 6px 0 24px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.bcx-logo{font-size:19px;font-weight:600;letter-spacing:-.04em;color:var(--ink);text-decoration:none}
+.bcx-logo span{color:var(--blue)}
+.bcx-links{display:flex;gap:34px;font-size:15px;font-weight:500;color:#1d1d1f}
+.bcx-links a{text-decoration:none}.bcx-links a:hover{opacity:.6}
+.bcx-nav-btn{background:var(--orange);color:#fff;border-radius:999px;padding:10px 22px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
+.bcx-nav-btn:hover{background:#ef7a05}
+
+/* hero card, same as homepage */
+.bcx-hero{padding:14px}
+.bcx-card{position:relative;border-radius:22px;overflow:hidden;min-height:clamp(400px,62vh,620px);display:flex;align-items:center;justify-content:center;text-align:center}
+.bcx-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;filter:brightness(.60) saturate(1.06)}
+.bcx-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,.30),rgba(6,10,20,.18) 45%,rgba(6,10,20,.62))}
+.bcx-in{position:relative;z-index:2;width:100%;max-width:940px;padding:96px 26px 60px;color:#fff}
+.bcx-h1{font-size:clamp(34px,6.6vw,92px);font-weight:600;letter-spacing:-.04em;line-height:1.02;text-shadow:0 2px 40px rgba(0,0,0,.28);margin:0}
+.bcx-h1 .acc{color:var(--orange)}
+.bcx-sub{margin:24px auto 0;max-width:52ch;font-size:clamp(15.5px,1.7vw,19px);line-height:1.55;font-weight:700;color:#fff}
+.bcx-badge{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:30px;font-size:14px;color:rgba(255,255,255,.92)}
+.bcx-badge svg.g{width:17px;height:17px;display:block}
+.bcx-stars{display:flex;gap:2px}.bcx-stars svg{width:16px;height:16px;display:block}
+
+/* pull quote, same serif style as homepage rotator */
+.pullsec{max-width:1000px;margin:0 auto;padding:70px 24px 30px;text-align:center}
+.pull-label{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);margin-bottom:16px}
+.pull-q{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(28px,4vw,48px);line-height:1.15;letter-spacing:-.015em;color:var(--ink);max-width:900px;margin:0 auto;text-wrap:balance}
+.pull-q::before{content:"\201C"}.pull-q::after{content:"\201D"}
+.pull-who{font-size:15px;color:var(--muted);margin-top:14px}.pull-who b{font-weight:600;color:var(--ink)}
+
+/* reviews */
+.rvsec{max-width:1100px;margin:0 auto;padding:50px 24px 20px}
+.rvsec h2{font-size:clamp(26px,3.4vw,40px);font-weight:600;letter-spacing:-.04em;line-height:1.08;color:var(--ink)}
+.rvsec .note{font-size:15px;color:var(--muted);margin-top:8px}
+.cols{margin-top:30px;column-count:2;column-gap:20px}
+.rv{break-inside:avoid;margin:0 0 20px;border:1px solid #e6e9ef;border-radius:20px;padding:28px;background:#fff}
+.rv .st{display:flex;gap:2px}.rv .st svg{width:16px;height:16px;display:block}
+.rv p{font-size:16.5px;color:#3a3a3c;margin-top:12px;line-height:1.6}
 .rv p:first-of-type{margin-top:14px}
-.by{margin-top:18px;font-size:14px;color:#6e6e73}.by b{color:var(--ink)}
-.gl{text-align:center;padding:30px 0 10px}
-.gl a{display:inline-block;font-size:17px;font-weight:700;color:#fff;background:var(--b);text-decoration:none;padding:16px 28px;border-radius:12px}
-.gl a:hover{background:#0847d6}
-.gl p{font-size:14px;color:#6e6e73;margin-top:12px}
-.cta{background:var(--soft);margin-top:50px;padding:64px 24px;text-align:center}
-.cta h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:-.035em;line-height:1.1;font-weight:800}
-.cta .sub{margin-top:14px}
-.cta a.btn{display:inline-block;margin-top:26px;background:var(--o);color:#fff;text-decoration:none;font-weight:700;font-size:17px;padding:17px 30px;border-radius:12px}
-.cta a.btn:hover{background:#ef7a05}
-.cta .alt{display:block;margin-top:14px;font-size:14px}
-.cta .alt a{color:var(--b);font-weight:600}
-.foot{padding:26px 24px;font-size:13px;color:#6e6e73;text-align:center}
-.foot a{color:#6e6e73;margin:0 8px}
+.by{margin-top:18px;font-size:14px;color:var(--muted)}.by b{color:var(--ink);font-weight:600}
+.gl{text-align:center;padding:18px 24px 10px}
+.bc-btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;border-radius:999px;padding:16px 28px;font-weight:600;font-size:16px;text-decoration:none}
+.bc-btn:hover{background:#0747d1}
+.gl p{font-size:14px;color:var(--muted);margin-top:12px}
+
+/* closing CTA */
+.cta{background:var(--paper-2);margin-top:60px;padding:70px 24px;text-align:center}
+.cta h2{font-size:clamp(28px,4vw,46px);font-weight:600;letter-spacing:-.04em;line-height:1.08;color:var(--ink)}
+.cta p.s{font-size:18px;color:#3a3a3c;margin:14px auto 0;max-width:46ch}
+.cta .bc-btn{background:var(--orange);margin-top:28px}.cta .bc-btn:hover{background:#ef7a05}
+.cta .alt{display:block;margin-top:16px;font-size:14px;color:var(--muted)}.cta .alt a{color:var(--blue);font-weight:600}
+
+/* footer, same as homepage */
+.bc-foot{background:var(--paper-2);border-top:1px solid #e6e9ef;padding:40px 24px;font-size:14px;color:var(--muted)}
+.bc-foot .bc-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.bc-foot a{color:#3a3a3c;text-decoration:none;margin-left:22px}
+.bc-foot b{color:var(--ink);font-size:17px}
+
 span.nw{white-space:nowrap;display:inline!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;margin:0!important}
-@media(max-width:640px){.hero{padding-top:44px}.callout{padding:26px 20px}.rv{padding:22px 20px}.rv p{font-size:16px}.tb-wrap{padding:0 16px}.wrap{padding:0 16px}}
+@media(max-width:860px){.cols{column-count:1}.bcx-links{display:none}}
+@media(max-width:640px){.bcx-nav{top:10px;padding:0 12px}.bcx-nav-in{padding:0 5px 0 18px}.bcx-nav-btn{padding:9px 16px;font-size:14px}.bcx-hero{padding:10px}.bcx-card{border-radius:18px}.bcx-in{padding:84px 18px 46px}.rv{padding:22px 20px}.pullsec{padding-top:50px}}
 </style></head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<nav class="topbar"><div class="tb-wrap">
-  <a class="tb-logo" href="/">BizColab<span>.</span></a>
-  <a class="tb-cta" href="https://calendar.app.google/THqZBmvfREeCDE8k8">Book a 15-min call</a>
-</div></nav>
 
-<header class="hero"><div class="wrap">
-  <div class="tag">Member reviews</div>
-  <h1>What founders say <span class="acc">about BizColab</span></h1>
-  <p class="sub">Seven 5-star Google reviews from members, word for word. Real founders, real challenges, a group that pushes each other forward.</p>
-  <div class="callout">
-    <div class="score"><b>5.0</b><span class="stars">★★★★★</span><span class="n">7 Google reviews</span></div>
-    <p class="pull">&ldquo;People don&rsquo;t just network. They challenge each other, share experiences, stay accountable, and take meaningful action.&rdquo;</p>
-    <span class="pull-by">Clark V. &middot; BizColab member</span>
+<header class="bcx-nav">
+  <div class="bcx-nav-in">
+    <a class="bcx-logo" href="/">BizColab<span>.</span></a>
+    <nav class="bcx-links">
+      <a href="/#how">How it works</a>
+      <a href="/#cohort">The cohort</a>
+      <a href="/#audit">Free audit</a>
+      <a href="/audit/">Deep Audit</a>
+      <a href="/compare/">Compare</a>
+    </nav>
+    <a class="bcx-nav-btn" href="/join/">Join</a>
   </div>
-</div></header>
+</header>
 
-<main class="wrap list">
+<section class="bcx-hero">
+  <div class="bcx-card">
+    <img class="bcx-img" src="/assets/hero-room.jpg" alt="Six operators working a problem around one table" width="1500" height="845">
+    <div class="bcx-scrim"></div>
+    <div class="bcx-in">
+      <h1 class="bcx-h1">What founders<br><span class="acc">say about BizColab</span></h1>
+      <p class="bcx-sub">Seven 5-star Google reviews from members, word for word.</p>
+      <div class="bcx-badge">
+        <svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.7v3h3.9c2.3-2.1 3.5-5.2 3.5-8.9z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-3a7.2 7.2 0 0 1-10.7-3.8H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.1 7.1 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.4.6 4.6 1.8l3.5-3.5A12 12 0 0 0 1.3 6.6l4 3.1A7.2 7.2 0 0 1 12 4.8z"/></svg>
+        <span>5.0 average &middot; 7 Google reviews</span>
+        <span class="bcx-stars" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pullsec">
+  <div class="pull-label">A group that pushes each other forward</div>
+  <p class="pull-q">People don&rsquo;t just network. They challenge each other, share experiences, stay accountable, and take meaningful action.</p>
+  <div class="pull-who"><b>Clark V.</b> &middot; BizColab member</div>
+</section>
+
+<main class="rvsec">
   <h2>The full reviews</h2>
   <p class="note">Posted on Google by BizColab members. Not edited.</p>
+  <div class="cols">
 
-  <article class="rv"><div class="stars">★★★★★</div>
+  <article class="rv"><div class="st" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
     <p>BizColab, created by Michael Abraham, is a refreshing and powerful approach to business growth. What makes it special is the genuine collaboration, meaningful connections, and practical insights shared among like-minded entrepreneurs. Michael has created an environment where people don&rsquo;t just network&mdash;they challenge each other, share experiences, stay accountable, and take meaningful action. It&rsquo;s an opportunity to gain fresh perspectives, overcome obstacles, and accelerate your business growth. If you&rsquo;re serious about growing your business and believe in the power of collaboration, BizColab is absolutely worth experiencing! &ldquo;If you want to go fast, go alone. If you want to go far, go together.&rdquo; - African Proverb</p>
     <div class="by"><b>Clark V.</b> &middot; BizColab member</div></article>
 
-  <article class="rv"><div class="stars">★★★★★</div>
+  <article class="rv"><div class="st" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
     <p>As the owner of a new business, I wanted to surround myself with other entrepreneurs to ensure my strategic and tactical views were properly focused. During the program I came away with some excellent tips and advice that I&rsquo;m implementing today!</p>
     <div class="by"><b>Jason T.</b> &middot; BizColab member</div></article>
 
-  <article class="rv"><div class="stars">★★★★★</div>
+  <article class="rv"><div class="st" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
     <p>I came to BizColab&rsquo;s Los Angeles cohort stuck in years of writer&rsquo;s block. I left with Chapter One of my memoir launched, real feedback from readers, and a bigger goal for my book than I&rsquo;d let myself set before. It&rsquo;s a small group of entrepreneurs, so there&rsquo;s nowhere to hide, and the accountability is real. Michael, our facilitator, has a gift for asking the questions you&rsquo;ve been avoiding, and those questions are what finally got me moving. If you&rsquo;re ready to stop circling your goal and start on it, this is the room to be in.</p>
     <div class="by"><b>Debra M.</b> &middot; Author, <i>Law &amp; Disorder</i></div></article>
 
-  <article class="rv"><div class="stars">★★★★★</div>
+  <article class="rv"><div class="st" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
     <p>I joined BizColab as a new founder in the events space in Los Angeles, and it has been one of the most useful things I&rsquo;ve done for my business.</p>
     <p>In four weeks, I fixed my pricing, finalised my target market, narrowed my focus to unique date and special-occasion experiences, got listed on Yelp, and more.</p>
     <p>What surprised me most was realising that business owners in my group with decades more experience face many of the same challenges I do. It helped me relate to them, learn from their experiences, and feel like I&rsquo;m not alone in navigating the ups and downs I&rsquo;ve been facing.</p>
@@ -97,36 +141,43 @@ span.nw{white-space:nowrap;display:inline!important;color:inherit!important;font
     <p>Highly recommend BizColab to any small business owner or startup founder.</p>
     <div class="by"><b>Svetlana</b> &middot; Events founder</div></article>
 
-  <article class="rv"><div class="stars">★★★★★</div>
+  <article class="rv"><div class="st" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
     <p>When I joined BizColab&rsquo;s first Los Angeles cohort, I was having a challenging year. As a result of the LA Wildfires, my business had slowed down significantly. Three weeks into the program, I had a clearer positioning (&ldquo;champion for the challenger brand&rdquo;) and 3 qualified leads. Michael Abraham is candid in a way most people aren&rsquo;t, and is an insightful group facilitator. If you run a small business in LA and want a peer group that works on your business for 90 minutes a week, this is it.</p>
     <div class="by"><b>Renee M.</b> &middot; Brand strategist</div></article>
 
-  <article class="rv"><div class="stars">★★★★★</div>
+  <article class="rv"><div class="st" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
     <p>&hellip; I got something more valuable: a peer group of experienced business owners and a facilitator who pushed me to rethink how I approach my firm and my career. Four weeks in, I&rsquo;ve stopped spending on paid ads and I&rsquo;m building a referral engine around the clients I already have. Four weeks is almost too short, you&rsquo;ll want to stay with the group. Recommended for any professional-services founder who wants to work on the business, not just in it.</p>
     <div class="by"><b>Alex N.</b> &middot; Attorney</div></article>
 
-  <article class="rv"><div class="stars">★★★★★</div>
+  <article class="rv"><div class="st" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="#ffb340"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
     <p>I&rsquo;m a founder standing up a new venture in Los Angeles after 20+ years in systems engineering, and BizColab gave me something I didn&rsquo;t have: structure and urgency. The weekly 90-minute session with a small group of experienced business owners forced me to set specific monthly goals and act on them. Within four weeks I landed a paid consulting engagement through a relationship I&rsquo;d been sitting on. It&rsquo;s a sounding board and an accountability group in one. Recommended for any early-stage founder or small business owner in LA.</p>
     <div class="by"><b>Sudeep D.</b> &middot; Founder, systems engineering</div></article>
 
+  </div>
   <div class="gl">
-    <a href="https://www.google.com/search?q=BizColab+Los+Angeles+reviews" target="_blank" rel="noopener">See all reviews on Google &rarr;</a>
+    <a class="bc-btn" href="https://www.google.com/search?q=BizColab+Los+Angeles+reviews" target="_blank" rel="noopener">See all reviews on Google &rarr;</a>
     <p>Every review above is on BizColab&rsquo;s Google Business Profile.</p>
   </div>
 </main>
 
 <section class="cta">
   <h2>Join a room of founders who push each other.</h2>
-  <p class="sub">Cohort 004 starts late November and December. Six founders and one facilitator, Mondays or Wednesdays.</p>
-  <a class="btn" href="https://calendar.app.google/THqZBmvfREeCDE8k8">Book a 15-minute call</a>
+  <p class="s">Cohort 004 starts late November and December. Six founders and one facilitator, Mondays or Wednesdays.</p>
+  <a class="bc-btn" href="https://calendar.app.google/THqZBmvfREeCDE8k8">Book a 15-minute call &rarr;</a>
   <span class="alt">Or <a href="/join/">request a seat</a></span>
 </section>
-<div class="foot">&copy; 2026 BizColab &middot; <a href="/">bizcolab.com</a><a href="/privacy/">Privacy</a><a href="mailto:michael@bizcolab.com">Contact</a></div>
+
+<footer class="bc-foot">
+  <div class="bc-in">
+    <div><b>BizColab<span style="color:#0a57ff">.</span></b><div style="margin-top:4px">&copy; 2026 BizColab. Empowering entrepreneurs through collaboration.</div></div>
+    <div><a href="/#how">How it works</a><a href="/#audit">Free audit</a><a href="/principles/">Principles</a><a href="mailto:michael@bizcolab.com">Contact</a><a href="/privacy/">Privacy</a></div>
+  </div>
+</footer>
 
 <script>
 /* no-widows pass: bind the last two words of every text block so no line holds a single word */
 (function(){
-  document.querySelectorAll('h2,h3,p,.pull').forEach(function(el){
+  document.querySelectorAll('h2,h3,p,.pull-q').forEach(function(el){
     var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),last=null,n;
     while(n=w.nextNode()){if(n.nodeValue.trim())last=n}
     if(!last)return;
