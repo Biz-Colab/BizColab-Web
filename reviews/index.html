@@ -84,6 +84,30 @@ a{color:inherit}
 span.nw{white-space:nowrap;display:inline!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;margin:0!important}
 @media(max-width:860px){.cols{column-count:1}.bcx-links{display:none}}
 @media(max-width:640px){.bcx-hero{padding:10px}.bcx-card{border-radius:18px}.bcx-in{padding:84px 18px 46px}.rv{padding:22px 20px}.pullsec{padding-top:50px}}
+
+/* mobile header: full-width sticky bar + hamburger */
+.bcx-burger{display:none}
+@media(max-width:900px){
+  .bcx-nav{position:fixed!important;top:0!important;left:0;right:0;padding:0!important;pointer-events:auto;background:#fff;border-bottom:1px solid #e8e8ed}
+  .bcx-nav-in{height:50px!important;max-width:none;padding:0 8px 0 16px!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;gap:8px}
+  .bcx-logo{margin-right:auto}
+  .bcx-nav-btn{padding:0 12px!important;min-height:42px!important;display:inline-flex;align-items:center;font-size:14px!important;transition:transform .15s ease,background .15s}
+  .bcx-nav-btn:active{transform:scale(.94)}
+  .bcx-burger{display:grid;place-items:center;width:40px;height:40px;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .bcx-burger i,.bcx-burger i:before,.bcx-burger i:after{display:block;width:20px;height:2px;background:#0a0a0a;border-radius:2px;position:relative;content:"";transition:transform .2s,top .2s,background .2s}
+  .bcx-burger{border-radius:50%;transition:background .15s,transform .15s ease}
+  .bcx-burger:hover{background:#f1f3f7}
+  .bcx-burger:active{transform:scale(.86);background:#e8ebf1}
+  .bcx-burger i:before{position:absolute;top:-6px}.bcx-burger i:after{position:absolute;top:6px}
+  .bcx-nav.open .bcx-burger i{background:transparent}
+  .bcx-nav.open .bcx-burger i:before{top:0;transform:rotate(45deg)}
+  .bcx-nav.open .bcx-burger i:after{top:0;transform:rotate(-45deg)}
+  .bcx-links{display:none!important;position:absolute;top:50px;left:0;right:0;flex-direction:column;gap:0;background:#fff;padding:6px 20px 14px;box-shadow:0 14px 30px rgba(0,0,0,.16);font-size:17px}
+  .bcx-nav.open .bcx-links{display:flex!important}
+  .bcx-links a{padding:14px 0;border-top:1px solid #eef0f4}
+  .bcx-links a:first-child{border-top:0}
+  body{padding-top:50px}
+}
 </style></head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -101,8 +125,14 @@ span.nw{white-space:nowrap;display:inline!important;color:inherit!important;font
       <a href="/#faq">FAQ</a>
     </nav>
     <a class="bcx-nav-btn" href="/join/">Join</a>
+    <button class="bcx-burger" id="bcxBurger" aria-label="Menu" aria-expanded="false"><i></i></button>
   </div>
 </header>
+<script>(function(){var n=document.querySelector('.bcx-nav'),b=document.getElementById('bcxBurger');if(!n||!b)return;
+function t(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}
+b.addEventListener('click',function(){t(!n.classList.contains('open'))});
+n.querySelectorAll('.bcx-links a').forEach(function(a){a.addEventListener('click',function(){t(false)})});
+document.addEventListener('click',function(e){if(!n.contains(e.target))t(false)});})();</script>
 
 <section class="bcx-hero">
   <div class="bcx-card">
