@@ -17,7 +17,7 @@
   var LI = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 2H3.6C2.7 2 2 2.7 2 3.6v16.8c0 .9.7 1.6 1.6 1.6h16.8c.9 0 1.6-.7 1.6-1.6V3.6c0-.9-.7-1.6-1.6-1.6zM8 19H5V9.5h3V19zM6.5 8.2a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19h-3V9.5h2.9v1.3h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.6 2 3.6 4.6V19z"/></svg>';
   var MAIL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5.3-8-5.3zM4.6 7l7.4 4.9L19.4 7H4.6z"/></svg>';
   var SOCIAL = [
-    ['https://www.instagram.com/bizcolab/', 'Instagram', IG],
+    ['https://www.instagram.com/bizcolab/?hl=en', 'Instagram', IG],
     ['https://www.linkedin.com/company/bizcolabteam/', 'LinkedIn', LI],
     ['mailto:michael@bizcolab.com', 'michael@bizcolab.com', MAIL]
   ];
