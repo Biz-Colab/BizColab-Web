@@ -293,15 +293,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 /* ── v9 hero: floating nav, full-bleed banner, email capture, pull quotes ── */
-.bcx-nav{position:absolute;top:22px;left:0;right:0;z-index:60;padding:0 24px;pointer-events:none}
-.bcx-nav-in{pointer-events:auto;max-width:1180px;margin:0 auto;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 10px 0 28px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
-.bcx-logo{font-size:19px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;text-decoration:none}
-.bcx-logo span{color:#0a57ff}
-.bcx-links{display:flex;gap:34px;font-size:15px;font-weight:500;color:#1d1d1f}
-.bcx-links a{text-decoration:none}
-.bcx-links a:hover{opacity:.6}
-.bcx-nav-btn{background:#ff8c1a;color:#fff;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
-.bcx-nav-btn:hover{background:#ef7a05}
 .bcx-hero{padding:10px}
 .bcx-card{border-radius:26px;min-height:min(96vh,980px)}
 .bcx-img{object-position:50% 45%;filter:brightness(.42) saturate(1.0)}
@@ -318,46 +309,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .bcx-join button{flex:none;background:#ff8c1a;color:#fff;border:0;border-radius:999px;padding:15px 24px;font:inherit;font-size:15.5px;font-weight:600;cursor:pointer}
 .bcx-join button:hover{background:#ef7a05}
 @media(max-width:900px){
-  .bcx-links{display:none}
-  .bcx-nav{top:12px;padding:0 12px}
-  .bcx-nav-in{height:56px;padding:0 6px 0 18px}
-  .bcx-nav-btn{padding:10px 16px;font-size:14px}
   .bcx-in{padding:110px 20px 48px}
   .bcx-join{flex-direction:column;gap:8px;border-radius:22px;padding:8px}
   .bcx-join input{width:100%;text-align:center}
   .bcx-join button{width:100%}
 }
 
-/* mobile header: full-width sticky bar + hamburger */
-.bcx-burger{display:none}
-@media(max-width:900px){
-  .bcx-nav{position:fixed!important;top:0!important;left:0;right:0;padding:0!important;pointer-events:auto;background:#fff;border-bottom:1px solid #e8e8ed}
-  .bcx-nav-in{height:50px!important;max-width:none;padding:0 8px 0 16px!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;gap:8px}
-  .bcx-logo{margin-right:auto}
-  .bcx-nav-btn{padding:0 12px!important;min-height:42px!important;display:inline-flex;align-items:center;font-size:14px!important;transition:transform .15s ease,background .15s}
-  .bcx-nav-btn:active{transform:scale(.94)}
-  .bcx-burger{display:grid;place-items:center;width:40px;height:40px;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .bcx-burger i,.bcx-burger i:before,.bcx-burger i:after{display:block;width:20px;height:2px;background:#0a0a0a;border-radius:2px;position:relative;content:"";transition:transform .2s,top .2s,background .2s}
-  .bcx-burger{border-radius:50%;transition:background .15s,transform .15s ease}
-  .bcx-burger:hover{background:#f1f3f7}
-  .bcx-burger:active{transform:scale(.86);background:#e8ebf1}
-  .bcx-burger i:before{position:absolute;top:-6px}.bcx-burger i:after{position:absolute;top:6px}
-  .bcx-nav.open .bcx-burger i{background:transparent}
-  .bcx-nav.open .bcx-burger i:before{top:0;transform:rotate(45deg)}
-  .bcx-nav.open .bcx-burger i:after{top:0;transform:rotate(-45deg)}
-  .bcx-links{display:flex!important;position:absolute;top:50px;left:0;right:0;flex-direction:column;gap:0;background:#fff;padding:6px 20px 14px;border-bottom:1px solid #e8e8ed;font-size:17px;visibility:hidden;clip-path:polygon(0 0,0 0,-25% 100%,-25% 100%);transition:clip-path .42s cubic-bezier(.65,0,.35,1),visibility 0s .42s}
-  .bcx-nav.open .bcx-links{visibility:visible;clip-path:polygon(0 0,150% 0,125% 100%,0 100%);transition:clip-path .42s cubic-bezier(.65,0,.35,1),visibility 0s}
-  .bcx-links a{padding:14px 0;border-top:1px solid #eef0f4;opacity:0;transform:translateX(-22px);transition:opacity .2s ease,transform .2s ease}
-  .bcx-links a:first-child{border-top:0}
-  .bcx-nav.open .bcx-links a{opacity:1;transform:none;transition:opacity .3s ease .12s,transform .3s ease .12s}
-  .bcx-nav.open .bcx-links a:nth-child(2){transition-delay:.17s}.bcx-nav.open .bcx-links a:nth-child(3){transition-delay:.22s}.bcx-nav.open .bcx-links a:nth-child(4){transition-delay:.27s}.bcx-nav.open .bcx-links a:nth-child(5){transition-delay:.32s}.bcx-nav.open .bcx-links a:nth-child(6){transition-delay:.37s}.bcx-nav.open .bcx-links a:nth-child(7){transition-delay:.42s}
-  @media(prefers-reduced-motion:reduce){.bcx-links,.bcx-links a{transition:none!important}}
-  body{padding-top:50px}
-}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site-nav.css">
 </head>
-<body data-home-version="v32">
+<body data-home-version="v32" data-nav="overlay">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -367,13 +329,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- NAV -->
 
 <script>
-/* BizColab homepage test v2: 6 banner versions. ?ab=1..6 forces one (used by ads); otherwise random, sticky per visitor. */
+/* BizColab homepage test v3: 9 banner versions (7-9 = pain-first, from buyer call phrases). ?ab=1..9 forces one (used by ads); otherwise random, sticky per visitor. */
 (function(){
-  var V=[["Grow Faster With<br>Founders in <span class=\"bcx-acc\">Your Corner.</span>", "A small peer group that helps you solve the one problem holding your business back."], ["Empowering Entrepreneurs<br>Through <span class=\"bcx-acc\">Collaboration.</span>", "A founder community that helps you solve the problem holding your business back."], ["The Community Where<br><span class=\"bcx-acc\">Founders Grow.</span>", "Bring your biggest problem. Leave with a plan and people who have your back."], ["Stop Building <span class=\"bcx-acc\">Alone.</span>", "Join a community of founders who give honest feedback and real accountability."], ["Six Founders in<br><span class=\"bcx-acc\">Your Corner.</span>", "Four weeks to move the one problem holding your business back."], ["Your Business<br>Needs <span class=\"bcx-acc\">a Board.</span>", "A founder community for honest feedback, real accountability, and faster growth."]], KEY='bc_ab_v2', v=null;
-  var q=location.search.match(/[?&]ab=([1-6])\b/);
+  var V=[["Grow Faster With<br>Founders in <span class=\"bcx-acc\">Your Corner.</span>", "A small peer group that helps you solve the one problem holding your business back."], ["Empowering Entrepreneurs<br>Through <span class=\"bcx-acc\">Collaboration.</span>", "A founder community that helps you solve the problem holding your business back."], ["The Community Where<br><span class=\"bcx-acc\">Founders Grow.</span>", "Bring your biggest problem. Leave with a plan and people who have your back."], ["Stop Building <span class=\"bcx-acc\">Alone.</span>", "Join a community of founders who give honest feedback and real accountability."], ["Six Founders in<br><span class=\"bcx-acc\">Your Corner.</span>", "Four weeks to move the one problem holding your business back."], ["Your Business<br>Needs <span class=\"bcx-acc\">a Board.</span>", "A founder community for honest feedback, real accountability, and faster growth."], ["Spread Thin and Never<br>Sure <span class=\"bcx-acc\">What&rsquo;s Next?</span>", "Six founders and a business advisor help you pick the one move that matters, then make sure you make it."], ["Doing Everything<br><span class=\"bcx-acc\">Yourself?</span>", "Six founders in your corner help you decide what to stop, what to hand off, and what to do next."], ["Not Enough in<br>the <span class=\"bcx-acc\">Pipeline?</span>", "A small room of founders helps you find the one move that brings in more of the right clients."]], KEY='bc_ab_v3', v=null;
+  var q=location.search.match(/[?&]ab=([1-9])\b/);
   if(q){ v=q[1]; } else {
     try{ v=localStorage.getItem(KEY); }catch(e){}
-    if(!/^[1-6]$/.test(v||'')) v=String(1+Math.floor(Math.random()*6));
+    if(!/^[1-9]$/.test(v||'')) v=String(1+Math.floor(Math.random()*9));
   }
   try{ localStorage.setItem(KEY,v); }catch(e){}
   window.BC_AB=v;
@@ -391,27 +353,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.addEventListener('click',function(e){var a=e.target.closest('a,button'); if(!a) return; var t=(a.textContent||'').trim(); if(a.closest('.bcx-join')) window.dataLayer.push({event:'ab_click',ab_variant:v,cta:'join_email'}); else if(/audit/i.test(t)||/calendar\.app\.google/.test(a.href||'')) window.dataLayer.push({event:'audit_click',ab_variant:v}); else if(/Join|Request a seat/i.test(t)) window.dataLayer.push({event:'ab_click',ab_variant:v,cta:t});},true);
 })();
 </script>
-<header class="bcx-nav" id="bcxNav">
-  <div class="bcx-nav-in">
-    <a class="bcx-logo font-display" href="/">BizColab<span>.</span></a>
-    <nav class="bcx-links">
-      <a href="#how">How it works</a>
-      <a href="#cohort">The cohort</a>
-      <a href="#audit">Free audit</a>
-      <a href="/audit/">Deep Audit</a>
-      <a href="/compare/">Compare</a>
-      <a href="/reviews/">Reviews</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a class="bcx-nav-btn" href="/join/">Join</a>
-    <button class="bcx-burger" id="bcxBurger" aria-label="Menu" aria-expanded="false"><i></i></button>
-  </div>
-</header>
-<script>(function(){var n=document.querySelector('.bcx-nav'),b=document.getElementById('bcxBurger');if(!n||!b)return;
-function t(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}
-b.addEventListener('click',function(){t(!n.classList.contains('open'))});
-n.querySelectorAll('.bcx-links a').forEach(function(a){a.addEventListener('click',function(){t(false)})});
-document.addEventListener('click',function(e){if(!n.contains(e.target))t(false)});})();</script>
+<script src="/assets/site-nav.js"></script>
 
 <!-- HERO -->
 <!-- HERO -->
@@ -1196,10 +1138,6 @@ h1,h2,h3{text-wrap:balance} p,li{text-wrap:pretty}
 .bcx-h1 .bcx-acc{background:none!important;border:0!important;border-radius:0!important;overflow:visible!important;padding:0!important;list-style:none;display:inline}
 @media(max-width:900px){
  .bcx-sub{white-space:normal;overflow:visible;text-overflow:clip;max-width:34ch;margin-left:auto;margin-right:auto}
- /* nav stays reachable while scrolling */
- .bcx-nav{position:fixed;top:10px}
- .bcx-nav-in{height:54px;padding:0 5px 0 18px;box-shadow:0 6px 24px rgba(0,0,0,.14)}
- .bcx-nav-btn{padding:0 20px;min-height:44px;display:inline-flex;align-items:center}
  /* hero: tighter, no dead space */
  .bcx-card{min-height:0}
  .bcx-in{padding:96px 18px 34px}
@@ -1237,5 +1175,6 @@ h1,h2,h3{text-wrap:balance} p,li{text-wrap:pretty}
 }
 </style>
 
+<script src="/assets/scroll-progress.js" defer></script>
 </body>
 </html>

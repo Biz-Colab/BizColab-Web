@@ -48,7 +48,7 @@
     var c = [].slice.call(document.querySelectorAll('.topbar,.bcx-bar,nav,header,[class*="topbar"],[class*="navbar"]')).filter(function (x) { return x !== nav; });
     for (var i = 0; i < c.length; i++) {
       var p = getComputedStyle(c[i]).position;
-      if ((p === 'fixed' || p === 'sticky') && c[i].getBoundingClientRect().top <= 1 && c[i].offsetHeight < 140) return c[i];
+      if ((p === 'fixed' || p === 'sticky') && c[i].getBoundingClientRect().top <= 12 && c[i].offsetHeight < 140) return c[i];
     }
     return null;
   }

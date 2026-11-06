@@ -20,21 +20,6 @@
     .font-display{ font-family:'Geist', system-ui, sans-serif; font-weight:600; letter-spacing:-0.04em; }
     .glass{ background:rgba(255,255,255,.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); }
     .hairline-b{ box-shadow:inset 0 -1px 0 0 var(--line); }
-    .sticky-nav{ position:sticky; top:0; z-index:50; }
-    .sticky-nav .nav-inner{
-      max-width:72rem; margin:0 auto; padding:0 1.5rem;
-      height:48px; display:flex; align-items:center; justify-content:space-between;
-      font-size:13px;
-    }
-    .sticky-nav a.nav-link{ color:#1d1d1f; text-decoration:none; }
-    .sticky-nav a.nav-link:hover{ opacity:.6; }
-    .sticky-nav .nav-links{ display:none; align-items:center; gap:1.75rem; }
-    .sticky-nav .nav-cta{
-      font-size:13px; font-weight:500; padding:6px 12px; border-radius:9999px;
-      background:#0a0a0a; color:#fff; text-decoration:none;
-    }
-    .sticky-nav .nav-cta:hover{ background:#1f1f1f; }
-    @media (min-width:768px){ .sticky-nav .nav-links{ display:flex; } }
   </style>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -149,8 +134,6 @@
   </style>
 <style id="su-v2">
 body{font-family:'Geist',system-ui,-apple-system,sans-serif;background:#f5f5f7}
-.sticky-nav .nav-cta{background:#ff8c1a;padding:9px 16px;font-weight:600}
-.sticky-nav .nav-cta:hover{background:#ef7a05}
 .badge-dot{background:#30d158}
 .header h1{font-weight:700;letter-spacing:-.035em;text-wrap:balance}
 .header h1 span{background:none;-webkit-text-fill-color:#ff8c1a;color:#ff8c1a}
@@ -164,24 +147,14 @@ input:focus,select:focus,textarea:focus{border-color:#0a57ff;box-shadow:0 0 0 3p
 .btn-submit{background:#ff8c1a;min-height:54px;border-radius:12px;font-size:17px}
 .btn-submit:hover{background:#ef7a05}
 .footer a{color:#0a57ff;display:inline-flex;align-items:center;min-height:44px}
-@media(max-width:600px){body{padding:0 14px 60px}.header{padding-top:32px;margin-bottom:28px}.header h1{font-size:32px}.form-card{padding:24px 18px}.form-group{margin-bottom:22px}.sticky-nav .nav-inner{padding:0 14px;height:56px}}
+@media(max-width:600px){body{padding:0 14px 60px}.header{padding-top:32px;margin-bottom:28px}.header h1{font-size:32px}.form-card{padding:24px 18px}.form-group{margin-bottom:22px}}
 </style>
+<link rel="stylesheet" href="/assets/site-nav.css">
 </head>
 <body>
+<script src="/assets/site-nav.js"></script>
   <!-- STICKY NAV (matches homepage) -->
-  <header class="sticky-nav glass hairline-b">
-    <div class="nav-inner">
-      <a href="https://bizcolab.com" class="font-display" style="font-size:15px;font-weight:600;letter-spacing:-0.025em;color:#1a1a1a;text-decoration:none">BizColab<span style="color:#0a57ff">.</span></a>
-      <div class="nav-links">
-        <a class="nav-link" href="https://bizcolab.com/#how">How it runs</a>
-        <a class="nav-link" href="https://bizcolab.com/#cohort">The cohort</a>
-        <a class="nav-link" href="https://bizcolab.com/#audit">Free audit</a>
-        <a class="nav-link" href="https://bizcolab.com/#faq">FAQ</a>
-      </div>
-      <a class="nav-cta" href="#forumForm">Request a seat</a>
-    </div>
-  </header>
-
+  
   <div class="container">
 
     <div class="header">
@@ -385,5 +358,6 @@ input:focus,select:focus,textarea:focus{border-color:#0a57ff;box-shadow:0 0 0 3p
       }, 800);
     });
   </script>
+<script src="/assets/scroll-progress.js" defer></script>
 </body>
 </html>

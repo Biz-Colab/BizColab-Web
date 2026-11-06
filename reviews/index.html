@@ -17,21 +17,6 @@ a{color:inherit}
 
 .font-display{font-family:'Geist',system-ui,sans-serif;font-weight:600;letter-spacing:-0.04em}
 /* pill nav, identical to homepage */
-.bcx-nav{position:absolute;top:22px;left:0;right:0;z-index:150;padding:0 24px;pointer-events:none}
-.bcx-nav-in{pointer-events:auto;max-width:1180px;margin:0 auto;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 10px 0 28px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
-.bcx-logo{font-size:19px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;text-decoration:none}
-.bcx-logo span{color:#0a57ff}
-.bcx-links{display:flex;gap:34px;font-size:15px;font-weight:500;color:#1d1d1f}
-.bcx-links a{text-decoration:none}
-.bcx-links a:hover{opacity:.6}
-.bcx-nav-btn{background:#ff8c1a;color:#fff;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
-.bcx-nav-btn:hover{background:#ef7a05}
-@media(max-width:900px){
-  .bcx-links{display:none}
-  .bcx-nav{position:fixed;top:10px;padding:0 12px}
-  .bcx-nav-in{height:54px;padding:0 5px 0 18px;box-shadow:0 6px 24px rgba(0,0,0,.14)}
-  .bcx-nav-btn{padding:0 20px;min-height:44px;display:inline-flex;align-items:center}
-}
 
 /* hero card, same as homepage */
 .bcx-hero{padding:14px}
@@ -82,60 +67,15 @@ a{color:inherit}
 .bc-foot b{color:var(--ink);font-size:17px}
 
 span.nw{white-space:nowrap;display:inline!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;margin:0!important}
-@media(max-width:860px){.cols{column-count:1}.bcx-links{display:none}}
+@media(max-width:860px){.cols{column-count:1}}
 @media(max-width:640px){.bcx-hero{padding:10px}.bcx-card{border-radius:18px}.bcx-in{padding:84px 18px 46px}.rv{padding:22px 20px}.pullsec{padding-top:50px}}
 
-/* mobile header: full-width sticky bar + hamburger */
-.bcx-burger{display:none}
-@media(max-width:900px){
-  .bcx-nav{position:fixed!important;top:0!important;left:0;right:0;padding:0!important;pointer-events:auto;background:#fff;border-bottom:1px solid #e8e8ed}
-  .bcx-nav-in{height:50px!important;max-width:none;padding:0 8px 0 16px!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;gap:8px}
-  .bcx-logo{margin-right:auto}
-  .bcx-nav-btn{padding:0 12px!important;min-height:42px!important;display:inline-flex;align-items:center;font-size:14px!important;transition:transform .15s ease,background .15s}
-  .bcx-nav-btn:active{transform:scale(.94)}
-  .bcx-burger{display:grid;place-items:center;width:40px;height:40px;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .bcx-burger i,.bcx-burger i:before,.bcx-burger i:after{display:block;width:20px;height:2px;background:#0a0a0a;border-radius:2px;position:relative;content:"";transition:transform .2s,top .2s,background .2s}
-  .bcx-burger{border-radius:50%;transition:background .15s,transform .15s ease}
-  .bcx-burger:hover{background:#f1f3f7}
-  .bcx-burger:active{transform:scale(.86);background:#e8ebf1}
-  .bcx-burger i:before{position:absolute;top:-6px}.bcx-burger i:after{position:absolute;top:6px}
-  .bcx-nav.open .bcx-burger i{background:transparent}
-  .bcx-nav.open .bcx-burger i:before{top:0;transform:rotate(45deg)}
-  .bcx-nav.open .bcx-burger i:after{top:0;transform:rotate(-45deg)}
-  .bcx-links{display:flex!important;position:absolute;top:50px;left:0;right:0;flex-direction:column;gap:0;background:#fff;padding:6px 20px 14px;border-bottom:1px solid #e8e8ed;font-size:17px;visibility:hidden;clip-path:polygon(0 0,0 0,-25% 100%,-25% 100%);transition:clip-path .42s cubic-bezier(.65,0,.35,1),visibility 0s .42s}
-  .bcx-nav.open .bcx-links{visibility:visible;clip-path:polygon(0 0,150% 0,125% 100%,0 100%);transition:clip-path .42s cubic-bezier(.65,0,.35,1),visibility 0s}
-  .bcx-links a{padding:14px 0;border-top:1px solid #eef0f4;opacity:0;transform:translateX(-22px);transition:opacity .2s ease,transform .2s ease}
-  .bcx-links a:first-child{border-top:0}
-  .bcx-nav.open .bcx-links a{opacity:1;transform:none;transition:opacity .3s ease .12s,transform .3s ease .12s}
-  .bcx-nav.open .bcx-links a:nth-child(2){transition-delay:.17s}.bcx-nav.open .bcx-links a:nth-child(3){transition-delay:.22s}.bcx-nav.open .bcx-links a:nth-child(4){transition-delay:.27s}.bcx-nav.open .bcx-links a:nth-child(5){transition-delay:.32s}.bcx-nav.open .bcx-links a:nth-child(6){transition-delay:.37s}.bcx-nav.open .bcx-links a:nth-child(7){transition-delay:.42s}
-  @media(prefers-reduced-motion:reduce){.bcx-links,.bcx-links a{transition:none!important}}
-  body{padding-top:50px}
-}
-</style></head>
-<body>
+</style><link rel="stylesheet" href="/assets/site-nav.css">
+</head>
+<body data-nav="overlay">
+<script src="/assets/site-nav.js"></script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<header class="bcx-nav">
-  <div class="bcx-nav-in">
-    <a class="bcx-logo font-display" href="/">BizColab<span>.</span></a>
-    <nav class="bcx-links">
-      <a href="/#how">How it works</a>
-      <a href="/#cohort">The cohort</a>
-      <a href="/#audit">Free audit</a>
-      <a href="/audit/">Deep Audit</a>
-      <a href="/compare/">Compare</a>
-      <a href="/reviews/">Reviews</a>
-      <a href="/#faq">FAQ</a>
-    </nav>
-    <a class="bcx-nav-btn" href="/join/">Join</a>
-    <button class="bcx-burger" id="bcxBurger" aria-label="Menu" aria-expanded="false"><i></i></button>
-  </div>
-</header>
-<script>(function(){var n=document.querySelector('.bcx-nav'),b=document.getElementById('bcxBurger');if(!n||!b)return;
-function t(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}
-b.addEventListener('click',function(){t(!n.classList.contains('open'))});
-n.querySelectorAll('.bcx-links a').forEach(function(a){a.addEventListener('click',function(){t(false)})});
-document.addEventListener('click',function(e){if(!n.contains(e.target))t(false)});})();</script>
 
 <section class="bcx-hero">
   <div class="bcx-card">

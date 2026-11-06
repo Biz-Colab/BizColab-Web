@@ -41,9 +41,6 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
 .bar{background:var(--ink);color:#fff;text-align:center;font-size:13.5px;font-weight:500;padding:10px 16px;letter-spacing:.01em;}
 .bar b{color:var(--amber);}
 
-/* nav */
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06);}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:58px;}
 .brand{font-weight:700;font-size:18px;letter-spacing:-.02em;}.brand b{color:var(--blue);}
 
 /* hero */
@@ -174,17 +171,12 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
 <meta name="twitter:title" content="Accelerate your business through strategic collaboration — BizColab">
 <meta name="twitter:description" content="A curated room of six operators, for one focused month. 6 founding seats, by application.">
 <meta name="twitter:image" content="https://bizcolab.com/og-home-v2.png">
+<link rel="stylesheet" href="/assets/site-nav.css">
 </head>
 <body>
+<script src="/assets/site-nav.js"></script>
 
 <div class="bar">⚡ <b>Founding cohort</b> — 6 seats, all open. Applications reviewed in 7 days. Enrollment closes once the six are filled.</div>
-
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <div class="brand">Biz<b>Colab</b></div>
-    <span style="display:flex;gap:8px;align-items:center"><button type="button" data-fitcheck class="fx-fitbtn fx-sm">Are you a fit?</button><a class="btn btn-primary" href="/join/" style="padding:9px 20px;font-size:14px;">Apply for a seat</a></span>
-  </div>
-</nav>
 
 <!-- HERO -->
 <header class="hero">
@@ -326,5 +318,6 @@ mark{background:var(--hl);color:var(--ink);padding:0 .12em;border-radius:3px;}
 
 <script src="/assets/secnav.js" defer></script>
 <script src="/assets/bc-fx.js" defer></script>
+<script src="/assets/scroll-progress.js" defer></script>
 </body>
 </html>

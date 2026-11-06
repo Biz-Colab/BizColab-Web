@@ -21,14 +21,6 @@ html{scroll-behavior:smooth}html,body{overflow-x:clip}
 body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
 a{color:inherit}
 p,h1,h2,h3{text-wrap:balance}
-.nav{position:sticky;top:12px;z-index:60;padding:0 24px;margin-top:12px}
-.nav-in{max-width:1180px;margin:0 auto;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 10px 0 28px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 6px 24px rgba(0,0,0,.08);border:1px solid var(--line)}
-.links{display:flex;gap:34px;font-size:15px;font-weight:500;color:#1d1d1f}
-.links a{text-decoration:none}.links a:hover{opacity:.6}.links a.cur{color:var(--b);font-weight:700}
-.nav-btn{background:var(--o);color:#fff;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
-.nav-btn:hover{background:#ef7a05}
-@media(max-width:900px){.links{display:none}.nav{padding:0 12px;top:10px}.nav-in{height:54px;padding:0 5px 0 18px}.nav-btn{padding:0 20px;min-height:44px;display:inline-flex;align-items:center;font-size:14px}}
-.logo{font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:19px;letter-spacing:-.04em;text-decoration:none}.logo span{color:var(--b)}
 .in{max-width:1100px;margin:0 auto}
 .sec{padding:84px 24px}.gray{background:var(--soft)}
 .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--b);background:var(--b-t);border-radius:999px;padding:7px 14px;margin-bottom:22px}
@@ -132,14 +124,11 @@ h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;line-height:1.06;font
  .cta{padding:36px 24px}.btn{justify-content:center}
  .glow{width:340px;height:340px}
 }
-</style></head>
+</style><link rel="stylesheet" href="/assets/site-nav.css">
+</head>
 <body>
+<script src="/assets/site-nav.js"></script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZDKF5S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<header class="nav"><div class="nav-in">
-  <a class="logo" href="/">BizColab<span>.</span></a>
-  <nav class="links"><a href="/#how">How it works</a><a href="/#cohort">The cohort</a><a href="/#audit">Free audit</a><a href="/audit/">Deep Audit</a><a class="cur" href="/compare/" aria-current="page">Compare</a><a href="/reviews/">Reviews</a><a href="/#faq">FAQ</a></nav>
-  <a class="nav-btn" href="/join/">Join</a>
-</div></header>
 
 <section class="hero">
   <div class="glow"></div>
@@ -212,4 +201,5 @@ document.documentElement.classList.add('js');
  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target);}})},{threshold:.15});
  els.forEach(function(e){io.observe(e)});})();
 </script>
+<script src="/assets/scroll-progress.js" defer></script>
 </body></html>

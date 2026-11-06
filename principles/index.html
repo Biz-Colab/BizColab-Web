@@ -30,12 +30,6 @@ body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:var(--ink-2);b
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
 @media(min-width:640px){.wrap{padding:0 24px}}
 .section-label{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--line)}
-.nav-inner{max-width:1080px;margin:0 auto;padding:0 16px;height:48px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-size:15px;font-weight:700;letter-spacing:-.04em;color:var(--ink);text-decoration:none}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-size:13px;color:var(--ink-2);text-decoration:none;opacity:.75}
-.nav-pill{font-size:13px;font-weight:500;padding:6px 14px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;white-space:nowrap}
 @media(max-width:600px){.nav-links a:not(.nav-pill){display:none}}
 .concept{background:var(--amber);color:#0a0a0a;font-size:12px;font-weight:600;text-align:center;padding:7px 12px;letter-spacing:.02em}
 .hero{padding:88px 0 64px;text-align:center;position:relative;overflow:hidden}
@@ -93,12 +87,10 @@ html{color-scheme:light}
 .dark{background:#f5f5f7;color:var(--ink-2)}
 .dark .section-label{color:#0a57ff}.dark .h2{color:var(--ink)}.dark .h2 em{color:#ff8c1a}.dark .lead{color:var(--body)}
 .step{background:#fff;border-color:#e6e9ef}.step .wk{color:#ff8c1a}.step h4{color:var(--ink)}.step p{color:var(--body);font-size:15px}
-.nav-links a.nav-pill{opacity:1;background:#ff8c1a;color:#fff;padding:9px 16px;font-weight:600}
 .btn{background:#ff8c1a;color:#fff}.btn:hover{background:#ef7a05}
 .card p{font-size:15.5px}
 h1,.h2,h3{text-wrap:balance}p{text-wrap:pretty}
 @media(max-width:600px){
- .nav-inner{height:56px}
  .hero{padding:56px 0 44px}.hero h1{font-size:clamp(38px,11vw,52px)}
  section{padding:52px 0}.cta{padding:60px 0}
  .btn,.btn-ghost{display:flex;justify-content:center;align-items:center;min-height:52px;margin:12px 0 0;width:100%}
@@ -106,10 +98,11 @@ h1,.h2,h3{text-wrap:balance}p{text-wrap:pretty}
  footer a{display:inline-flex;align-items:center;min-height:44px}
 }
 </style>
+<link rel="stylesheet" href="/assets/site-nav.css">
 </head>
 <body>
+<script src="/assets/site-nav.js"></script>
 
-<nav><div class="nav-inner"><a class="nav-logo" href="https://bizcolab.com/">BizColab<span style="color:#0a57ff">.</span></a><div class="nav-links"><a href="#principles">Principles</a><a href="#method">The 4 weeks</a><a href="#proof">What members said</a><a class="nav-pill" href="#join">Join a cohort</a></div></div></nav>
 
 <header class="hero"><div class="hero-glow"></div><div class="wrap">
 <div class="hero-badge"><span class="dot"></span>What we've learned so far</div>
@@ -187,5 +180,6 @@ h1,.h2,h3{text-wrap:balance}p{text-wrap:pretty}
 
 <footer><div class="wrap">© 2026 BizColab · <a href="https://bizcolab.com/privacy/" style="color:inherit">Privacy</a></div></footer>
 
+<script src="/assets/scroll-progress.js" defer></script>
 </body>
 </html>
