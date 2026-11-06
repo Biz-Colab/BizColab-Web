@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>BizColab Video System</title>
+<link rel="icon" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--ink2:#1d1d1f;--muted:#6e6e73;--line:#e8e8ed;--gray:#f5f5f7;--white:#fff;--blue:#0a57ff;--blue-soft:#e8efff;--orange:#ff8c1a;--orange-soft:#fff1e2;--amber:#ffb340}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.011em;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* shared topbar */
+.topbar{position:sticky;top:0;z-index:150;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.tb-wrap{max-width:1180px;margin:0 auto;padding:0 24px;height:50px;display:flex;align-items:center;gap:12px}
+.tb-logo{font-weight:600;font-size:19px;letter-spacing:-.04em;white-space:nowrap}
+.tb-logo b{color:var(--blue);font-weight:600}
+.tb-div{width:1px;height:18px;background:var(--line)}
+.tb-here{font-size:15px;font-weight:600;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-nav{margin-left:auto;display:flex;gap:22px;font-size:14px;font-weight:500;color:var(--muted)}
+.tb-nav a:hover{color:var(--ink)}
+@media(max-width:760px){.tb-nav{display:none}}
+
+/* page type */
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
+h1{font-size:clamp(44px,7vw,84px);line-height:1.0;letter-spacing:-.045em;font-weight:700;margin:0}
+h2{font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.04em;font-weight:700;margin:0}
+h3{font-size:20px;letter-spacing:-.02em;font-weight:600;margin:0}
+.sf{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.015em}
+.or{color:var(--orange)}.bl{color:var(--blue)}
+.lead{font-size:clamp(17px,1.6vw,21px);color:var(--muted);max-width:720px;margin:18px 0 0;line-height:1.5}
+.sec{padding:84px 0 20px}
+.sec-head{margin-bottom:36px}
+.sec-head h2{margin:0}
+.sec-head p{margin:14px 0 0;color:var(--muted);font-size:18px;max-width:700px}
+.alt{background:var(--gray);padding-bottom:84px;margin-top:64px}
+.alt .sec{padding-top:72px}
+.note{font-size:14px;color:var(--muted);margin:14px 0 0;line-height:1.5}
+.cap{margin:12px 2px 0}
+.cap b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em}
+.cap span{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+
+/* hero */
+.hero{padding:76px 0 40px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{font-size:14px;font-weight:600;padding:8px 16px;border-radius:999px;background:var(--blue-soft);color:var(--blue)}
+.pill.o{background:var(--orange-soft);color:#c96a00}
+
+/* rationale */
+.why{background:var(--gray);border-radius:24px;padding:36px 40px;margin-top:40px}
+.why h3{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.why-g div b{display:block;font-size:17px;font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
+.why-g div p{margin:0;color:var(--muted);font-size:15px}
+@media(max-width:860px){.why-g{grid-template-columns:1fr}.why{padding:28px 22px}}
+
+/* tokens */
+.tok{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.sw{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sw i{display:block;height:92px}
+.sw div{padding:12px 14px}
+.sw b{display:block;font-size:14px;font-weight:600}
+.sw span{font-size:13px;color:var(--muted)}
+@media(max-width:900px){.tok{grid-template-columns:repeat(3,1fr)}}
+.type{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.tp{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}
+.tp small{display:block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.tp .big{font-size:44px;line-height:1;letter-spacing:-.045em;font-weight:700}
+.tp .big.s{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:52px;color:var(--blue);letter-spacing:-.015em}
+.tp .big.m{font-size:22px;font-weight:500;letter-spacing:-.01em;line-height:1.3;color:var(--ink2)}
+.tp p{margin:12px 0 0;font-size:14px;color:var(--muted)}
+@media(max-width:860px){.type{grid-template-columns:1fr}}
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.rule{display:flex;gap:14px;border:1px solid var(--line);border-radius:18px;padding:18px 20px;background:#fff}
+.rule em{flex:none;width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-style:normal;font-size:13px;font-weight:700;display:grid;place-items:center}
+.rule p{margin:0;font-size:15px;color:var(--ink2)}
+@media(max-width:760px){.rules{grid-template-columns:1fr}}
+
+/* grids */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.g3,.g2{grid-template-columns:1fr}}
+.reels{justify-items:center}
+.reels .item{width:100%;max-width:330px}
+
+/* frame system: every size inside is in cqw so a frame scales as a unit */
+.frame{position:relative;container-type:inline-size;overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05),0 12px 34px rgba(0,0,0,.1);isolation:isolate}
+.f169{aspect-ratio:16/9}.f916{aspect-ratio:9/16}
+.wm{font-weight:600;letter-spacing:-.04em}
+.wm i{font-style:normal;color:var(--blue)}
+.t{font-weight:700;letter-spacing:-.045em;line-height:1.02;margin:0}
+.ln{display:block}
+.sf2{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.015em;font-size:1.08em}
+.chip{display:inline-block;font-weight:600;border-radius:999px;white-space:nowrap}
+.chip.b{background:var(--blue-soft);color:var(--blue)}
+.chip.o{background:var(--orange-soft);color:#c96a00}
+.chip.w{background:#fff;color:var(--blue)}
+.chip.s{background:var(--blue);color:#fff}
+.chip.oo{background:var(--orange);color:#fff}
+.dots{display:flex;gap:1cqw}
+.dots i{display:block;border-radius:50%;background:var(--blue)}
+.dots i.f{background:var(--orange)}
+.ph{position:absolute;object-fit:cover;object-position:50% 12%}
+
+/* covers 16:9 */
+.cA .logo{position:absolute;left:5.2cqw;top:4.6cqw;font-size:2.4cqw}
+.cA .chip{position:absolute;left:5.2cqw;top:15cqw;font-size:1.5cqw;padding:.55cqw 1.3cqw}
+.cA .t{position:absolute;left:5.2cqw;top:20.5cqw;font-size:6.4cqw;white-space:nowrap}
+.cA .sub{position:absolute;left:5.2cqw;top:36.5cqw;font-size:2.4cqw;color:var(--muted);font-weight:500;width:50cqw;line-height:1.25}
+.cA .ph{right:0;top:0;width:36cqw;height:100%}
+.cA .url{position:absolute;left:5.2cqw;bottom:4.4cqw;font-size:1.7cqw;font-weight:600;color:var(--ink2)}
+.cA .bug{position:absolute;right:30.5cqw;bottom:4.2cqw;background:var(--orange);color:#fff;font-weight:700;font-size:2.3cqw;padding:.9cqw 2cqw;border-radius:999px;transform:rotate(-4deg);box-shadow:0 1cqw 2cqw rgba(255,140,26,.35);letter-spacing:-.02em}
+.cB{background:var(--gray)}
+.cB .num{position:absolute;left:4cqw;top:-2cqw;font-size:36cqw;font-weight:800;letter-spacing:-.07em;line-height:1;color:var(--blue)}
+.cB .logo{position:absolute;right:5cqw;top:4.6cqw;font-size:2.4cqw}
+.cB .chip{position:absolute;left:44cqw;top:15cqw;font-size:1.6cqw;padding:.6cqw 1.4cqw}
+.cB .t{position:absolute;left:44cqw;top:20cqw;font-size:6.2cqw}
+.cB .sub{position:absolute;left:44cqw;top:35cqw;font-size:2.1cqw;color:var(--muted);font-weight:500;line-height:1.25;width:50cqw}
+.cB .dots{position:absolute;left:44cqw;bottom:5.6cqw}
+.cB .dots i{width:2.4cqw;height:2.4cqw}
+.cB .where{position:absolute;right:5cqw;bottom:5cqw;font-size:1.6cqw;font-weight:600;color:var(--ink2)}
+
+/* reel covers 9:16 */
+.rA .logo{position:absolute;left:7cqw;top:8cqw;font-size:5.2cqw}
+.rA .chip.b{position:absolute;left:7cqw;top:19cqw;font-size:3.6cqw;padding:1.3cqw 3.2cqw}
+.rA .t{position:absolute;left:7cqw;top:30cqw;font-size:15cqw;width:90cqw}
+.rA .sub{position:absolute;left:7cqw;top:82cqw;font-size:4.6cqw;color:var(--muted);font-weight:500;line-height:1.3;width:80cqw}
+.rA .ph{left:0;bottom:0;width:100%;height:52%;border-radius:12cqw 12cqw 0 0}
+.rA .go{position:absolute;right:6cqw;bottom:6cqw;font-size:4.4cqw;padding:2.4cqw 4.6cqw}
+.rB{background:var(--blue);color:#fff}
+.rB .logo{position:absolute;left:7cqw;top:8cqw;font-size:5.2cqw}
+.rB .logo i{color:var(--amber)}
+.rB .t{position:absolute;left:7cqw;top:20cqw;font-size:14.5cqw;width:88cqw}
+.rB .t .sf2{color:var(--amber)}
+.rB .ph{left:7cqw;bottom:0;width:86cqw;height:50%;border-radius:8cqw 8cqw 0 0}
+.rB .chip{position:absolute;left:7cqw;top:82cqw;font-size:3.8cqw;padding:1.3cqw 3.2cqw}
+.rC{background:var(--orange);color:#fff}
+.rC .logo{position:absolute;left:7cqw;top:8cqw;font-size:5.2cqw}
+.rC .logo i{color:#fff}
+.rC .big{position:absolute;left:5cqw;top:22cqw;font-size:56cqw;font-weight:800;letter-spacing:-.08em;line-height:.9}
+.rC .t{position:absolute;left:7cqw;top:80cqw;font-size:12.5cqw;width:88cqw}
+.rC .sub{position:absolute;left:7cqw;top:119cqw;font-size:4.6cqw;font-weight:500;line-height:1.3;width:80cqw;opacity:.95}
+.rC .go{position:absolute;left:7cqw;bottom:9cqw;font-size:4.6cqw;padding:2.6cqw 5cqw}
+.safe .safebox{display:none}
+.safe.on .safebox{display:block}
+.safebox{position:absolute;inset:0;pointer-events:none;z-index:5}
+.safebox i{position:absolute;background:rgba(255,60,60,.16);border:1px dashed rgba(220,30,30,.55);font:600 3cqw/1 'Geist',sans-serif;color:#c01818;display:grid;place-items:center;font-style:normal;letter-spacing:.02em}
+.safebox .tp1{left:0;right:0;top:0;height:11%}
+.safebox .bt{left:0;right:0;bottom:0;height:21%}
+.safebox .rt{right:0;top:11%;bottom:21%;width:13%;writing-mode:vertical-rl}
+.btn{border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;font:600 14px 'Geist',sans-serif;cursor:pointer}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.o{background:var(--orange);border-color:var(--orange);color:#fff}
+.row-h{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap}
+
+/* interstitials 16:9 */
+.iA .lab{position:absolute;left:7cqw;top:7cqw;font-size:3.3cqw;font-weight:600;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+.iA .n{position:absolute;left:6cqw;top:9cqw;font-size:32cqw;font-weight:800;letter-spacing:-.07em;line-height:1;color:var(--orange)}
+.iA .t{position:absolute;left:46cqw;top:15cqw;font-size:15cqw}
+.iA .sub{position:absolute;left:46cqw;top:33cqw;font-size:4cqw;color:var(--muted);font-weight:500;line-height:1.25;width:48cqw}
+.iA .pr{position:absolute;left:7cqw;right:7cqw;bottom:7cqw;display:flex;gap:1.6cqw}
+.iA .pr i{flex:1;height:1.2cqw;border-radius:99px;background:var(--line)}
+.iA .pr i.on{background:var(--blue)}
+.iB{background:var(--gray)}
+.iB .chip{position:absolute;left:7cqw;top:7cqw;font-size:3.3cqw;padding:1cqw 2.6cqw}
+.iB .av{position:absolute;left:7cqw;top:15cqw;width:21cqw;height:21cqw;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:10cqw;font-weight:700;letter-spacing:-.04em}
+.iB .t{position:absolute;left:34cqw;top:15cqw;font-size:17cqw}
+.iB .sub{position:absolute;left:34cqw;top:33cqw;font-size:4cqw;color:var(--muted);font-weight:500}
+.iB .dots{position:absolute;left:7cqw;bottom:7cqw}
+.iB .dots i{width:4.2cqw;height:4.2cqw}
+.iB .dots i.me{box-shadow:0 0 0 1cqw var(--gray),0 0 0 1.7cqw var(--blue)}
+.iC{display:grid;place-items:center;text-align:center}
+.iC .wm{font-size:15cqw;line-height:1}
+.iC .wm i{display:inline-block;transform-origin:50% 80%}
+.iC .tag{font-size:5.4cqw;margin-top:3cqw;color:var(--muted)}
+.iC .tag b{color:var(--blue);font-weight:400}
+.iC .stack{margin-top:-4cqw}
+.iD .t{position:absolute;left:7cqw;top:11cqw;font-size:8.6cqw}
+.iD .or2{color:var(--orange)}
+.iD .slot{position:absolute;right:6cqw;top:8cqw;width:36cqw;aspect-ratio:16/9;border-radius:2cqw;border:.5cqw dashed #b9c4e8;background:var(--blue-soft);display:grid;place-items:center;font-size:2.6cqw;font-weight:600;color:var(--blue)}
+.iD .go{position:absolute;left:7cqw;top:31cqw;font-size:3cqw;padding:1.5cqw 3.4cqw}
+.iD .url{position:absolute;left:7cqw;bottom:6cqw;font-size:2.6cqw;font-weight:600}
+.iD .logo{position:absolute;right:6cqw;bottom:6cqw;font-size:3.2cqw}
+.iE{background:var(--gray)}
+.iE .lab{position:absolute;left:7cqw;top:7cqw;font-size:2.2cqw;font-weight:600;color:var(--blue);letter-spacing:.14em;text-transform:uppercase}
+.iE .t{position:absolute;left:7cqw;top:15cqw;font-size:9.4cqw;width:84cqw}
+.iE .t .sf2{color:var(--blue)}
+.iE .logo{position:absolute;left:7cqw;bottom:6cqw;font-size:2.4cqw}
+
+/* props */
+.table{position:relative;container-type:inline-size;aspect-ratio:4/3;border-radius:18px;background:linear-gradient(160deg,#f6f6f8,#e9e9ee);overflow:hidden;border:1px solid var(--line)}
+.tent{position:absolute;width:30cqw;height:20cqw;background:#fff;border-radius:1.4cqw 1.4cqw .8cqw .8cqw;box-shadow:0 .6cqw 0 #e3e3e8,0 3cqw 4cqw rgba(0,0,0,.16);padding:2.2cqw 2.6cqw;display:flex;flex-direction:column;justify-content:center}
+.tent:before{content:"";position:absolute;left:0;right:0;top:0;height:1.3cqw;background:var(--blue);border-radius:1.4cqw 1.4cqw 0 0}
+.tent.fac:before{background:var(--orange)}
+.tent b{font-size:6.4cqw;letter-spacing:-.045em;font-weight:700;line-height:1}
+.tent span{font-size:2.6cqw;color:var(--muted);font-weight:500;margin-top:1cqw}
+.tent .dd{position:absolute;right:2.2cqw;bottom:2cqw;width:2.4cqw;height:2.4cqw;border-radius:50%;background:var(--blue)}
+.tent.fac .dd{background:var(--orange)}
+.card3{position:absolute;width:56cqw;height:34cqw;background:#fff;border-radius:1.2cqw;box-shadow:0 3cqw 4cqw rgba(0,0,0,.15);padding:4cqw 4.4cqw;background-image:repeating-linear-gradient(transparent,transparent 5.5cqw,#dfe6f6 5.5cqw,#dfe6f6 5.8cqw);background-position:0 8cqw}
+.card3:before{content:"";position:absolute;left:0;right:0;top:0;height:1.6cqw;background:var(--orange);border-radius:1.2cqw 1.2cqw 0 0}
+.card3 small{position:absolute;left:4.4cqw;top:4.2cqw;font-size:2.2cqw;font-weight:600;color:var(--orange);letter-spacing:.14em;text-transform:uppercase}
+.card3 p{position:absolute;left:4.4cqw;top:10cqw;margin:0;font-size:7cqw;line-height:1;color:var(--blue)}
+.card3 u{position:absolute;left:4.4cqw;top:21cqw;font-size:4.6cqw;text-decoration:none;color:var(--ink2);font-family:'Instrument Serif',serif;font-style:italic}
+.sign{position:absolute;left:12cqw;top:22cqw;width:44cqw;height:30cqw;border-radius:2cqw;background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(225,233,252,.8));box-shadow:0 0 0 .35cqw rgba(10,87,255,.25),0 3.4cqw 4cqw rgba(0,0,0,.16);padding:3.4cqw}
+.sign small{font-size:2.3cqw;font-weight:600;color:var(--blue);letter-spacing:.14em;text-transform:uppercase}
+.sign b{display:block;white-space:nowrap;font-size:9.4cqw;font-weight:800;letter-spacing:-.06em;line-height:1;margin-top:1cqw}
+.sign b i{font-style:normal;color:var(--orange)}
+.mk{position:absolute;height:5cqw;border-radius:2.5cqw;transform-origin:left center}
+.mk:before{content:"";position:absolute;left:0;top:0;bottom:0;width:7cqw;background:#fff;border-radius:2.5cqw 0 0 2.5cqw;border:.3cqw solid rgba(0,0,0,.08)}
+.mk:after{content:"";position:absolute;left:-2cqw;top:1.1cqw;height:2.8cqw;width:2.6cqw;border-radius:1cqw 0 0 1cqw;background:inherit;filter:brightness(.8)}
+.pad{position:absolute;width:20cqw;height:20cqw;background:#ffe27a;box-shadow:0 2cqw 3cqw rgba(0,0,0,.16);padding:2.4cqw;font-family:'Instrument Serif',serif;font-style:italic;font-size:3.6cqw;line-height:1.15;color:#3b3200}
+
+/* graphics */
+.gfx{background:#fff}
+.gseat svg{position:absolute;inset:0;width:100%;height:100%}
+.gseat .cp{position:absolute;left:0;right:0;bottom:7cqw;text-align:center;font-size:4.6cqw;font-weight:600;letter-spacing:-.02em}
+.gseat .cp span{color:var(--muted);font-weight:500}
+.gtrack .h{position:absolute;left:7cqw;top:7cqw;font-size:3.3cqw;font-weight:600;color:var(--blue);letter-spacing:.14em;text-transform:uppercase}
+.gtrack .rail{position:absolute;left:12cqw;right:12cqw;top:34cqw;height:1cqw;background:var(--line);border-radius:9px}
+.gtrack .rail i{position:absolute;left:0;top:0;bottom:0;width:33%;background:var(--blue);border-radius:9px}
+.gtrack .st{position:absolute;top:29.4cqw;transform:translateX(-50%);text-align:center}
+.gtrack .st u{display:block;width:10cqw;height:10cqw;border-radius:50%;background:#fff;border:.8cqw solid var(--line);margin:0 auto;font-size:4.2cqw;font-weight:700;display:grid;place-items:center;text-decoration:none;color:var(--muted)}
+.gtrack .st.on u{background:var(--blue);border-color:var(--blue);color:#fff}
+.gtrack .st.now u{box-shadow:0 0 0 1.4cqw var(--blue-soft)}
+.gtrack .st b{display:block;margin-top:3cqw;font-size:4cqw;font-weight:700;letter-spacing:-.03em}
+.gtrack .st span{font-size:2.6cqw;color:var(--muted);font-weight:500}
+.gtrack .ft{position:absolute;left:7cqw;bottom:6cqw;font-size:3cqw;color:var(--muted);font-weight:500}
+.gstat{background:var(--blue);color:#fff}
+.gstat .n{position:absolute;left:7cqw;top:4cqw;font-size:50cqw;font-weight:800;letter-spacing:-.08em;line-height:1}
+.gstat .n i{font-style:normal;color:var(--amber)}
+.gstat .l{position:absolute;left:8cqw;top:55cqw;font-size:6cqw;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.gstat .l .sf2{color:var(--amber)}
+.gstat .logo{position:absolute;left:8cqw;bottom:6cqw;font-size:3cqw;opacity:.9}
+.gstat .logo i{color:#fff}
+
+/* wayfinding */
+.foot{position:absolute;inset:0;background:url(/michael.jpg) 62% 14%/cover;filter:saturate(.9)}
+.foot:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,0) 28%,rgba(0,0,0,0) 62%,rgba(0,0,0,.35))}
+.hud-logo{position:absolute;left:3cqw;top:2.6cqw;font-size:2.2cqw;color:#fff;background:rgba(255,255,255,.94);color:var(--ink);padding:.9cqw 1.8cqw;border-radius:99px}
+.hud-wk{position:absolute;right:3cqw;top:2.6cqw;background:rgba(255,255,255,.94);border-radius:99px;padding:.9cqw 1.8cqw;font-size:1.8cqw;font-weight:600;display:flex;align-items:center;gap:1.2cqw}
+.hud-wk .seg{display:flex;gap:.5cqw}.hud-wk .seg i{width:2.4cqw;height:.7cqw;border-radius:9px;background:var(--line)}.hud-wk .seg i.on{background:var(--blue)}
+.lt{position:absolute;left:3cqw;bottom:4cqw;background:#fff;border-radius:1.2cqw;padding:1.4cqw 2.6cqw 1.5cqw 2.2cqw;border-left:.9cqw solid var(--orange);box-shadow:0 1cqw 3cqw rgba(0,0,0,.22)}
+.lt b{display:block;font-size:3cqw;letter-spacing:-.035em;font-weight:700;line-height:1.1}
+.lt span{display:block;font-size:1.8cqw;color:var(--muted);font-weight:500;margin-top:.3cqw}
+.rd{position:absolute;right:3cqw;bottom:4cqw;background:rgba(255,255,255,.94);border-radius:99px;padding:1.2cqw 2.2cqw;font-size:2cqw;font-weight:600;display:flex;align-items:center;gap:1.3cqw}
+.rd .dots i{width:1.5cqw;height:1.5cqw}
+.rd .dots{gap:.6cqw}
+.rd .dots i.cur{background:var(--blue);box-shadow:0 0 0 .5cqw #fff,0 0 0 .9cqw var(--blue)}
+.rd .dots i.off{background:#cfd3dc}
+.keep{position:absolute;left:38cqw;right:38cqw;top:10cqw;bottom:20cqw;border:.3cqw dashed rgba(255,255,255,.75);border-radius:3cqw;display:none;place-items:center;color:#fff;font-size:1.6cqw;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.on .keep{display:grid}
+.kit{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;min-height:190px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.kit .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.kb{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.08);border-radius:99px;padding:8px 16px;font-size:14px;font-weight:600}
+.kb .d{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.kb.o .d{background:var(--orange)}
+.steps{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.steps span{font-size:13px;font-weight:600;padding:7px 14px;border-radius:99px;background:var(--gray);color:var(--muted)}
+.steps span.on{background:var(--blue);color:#fff}
+.steps span.done{background:var(--blue-soft);color:var(--blue)}
+.rnd{display:flex;gap:8px}
+.rnd span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:700;background:var(--gray);color:var(--muted)}
+.rnd span.done{background:var(--blue-soft);color:var(--blue)}
+.rnd span.on{background:var(--blue);color:#fff;box-shadow:0 0 0 4px var(--blue-soft)}
+.rnd span.f{background:var(--orange);color:#fff}
+
+/* motion */
+.mo .frame{background:#fff}
+.m1 .blk{position:absolute;inset:0;background:var(--orange);transform:translateX(-102%);z-index:3}
+.m1 .t{position:absolute;left:7cqw;top:15cqw;font-size:11cqw}
+.m1 .t .ln{opacity:0;transform:translateY(40%)}
+.m1 .sub{position:absolute;left:7cqw;top:49cqw;font-size:3.6cqw;color:var(--muted);font-weight:500;opacity:0}
+.m1 .bar{position:absolute;left:7cqw;top:7cqw;width:10cqw;height:1cqw;background:var(--blue);border-radius:9px;transform:scaleX(0);transform-origin:left}
+.run.m1 .blk{animation:blk 4.8s cubic-bezier(.7,0,.2,1) infinite}
+.run.m1 .t .ln{animation:rise 4.8s cubic-bezier(.2,.8,.2,1) infinite}
+.run.m1 .t .ln:nth-child(2){animation-delay:.09s}
+.run.m1 .sub{animation:fadeup 4.8s ease infinite}
+.run.m1 .bar{animation:bar 4.8s cubic-bezier(.2,.8,.2,1) infinite}
+@keyframes blk{0%{transform:translateX(-102%)}14%{transform:translateX(0)}30%{transform:translateX(102%)}100%{transform:translateX(102%)}}
+@keyframes rise{0%,18%{opacity:0;transform:translateY(40%)}32%{opacity:1;transform:none}88%{opacity:1;transform:none}96%,100%{opacity:0;transform:translateY(-20%)}}
+@keyframes fadeup{0%,34%{opacity:0;transform:translateY(30%)}46%{opacity:1;transform:none}88%{opacity:1}96%,100%{opacity:0}}
+@keyframes bar{0%,30%{transform:scaleX(0)}44%{transform:scaleX(1)}88%{transform:scaleX(1)}96%,100%{transform:scaleX(0);transform-origin:right}}
+.m2 .lt{left:3cqw;bottom:4cqw;transform:translateX(-120%);opacity:0}
+.m2 .lt b,.m2 .lt span{opacity:0}
+.run.m2 .lt{animation:ltin 5s cubic-bezier(.2,.8,.2,1) infinite}
+.run.m2 .lt b{animation:ltx 5s ease infinite}
+.run.m2 .lt span{animation:ltx 5s ease infinite .12s}
+@keyframes ltin{0%{transform:translateX(-120%);opacity:0}9%{transform:none;opacity:1}78%{transform:none;opacity:1}88%,100%{transform:translateX(-120%);opacity:0}}
+@keyframes ltx{0%,8%{opacity:0;transform:translateX(-14%)}16%{opacity:1;transform:none}76%{opacity:1}84%,100%{opacity:0}}
+.m3 svg{position:absolute;inset:0;width:100%;height:100%}
+.m3 .d{transform-box:fill-box;transform-origin:center;opacity:0;transform:scale(0)}
+.run.m3 .d{animation:pop 5s cubic-bezier(.3,1.5,.5,1) infinite}
+.run.m3 .d:nth-of-type(1){animation-delay:0s}
+.run.m3 .d:nth-of-type(2){animation-delay:.12s}.run.m3 .d:nth-of-type(3){animation-delay:.24s}
+.run.m3 .d:nth-of-type(4){animation-delay:.36s}.run.m3 .d:nth-of-type(5){animation-delay:.48s}
+.run.m3 .d:nth-of-type(6){animation-delay:.6s}.run.m3 .d:nth-of-type(7){animation-delay:.95s}
+.m3 .ring{fill:none;stroke:var(--line);stroke-width:1.2}
+@keyframes pop{0%{opacity:0;transform:scale(0)}8%{opacity:1;transform:scale(1)}80%{opacity:1;transform:scale(1)}90%,100%{opacity:0;transform:scale(.6)}}
+.m3 .cp{position:absolute;left:0;right:0;bottom:7cqw;text-align:center;font-size:5.4cqw;font-weight:700;letter-spacing:-.04em;opacity:0}
+.run.m3 .cp{animation:fadeup 5s ease infinite .1s}
+.spec{border-collapse:collapse;width:100%;margin-top:6px}
+.spec th,.spec td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}
+.spec th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.spec td:first-child{font-weight:600;white-space:nowrap}
+.spec code{font:500 13px ui-monospace,Menlo,monospace;background:var(--gray);padding:2px 7px;border-radius:6px}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:6px 8px}
+@media(prefers-reduced-motion:reduce){.run *{animation:none!important}.m1 .t .ln,.m1 .sub,.m2 .lt,.m2 .lt b,.m2 .lt span,.m3 .d,.m3 .cp{opacity:1!important;transform:none!important}.m1 .blk{display:none}}
+
+/* next steps + footer */
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.nx{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
+.nx em{font-style:normal;display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;font-weight:700;font-size:14px;margin-bottom:14px}
+.nx b{display:block;font-size:18px;letter-spacing:-.02em;margin-bottom:6px}
+.nx p{margin:0;color:var(--muted);font-size:15px}
+@media(max-width:860px){.next{grid-template-columns:1fr}}
+.pfoot{padding:44px 0 56px;border-top:1px solid var(--line);margin-top:70px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.chipv{font-weight:600;background:var(--gray);padding:4px 12px;border-radius:99px;color:var(--ink2)}
+span.nw{white-space:nowrap;display:inline!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;margin:0!important}
+</style>
+</head>
+<body>
+
+<nav class="topbar"><div class="tb-wrap">
+  <a class="tb-logo" href="/">BizColab<b>.</b></a>
+  <span class="tb-div"></span>
+  <span class="tb-here">Video system</span>
+  <div class="tb-nav"><a href="#look">Look</a><a href="#covers">Covers</a><a href="#inter">Interstitials</a><a href="#props">Props</a><a href="#gfx">Graphics</a><a href="#way">Wayfinding</a><a href="#motion">Motion</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">Concept board &middot; Round 1</p>
+  <h1 class="t0"><span class="ln">The BizColab look,</span><span class="ln"><span class="sf bl">on camera.</span></span></h1>
+  <p class="lead">Sample covers, interstitials, props, graphics, wayfinding and motion, all built from the new website. Everything below is a live mock-up with placeholder copy, so you can judge the look before we cut real footage.</p>
+  <div class="pills"><span class="pill">Covers</span><span class="pill">Interstitials</span><span class="pill">Props</span><span class="pill">Graphics</span><span class="pill">Wayfinding</span><span class="pill o">Motion (live)</span></div>
+
+  <div class="why">
+    <h3>Why this page?</h3>
+    <div class="why-g">
+      <div><b>One look across web and video</b><p>Someone who sees the site and then a video should feel the same brand. So the video kit reuses the site: white and light gray, Geist type, one blue, one orange, and the serif italic for a single human word.</p></div>
+      <div><b>The face is the star</b><p>Talking faces beat graphics. Every overlay stays out of the middle of the frame and out of the platform caption zones. Graphics support the speaker, they never replace them.</p></div>
+      <div><b>Built to be reused</b><p>Every piece scales as one unit and uses the same few parts, so a new episode means changing the words, not redesigning. Once you pick a direction, we lock it as the template for the editing config.</p></div>
+    </div>
+  </div>
+</div></header>
+
+<!-- LOOK -->
+<section class="sec" id="look"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">01 &middot; The look</p><h2>Palette, type and the six rules.</h2></div>
+  <div class="tok">
+    <div class="sw"><i style="background:#0a57ff"></i><div><b>Blue</b><span>#0a57ff &middot; structure</span></div></div>
+    <div class="sw"><i style="background:#ff8c1a"></i><div><b>Orange</b><span>#ff8c1a &middot; the one accent</span></div></div>
+    <div class="sw"><i style="background:#ffb340"></i><div><b>Amber</b><span>#ffb340 &middot; on blue only</span></div></div>
+    <div class="sw"><i style="background:#0a0a0a"></i><div><b>Ink</b><span>#0a0a0a &middot; text</span></div></div>
+    <div class="sw"><i style="background:#f5f5f7"></i><div><b>Light gray</b><span>#f5f5f7 &middot; panels</span></div></div>
+    <div class="sw"><i style="background:#fff"></i><div><b>White</b><span>#ffffff &middot; default</span></div></div>
+  </div>
+  <div class="type">
+    <div class="tp"><small>Headlines</small><div class="big">Geist 700</div><p>Tight tracking, big and short. Three to six words.</p></div>
+    <div class="tp"><small>The human word</small><div class="big s">stuck.</div><p>Instrument Serif italic, once per frame, on the word the speaker leans on.</p></div>
+    <div class="tp"><small>Captions and labels</small><div class="big m">Six founders and one facilitator.</div><p>Geist 500. Plain sentences, no jargon.</p></div>
+  </div>
+  <div class="rules">
+    <div class="rule"><em>1</em><p>No black or dark backgrounds. White, light gray, or a saturated blue or orange field.</p></div>
+    <div class="rule"><em>2</em><p>One orange word or object per frame. Orange is the &ldquo;look here&rdquo; color.</p></div>
+    <div class="rule"><em>3</em><p>Title, subtitle and detail each sit on their own line. Never a single word alone on a line.</p></div>
+    <div class="rule"><em>4</em><p>Keep overlays out of the speaker&rsquo;s face and out of the caption zones.</p></div>
+    <div class="rule"><em>5</em><p>The logo is always the wordmark with the blue dot. It never sits on a busy photo.</p></div>
+    <div class="rule"><em>6</em><p>Faces only, never a table, never stock. Props are real objects on a real surface.</p></div>
+  </div>
+</div></section>
+
+<!-- COVERS -->
+<section class="alt" id="covers"><div class="wrap sec">
+  <div class="sec-head"><p class="eyebrow">02 &middot; Covers</p><h2>Thumbnails and reel covers.</h2><p>Two wide covers for YouTube and the site, and three vertical covers for reels and shorts. Tap &ldquo;Show safe zones&rdquo; to see where platform buttons and captions will cover the frame.</p></div>
+
+  <div class="g2">
+    <div class="item"><div class="frame f169 cA">
+      <div class="logo wm">BizColab<i>.</i></div>
+      <span class="chip b">Founder Q&amp;A &middot; Ep 01</span>
+      <h3 class="t"><span class="ln">Why most founders</span><span class="ln">stay <span class="or">stuck.</span></span></h3>
+      <p class="sub">And the one move that gets you out.</p>
+      <div class="url">bizcolab.com</div>
+      <img class="ph" src="/michael.jpg" alt="">
+      <span class="bug">6 + 1</span>
+    </div><div class="cap"><b>Episode cover &middot; 16:9</b><span>White field, orange key word, face on the right third. Reads at thumbnail size.</span></div></div>
+
+    <div class="item"><div class="frame f169 cB">
+      <div class="num">01</div>
+      <div class="logo wm">BizColab<i>.</i></div>
+      <span class="chip s">Cohort recap</span>
+      <h3 class="t"><span class="ln">Week 1:</span><span class="ln"><span class="sf bl" style="font-size:1.08em">Map.</span></span></h3>
+      <p class="sub">Where every founder really stands.</p>
+      <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="f"></i></div>
+      <div class="where">Cohort 003 &middot; Los Angeles</div>
+    </div><div class="cap"><b>Series cover &middot; 16:9</b><span>Big numeral, six blue dots and one orange: six founders and the facilitator, every time.</span></div></div>
+  </div>
+
+  <div class="row-h" style="margin:44px 0 16px"><h3>Reel covers &middot; 9:16</h3><button class="btn" id="safeBtn">Show safe zones</button></div>
+  <div class="g3 reels" id="reels">
+    <div class="item"><div class="frame f916 rA safe">
+      <div class="logo wm">BizColab<i>.</i></div>
+      <span class="chip b">A question for founders</span>
+      <h3 class="t"><span class="ln">Are you</span><span class="ln"><span class="sf2 bl">stuck</span> in your</span><span class="ln">business?</span></h3>
+      <img class="ph" src="/michael.jpg" alt="">
+      <span class="chip oo go">Get unstuck &rarr;</span>
+      <div class="safebox"><i class="tp1">TOP: PLATFORM UI</i><i class="bt">BOTTOM: CAPTIONS + BUTTONS</i><i class="rt">SIDE BUTTONS</i></div>
+    </div><div class="cap"><b>Question hook</b><span>White, serif word in blue, face fills the bottom half.</span></div></div>
+
+    <div class="item"><div class="frame f916 rB safe">
+      <div class="logo wm">BizColab<i>.</i></div>
+      <h3 class="t"><span class="ln">Who&rsquo;s in</span><span class="ln">your</span><span class="ln"><span class="sf2">corner?</span></span></h3>
+      <img class="ph" src="/michael.jpg" alt="">
+      <div class="safebox"><i class="tp1">TOP: PLATFORM UI</i><i class="bt">BOTTOM: CAPTIONS + BUTTONS</i><i class="rt">SIDE BUTTONS</i></div>
+    </div><div class="cap"><b>Statement hook</b><span>Full blue field with amber word. Use sparingly, for the strongest line.</span></div></div>
+
+    <div class="item"><div class="frame f916 rC safe">
+      <div class="logo wm">BizColab<i>.</i></div>
+      <div class="big">15</div>
+      <h3 class="t"><span class="ln">minutes.</span><span class="ln"><span class="sf2">Free</span> audit.</span></h3>
+      <p class="sub">Tell us what&rsquo;s stuck. Leave with a next move.</p>
+      <span class="chip w go">Book yours &rarr;</span>
+      <div class="safebox"><i class="tp1">TOP: PLATFORM UI</i><i class="bt">BOTTOM: CAPTIONS + BUTTONS</i><i class="rt">SIDE BUTTONS</i></div>
+    </div><div class="cap"><b>Offer cover</b><span>Orange field, giant number. Used for the free audit and cohort calls to action.</span></div></div>
+  </div>
+</div></section>
+
+<!-- INTERSTITIALS -->
+<section class="sec" id="inter"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">03 &middot; Interstitials</p><h2>Cards between the conversation.</h2><p>Short cards that reset the viewer: chapter, who&rsquo;s up next, the sign-off sting, the end card, and a single-idea card.</p></div>
+  <div class="g3">
+    <div class="item"><div class="frame f169 iA">
+      <div class="lab">Chapter</div><div class="n">01</div>
+      <h3 class="t"><span class="ln">Map</span></h3>
+      <p class="sub">Where you really stand today.</p>
+      <div class="pr"><i class="on"></i><i></i><i></i><i></i></div>
+    </div><div class="cap"><b>Chapter card</b><span>Orange numeral, four-step bar for the four weeks. 1.5 seconds.</span></div></div>
+
+    <div class="item"><div class="frame f169 iB">
+      <span class="chip b">Up next</span>
+      <div class="av">M</div>
+      <h3 class="t"><span class="ln">Maya</span></h3>
+      <p class="sub">One problem. The whole room.</p>
+      <div class="dots"><i></i><i class="me"></i><i></i><i></i><i></i><i></i><i class="f"></i></div>
+    </div><div class="cap"><b>Who&rsquo;s up next</b><span>First name only. The row of dots shows whose turn it is in the room of seven.</span></div></div>
+
+    <div class="item"><div class="frame f169 iC mo run" id="bump">
+      <div class="stack"><div class="wm">BizColab<i>.</i></div><div class="tag sf">empowering entrepreneurs <b>through collaboration</b></div></div>
+    </div><div class="cap"><b>Sign-off sting</b><span>Wordmark, blue dot hops once, tagline underneath. 2 seconds, used at the very end.</span></div></div>
+  </div>
+
+  <div class="g2" style="margin-top:22px">
+    <div class="item"><div class="frame f169 iD">
+      <h3 class="t"><span class="ln">Keep going.</span><span class="ln"><span class="or">Join us.</span></span></h3>
+      <div class="slot">Next video</div>
+      <span class="chip s go">Join the next cohort &rarr;</span>
+      <div class="url">bizcolab.com</div><div class="logo wm">BizColab<i>.</i></div>
+    </div><div class="cap"><b>End card</b><span>A clear slot for the next video and one orange-or-blue action, nothing else.</span></div></div>
+
+    <div class="item"><div class="frame f169 iE">
+      <div class="lab">The point</div>
+      <h3 class="t"><span class="ln">Name the one thing</span><span class="ln">that&rsquo;s <span class="sf2">actually</span> stuck.</span></h3>
+      <div class="logo wm">BizColab<i>.</i></div>
+    </div><div class="cap"><b>One-idea card</b><span>A single line from the episode, held for a beat. Light gray, serif word in blue.</span></div></div>
+  </div>
+</div></section>
+
+<!-- PROPS -->
+<section class="alt" id="props"><div class="wrap sec">
+  <div class="sec-head"><p class="eyebrow">04 &middot; Props</p><h2>Real objects on the table.</h2><p>Simple things we print or buy once. They put the brand in the shot without a graphic, and they make the room feel like a room.</p></div>
+  <div class="g3">
+    <div class="item"><div class="table">
+      <div class="tent" style="left:6cqw;top:8cqw;transform:rotate(-3deg)"><b>Maya</b><span>Founder &middot; Seat 1</span><i class="dd"></i></div>
+      <div class="tent" style="left:36cqw;top:30cqw;transform:rotate(2deg)"><b>Dev</b><span>Founder &middot; Seat 2</span><i class="dd"></i></div>
+      <div class="tent fac" style="left:60cqw;top:50cqw;transform:rotate(-2deg)"><b>Michael</b><span>Facilitator</span><i class="dd"></i></div>
+    </div><div class="cap"><b>Seat tents</b><span>First names only. Blue bar for founders, orange for the facilitator.</span></div></div>
+
+    <div class="item"><div class="table">
+      <div class="card3" style="left:20cqw;top:12cqw;transform:rotate(-4deg)"><small>The one thing</small><p>What&rsquo;s stuck?</p><u>Write it in one sentence.</u></div>
+      <div class="pad" style="left:10cqw;top:54cqw;transform:rotate(5deg)">Ask for the<br>intro.</div>
+      <div class="pad" style="left:34cqw;top:60cqw;background:#ffd0a1;transform:rotate(-3deg);color:#4a2700">Ship by<br>Friday.</div>
+    </div><div class="cap"><b>Index card and sticky notes</b><span>The card is the &ldquo;one thing&rdquo; each founder brings. Notes in amber and light orange.</span></div></div>
+
+    <div class="item"><div class="table">
+      <div class="sign"><small>Now in session</small><b>Round <i>2</i></b></div>
+      <div class="mk" style="left:16cqw;top:68cqw;width:40cqw;background:var(--blue);transform:rotate(-6deg)"></div>
+      <div class="mk" style="left:20cqw;top:78cqw;width:40cqw;background:var(--orange);transform:rotate(-2deg)"></div>
+      <div class="mk" style="left:60cqw;top:20cqw;width:34cqw;background:#0a0a0a;transform:rotate(80deg)"></div>
+    </div><div class="cap"><b>Round block and markers</b><span>A clear desk sign for the round number, plus blue, orange and ink markers.</span></div></div>
+  </div>
+</div></section>
+
+<!-- GRAPHICS -->
+<section class="sec" id="gfx"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">05 &middot; Graphics</p><h2>Diagrams that explain in one look.</h2><p>Full-screen explainers that cut in for two to four seconds. Each one holds a single idea and uses the real cohort facts.</p></div>
+  <div class="g3">
+    <div class="item"><div class="frame f169 gfx gseat" style="aspect-ratio:4/3">
+      <svg viewBox="0 0 400 300"><circle cx="200" cy="120" r="82" fill="none" stroke="#e8e8ed" stroke-width="1.5"/>
+        <g fill="#0a57ff"><circle cx="200" cy="38" r="17"/><circle cx="271" cy="79" r="17"/><circle cx="271" cy="161" r="17"/><circle cx="200" cy="202" r="17"/><circle cx="129" cy="161" r="17"/><circle cx="129" cy="79" r="17"/></g>
+        <circle cx="200" cy="120" r="30" fill="#ff8c1a"/>
+        <g font-family="Geist" font-weight="700" font-size="14" fill="#fff" text-anchor="middle"><text x="200" y="125">+1</text></g></svg>
+      <div class="cp">Six founders. <span>One facilitator.</span></div>
+    </div><div class="cap"><b>The room</b><span>The 6 + 1 cohort in one picture.</span></div></div>
+
+    <div class="item"><div class="frame f169 gfx gtrack" style="aspect-ratio:4/3">
+      <div class="h">The four weeks</div>
+      <div class="rail"><i></i></div>
+      <div class="st on now" style="left:12%;top:29.4cqw"><u>1</u><b>Map</b></div>
+      <div class="st" style="left:37.3%"><u>2</u><b>Match</b></div>
+      <div class="st" style="left:62.7%"><u>3</u><b>Move</b></div>
+      <div class="st" style="left:88%"><u>4</u><b>Measure</b></div>
+      <div class="ft">One session a week. One problem each.</div>
+    </div><div class="cap"><b>The program track</b><span>Week one is lit. The same track doubles as the progress bar in episodes.</span></div></div>
+
+    <div class="item"><div class="frame f169 gfx gstat" style="aspect-ratio:4/3">
+      <div class="n">30<i>.</i></div>
+      <div class="l">days to <span class="sf2">real</span> progress.</div>
+      <div class="logo wm">BizColab<i>.</i></div>
+    </div><div class="cap"><b>Big number card</b><span>One fact, one line. Blue field with an amber accent.</span></div></div>
+  </div>
+</div></section>
+
+<!-- WAYFINDING -->
+<section class="alt" id="way"><div class="wrap sec">
+  <div class="sec-head"><p class="eyebrow">06 &middot; Wayfinding</p><h2>Always know where you are.</h2><p>Small overlays that sit on live footage so a viewer can drop in at any minute and know who is talking, which week it is and whose round it is.</p></div>
+  <div class="row-h" style="margin:0 0 14px"><h3>On-footage layout</h3><button class="btn" id="keepBtn">Show face zone</button></div>
+  <div class="frame f169 mo run" id="hud" style="max-width:920px;margin:0 auto">
+    <div class="foot"></div>
+    <div class="hud-logo wm">BizColab<i>.</i></div>
+    <div class="hud-wk">Week 1 &middot; Map <span class="seg"><i class="on"></i><i></i><i></i><i></i></span></div>
+    <div class="lt"><b>Michael</b><span>Facilitator, BizColab</span></div>
+    <div class="rd">Round 2 of 6 <span class="dots"><i class="off"></i><i class="cur"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="keep">Keep clear: face</div>
+  </div>
+  <p class="note" style="text-align:center">Corner logo top-left, week tracker top-right, name lower-left, round counter lower-right. The middle stays empty.</p>
+
+  <div class="g3" style="margin-top:34px">
+    <div class="kit"><div class="row"><span class="kb"><span class="d"></span>BizColab</span><span class="kb o"><span class="d"></span>Live</span></div><div class="cap" style="margin:0"><b>Corner bug</b><span>White pill, blue dot. Orange dot when the session is live.</span></div></div>
+    <div class="kit"><div class="steps"><span class="done">Map</span><span class="on">Match</span><span>Move</span><span>Measure</span></div><div class="cap" style="margin:0"><b>Week tracker</b><span>Done, now, next. Same four words as the program.</span></div></div>
+    <div class="kit"><div class="rnd"><span class="done">1</span><span class="on">2</span><span>3</span><span>4</span><span>5</span><span class="f">+1</span></div><div class="cap" style="margin:0"><b>Round counter</b><span>Five founders, then the facilitator round, orange.</span></div></div>
+  </div>
+</div></section>
+
+<!-- MOTION -->
+<section class="sec mo" id="motion"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">07 &middot; Motion</p><h2>How things move.</h2><p>Three live samples. They loop here so you can feel the timing. In a video each one plays once.</p></div>
+  <div class="g3">
+    <div class="item"><div class="frame f169 m1 run" id="m1">
+      <i class="bar"></i><div class="blk"></div>
+      <h3 class="t"><span class="ln">Week 1:</span><span class="ln"><span class="or">Map.</span></span></h3>
+      <p class="sub">Where you really stand.</p>
+    </div><div class="cap"><b>Orange wipe title</b><span>An orange panel wipes left to right, the title rises in behind it. Same move as the mobile menu on the site.</span><button class="btn" data-r="m1" style="margin-top:10px">Replay</button></div></div>
+
+    <div class="item"><div class="frame f169 m2 run" id="m2">
+      <div class="foot"></div>
+      <div class="lt"><b>Michael</b><span>Facilitator, BizColab</span></div>
+    </div><div class="cap"><b>Lower third</b><span>Bar slides in, name then role follow 120 ms apart, holds, slides out.</span><button class="btn" data-r="m2" style="margin-top:10px">Replay</button></div></div>
+
+    <div class="item"><div class="frame f169 m3 run" id="m3">
+      <svg viewBox="0 0 400 225"><circle class="ring" cx="200" cy="100" r="64"/>
+        <circle class="d" cx="200" cy="36" r="14" fill="#0a57ff"/><circle class="d" cx="255" cy="68" r="14" fill="#0a57ff"/><circle class="d" cx="255" cy="132" r="14" fill="#0a57ff"/><circle class="d" cx="200" cy="164" r="14" fill="#0a57ff"/><circle class="d" cx="145" cy="132" r="14" fill="#0a57ff"/><circle class="d" cx="145" cy="68" r="14" fill="#0a57ff"/>
+        <circle class="d" cx="200" cy="100" r="24" fill="#ff8c1a"/></svg>
+      <div class="cp">6 + 1</div>
+    </div><div class="cap"><b>The room assembles</b><span>Six blue dots pop in, then the orange one lands last. The only bouncy move in the kit.</span><button class="btn" data-r="m3" style="margin-top:10px">Replay</button></div></div>
+  </div>
+
+  <div class="tablewrap" style="margin-top:30px"><table class="spec">
+    <thead><tr><th>Part</th><th>Spec</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Ease in</td><td><code>cubic-bezier(.2,.8,.2,1)</code>, 350&ndash;450 ms</td><td>Fast start, soft landing. Feels confident, not flashy.</td></tr>
+      <tr><td>Stagger</td><td>Lines 90&ndash;120 ms apart</td><td>The eye reads top to bottom without help.</td></tr>
+      <tr><td>Hold</td><td>Titles 2.5 s, lower thirds 4 s, chapter cards 1.5 s</td><td>Long enough to read once, short enough to keep pace.</td></tr>
+      <tr><td>Ease out</td><td>250 ms, no bounce, move 20% then fade</td><td>Exits are quiet so the face takes over again.</td></tr>
+      <tr><td>Transition</td><td>Orange wipe left to right, 700 ms, or a hard cut on the beat</td><td>Same direction as the site menu. No spins, zooms or glitches.</td></tr>
+      <tr><td>Limit</td><td>Two moving things on screen at once, max</td><td>Motion supports the speaker, never competes.</td></tr>
+    </tbody></table></div>
+</div></section>
+
+<!-- NEXT -->
+<section class="alt" id="next"><div class="wrap sec">
+  <div class="sec-head"><p class="eyebrow">What I need from you</p><h2>Three quick reactions.</h2></div>
+  <div class="next">
+    <div class="nx"><em>1</em><b>Which covers feel most like BizColab?</b><p>White, blue field or orange field. We can mix them, or pick one per series.</p></div>
+    <div class="nx"><em>2</em><b>Too much, or too little, on screen?</b><p>Look at the on-footage layout and tell me what to cut or keep.</p></div>
+    <div class="nx"><em>3</em><b>Any props you already own?</b><p>We&rsquo;ll match the tents, cards and markers to what&rsquo;s on your set.</p></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="pfoot"><span>BizColab video system &middot; private concept board &middot; placeholder copy</span><span class="chipv">Concept v1</span></div></div>
+
+<script>
+(function(){
+  /* replay motion samples */
+  document.querySelectorAll('[data-r]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=document.getElementById(b.getAttribute('data-r'));
+      f.classList.remove('run');void f.offsetWidth;f.classList.add('run');
+    });
+  });
+  /* safe zones + face zone toggles */
+  var sb=document.getElementById('safeBtn');
+  sb.addEventListener('click',function(){
+    var on=sb.textContent.indexOf('Show')===0;
+    document.querySelectorAll('#reels .safe').forEach(function(f){f.classList.toggle('on',on)});
+    sb.textContent=on?'Hide safe zones':'Show safe zones';
+  });
+  var kb=document.getElementById('keepBtn'),hud=document.getElementById('hud');
+  kb.addEventListener('click',function(){
+    var on=kb.textContent.indexOf('Show')===0;hud.classList.toggle('on',on);
+    kb.textContent=on?'Hide face zone':'Show face zone';
+  });
+  /* sign-off sting: dot hop */
+  var dot=document.querySelector('#bump .wm i');
+  if(dot&&dot.animate&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    dot.animate([{transform:'translateY(0)'},{transform:'translateY(-120%) scale(1.3)',offset:.25},{transform:'translateY(0) scaleY(.7)',offset:.4},{transform:'translateY(0)',offset:.5},{transform:'translateY(0)'}],{duration:3200,iterations:Infinity,easing:'cubic-bezier(.3,1.4,.5,1)'});
+  }
+  /* no-widows pass: bind the last two words of every text block so no line holds a single word */
+  document.querySelectorAll('h2,h3.t0,p,.cap span,.rule p,.tp p,.nx p,.t .ln').forEach(function(el){
+    if(el.classList.contains('sub')&&el.closest('.frame')){}
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),last=null,n;
+    while(n=w.nextNode()){if(n.nodeValue.trim())last=n}
+    if(!last)return;
+    var t=last.nodeValue,m=t.match(/(\S+)\s+(\S+\s*)$/);
+    if(!m)return;
+    var cut=t.length-m[0].length,span=document.createElement('span');
+    span.className='nw';span.textContent=m[0];
+    last.nodeValue=t.slice(0,cut);
+    last.parentNode.insertBefore(span,last.nextSibling);
+  });
+})();
+</script>
+</body>
+</html>
