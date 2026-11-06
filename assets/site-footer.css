@@ -1,0 +1,17 @@
+/*! BizColab shared site footer. Pair with /assets/site-footer.js. */
+.bcx-foot{background:#f5f5f7;border-top:1px solid #e6e9ef;margin-top:84px;font-family:Inter,system-ui,-apple-system,sans-serif;color:#3a3a3c}
+.bcx-foot-in{max-width:1100px;margin:0 auto;padding:56px 24px 28px}
+.bcx-foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
+.bcx-foot-logo{font-family:Geist,Inter,system-ui,sans-serif;font-weight:600;font-size:22px;letter-spacing:-.04em;color:#0a0a0a;text-decoration:none;display:inline-block}
+.bcx-foot-logo span{color:#0a57ff}
+.bcx-foot-tag{font-size:16px;color:#3a3a3c;margin-top:10px;max-width:34ch;line-height:1.5}
+.bcx-foot-city{font-size:13px;color:#6e6e73;margin-top:14px}
+.bcx-foot h4{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0a57ff;margin:0 0 14px}
+.bcx-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.bcx-foot ul a{color:#0a0a0a;text-decoration:none;font-size:15px;font-weight:600;display:inline-block;transition:color .15s}
+.bcx-foot ul a:hover{color:#0a57ff}
+.bcx-foot ul a svg{width:18px;height:18px;fill:currentColor;vertical-align:-4px;margin-right:9px}
+.bcx-foot-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid #e6e9ef;margin-top:40px;padding-top:20px;font-size:13px;color:#6e6e73}
+.bcx-foot-bar a{color:#6e6e73;text-decoration:none;margin-left:16px}
+.bcx-foot-bar a:hover{color:#0a57ff}
+@media(max-width:860px){.bcx-foot-in{padding:44px 20px 24px}.bcx-foot-grid{grid-template-columns:1fr;gap:28px}.bcx-foot-bar{flex-direction:column;align-items:flex-start}.bcx-foot-bar a{margin:0 16px 0 0}}

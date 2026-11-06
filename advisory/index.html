@@ -58,6 +58,8 @@ h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;line-height:1.06;font
 .card .k{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-top:16px}
 .card h3{font-size:23px;letter-spacing:-.02em;margin-top:6px;line-height:1.15}
 .card p{font-size:16px;color:var(--mu);margin-top:8px}
+.card .stars{color:var(--y);font-size:20px;letter-spacing:2px}.card .q{font-size:17px;font-weight:600;color:var(--ink);margin-top:12px;line-height:1.45}.card .who{font-size:14px;color:var(--mute);margin-top:12px}
+.btn-note a{color:var(--b);font-weight:700;text-decoration:none}
 
 /* what is in the audit */
 .pages{margin-top:8px}
@@ -90,8 +92,6 @@ h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;line-height:1.06;font
 .cta .btn{margin-top:0;background:#fff;color:var(--ink)}
 .cta .btn::before{background:var(--o)}.cta .btn:hover{color:#fff}
 
-.foot{border-top:1px solid var(--line);padding:26px 24px;font-size:13px;color:var(--mute);text-align:center;margin-top:84px}
-.foot a{color:var(--mute);margin:0 8px}
 
 /* preview-only reminder while the Stripe link is unset; never shows once the link is in */
 #stripeWarn{position:fixed;left:12px;bottom:12px;z-index:200;background:#fff3e6;border:2px solid var(--o);color:#8a4300;font-size:13px;font-weight:700;padding:10px 14px;border-radius:12px;display:none}
@@ -99,7 +99,7 @@ h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;line-height:1.06;font
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media(max-width:860px){
  .sec{padding:60px 20px}.hero{padding:36px 20px 60px}
- .three{grid-template-columns:1fr}
+ .three,.creds,.caps,.why,.band{grid-template-columns:1fr}.band{padding:32px 22px}
  .sub{font-size:18px}
  .num{font-size:40px}.stats p{font-size:13px}.stats div{padding:16px 10px 0 0}.stats div+div{padding-left:12px}
  .pg{grid-template-columns:1fr;gap:6px}
@@ -107,6 +107,21 @@ h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;line-height:1.06;font
  .cta{padding:36px 24px}.btn{justify-content:center}
 }
 
+.why{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start;margin-top:36px}
+.why-pic img{width:100%;border-radius:24px;display:block}
+.why-txt p{font-size:18px;color:var(--mu);line-height:1.55}.why-txt p+p{margin-top:16px}
+.creds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.cred{--c:var(--b);background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);border-radius:18px;padding:20px 22px}.cred.o{--c:var(--o)}
+.cred .k{display:block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}.cred p{font-size:15.5px;color:var(--mu);margin-top:8px}
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+.cap{--c:var(--b);background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 26px}.cap.o{--c:var(--o)}
+.cap .n{font-weight:900;font-size:46px;line-height:1;letter-spacing:-.04em;color:var(--c)}.cap .k{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-top:14px}
+.cap h3{font-size:23px;letter-spacing:-.02em;margin-top:6px;line-height:1.15}.cap p{font-size:16px;color:var(--mu);margin-top:8px}
+.cap .out{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--ink);background:var(--soft);border-radius:999px;padding:7px 12px}
+.truth{margin-top:24px;background:#fff;border-left:6px solid var(--o);border-radius:16px;padding:22px 26px}.truth .k{display:block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#c25e00}.truth p{font-size:18px;font-weight:600;margin-top:6px;line-height:1.45}
+.band{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;background:linear-gradient(120deg,#eaf0ff 0%,#f3efff 50%,#fff3e6 100%);border-radius:28px;padding:48px 44px}
+.band h2{font-size:clamp(26px,3vw,38px)}.band p{font-size:17px;color:var(--mu);margin-top:12px}.band .btn{margin-top:22px}
+.band ul{list-style:none;display:grid;gap:12px}.band li{background:#fff;border-radius:14px;padding:14px 18px;font-size:16px;font-weight:600}.band li b{color:var(--o);margin-right:8px}
 .rung{display:grid;grid-template-columns:90px 1fr 230px;gap:28px;align-items:center;padding:30px 6px;border-bottom:1px solid var(--line)}
 .rung .rn{font-weight:900;font-size:46px;line-height:1;letter-spacing:-.04em;color:var(--b)}
 .rung:nth-child(even) .rn{color:var(--o)}
@@ -118,7 +133,7 @@ h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;line-height:1.06;font
 .rung .btn{margin-top:12px;padding:13px 22px;font-size:15px}
 .rung .btn.alt{background:var(--ink)}
 @media(max-width:860px){.rung{grid-template-columns:1fr;gap:10px}.rung .go{text-align:left}}
-</style><link rel="stylesheet" href="/assets/site-nav.css">
+</style><link rel="stylesheet" href="/assets/site-nav.css"><link rel="stylesheet" href="/assets/site-footer.css">
 </head>
 <body>
 <script src="/assets/site-nav.js"></script>
@@ -127,24 +142,72 @@ h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;line-height:1.06;font
 <section class="hero">
   <div class="tag">BizColab Advisory</div>
   <h1><span class="ln">Start where you are.</span><span class="ln acc">Step up when you&rsquo;re ready.</span></h1>
-  <p class="sub">Five ways to work with BizColab. Each one builds on the last, so you only pay for the help you need right now.</p>
+  <p class="sub">Work directly with Michael, a business advisor with 20 years of building, branding and running companies. Five ways in, each one building on the last, so you only pay for the help you need right now.</p>
   <a class="btn" href="#ladder">See the five steps &rarr;</a>
   <div class="stats">
-    <div><div class="num blu">5</div><p>steps, one ladder</p></div>
-    <div><div class="num acc">$0</div><p>to start</p></div>
-    <div><div class="num">6+1</div><p>people in every cohort</p></div>
+    <div><div class="num blu">20</div><p>years in design, marketing, brand and operations</p></div>
+    <div><div class="num acc">1,000</div><p>clients, from startups to Fortune 500s</p></div>
+    <div><div class="num">15+</div><p>companies built, branded and operated</p></div>
   </div>
 </section>
 
-<section class="sec gray" id="ladder"><div class="in">
+<section class="sec" id="why"><div class="in">
+  <div class="head"><h2>Why Michael</h2></div>
+  <p class="lede">Judgment from three careers. Speed from the tools most agencies don&rsquo;t use yet.</p>
+  <div class="why">
+    <div class="why-pic"><img src="/michael.jpg" alt="Michael, BizColab founder and business advisor"></div>
+    <div class="why-txt">
+      <p>I spent 17 years running C/C/G, a marketing and branding company. I worked with close to a thousand clients, from startups to Fortune 500s, across marketing, design, sales and operations. I&rsquo;ve deployed campaigns and overseen million-dollar budgets.</p>
+      <p>I&rsquo;m a licensed architect, so design is a discipline to me, not a taste. I&rsquo;ve built, branded and operated more than fifteen companies of my own. And I started BizColab because growing alone is slow. A small room of founders asking honest questions moves faster than any course.</p>
+      <p>Most advisors have theory. This practice is built on doing, and everything I recommend is running in my own businesses first.</p>
+    </div>
+  </div>
+  <div class="creds">
+    <div class="cred"><span class="k">Agency founder, 17 years</span><p>Led a marketing and branding company: creative strategy plus data, hundreds of campaigns, close to a thousand clients.</p></div>
+    <div class="cred o"><span class="k">Licensed architect</span><p>Trained to design systems people live in. Brand, web and space come from the same discipline.</p></div>
+    <div class="cred"><span class="k">Founder and operator</span><p>More than fifteen companies built, branded and run over 20 years. Runs on margins, not vibes.</p></div>
+    <div class="cred o"><span class="k">Founder, BizColab</span><p>Built the six-founder cohort, and the site, brand, content and systems behind it.</p></div>
+    <div class="cred"><span class="k">AI, applied properly</span><p>Uses AI as leverage across operations, content and web, with 20 years of judgment deciding what it builds and why.</p></div>
+    <div class="cred o"><span class="k">Skin in the game</span><p>Everything recommended is running in his own businesses first. No untested theory.</p></div>
+  </div>
+</div></section>
+
+<section class="sec gray" id="built"><div class="in">
+  <div class="head"><h2>What gets built</h2></div>
+  <p class="lede">Four capabilities, one advisor. Built, not just recommended.</p>
+  <div class="caps">
+    <div class="cap"><div class="n">A</div><div class="k">Operations and AI</div><h3>The business runs without you in every loop</h3><p>Workflow audits, SOPs, CRM cleanup, AI agents for follow-up, reporting and admin. The work that turns a 60-hour week into a 40-hour one.</p><span class="out">Output: systems live in your tools, team trained</span></div>
+    <div class="cap o"><div class="n">B</div><div class="k">Marketing and social</div><h3>A content engine, not a content chore</h3><p>Positioning, campaigns, email, and a social pipeline that designs, writes and schedules itself. The same system runs three brands right now.</p><span class="out">Output: 4 to 6 weeks of content shipping on schedule</span></div>
+    <div class="cap"><div class="n">C</div><div class="k">Web design and build</div><h3>A site that closes before you pick up</h3><p>Designed with an architect&rsquo;s eye, built and shipped fast. Landing pages, full sites, gated client portals. Live in days, not quarters.</p><span class="out">Output: a live site, measured on conversion</span></div>
+    <div class="cap o"><div class="n">D</div><div class="k">Brand and design</div><h3>Look like the one they&rsquo;d pay more for</h3><p>Identity, decks, collateral and client-ready artifacts. Design that raises your price ceiling, because buyers judge the work by the wrapper.</p><span class="out">Output: a brand system your whole team can use</span></div>
+  </div>
+  <div class="truth"><span class="k">The leverage truth</span><p>AI is the biggest leverage shift in a generation. But leverage multiplies, it doesn&rsquo;t decide. Point it at the wrong thing and you get the wrong thing, faster. Twenty years of building companies is what tells it where to aim.</p></div>
+</div></section>
+
+<section class="sec" id="ladder"><div class="in">
   <div class="head"><h2>The ladder</h2></div>
   <p class="lede">Most people start at step 1 and move up as they see results. You can also jump in anywhere.</p>
   <div class="rungs">
     <div class="rung"><div class="rn">01</div><div><div class="k">Simple audit</div><h3>Free business snapshot</h3><p>A 15-minute call and a one-page snapshot of where your business is strong and where it is stuck.</p></div><div class="go"><div class="price">Free</div><a class="btn" href="https://calendar.app.google/U7KZjhPkYHz8b4JN9" target="_blank" rel="noopener">Book my snapshot &rarr;</a></div></div>
-    <div class="rung"><div class="rn">02</div><div><div class="k">Deep audit</div><h3>Deep Audit</h3><p>A 45-minute call with a business advisor and a comprehensive audit with a 30-day action list and a 90-day plan, in your inbox within 48 hours.</p></div><div class="go"><div class="price">$197</div><a class="btn" href="/audit/">See the Deep Audit &rarr;</a></div></div>
+    <div class="rung"><div class="rn">02</div><div><div class="k">Deep audit</div><h3>Deep Audit</h3><p>A 30-minute call with a business advisor, a comprehensive audit with a brand kit, a 30-day action list and a 90-day plan in your inbox within 48 hours, and a 30-minute review call.</p></div><div class="go"><div class="price">$197</div><a class="btn" href="/audit/">See the Deep Audit &rarr;</a></div></div>
     <div class="rung"><div class="rn">03</div><div><div class="k">Conversation</div><h3>A conversation with Michael</h3><p>Talk through your audit, your goals and your options. Michael tells you honestly what to do next, and whether more help is worth it.</p></div><div class="go"><div class="price">Let&rsquo;s talk</div><a class="btn" href="https://calendar.app.google/U7KZjhPkYHz8b4JN9" target="_blank" rel="noopener">Book a conversation &rarr;</a></div></div>
-    <div class="rung"><div class="rn">04</div><div><div class="k">One-on-one</div><h3>One-on-one sessions</h3><p>Regular working sessions with Michael on your business. You pick the focus, you leave each session with next steps, and you get check-ins in between.</p></div><div class="go"><div class="price">By request</div><a class="btn alt" href="mailto:michael@bizcolab.com?subject=One-on-one%20sessions">Ask about sessions &rarr;</a></div></div>
-    <div class="rung"><div class="rn">05</div><div><div class="k">The group</div><h3>The BizColab cohort</h3><p>Six business owners and one facilitator, meeting on a schedule. You get fresh eyes on your business, accountability and real introductions.</p></div><div class="go"><div class="price">6 + 1</div><a class="btn" href="/join/">Join a cohort &rarr;</a></div></div>
+    <div class="rung"><div class="rn">04</div><div><div class="k">One-on-one</div><h3>One-on-one sessions</h3><p>Regular working sessions with Michael on your business. You pick the focus, you leave each session with next steps, and you get check-ins in between. You also join a growing network of like-minded, collaborative founders, with introductions made by Michael.</p></div><div class="go"><div class="price">By request</div><a class="btn alt" href="mailto:michael@bizcolab.com?subject=One-on-one%20sessions">Ask about sessions &rarr;</a></div></div>
+    <div class="rung"><div class="rn">05</div><div><div class="k">The group</div><h3>The BizColab cohort</h3><p>Six business owners and one facilitator, meeting on a schedule. You get fresh eyes on your business, accountability and real introductions, and the room keeps going after the four weeks.</p></div><div class="go"><div class="price">6 + 1</div><a class="btn" href="/join/">Join a cohort &rarr;</a></div></div>
+  </div>
+</div></section>
+
+<section class="sec gray" id="problem"><div class="in">
+  <div class="band">
+    <div>
+      <h2>You have that one problem. Bring it.</h2>
+      <p>Every business has one: the site that doesn&rsquo;t convert, the marketing nobody owns, the operation that only runs when you do. You&rsquo;ve been working around it for months. We fix it first, together. You&rsquo;ll know inside one working session whether this is worth your money. If I can&rsquo;t help, I&rsquo;ll say so and point you to who can.</p>
+      <a class="btn" href="mailto:michael@bizcolab.com?subject=My%20one%20problem">Tell me your one problem &rarr;</a>
+    </div>
+    <ul>
+      <li><b>No pitch</b>No proposal deck, no lock-in</li>
+      <li><b>A few at a time</b>When the seats are full, they&rsquo;re full</li>
+      <li><b>A network</b>You join a growing room of collaborative founders</li>
+    </ul>
   </div>
 </div></section>
 
@@ -153,18 +216,29 @@ h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;line-height:1.06;font
   <div class="three">
     <div class="card"><div class="n">01</div><div class="k">Not sure yet</div><h3>Start with the snapshot</h3><p>You want a quick, honest read on your business before you spend anything.</p></div>
     <div class="card o"><div class="n">02</div><div class="k">Stuck on something</div><h3>Get the Deep Audit</h3><p>Something is not moving and you want a plan you can start on Monday.</p></div>
-    <div class="card"><div class="n">03</div><div class="k">Ready to grow</div><h3>Work with Michael or a cohort</h3><p>You know what to do and want a partner, a group and someone keeping you on track.</p></div>
+    <div class="card"><div class="n">03</div><div class="k">Ready to grow</div><h3>Work with Michael or a cohort</h3><p>You know what to do and want a partner, a growing network of collaborative founders, and someone keeping you on track.</p></div>
   </div>
+</div></section>
+
+<section class="sec" style="padding-top:0" id="reviews"><div class="in">
+  <div class="head"><h2>Rated 5.0 on Google by BizColab members</h2></div>
+  <p class="lede">Seven reviews, every one of them five stars. Here are three, word for word.</p>
+  <div class="three">
+    <div class="card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="q">&ldquo;People don&rsquo;t just network. They challenge each other, share experiences, stay accountable, and take meaningful action.&rdquo;</p><p class="who">Clark V. &middot; BizColab member</p></div>
+    <div class="card o"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="q">&ldquo;In four weeks, I fixed my pricing, finalized my target market, narrowed my focus to unique date and special-occasion experiences.&rdquo;</p><p class="who">Svetlana &middot; Events founder</p></div>
+    <div class="card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="q">&ldquo;Four weeks in, I&rsquo;ve stopped spending on paid ads, and I&rsquo;m building a referral engine around the clients I already have.&rdquo;</p><p class="who">Alex N. &middot; Attorney</p></div>
+  </div>
+  <p class="btn-note"><a href="/reviews/">Read all seven reviews &rarr;</a></p>
 </div></section>
 
 <section class="sec" style="padding-top:0"><div class="in">
   <div class="cta">
-    <div><h2>Not sure where to start?</h2><p>Book the free snapshot. We&rsquo;ll point you to the right step.</p></div>
+    <div><h2>Not sure where to start?</h2><p>Book the free snapshot. We&rsquo;ll point you to the right step. Rated 5.0 on Google by the founders who came before you.</p></div>
     <a class="btn" href="https://calendar.app.google/U7KZjhPkYHz8b4JN9" target="_blank" rel="noopener">Book my free snapshot &rarr;</a>
   </div>
 </div></section>
 
-<div class="foot">&copy; 2026 BizColab &middot; <a href="/">bizcolab.com</a><a href="/privacy/">Privacy</a><a href="mailto:michael@bizcolab.com">Contact</a></div>
+<script src="/assets/site-footer.js"></script>
 <script>
 /* no-widows pass: bind the last two words of every text block so no line holds a single word */
 (function(){

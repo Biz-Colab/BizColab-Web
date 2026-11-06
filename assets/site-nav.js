@@ -10,6 +10,7 @@
     ['/#cohort', 'The cohort'],
     ['/#audit', 'Free audit'],
     ['/audit/', 'Deep Audit'],
+    ['/advisory/', 'Advisory'],
     ['/compare/', 'Compare'],
     ['/reviews/', 'Reviews'],
     ['/#faq', 'FAQ']
