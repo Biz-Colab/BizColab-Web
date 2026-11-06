@@ -3,7 +3,8 @@
 .bcx-nav{position:sticky;top:10px;z-index:200;margin:10px 0 0;padding:0 24px;pointer-events:none;font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.4;-webkit-font-smoothing:antialiased}
 .bcx-nav *{box-sizing:border-box}
 /* homepage: float over the hero instead of pushing it down */
-body[data-nav="overlay"] .bcx-nav{position:absolute;top:22px;left:0;right:0;margin:0}
+body[data-nav="overlay"] .bcx-nav{position:fixed;top:22px;left:0;right:0;margin:0;transition:transform .32s ease,opacity .32s ease}
+.bcx-nav.bcx-hide{transform:translateY(-140%);opacity:0;pointer-events:none}
 .bcx-nav-in{pointer-events:auto;position:relative;max-width:1180px;margin:0 auto;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 10px 0 28px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
 .bcx-logo{font-size:19px;font-weight:600;letter-spacing:-.04em;color:#0a0a0a;text-decoration:none}
 .bcx-logo span{color:#0a57ff}

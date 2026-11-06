@@ -7,7 +7,7 @@
   var LINKS = [
     ['/#how', 'How it works'],
     ['/#cohort', 'The cohort'],
-    ['/audit/', 'Deep Audit'],
+    ['/audit/', 'Business audit'],
     ['/advisory/', 'Advisory'],
     ['/plans/', 'Plans'],
     ['/compare/', 'Compare'],
@@ -24,7 +24,7 @@
   var links = LINKS.map(function (l) { return '<li><a href="' + l[0] + '">' + l[1] + '</a></li>'; }).join('');
   var social = SOCIAL.map(function (s) {
     var ext = s[0].indexOf('http') === 0 ? ' target="_blank" rel="noopener"' : '';
-    return '<li><a href="' + s[0] + '"' + ext + '>' + s[2] + s[1] + '</a></li>';
+    return '<li><a href="' + s[0] + '"' + ext + '>' + s[2] + '<span>' + s[1] + '</span></a></li>';
   }).join('');
   var html =
     '<footer class="bcx-foot" id="bcxFoot"><div class="bcx-foot-in">' +

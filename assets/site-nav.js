@@ -8,9 +8,9 @@
   var LINKS = [
     ['/#how', 'How it works'],
     ['/#cohort', 'The cohort'],
-    ['/#audit', 'Free audit'],
-    ['/audit/', 'Deep Audit'],
+    ['/audit/', 'Business audit'],
     ['/advisory/', 'Advisory'],
+    ['/plans/', 'Plans'],
     ['/compare/', 'Compare'],
     ['/reviews/', 'Reviews'],
     ['/#faq', 'FAQ']
@@ -37,4 +37,17 @@
   b.addEventListener('click', function () { t(!n.classList.contains('open')); });
   n.querySelectorAll('.bcx-links a').forEach(function (a) { a.addEventListener('click', function () { t(false); }); });
   document.addEventListener('click', function (e) { if (!n.contains(e.target)) t(false); });
+
+  /* Overlay pages (homepage): the bar floats over the hero, hides as you scroll down,
+     and comes back the moment you scroll up, so anchor jumps never strand the reader. */
+  if (document.body && document.body.getAttribute('data-nav') === 'overlay') {
+    var last = window.scrollY, ticking = false;
+    function onScroll() {
+      var y = window.scrollY;
+      if (y < 80 || y < last - 4) n.classList.remove('bcx-hide');
+      else if (y > last + 4 && !n.classList.contains('open')) n.classList.add('bcx-hide');
+      last = y; ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  }
 })();
