@@ -471,7 +471,7 @@ body.showwhy .rat{display:block}
       var head=txt.slice(0,idx);
       var w0=el.getBoundingClientRect().width;
       last.nodeValue=head;
-      var s=document.createElement('span');s.className='nwfix';s.style.whiteSpace='nowrap';s.textContent=tail;
+      var s=document.createElement('span');s.className='nwfix';s.style.whiteSpace='nowrap';s.style.display='inline';s.textContent=tail;
       last.parentNode.appendChild(s);
       var w1=el.getBoundingClientRect().width;
       if(w1>w0+1){unwrap(el);continue}
