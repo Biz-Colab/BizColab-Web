@@ -35,7 +35,7 @@ Static site on GitHub Pages (repo Biz-Colab/BizColab-Web, branch `main`), behind
 - Never print gated files (huge hex blob). Print counts, md5s or small slices only.
 - Grepping an encrypted page for text always returns 0 — decrypt first.
 - Verify: gate shell byte-identical apart from the blob, round-trip decrypt matches, then check the live page after deploy.
-- HQ dashboard (/dashboard/) is facilitator-only — never link it from a member-facing page.
+- HQ and facilitator pages now live in the private repo Biz-Colab/BizColab-Dash (~/Documents/Sites/BizColab-Dash), served at dashboard.bizcolab.com behind Cloudflare Access: /ops/, /growth/, /facilitator/. Old URLs here are redirect stubs. Never link them from a member-facing page; no staticrypt for HQ.
 - Passwords live in CLAUDE.local.md (not committed). Never commit passwords — this repo is public.
 
 ## Concept pages
