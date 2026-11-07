@@ -2,30 +2,37 @@
 User-agent: *
 Allow: /
 Disallow: /4-week-roadmap
+Disallow: /assets/nahai/
 
 # AI crawlers — homepage and public content welcome
 User-agent: GPTBot
 Allow: /
 Disallow: /4-week-roadmap
+Disallow: /assets/nahai/
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /4-week-roadmap
+Disallow: /assets/nahai/
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /4-week-roadmap
+Disallow: /assets/nahai/
 
 User-agent: anthropic-ai
 Allow: /
 Disallow: /4-week-roadmap
+Disallow: /assets/nahai/
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /4-week-roadmap
+Disallow: /assets/nahai/
 
 User-agent: CCBot
 Allow: /
 Disallow: /4-week-roadmap
+Disallow: /assets/nahai/
 
 Sitemap: https://bizcolab.com/sitemap.xml
