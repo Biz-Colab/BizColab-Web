@@ -296,6 +296,9 @@ h2{font-size:clamp(30px,4.6vw,52px);font-weight:700;letter-spacing:-.045em;line-
   var st={i:0,n:'',e:'',s:[0,0,0]};
   try{var saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&saved.e&&saved.s&&saved.s.length===3)st=saved}catch(x){}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(x){}}
+  /* tracking: Google Analytics events, so starts, steps and finishes can be counted */
+  var seen={};
+  function track(name,params){try{if(window.gtag)gtag('event',name,params||{})}catch(x){}}
   var local=/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   function send(kind,extra,done){
     var p={google_key:'bizcolab-leads-2026',lead_id:'web-'+kind+'-'+Date.now(),is_test:false,user_column_data:[{column_id:'FULL_NAME',string_value:st.n},{column_id:'EMAIL',string_value:st.e}].concat(extra||[])};
@@ -345,6 +348,8 @@ h2{font-size:clamp(30px,4.6vw,52px);font-weight:700;letter-spacing:-.045em;line-
     $('progT').textContent='Step '+st.i+' of '+LAST;
     $('progFill').style.width=(st.i/LAST*100)+'%';
     if(steps[st.i].dataset.result)result();
+    if(!quiet&&st.i>0&&!seen[st.i]){seen[st.i]=1;track('workshop_step',{step:st.i});
+      if(steps[st.i].dataset.result)track('workshop_result',{lowest:['find','message','engine'][st.s.indexOf(Math.min.apply(null,st.s))],score_find:st.s[0],score_message:st.s[1],score_engine:st.s[2]});}
     if(!quiet)window.scrollTo(0,0);
   }
 
@@ -362,12 +367,14 @@ h2{font-size:clamp(30px,4.6vw,52px);font-weight:700;letter-spacing:-.045em;line-
     if(!okN||!okM)return;
     st.n=n;st.e=m;save();
     send('workshop');
+    track('workshop_start');
     show(1);
   });
 
   /* end: one click, no retyping */
   $('snapBtn').addEventListener('click',function(){
     var b=this;b.disabled=true;b.textContent='Sending…';
+    track('workshop_snapshot_request');
     send('audit',[{column_id:'WORKSHOP_SCORES',string_value:'Find '+st.s[0]+', Message '+st.s[1]+', Engine '+st.s[2]}],function(){
       location.href='/thanks/?src=audit&n='+encodeURIComponent(st.n.split(' ')[0]);
     });
