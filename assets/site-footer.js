@@ -7,6 +7,7 @@
   var LINKS = [
     ['/#how', 'How it works'],
     ['/#cohort', 'The cohort'],
+    ['/saturday/', 'Saturday Cohort'],
     ['/audit/', 'Business audit'],
     ['/advisory/', 'Advisory'],
     ['/plans/', 'Plans'],
