@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PGZDKF5S');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55HDKWHJ0E"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-55HDKWHJ0E');</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map Your Business in 3 Minutes | BizColab</title>
+<meta name="description" content="A free three-minute workshop from BizColab. Score your business on three questions and see where your one move is.">
+<link rel="canonical" href="https://bizcolab.com/workshop/">
+<meta property="og:title" content="Map Your Business in 3 Minutes">
+<meta property="og:description" content="Score your business on three questions and see where your one move is. Free.">
+<meta property="og:url" content="https://bizcolab.com/workshop/">
+<meta property="og:image" content="https://bizcolab.com/og-home-v2.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--ink-2:#1d1d1f;--muted:#6e6e73;--line:#e6e9ef;--paper:#fff;--paper-2:#f5f5f7;--blue:#0a57ff;--blue-soft:#eaf1ff;--orange:#ff8c1a;--orange-soft:#fff3e4;--body:rgba(29,29,31,.74)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light}
+body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:var(--ink-2);background:var(--paper);-webkit-font-smoothing:antialiased;letter-spacing:-.011em}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
+.nw{white-space:nowrap}
+em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--blue)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.wrap{padding:0 24px}}
+
+/* progress */
+.prog{padding:28px 0 0}
+.prog-in{display:flex;align-items:center;gap:14px}
+.prog-t{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.prog-bar{flex:1;height:6px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.prog-fill{display:block;height:100%;width:0;border-radius:999px;background:var(--orange);transition:width .4s ease}
+.prog[hidden]{display:none}
+
+/* steps */
+.step{display:none;padding:clamp(28px,6vh,64px) 0 clamp(40px,8vh,88px);min-height:68vh}
+.step.on{display:block}
+.step.on .a{animation:up .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*80ms)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
+.label{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+h1{font-size:clamp(40px,7vw,84px);font-weight:700;letter-spacing:-.05em;line-height:1;color:var(--ink)}
+h2{font-size:clamp(30px,4.6vw,52px);font-weight:700;letter-spacing:-.045em;line-height:1.05;color:var(--ink)}
+.lead{margin-top:16px;font-size:clamp(17px,1.9vw,21px);line-height:1.5;color:var(--body);max-width:640px}
+.hero{position:relative}
+.glow{position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:720px;max-width:100%;height:720px;border-radius:50%;background:radial-gradient(closest-side,#d6e6ff 0%,#ffe9cf 45%,transparent 72%);opacity:.8;pointer-events:none}
+.hero>*:not(.glow){position:relative}
+
+/* start form */
+.start{margin:30px auto 0;max-width:560px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.start input{font-family:inherit;font-size:16px;padding:15px 18px;border-radius:14px;border:1px solid #cfd5df;background:#fff;color:var(--ink);width:100%;min-width:0}
+.start input:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.start input[aria-invalid=true]{border-color:#e5484d}
+.start .btn{grid-column:1/-1}
+.err{grid-column:1/-1;font-size:14px;font-weight:600;color:#c4320a;text-align:left}
+.err[hidden]{display:none}
+.small{margin-top:14px;font-size:14px;color:var(--muted)}
+.btn{font-family:inherit;display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:14px 28px;border-radius:999px;background:var(--orange);color:#fff;font-weight:600;font-size:16px;text-decoration:none;border:0;cursor:pointer}
+.btn:hover{background:#ef7a05}
+.btn[disabled]{background:#d9dce3;color:#fff;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--paper-2)}
+.navrow{display:flex;gap:10px;align-items:center;margin-top:32px;flex-wrap:wrap}
+.center .navrow{justify-content:center}
+.hint{font-size:14px;color:var(--muted)}
+
+/* cards */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.card{border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff}
+.card h3{font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.card p{margin-top:8px;font-size:15.5px;line-height:1.55;color:var(--body)}
+.card .k{display:block;font-family:'Instrument Serif',serif;font-style:italic;font-size:34px;line-height:1;color:var(--orange);margin-bottom:12px}
+.q p{font-size:19px;font-weight:500;letter-spacing:-.02em;line-height:1.35;color:var(--ink);margin-top:0}
+.q small{display:block;margin-top:16px;font-size:13px;font-weight:600;color:var(--ink)}
+.q small i{display:block;font-style:normal;font-weight:500;color:var(--muted);margin-top:2px}
+.foot{margin-top:18px;font-size:14px;color:var(--muted)}
+
+/* question */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,56px);align-items:center}
+.checks{list-style:none;margin-top:22px;display:grid;gap:12px}
+.checks li{position:relative;padding-left:32px;font-size:clamp(16px,1.6vw,18px);line-height:1.45;color:var(--ink-2)}
+.checks li::before{content:"";position:absolute;left:0;top:.2em;width:18px;height:18px;border-radius:50%;background:var(--blue-soft);border:2px solid var(--blue)}
+.score{border:1px solid var(--line);border-radius:26px;padding:28px 24px;background:var(--paper-2);text-align:center}
+.score .t{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.score .num{font-size:clamp(72px,10vw,112px);font-weight:700;letter-spacing:-.06em;line-height:1;color:var(--blue);margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.score .say{font-size:16px;font-weight:500;color:var(--ink);min-height:1.5em}
+.picks{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.picks button{flex:1;max-width:64px;min-height:52px;aspect-ratio:1;border-radius:16px;border:1px solid var(--line);background:#fff;font-family:inherit;font-size:20px;font-weight:600;color:var(--ink);cursor:pointer;transition:transform .15s,background .15s}
+.picks button:hover{transform:translateY(-2px)}
+.picks button.sel{background:var(--blue);border-color:var(--blue);color:#fff}
+.ends{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;color:var(--muted)}
+
+/* result */
+.rows{margin-top:28px;display:grid;gap:12px}
+.row{display:grid;grid-template-columns:minmax(150px,290px) 1fr 40px;gap:16px;align-items:center;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:#fff}
+.row.low{border-color:var(--orange);background:var(--orange-soft)}
+.row .n{font-size:17px;font-weight:600;color:var(--ink)}
+.row .track,.row .fill{display:block}
+.row .track{height:12px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.row.low .track{background:#fff}
+.row .fill{height:100%;width:0;border-radius:999px;background:var(--blue);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.row.low .fill{background:var(--orange)}
+.row .v{font-size:20px;font-weight:700;text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+.move{margin-top:20px;padding:24px;border-radius:22px;background:var(--blue-soft)}
+.move .t{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.move h3{margin-top:8px;font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-.02em;line-height:1.25;color:var(--ink)}
+.move p{margin-top:8px;font-size:17px;line-height:1.5;color:var(--body);max-width:720px}
+
+/* ticker */
+.ticker{margin-top:22px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ticker-in{display:flex;gap:12px;width:max-content;animation:tick 38s linear infinite}
+.ticker:hover .ticker-in{animation-play-state:paused}
+.ticker span{flex:none;white-space:nowrap;padding:10px 18px;border-radius:999px;background:var(--paper-2);font-size:15px;font-weight:500;color:var(--ink)}
+.ticker span b{font-weight:600;color:var(--blue);margin-left:8px}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+.again{display:inline-block;margin-top:22px;font-family:inherit;font-size:14px;color:var(--muted);background:none;border:0;text-decoration:underline;cursor:pointer}
+
+@media(prefers-reduced-motion:reduce){.step.on .a{animation:none}.row .fill,.prog-fill{transition:none}.ticker-in{animation:none;flex-wrap:wrap;width:auto}}
+@media(max-width:860px){
+  .g3,.g4,.split{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr 40px}.row .track{grid-column:1/-1;order:3}
+}
+@media(max-width:600px){
+  .start{grid-template-columns:1fr}
+  .navrow .btn{flex:1}
+  .step{min-height:0}
+}
+</style>
+<link rel="stylesheet" href="/assets/site-nav.css?v=20261106"><link rel="stylesheet" href="/assets/site-footer.css?v=20261106">
+</head>
+<body>
+<script src="/assets/site-nav.js?v=20261106"></script>
+
+<main>
+<div class="prog" id="prog" hidden><div class="wrap"><div class="prog-in"><span class="prog-t" id="progT">Step 1 of 7</span><span class="prog-bar"><span class="prog-fill" id="progFill"></span></span></div></div></div>
+
+<!-- start -->
+<section class="step hero" data-step="start"><div class="glow"></div><div class="wrap center">
+  <div class="label a">A free BizColab workshop</div>
+  <h1 class="a" style="--i:1">Map Your Business<br><em>in 3 Minutes.</em></h1>
+  <p class="lead a" style="--i:2">Score your business on three questions and see where your one move is.</p>
+  <form class="start a" style="--i:3" id="startForm" novalidate>
+    <input id="fName" name="n" placeholder="Your name" autocomplete="name" aria-label="Your name" required>
+    <input id="fEmail" name="e" type="email" placeholder="you@company.com" autocomplete="email" aria-label="Your email" required>
+    <div class="err" id="startErr" hidden>Please add your name and a valid email.</div>
+    <button class="btn" type="submit">Start the workshop &rarr;</button>
+  </form>
+  <p class="small a" style="--i:4">Free. About three minutes. Three questions.</p>
+</div></section>
+
+<!-- 1 -->
+<section class="step" data-step="1"><div class="wrap">
+  <div class="label a">Why founders get stuck</div>
+  <h2 class="a" style="--i:1">You already know what the problem is.</h2>
+  <p class="lead a" style="--i:2">More information will not fix it. These three things will.</p>
+  <div class="g3">
+    <div class="card a" style="--i:3"><span class="k">1</span><h3>Time to work on it</h3><p>Running the business and building the business are two different jobs.</p></div>
+    <div class="card a" style="--i:4"><span class="k">2</span><h3>People who push back</h3><p>Your team and your family are too close to tell you the hard part.</p></div>
+    <div class="card a" style="--i:5"><span class="k">3</span><h3>A short deadline</h3><p>Open-ended goals stay open. Four weeks gets things moving.</p></div>
+  </div>
+  <p class="lead a" style="--i:6">Next, you score your business on three questions. Give each one a number from 1 to 5, and be honest.</p>
+  <div class="navrow a" style="--i:7"><button class="btn" data-go="next">Start scoring &rarr;</button></div>
+</div></section>
+
+<!-- 2 -->
+<section class="step" data-step="2"><div class="wrap split">
+  <div>
+    <div class="label a">Question 1 of 3 · How you show up</div>
+    <h2 class="a" style="--i:1">Can a buyer find you?</h2>
+    <ul class="checks">
+      <li class="a" style="--i:2">You show up in search for what you do in your city</li>
+      <li class="a" style="--i:3">Your Google profile is complete and has recent reviews</li>
+      <li class="a" style="--i:4">Your LinkedIn and social profiles are current</li>
+      <li class="a" style="--i:5">ChatGPT, Perplexity and Claude name you when asked who is best</li>
+    </ul>
+    <div class="navrow a" style="--i:6"><button class="btn ghost" data-go="back">&larr; Back</button><button class="btn" data-go="next" data-need="0" disabled>Next &rarr;</button><span class="hint" data-hint="0">Pick a score to continue</span></div>
+  </div>
+  <div class="score a" style="--i:3" data-q="0"></div>
+</div></section>
+
+<!-- 3 -->
+<section class="step" data-step="3"><div class="wrap split">
+  <div>
+    <div class="label a">Question 2 of 3 · Brand and communication</div>
+    <h2 class="a" style="--i:1">Does it all say the same thing?</h2>
+    <ul class="checks">
+      <li class="a" style="--i:2">A stranger can tell what you do and who it is for in 15 seconds</li>
+      <li class="a" style="--i:3">Your logo, type, color and voice match everywhere</li>
+      <li class="a" style="--i:4">Your website, profiles and emails tell the same story</li>
+    </ul>
+    <div class="navrow a" style="--i:5"><button class="btn ghost" data-go="back">&larr; Back</button><button class="btn" data-go="next" data-need="1" disabled>Next &rarr;</button><span class="hint" data-hint="1">Pick a score to continue</span></div>
+  </div>
+  <div class="score a" style="--i:3" data-q="1"></div>
+</div></section>
+
+<!-- 4 -->
+<section class="step" data-step="4"><div class="wrap split">
+  <div>
+    <div class="label a">Question 3 of 3 · Marketing and sales</div>
+    <h2 class="a" style="--i:1">Is the engine built to grow?</h2>
+    <ul class="checks">
+      <li class="a" style="--i:2">Your offer, your price and who it is for are clear</li>
+      <li class="a" style="--i:3">You know where your leads come from</li>
+      <li class="a" style="--i:4">You know what happens after a lead lands</li>
+    </ul>
+    <div class="navrow a" style="--i:5"><button class="btn ghost" data-go="back">&larr; Back</button><button class="btn" data-go="next" data-need="2" disabled>See my result &rarr;</button><span class="hint" data-hint="2">Pick a score to continue</span></div>
+  </div>
+  <div class="score a" style="--i:3" data-q="2"></div>
+</div></section>
+
+<!-- 5 result -->
+<section class="step" data-step="5" data-result="1"><div class="wrap">
+  <div class="label a">Your result</div>
+  <h2 class="a" style="--i:1" id="resH">Your lowest score is where your one move is.</h2>
+  <div class="rows a" style="--i:2" id="rows"></div>
+  <div class="move a" style="--i:3">
+    <div class="t">Your one move this week</div>
+    <h3 id="moveH"></h3>
+    <p id="moveP"></p>
+  </div>
+  <div class="navrow a" style="--i:4"><button class="btn ghost" data-go="back">&larr; Back</button><button class="btn" data-go="next">See what members did &rarr;</button></div>
+</div></section>
+
+<!-- 6 proof -->
+<section class="step" data-step="6"><div class="wrap">
+  <div class="label a">What members got in four weeks</div>
+  <h2 class="a" style="--i:1">Real business. Meaningful impact.</h2>
+  <div class="ticker a" style="--i:2"><div class="ticker-in" id="ticker">
+    <span>“I left with Chapter One of my memoir launched.”<b>Debra M.</b></span>
+    <span>“Break out of the bubble you’re in!”<b>Sudeep D.</b></span>
+    <span>“One of the most useful things I’ve done for my business.”<b>Svetlana</b></span>
+    <span>“The accountability is real.”<b>Debra M.</b></span>
+    <span>“Four weeks is almost too short, you’ll want to stay with the group.”<b>Alex N.</b></span>
+    <span>“A sounding board and an accountability group in one.”<b>Sudeep D.</b></span>
+  </div></div>
+  <div class="g3">
+    <div class="card q a" style="--i:3"><p>“Three weeks in, I had a clearer positioning and three qualified leads.”</p><small>Renee M.<i>Brand strategist</i></small></div>
+    <div class="card q a" style="--i:4"><p>“Four weeks in, I’ve stopped spending on paid ads and I’m building a referral engine.”</p><small>Alex N.<i>Attorney</i></small></div>
+    <div class="card q a" style="--i:5"><p>“Within four weeks I landed a paid consulting engagement.”</p><small>Sudeep D.<i>Founder</i></small></div>
+  </div>
+  <p class="foot a" style="--i:6">Shortened from BizColab’s Google reviews. 5.0 average.</p>
+  <div class="navrow a" style="--i:7"><button class="btn ghost" data-go="back">&larr; Back</button><button class="btn" data-go="next">How a cohort works &rarr;</button></div>
+</div></section>
+
+<!-- 7 cohort -->
+<section class="step" data-step="7"><div class="wrap">
+  <div class="label a">Inside a cohort</div>
+  <h2 class="a" style="--i:1">Four weeks. <em>Four moves.</em></h2>
+  <p class="lead a" style="--i:2">Six founders and one facilitator work on one problem each, 90 minutes a week on Google Meet.</p>
+  <div class="g4">
+    <div class="card a" style="--i:3"><span class="k">Week 1</span><h3>Map</h3><p>Share your business in 10 minutes. The group finds your one highest-leverage move.</p></div>
+    <div class="card a" style="--i:4"><span class="k">Week 2</span><h3>Match</h3><p>Pair up with members whose skills fill your gaps. Help each other ship.</p></div>
+    <div class="card a" style="--i:5"><span class="k">Week 3</span><h3>Move</h3><p>Execution week. Everyone ships the move they committed to in Week 1.</p></div>
+    <div class="card a" style="--i:6"><span class="k">Week 4</span><h3>Measure</h3><p>Review what worked and what comes next. The relationships stay.</p></div>
+  </div>
+  <div class="navrow a" style="--i:7"><button class="btn ghost" data-go="back">&larr; Back</button><button class="btn" data-go="next">My next step &rarr;</button></div>
+</div></section>
+
+<!-- end -->
+<section class="step hero" data-step="8"><div class="glow"></div><div class="wrap center">
+  <div class="label a">Your next step</div>
+  <h2 class="a" style="--i:1" id="endH">Get a free one-page snapshot<br>of your business.</h2>
+  <p class="lead a" style="--i:2">You just scored yourself. Now get our read on the same three questions, with the one move that matters most.</p>
+  <div class="navrow a" style="--i:3"><button class="btn" id="snapBtn">Send me my free snapshot &rarr;</button><a class="btn ghost" href="/#cohort">See the cohort</a></div>
+  <p class="small a" style="--i:4" id="endSmall">One click. We use the name and email you gave at the start.</p>
+  <button class="again a" style="--i:5" id="again">Start over</button>
+</div></section>
+</main>
+
+<script src="/assets/site-footer.js?v=20261106"></script>
+
+<script>
+(function(){
+  var EP='https://script.google.com/macros/s/AKfycbyevtVR-NIWvmwOuVxNqf04gVJs6hRGaXMPPxlKZzNFMOndRRkEBKca3im8hBu8Y9uwqA/exec';
+  var KEY='bc_workshop_v1';
+  var QS=['Can a buyer find you?','Does it all say the same thing?','Is the engine built to grow?'];
+  var SAY=['','Not at all','Rarely','Sometimes','Most of the time','Yes, every time'];
+  var MOVES=[
+    ['Search for your business the way a buyer would.','Type what you do and your city into Google and one AI assistant. Write down where you show up, then fix the first gap you see.'],
+    ['Run the 15-second test.','Ask one person outside your industry to read your homepage for 15 seconds, then tell you what you do and who it is for. Fix whatever they get wrong.'],
+    ['Find out where your clients come from.','List where your last five clients came from. Put this week into the one source that shows up most.']
+  ];
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  var LAST=steps.length-1;
+  var $=function(id){return document.getElementById(id)};
+  var st={i:0,n:'',e:'',s:[0,0,0]};
+  try{var saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&saved.e&&saved.s&&saved.s.length===3)st=saved}catch(x){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(x){}}
+  var local=/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  function send(kind,extra,done){
+    var p={google_key:'bizcolab-leads-2026',lead_id:'web-'+kind+'-'+Date.now(),is_test:false,user_column_data:[{column_id:'FULL_NAME',string_value:st.n},{column_id:'EMAIL',string_value:st.e}].concat(extra||[])};
+    var fin=false,go=function(){if(!fin){fin=true;if(done)done()}};
+    if(local){go();return}
+    try{fetch(EP,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(p)}).then(go,go)}catch(x){go()}
+    setTimeout(go,2500);
+  }
+
+  /* score pickers */
+  function paint(box){
+    var q=+box.dataset.q,v=st.s[q];
+    box.querySelector('.num').textContent=v||'–';
+    box.querySelector('.say').textContent=v?SAY[v]:'Pick a number';
+    box.querySelectorAll('button').forEach(function(b){b.classList.toggle('sel',+b.dataset.n===v)});
+    var nx=document.querySelector('[data-need="'+q+'"]'),h=document.querySelector('[data-hint="'+q+'"]');
+    if(nx)nx.disabled=!v;if(h)h.hidden=!!v;
+  }
+  document.querySelectorAll('.score').forEach(function(box){
+    box.innerHTML='<div class="t">Your score</div><div class="num">–</div><div class="say">Pick a number</div><div class="picks">'+
+      [1,2,3,4,5].map(function(n){return '<button type="button" data-n="'+n+'" aria-label="Score '+n+'">'+n+'</button>'}).join('')+
+      '</div><div class="ends"><span>Not at all</span><span>Yes, every time</span></div>';
+    box.addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b)return;
+      st.s[+box.dataset.q]=+b.dataset.n;save();paint(box);
+    });
+    paint(box);
+  });
+
+  function result(){
+    var low=Math.min.apply(null,st.s),k=st.s.indexOf(low);
+    $('rows').innerHTML=QS.map(function(q,j){
+      return '<div class="row'+(j===k?' low':'')+'"><span class="n">'+q+'</span><span class="track"><span class="fill" data-w="'+(st.s[j]*20)+'"></span></span><span class="v">'+st.s[j]+'</span></div>';
+    }).join('');
+    $('moveH').textContent=MOVES[k][0];
+    $('moveP').textContent=MOVES[k][1];
+    setTimeout(function(){document.querySelectorAll('#rows .fill').forEach(function(f){f.style.width=f.dataset.w+'%'})},200);
+  }
+
+  function show(n,quiet){
+    /* never land past an unanswered question */
+    if(n>0&&!st.e)n=0;
+    for(var q=0;q<3;q++){if(n>q+2&&!st.s[q]){n=q+2;break}}
+    st.i=Math.max(0,Math.min(LAST,n));save();
+    steps.forEach(function(s,k){s.classList.toggle('on',k===st.i)});
+    $('prog').hidden=st.i===0;
+    $('progT').textContent='Step '+st.i+' of '+LAST;
+    $('progFill').style.width=(st.i/LAST*100)+'%';
+    if(steps[st.i].dataset.result)result();
+    if(!quiet)window.scrollTo(0,0);
+  }
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-go]');if(!b||b.disabled)return;
+    show(st.i+(b.dataset.go==='next'?1:-1));
+  });
+
+  /* start: name and email first */
+  $('startForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=$('fName').value.trim(),m=$('fEmail').value.trim(),okN=!!n,okM=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m);
+    $('fName').setAttribute('aria-invalid',!okN);$('fEmail').setAttribute('aria-invalid',!okM);
+    $('startErr').hidden=okN&&okM;
+    if(!okN||!okM)return;
+    st.n=n;st.e=m;save();
+    send('workshop');
+    show(1);
+  });
+
+  /* end: one click, no retyping */
+  $('snapBtn').addEventListener('click',function(){
+    var b=this;b.disabled=true;b.textContent='Sending…';
+    send('audit',[{column_id:'WORKSHOP_SCORES',string_value:'Find '+st.s[0]+', Message '+st.s[1]+', Engine '+st.s[2]}],function(){
+      location.href='/thanks/?src=audit&n='+encodeURIComponent(st.n.split(' ')[0]);
+    });
+  });
+  $('again').addEventListener('click',function(){
+    st={i:0,n:'',e:'',s:[0,0,0]};save();
+    $('fName').value='';$('fEmail').value='';
+    document.querySelectorAll('.score').forEach(paint);
+    show(0);
+  });
+
+  var tk=$('ticker');tk.innerHTML+=tk.innerHTML;
+
+  /* no-widows pass: bind the last two words of every text block so no line holds a single word */
+  document.querySelectorAll('h1,h2,h3,p,li').forEach(function(el){
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),lastN=null,n;
+    while(n=w.nextNode()){if(n.nodeValue.trim())lastN=n}
+    if(!lastN)return;
+    var t=lastN.nodeValue,m=t.match(/(\S+)\s+(\S+\s*)$/);
+    if(!m)return;
+    var cut=t.length-m[0].length,span=document.createElement('span');
+    span.className='nw';span.textContent=m[0];
+    lastN.nodeValue=t.slice(0,cut);
+    lastN.parentNode.insertBefore(span,lastN.nextSibling);
+  });
+
+  show(st.i,true);
+})();
+</script>
+<script src="/assets/scroll-progress.js" defer></script>
+</body>
+</html>

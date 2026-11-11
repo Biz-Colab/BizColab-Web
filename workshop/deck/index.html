@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Map Your Business in 30 Minutes | BizColab</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--ink-2:#1d1d1f;--muted:#6e6e73;--line:#e6e9ef;--paper:#fff;--paper-2:#f5f5f7;--blue:#0a57ff;--blue-soft:#eaf1ff;--orange:#ff8c1a;--orange-soft:#fff3e4;--body:rgba(29,29,31,.74)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light}
+html,body{height:100%}
+body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:var(--ink-2);background:var(--paper);-webkit-font-smoothing:antialiased;letter-spacing:-.011em;overflow:hidden}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
+.nw{white-space:nowrap}
+em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--blue)}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:50;height:50px;display:flex;align-items:center;gap:16px;padding:0 20px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font-size:18px;font-weight:600;letter-spacing:-.04em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--blue)}
+.seg{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink);min-width:0}
+.seg .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.seg small{font-weight:500;color:var(--muted);white-space:nowrap}
+.seg b{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.clock{white-space:nowrap;font-variant-numeric:tabular-nums;font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--paper-2);color:var(--ink);border:0;cursor:pointer;font-family:inherit}
+.clock.over{background:var(--orange);color:#fff}
+.tbtn{font-family:inherit;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.tbtn:hover{background:var(--paper-2)}
+.count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{position:fixed;top:50px;left:0;height:3px;background:var(--orange);z-index:51;transition:width .35s ease;width:0}
+
+/* stage */
+.stage{position:relative;height:calc(100% - 50px)}
+.slide{position:absolute;inset:0;display:none;overflow-y:auto;padding:clamp(24px,5vh,56px) clamp(16px,6vw,96px)}
+.slide.on{display:flex}
+.slide.alt{background:var(--paper-2)}
+.in{margin:auto;width:100%;max-width:1120px}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
+.label{font-size:clamp(11px,1.1vw,13px);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:clamp(12px,2vh,20px)}
+h1{font-size:clamp(40px,7.4vw,104px);font-weight:700;letter-spacing:-.05em;line-height:1;color:var(--ink)}
+h2{font-size:clamp(30px,4.8vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1.04;color:var(--ink)}
+.lead{margin-top:clamp(14px,2.4vh,24px);font-size:clamp(17px,1.9vw,25px);line-height:1.5;color:var(--body);max-width:820px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(20px,4vh,36px)}
+.center .chips{justify-content:center}
+.chip{font-size:clamp(13px,1.2vw,16px);font-weight:500;padding:8px 16px;border-radius:999px;background:var(--paper-2);color:var(--ink-2)}
+.alt .chip{background:#fff}
+.glow{position:absolute;top:-30vh;left:50%;transform:translateX(-50%);width:90vh;height:90vh;border-radius:50%;background:radial-gradient(closest-side,#d6e6ff 0%,#ffe9cf 45%,transparent 72%);opacity:.85;pointer-events:none}
+.slide>.in{position:relative}
+
+/* grids and cards */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px);margin-top:clamp(22px,4vh,40px)}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,18px);margin-top:clamp(22px,4vh,40px)}
+.card{border:1px solid var(--line);border-radius:22px;padding:clamp(18px,2vw,28px);background:#fff}
+.card h3{font-size:clamp(18px,1.8vw,24px);font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.card p{margin-top:8px;font-size:clamp(15px,1.3vw,18px);line-height:1.5;color:var(--body)}
+.card .k{display:block;font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(30px,3.2vw,46px);line-height:1;color:var(--orange);margin-bottom:12px}
+.card .t{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.big{font-size:clamp(44px,6vw,84px);font-weight:700;letter-spacing:-.05em;line-height:1;color:var(--blue);display:block}
+.q p{font-size:clamp(18px,1.7vw,24px);font-weight:500;letter-spacing:-.02em;line-height:1.35;color:var(--ink);margin-top:0}
+.ticker{margin-top:clamp(16px,3vh,26px);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ticker-in{display:flex;gap:12px;width:max-content;animation:tick 38s linear infinite}
+.ticker:hover .ticker-in{animation-play-state:paused}
+.ticker span{flex:none;white-space:nowrap;padding:10px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:clamp(14px,1.3vw,18px);font-weight:500;color:var(--ink)}
+.ticker span b{font-weight:600;color:var(--blue);margin-left:8px}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-in{animation:none;flex-wrap:wrap;width:auto}}
+.q small{display:block;margin-top:16px;font-size:13px;font-weight:600;color:var(--ink)}
+.q small i{display:block;font-style:normal;font-weight:500;color:var(--muted);margin-top:2px}
+.foot{margin-top:clamp(16px,3vh,28px);font-size:clamp(13px,1.2vw,16px);color:var(--muted)}
+
+/* checklist + score */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,64px);align-items:center}
+.checks{list-style:none;margin-top:clamp(16px,3vh,28px);display:grid;gap:12px}
+.checks li{position:relative;padding-left:34px;font-size:clamp(16px,1.6vw,21px);line-height:1.4;color:var(--ink-2)}
+.checks li::before{content:"";position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:var(--blue-soft);border:2px solid var(--blue)}
+.score{border:1px solid var(--line);border-radius:26px;padding:clamp(20px,2.6vw,36px);background:#fff;text-align:center}
+.score .t{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.score .num{font-size:clamp(72px,10vw,140px);font-weight:700;letter-spacing:-.06em;line-height:1;color:var(--blue);margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.score .say{font-size:clamp(15px,1.4vw,18px);font-weight:500;color:var(--ink);min-height:1.5em}
+.picks{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.picks button{flex:1;max-width:64px;aspect-ratio:1;border-radius:16px;border:1px solid var(--line);background:var(--paper-2);font-family:inherit;font-size:clamp(17px,1.6vw,22px);font-weight:600;color:var(--ink);cursor:pointer;transition:transform .15s,background .15s}
+.picks button:hover{transform:translateY(-2px)}
+.picks button.sel{background:var(--blue);border-color:var(--blue);color:#fff}
+.ends{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;color:var(--muted)}
+
+/* snapshot bars */
+.rows{margin-top:clamp(22px,4vh,40px);display:grid;gap:14px}
+.row{display:grid;grid-template-columns:minmax(150px,300px) 1fr 44px;gap:16px;align-items:center;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:#fff}
+.row.low{border-color:var(--orange);background:var(--orange-soft)}
+.row .n{font-size:clamp(15px,1.5vw,20px);font-weight:600;color:var(--ink)}
+.row .track,.row .fill{display:block}
+.row .track{height:14px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.row.low .track{background:#fff}
+.row .fill{height:100%;width:0;border-radius:999px;background:var(--blue);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.row.low .fill{background:var(--orange)}
+.row .v{font-size:clamp(18px,1.8vw,24px);font-weight:700;text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+.move{margin-top:clamp(18px,3vh,30px);padding:clamp(18px,2.2vw,28px);border-radius:22px;background:var(--blue-soft)}
+.move .t{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.move p{margin-top:8px;font-size:clamp(19px,2.2vw,30px);font-weight:600;letter-spacing:-.02em;line-height:1.3;color:var(--ink)}
+
+/* hot seat timer */
+.hs{display:flex;align-items:center;gap:16px;margin-top:clamp(20px,3.5vh,34px);flex-wrap:wrap}
+.hs .time{font-size:clamp(40px,5vw,72px);font-weight:700;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ink);line-height:1}
+.hs .time.done{color:var(--orange)}
+.btn{font-family:inherit;display:inline-block;padding:14px 26px;border-radius:999px;background:var(--orange);color:#fff;font-weight:600;font-size:clamp(15px,1.4vw,18px);text-decoration:none;border:0;cursor:pointer}
+.btn:hover{background:#ef7a05}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.url{display:inline-block;margin-top:clamp(20px,4vh,36px);font-size:clamp(26px,4.4vw,60px);font-weight:700;letter-spacing:-.04em;color:var(--blue);text-decoration:none}
+
+/* notes */
+.notes{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper-2);border-top:1px solid var(--line);padding:14px 20px 16px;display:none;max-height:32vh;overflow:auto}
+.notes.open{display:block}
+.notes .t{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.notes p{margin-top:6px;font-size:15px;line-height:1.5;color:var(--ink-2);max-width:900px}
+.navz{position:fixed;bottom:16px;right:16px;z-index:45;display:flex;gap:8px}
+.navz button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:18px;color:var(--ink);cursor:pointer;box-shadow:0 4px 14px rgba(10,10,10,.08)}
+.navz button:hover{background:var(--paper-2)}
+
+/* entrance animation */
+.slide.on .a{animation:up .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*90ms)}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.slide.on .a{animation:none}.row .fill,.bar{transition:none}}
+
+@media(max-width:860px){
+  .g3,.g4,.split{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr 44px}.row .track{grid-column:1/-1;order:3}
+  .seg small,.tbtn{display:none}
+  .topbar{gap:10px;padding:0 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="logo" href="/">BizColab<span>.</span></a>
+  <div class="seg"><span class="dot"></span><b id="segName">Welcome</b><small id="segTime">0–3 min</small></div>
+  <div class="tb-right">
+    <span class="count" id="count">1 / 14</span>
+    <button class="clock" id="clock" title="Start or pause the clock (T). Double-click to reset.">Start 30:00</button>
+    <button class="tbtn" id="notesBtn" title="Speaker notes (N)">Notes</button>
+    <button class="tbtn" id="fsBtn" title="Full screen (F)">Full screen</button>
+  </div>
+</div>
+<div class="bar" id="bar"></div>
+
+<main class="stage" id="stage">
+
+<!-- 1 -->
+<section class="slide" data-seg="0" data-notes="Start the clock when you begin talking. Say the promise out loud: everyone leaves with a score on three parts of their business and one move for this week. Clip slot: a 20-second animated opener can play here before you speak.">
+  <div class="glow"></div>
+  <div class="in center">
+    <div class="label a">A free BizColab workshop</div>
+    <h1 class="a" style="--i:1">Map Your Business<br><em>in 30 Minutes.</em></h1>
+    <p class="lead a" style="--i:2">You leave with a score on three parts of your business and one move to make this week.</p>
+    <div class="chips a" style="--i:3"><span class="chip">30 minutes</span><span class="chip">Free</span><span class="chip">Bring a pen</span></div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide alt" data-seg="0" data-notes="Keep this to 30 seconds. The point is that they will be working, not watching.">
+  <div class="in">
+    <div class="label a">The plan</div>
+    <h2 class="a" style="--i:1">Here is what we will do.</h2>
+    <div class="g4">
+      <div class="card a" style="--i:2"><span class="t">10 minutes</span><h3>Score your business</h3><p>Three questions. One number each.</p></div>
+      <div class="card a" style="--i:3"><span class="t">6 minutes</span><h3>Hot seat</h3><p>One founder, one problem, the whole room helps.</p></div>
+      <div class="card a" style="--i:4"><span class="t">4 minutes</span><h3>How a cohort works</h3><p>What four weeks with six founders looks like.</p></div>
+      <div class="card a" style="--i:5"><span class="t">3 minutes</span><h3>Your next step</h3><p>A free one-page snapshot of your business.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide" data-seg="0" data-notes="One minute. Your background, then why you started BizColab. End with the line: empowering entrepreneurs through collaboration.">
+  <div class="in">
+    <div class="label a">Your host</div>
+    <h2 class="a" style="--i:1">Hi, I’m Michael.</h2>
+    <p class="lead a" style="--i:2">I spent 17 years running a marketing and branding company and worked with close to a thousand clients.</p>
+    <p class="lead a" style="--i:3">Now I run BizColab, a community of founders who work on each other’s businesses in small groups.</p>
+    <div class="chips a" style="--i:4"><span class="chip">Empowering entrepreneurs through collaboration</span></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide alt" data-seg="1" data-notes="Four minutes. Ask the room: which of these three is you right now? Get two or three people to answer out loud or in the chat. This warms them up for the hot seat.">
+  <div class="in">
+    <div class="label a">Why founders get stuck</div>
+    <h2 class="a" style="--i:1">You already know what the problem is.</h2>
+    <p class="lead a" style="--i:2">More information will not fix it. These three things will.</p>
+    <div class="g3">
+      <div class="card a" style="--i:3"><span class="k">1</span><h3>Time to work on it</h3><p>Running the business and building the business are two different jobs.</p></div>
+      <div class="card a" style="--i:4"><span class="k">2</span><h3>People who push back</h3><p>Your team and your family are too close to tell you the hard part.</p></div>
+      <div class="card a" style="--i:5"><span class="k">3</span><h3>A short deadline</h3><p>Open-ended goals stay open. Four weeks gets things moving.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="slide" data-seg="2" data-notes="Set the rules: 1 means not at all, 5 means yes, every time. Nobody sees their numbers. Tell them to write the three scores on paper. You click the score on screen only as an example, or take a quick show of hands.">
+  <div class="glow"></div>
+  <div class="in center">
+    <div class="label a">Your turn</div>
+    <h2 class="a" style="--i:1">Score your business<br>on three questions.</h2>
+    <p class="lead a" style="--i:2">Give each one a number from 1 to 5. Be honest. Nobody sees your numbers.</p>
+    <div class="chips a" style="--i:3"><span class="chip">1 = not at all</span><span class="chip">5 = yes, every time</span></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide alt" data-seg="2" data-notes="Three minutes. Read each check, pause, then ask for the number. Good prompt: when did you last search for your own business the way a buyer would?">
+  <div class="in split">
+    <div>
+      <div class="label a">Question 1 · How you show up</div>
+      <h2 class="a" style="--i:1">Can a buyer find you?</h2>
+      <ul class="checks">
+        <li class="a" style="--i:2">You show up in search for what you do in your city</li>
+        <li class="a" style="--i:3">Your Google profile is complete and has recent reviews</li>
+        <li class="a" style="--i:4">Your LinkedIn and social profiles are current</li>
+        <li class="a" style="--i:5">ChatGPT, Perplexity and Claude name you when asked who is best</li>
+      </ul>
+    </div>
+    <div class="score a" style="--i:3" data-q="0"></div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide alt" data-seg="2" data-notes="Three minutes. The 15-second test works well live: ask one person to say what they do and who it is for, and time it.">
+  <div class="in split">
+    <div>
+      <div class="label a">Question 2 · Brand and communication</div>
+      <h2 class="a" style="--i:1">Does it all say the same thing?</h2>
+      <ul class="checks">
+        <li class="a" style="--i:2">A stranger can tell what you do and who it is for in 15 seconds</li>
+        <li class="a" style="--i:3">Your logo, type, color and voice match everywhere</li>
+        <li class="a" style="--i:4">Your website, profiles and emails tell the same story</li>
+      </ul>
+    </div>
+    <div class="score a" style="--i:3" data-q="1"></div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="slide alt" data-seg="2" data-notes="Three minutes. Ask: where did your last three clients come from? If they cannot answer, that is the score.">
+  <div class="in split">
+    <div>
+      <div class="label a">Question 3 · Marketing and sales</div>
+      <h2 class="a" style="--i:1">Is the engine built to grow?</h2>
+      <ul class="checks">
+        <li class="a" style="--i:2">Your offer, your price and who it is for are clear</li>
+        <li class="a" style="--i:3">You know where your leads come from</li>
+        <li class="a" style="--i:4">You know what happens after a lead lands</li>
+      </ul>
+    </div>
+    <div class="score a" style="--i:3" data-q="2"></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide" data-seg="2" data-snap="1" data-notes="One minute. Tell them to circle their lowest number, then fill in the sentence on paper. Ask who wants to share theirs. That person is your hot seat.">
+  <div class="in">
+    <div class="label a">Your snapshot</div>
+    <h2 class="a" style="--i:1">Your lowest score is where your one move is.</h2>
+    <div class="rows a" style="--i:2" id="rows"></div>
+    <div class="move a" style="--i:3">
+      <div class="t">Write this down</div>
+      <p>This week I will find out if ______ by doing ______.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide alt" data-seg="3" data-notes="Six minutes total. Pick the volunteer before you start the timer. Hold the room to questions first, advice second. End by having the volunteer say their one move out loud.">
+  <div class="in">
+    <div class="label a">Hot seat</div>
+    <h2 class="a" style="--i:1">One founder. One problem. The whole room.</h2>
+    <div class="g3">
+      <div class="card a" style="--i:2"><span class="t">1 minute</span><h3>Say the problem</h3><p>The real one, in plain words.</p></div>
+      <div class="card a" style="--i:3"><span class="t">3 minutes</span><h3>The room asks questions</h3><p>Questions first. Advice comes after.</p></div>
+      <div class="card a" style="--i:4"><span class="t">2 minutes</span><h3>One move this week</h3><p>The founder picks it and says it out loud.</p></div>
+    </div>
+    <div class="hs a" style="--i:5">
+      <span class="time" id="hsTime">6:00</span>
+      <button class="btn" id="hsBtn">Start the hot seat</button>
+      <button class="btn ghost" id="hsReset">Reset</button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-seg="4" data-notes="Bridge line: what you just watched is a cohort session in six minutes. Clip slot: the Map, Match, Move, Measure sequence can be an animated clip here.">
+  <div class="in">
+    <div class="label a">Inside a cohort</div>
+    <h2 class="a" style="--i:1">Four weeks. <em>Four moves.</em></h2>
+    <p class="lead a" style="--i:2">That hot seat was a cohort session in six minutes. Here is the full version.</p>
+    <div class="g4">
+      <div class="card a" style="--i:3"><span class="k">Week 1</span><h3>Map</h3><p>Share your business in 10 minutes. The group finds your one highest-leverage move.</p></div>
+      <div class="card a" style="--i:5"><span class="k">Week 2</span><h3>Match</h3><p>Pair up with members whose skills fill your gaps. Help each other ship.</p></div>
+      <div class="card a" style="--i:7"><span class="k">Week 3</span><h3>Move</h3><p>Execution week. Everyone ships the move they committed to in Week 1.</p></div>
+      <div class="card a" style="--i:9"><span class="k">Week 4</span><h3>Measure</h3><p>Review what worked and what comes next. The relationships stay.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide alt" data-seg="4" data-notes="These are shortened from Google reviews, the same short versions the homepage uses. Read one out loud, not all three. Clip slot: a member-results reel can replace this slide once members approve it.">
+  <div class="in">
+    <div class="label a">What members got in four weeks</div>
+    <h2 class="a" style="--i:1">Real business. Meaningful impact.</h2>
+    <div class="ticker a" style="--i:2"><div class="ticker-in" id="ticker">
+      <span>“I left with Chapter One of my memoir launched.”<b>Debra M.</b></span>
+      <span>“Break out of the bubble you’re in!”<b>Sudeep D.</b></span>
+      <span>“One of the most useful things I’ve done for my business.”<b>Svetlana</b></span>
+      <span>“The accountability is real.”<b>Debra M.</b></span>
+      <span>“Four weeks is almost too short, you’ll want to stay with the group.”<b>Alex N.</b></span>
+      <span>“A sounding board and an accountability group in one.”<b>Sudeep D.</b></span>
+    </div></div>
+    <div class="g3">
+      <div class="card q a" style="--i:3"><p>“Three weeks in, I had a clearer positioning and three qualified leads.”</p><small>Renee M.<i>Brand strategist</i></small></div>
+      <div class="card q a" style="--i:4"><p>“Four weeks in, I’ve stopped spending on paid ads and I’m building a referral engine.”</p><small>Alex N.<i>Attorney</i></small></div>
+      <div class="card q a" style="--i:5"><p>“Within four weeks I landed a paid consulting engagement.”</p><small>Sudeep D.<i>Founder</i></small></div>
+    </div>
+    <p class="foot a" style="--i:6">Shortened from BizColab’s Google reviews. 5.0 average.</p>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide" data-seg="4" data-notes="Thirty seconds. Say the next cohort start date here once it is set.">
+  <div class="in">
+    <div class="label a">The room</div>
+    <h2 class="a" style="--i:1">Small on purpose.</h2>
+    <div class="g3">
+      <div class="card a" style="--i:2"><span class="big">6 + 1</span><h3>Six founders, one facilitator</h3><p>Small enough that everyone gets real time on their business.</p></div>
+      <div class="card a" style="--i:3"><span class="big">90</span><h3>Minutes a week</h3><p>One session a week on Google Meet, Mondays or Wednesdays.</p></div>
+      <div class="card a" style="--i:4"><span class="big">4</span><h3>Weeks</h3><p>Long enough to do something real. Short enough that you cannot put it off.</p></div>
+    </div>
+    <p class="foot a" style="--i:5">When your cohort ends, you stay in the community with founders from every cohort.</p>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-seg="5" data-notes="One ask only. Leave this slide up while you take questions. A QR code for this link still needs to be added.">
+  <div class="glow"></div>
+  <div class="in center">
+    <div class="label a">Your next step</div>
+    <h2 class="a" style="--i:1">Get a free one-page snapshot<br>of your business.</h2>
+    <p class="lead a" style="--i:2">You just scored yourself. Now get our read on the same three questions, with the one move that matters most.</p>
+    <a class="url a" style="--i:3" href="/free-audit/">bizcolab.com/free-audit</a>
+    <div class="chips a" style="--i:4"><span class="chip">Free</span><span class="chip">Three minutes to fill out</span><span class="chip">One page back</span></div>
+  </div>
+</section>
+
+</main>
+
+<div class="notes" id="notes"><div class="t">Speaker notes</div><p id="notesText"></p></div>
+<div class="navz"><button id="prev" aria-label="Previous slide">←</button><button id="next" aria-label="Next slide">→</button></div>
+
+<script>
+(function(){
+  var SEGS=[['Welcome',0,3],['Why founders get stuck',3,7],['Score your business',7,17],['Hot seat',17,23],['What members get',23,27],['Your next step',27,30]];
+  var QS=['Can a buyer find you?','Does it all say the same thing?','Is the engine built to grow?'];
+  var SAY=['','Not at all','Rarely','Sometimes','Most of the time','Yes, every time'];
+  var slides=[].slice.call(document.querySelectorAll('.slide')),i=0,scores=[0,0,0];
+  var $=function(id){return document.getElementById(id)};
+
+  /* score pickers */
+  document.querySelectorAll('.score').forEach(function(box){
+    var q=+box.dataset.q;
+    box.innerHTML='<div class="t">Your score</div><div class="num">–</div><div class="say">Pick a number</div><div class="picks">'+
+      [1,2,3,4,5].map(function(n){return '<button data-n="'+n+'" aria-label="Score '+n+'">'+n+'</button>'}).join('')+
+      '</div><div class="ends"><span>Not at all</span><span>Yes, every time</span></div>';
+    box.addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b)return;
+      scores[q]=+b.dataset.n;
+      box.querySelector('.num').textContent=scores[q];
+      box.querySelector('.say').textContent=SAY[scores[q]];
+      box.querySelectorAll('button').forEach(function(x){x.classList.toggle('sel',x===b)});
+    });
+  });
+
+  function snapshot(){
+    var set=scores.filter(Boolean),low=set.length?Math.min.apply(null,set):0,marked=false;
+    $('rows').innerHTML=QS.map(function(q,k){
+      var isLow=scores[k]&&scores[k]===low&&!marked;if(isLow)marked=true;
+      return '<div class="row'+(isLow?' low':'')+'"><span class="n">'+q+'</span><span class="track"><span class="fill" data-w="'+(scores[k]*20)+'"></span></span><span class="v">'+(scores[k]||'–')+'</span></div>';
+    }).join('');
+    setTimeout(function(){document.querySelectorAll('#rows .fill').forEach(function(f){f.style.width=f.dataset.w+'%'})},250);
+  }
+
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    var s=slides[i],seg=SEGS[+s.dataset.seg];
+    $('segName').textContent=seg[0];
+    $('segTime').textContent=seg[1]+'–'+seg[2]+' min';
+    $('count').textContent=(i+1)+' / '+slides.length;
+    $('bar').style.width=((i+1)/slides.length*100)+'%';
+    $('notesText').textContent=s.dataset.notes||'';
+    if(s.dataset.snap)snapshot();
+    tick();
+  }
+
+  /* 30-minute clock */
+  var run=false,elapsed=0,last=0;
+  function fmt(sec){sec=Math.max(0,Math.round(sec));return Math.floor(sec/60)+':'+('0'+sec%60).slice(-2)}
+  function tick(){
+    var c=$('clock'),seg=SEGS[+slides[i].dataset.seg];
+    if(!run&&!elapsed){c.textContent='Start 30:00';c.classList.remove('over');return}
+    c.textContent=fmt(elapsed)+' / 30:00';
+    c.classList.toggle('over',elapsed>seg[2]*60);
+  }
+  setInterval(function(){
+    var now=Date.now();
+    if(run){elapsed+=(now-last)/1000}
+    if(hsRun){hsLeft-=(now-last)/1000;if(hsLeft<=0){hsLeft=0;hsRun=false}hsDraw()}
+    last=now;tick();
+  },250);
+  function toggleClock(){run=!run;last=Date.now();tick()}
+  $('clock').addEventListener('click',toggleClock);
+  $('clock').addEventListener('dblclick',function(){run=false;elapsed=0;tick()});
+
+  /* hot seat countdown */
+  var hsRun=false,hsLeft=360;
+  function hsDraw(){
+    $('hsTime').textContent=fmt(hsLeft);
+    $('hsTime').classList.toggle('done',hsLeft===0);
+    $('hsBtn').textContent=hsRun?'Pause':(hsLeft===0?'Time is up':(hsLeft<360?'Resume':'Start the hot seat'));
+  }
+  $('hsBtn').addEventListener('click',function(){if(hsLeft>0){hsRun=!hsRun;last=Date.now();hsDraw()}});
+  $('hsReset').addEventListener('click',function(){hsRun=false;hsLeft=360;hsDraw()});
+
+  /* navigation */
+  $('next').addEventListener('click',function(){show(i+1)});
+  $('prev').addEventListener('click',function(){show(i-1)});
+  function notes(){$('notes').classList.toggle('open')}
+  function full(){if(document.fullscreenElement)document.exitFullscreen();else if(document.documentElement.requestFullscreen)document.documentElement.requestFullscreen()}
+  $('notesBtn').addEventListener('click',notes);
+  $('fsBtn').addEventListener('click',full);
+  document.addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||k===' '){e.preventDefault();show(i+1)}
+    else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();show(i-1)}
+    else if(k==='Home')show(0);
+    else if(k==='End')show(slides.length-1);
+    else if(k==='n'||k==='N')notes();
+    else if(k==='f'||k==='F')full();
+    else if(k==='t'||k==='T')toggleClock();
+    else if(/^[1-5]$/.test(k)){var b=slides[i].querySelector('.picks button[data-n="'+k+'"]');if(b)b.click()}
+  });
+  var tx=null;
+  $('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+  $('stage').addEventListener('touchend',function(e){
+    if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;
+    if(Math.abs(d)>60)show(i+(d<0?1:-1));
+  },{passive:true});
+
+  /* no-widows pass: bind the last two words of every text block so no line holds a single word */
+  document.querySelectorAll('h1,h2,h3,p,li').forEach(function(el){
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),lastN=null,n;
+    while(n=w.nextNode()){if(n.nodeValue.trim())lastN=n}
+    if(!lastN)return;
+    var t=lastN.nodeValue,m=t.match(/(\S+)\s+(\S+\s*)$/);
+    if(!m)return;
+    var cut=t.length-m[0].length,span=document.createElement('span');
+    span.className='nw';span.textContent=m[0];
+    lastN.nodeValue=t.slice(0,cut);
+    lastN.parentNode.insertBefore(span,lastN.nextSibling);
+  });
+
+  var tk=$('ticker');tk.innerHTML+=tk.innerHTML;
+
+  show(0);
+})();
+</script>
+</body>
+</html>
