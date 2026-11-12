@@ -133,6 +133,7 @@ h2{font-size:clamp(30px,4.6vw,52px);font-weight:700;letter-spacing:-.045em;line-
 @media(max-width:600px){
   .start{grid-template-columns:1fr}
   .navrow .btn{flex:1}
+  .navrow.end .btn{flex:1 1 100%;white-space:nowrap}
   .step{min-height:0}
 }
 </style>
@@ -271,7 +272,7 @@ h2{font-size:clamp(30px,4.6vw,52px);font-weight:700;letter-spacing:-.045em;line-
   <div class="label a">Your next step</div>
   <h2 class="a" style="--i:1" id="endH">Get a free one-page snapshot<br>of your business.</h2>
   <p class="lead a" style="--i:2">You just scored yourself. Now get our read on the same three questions, with the one move that matters most.</p>
-  <div class="navrow a" style="--i:3"><button class="btn" id="snapBtn">Send me my free snapshot &rarr;</button><a class="btn ghost" href="/#cohort">See the cohort</a></div>
+  <div class="navrow end a" style="--i:3"><button class="btn" id="snapBtn">Send me my free snapshot &rarr;</button><a class="btn ghost" id="bookBtn" href="https://calendar.app.google/U7KZjhPkYHz8b4JN9" target="_blank" rel="noopener">Book a 15-minute call &rarr;</a></div>
   <p class="small a" style="--i:4" id="endSmall">One click. We use the name and email you gave at the start.</p>
   <button class="again a" style="--i:5" id="again">Start over</button>
 </div></section>
@@ -379,6 +380,7 @@ h2{font-size:clamp(30px,4.6vw,52px);font-weight:700;letter-spacing:-.045em;line-
       location.href='/thanks/?src=audit&n='+encodeURIComponent(st.n.split(' ')[0]);
     });
   });
+  $('bookBtn').addEventListener('click',function(){track('workshop_book_call')});
   $('again').addEventListener('click',function(){
     st={i:0,n:'',e:'',s:[0,0,0]};save();
     $('fName').value='';$('fEmail').value='';
