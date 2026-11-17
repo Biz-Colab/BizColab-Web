@@ -207,6 +207,10 @@ form .btn{grid-column:1/-1}
     ].concat(extra)};
     var fin=false,go=function(){if(!fin){fin=true;if(cb)cb()}};
     if(local){go();return;}
+    /* also email the lead to Michael (FormSubmit) */
+    try{var m={_subject:'Toastmasters lead: '+st.fn+' '+st.ln+(idp.indexOf('-s1-')>-1?' (page 1)':' (answers)'),_template:'table',_captcha:'false',Name:st.fn+' '+st.ln,Email:st.em};
+      extra.forEach(function(x){m[x.column_id]=x.string_value});
+      fetch('https://formsubmit.co/ajax/michael@bizcolab.com',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(m)});}catch(x){}
     try{fetch(EP,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify(p)}).then(go,go)}catch(x){go()}
     setTimeout(go,2500);
   }
