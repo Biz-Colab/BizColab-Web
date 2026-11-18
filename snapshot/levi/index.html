@@ -1,0 +1,245 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BizColab — Cohort 004, for Levi</title><meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--ink-2:#1d1d1f;--muted:#6e6e73;--line:#d2d2d7;--paper-2:#f5f5f7;--blue:#0071e3;--blue-2:#0a57ff;--orange:#ff8c1a;--amber:#ffb340;--tint:#eef5ff;--warm:#fff4e8}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:var(--ink-2);background:#fff;-webkit-font-smoothing:antialiased;letter-spacing:-.011em;line-height:1.55}
+p,li,h1,h2,h3{text-wrap:pretty}
+em.serif{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.06em;letter-spacing:0;font-weight:400;color:var(--blue)}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+h2{font-size:clamp(30px,4.6vw,48px);line-height:1.06;letter-spacing:-.03em;color:var(--ink);font-weight:800;margin-bottom:14px}
+h3{font-size:20px;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px;line-height:1.25}
+.lead{font-size:19px;line-height:1.55;color:var(--muted);max-width:60ch}
+.btn{display:inline-block;background:var(--blue);color:#fff;font-weight:600;font-size:15px;padding:15px 28px;border-radius:999px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,113,227,.3)}
+.btn.orange{background:var(--orange);color:var(--ink)}
+.btn.orange:hover{box-shadow:0 10px 28px rgba(255,140,26,.35)}
+.btn.outline{background:#fff;color:var(--ink);border:1px solid var(--line)}
+/* topbar */
+.topbar{position:sticky;top:0;z-index:150;height:50px;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.tb-in{max-width:1100px;margin:0 auto;padding:0 24px;height:50px;display:flex;align-items:center;justify-content:space-between}
+.wordmark{font-weight:800;font-size:18px;color:var(--ink);letter-spacing:-.02em}.wordmark span{color:var(--blue)}
+.tb-in .btn{padding:8px 16px;font-size:13px}
+/* hero */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(700px 420px at 88% 8%,rgba(255,179,64,.30),transparent 62%),
+  radial-gradient(760px 480px at 6% 96%,rgba(0,113,227,.16),transparent 62%),#fff}
+.hero .wrap{padding-top:76px;padding-bottom:72px}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:600;color:var(--ink);background:#fff;margin-bottom:26px}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,140,26,.7)}100%{box-shadow:0 0 0 12px rgba(255,140,26,0)}}
+.hero h1{font-size:clamp(42px,7.4vw,88px);line-height:1;letter-spacing:-.045em;font-weight:800;color:var(--ink);max-width:15ch}
+.hero .lead{margin:26px 0 32px;font-size:clamp(17px,2vw,21px);color:var(--ink-2)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:48px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 22px;min-width:150px;box-shadow:0 6px 20px rgba(10,20,40,.05)}
+.stat b{display:block;font-size:34px;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.stat span{font-size:13px;color:var(--muted);font-weight:500}
+/* marquee */
+.marquee{background:var(--tint);border-block:1px solid #d9e8fb;overflow:hidden;white-space:nowrap;padding:15px 0}
+.marquee div{display:inline-block;animation:slide 34s linear infinite;font-weight:700;font-size:15px;letter-spacing:.01em;color:var(--blue)}
+.marquee span{margin:0 22px}.marquee span:nth-child(even){color:#c25e00}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:96px 0 0}
+.band{background:var(--paper-2);padding:88px 0;margin-top:96px;border-block:1px solid #e6e6ea}
+.center{text-align:center}.center .lead{margin:0 auto}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.card{border:1px solid var(--line);border-radius:20px;padding:26px;background:#fff}
+.card p{color:var(--muted);font-size:15.5px}
+.card .n{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--blue);margin-bottom:14px}
+/* the draft: browser mock */
+.mock{margin-top:44px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 30px 70px rgba(10,30,80,.13);overflow:hidden}
+.mock-bar{display:flex;align-items:center;gap:8px;padding:13px 18px;background:var(--paper-2);border-bottom:1px solid var(--line)}
+.mock-bar i{width:11px;height:11px;border-radius:50%;background:#d2d2d7;display:block}
+.mock-bar .url{margin-left:12px;flex:1;background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:12.5px;color:var(--muted)}
+.mock-body{padding:56px 44px 44px;text-align:center}
+.mock-body .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c25e00;margin-bottom:16px}
+.mock-body h3{font-size:clamp(26px,4.2vw,46px);line-height:1.06;letter-spacing:-.035em;font-weight:800;max-width:24ch;margin:0 auto 16px}
+.mock-body .sub{font-size:18px;color:var(--muted);max-width:52ch;margin:0 auto}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;text-align:left}
+.offer{background:var(--tint);border-radius:16px;padding:20px}
+.offer b{display:block;font-size:12px;letter-spacing:.1em;color:var(--blue);margin-bottom:10px}
+.offer h4{font-size:17px;color:var(--ink);letter-spacing:-.01em;margin-bottom:6px}
+.offer p{font-size:14.5px;color:var(--ink-2)}
+.gift{display:flex;gap:14px;align-items:flex-start;margin-top:26px;background:var(--warm);border-left:5px solid var(--orange);border-radius:14px;padding:18px 22px}
+.gift p{font-size:16px;color:var(--ink)}
+/* color cards */
+.out{border-radius:24px;padding:30px;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s}
+.out:hover{transform:translateY(-4px)}
+.out small{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:auto}
+.out h3{font-size:27px;line-height:1.08;letter-spacing:-.03em;margin-bottom:10px}
+.out p{font-size:15px}
+.o1{background:linear-gradient(150deg,#0071e3,#3d8bff);color:#fff}.o1 h3{color:#fff}
+.o2{background:linear-gradient(150deg,#ff8c1a,#ffb340);color:var(--ink)}
+.o3{background:linear-gradient(150deg,#dcebff,#eef5ff);color:var(--ink)}
+/* weeks */
+.wk{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:4px 9px;margin-bottom:14px;background:var(--tint);color:var(--blue)}
+.week h3{font-size:26px;letter-spacing:-.03em}
+.week .date{font-size:13px;font-weight:600;color:#c25e00;margin-bottom:8px}
+/* reviews */
+.rev{border:1px solid var(--line);border-radius:20px;padding:26px;background:#fff;display:flex;flex-direction:column}
+.rev .stars{color:var(--orange);letter-spacing:3px;font-size:15px;margin-bottom:12px}
+.rev p{font-size:17px;color:var(--ink);line-height:1.45;margin-bottom:18px}
+.rev span{margin-top:auto;font-size:14px;font-weight:600;color:var(--muted)}
+/* offer box */
+.seat{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;border:2px solid var(--blue);border-radius:28px;padding:44px;background:#fff;margin-top:40px;box-shadow:0 30px 70px rgba(10,30,80,.10)}
+.seat ul{list-style:none;margin-top:18px}
+.seat li{padding:11px 0 11px 30px;border-top:1px solid #e6e6ea;position:relative;font-size:16px;color:var(--ink)}
+.seat li::before{content:"✓";position:absolute;left:2px;color:var(--blue);font-weight:800}
+.price{background:var(--tint);border-radius:22px;padding:30px;text-align:center}
+.price b{display:block;font-size:68px;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+.price .per{font-size:15px;color:var(--ink-2);margin:8px 0 22px}
+.price .btn{display:block}
+.price .alt{display:block;margin-top:14px;font-size:14px;font-weight:600}
+/* note */
+.note{display:grid;grid-template-columns:120px 1fr;gap:28px;align-items:start;max-width:820px;margin:0 auto}
+.note img{width:120px;height:120px;border-radius:50%;object-fit:cover}
+.note p{font-size:18px;color:var(--ink);margin-bottom:14px}
+.links{list-style:none;margin-top:22px}
+.links li{padding:14px 0;border-top:1px solid #e0e0e5;font-size:16px}
+.links li span{display:block;color:var(--muted);font-size:14.5px}
+footer{padding:44px 0 56px;font-size:13px;color:var(--muted);text-align:center}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+  .grid3,.offers{grid-template-columns:1fr}
+  .grid4{grid-template-columns:1fr 1fr}
+  .seat{grid-template-columns:1fr;padding:26px}
+  .mock-body{padding:38px 20px 24px}
+  .note{grid-template-columns:1fr}
+  section{padding-top:72px}.band{margin-top:72px;padding:64px 0}
+  .tb-in .btn{display:none}
+}
+@media(max-width:520px){.grid4{grid-template-columns:1fr}.stat{flex:1 1 100%}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.marquee div,.pill .dot{animation:none}}
+</style></head><body>
+
+<div class="topbar"><div class="tb-in">
+  <a class="wordmark" href="https://bizcolab.com/">BizColab<span>.</span></a>
+  <a class="btn" href="#seat">Save my seat</a>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="pill"><span class="dot"></span>Cohort 004 · Starts Monday, December 14 · Six seats</div>
+  <div class="eyebrow">Prepared for Levi</div>
+  <h1>Levi, say what you do in <em class="serif">one line.</em></h1>
+  <p class="lead">On our call you said the next 90 days are about better packaging. I wrote a first draft of your homepage. It&rsquo;s right below and it&rsquo;s yours to keep.</p>
+  <div class="cta-row">
+    <a class="btn" href="#draft">See my draft &darr;</a>
+    <a class="btn outline" href="#seat">Save my seat</a>
+  </div>
+</div></header>
+
+<div class="marquee"><div>
+  <span>One statement</span><span>Three offerings</span><span>Five founders reading your site</span><span>Start before the holidays</span><span>90 minutes a week</span><span>A homepage people get</span>
+  <span>One statement</span><span>Three offerings</span><span>Five founders reading your site</span><span>Start before the holidays</span><span>90 minutes a week</span><span>A homepage people get</span>
+</div></div>
+
+<section id="draft"><div class="wrap center">
+  <div class="eyebrow">Your first draft</div>
+  <h2>One statement. One sub-statement.<br>Three offerings.</h2>
+  <p class="lead">You called your site crowded. Here is the top of it, rewritten from what you told me on November 17.</p>
+  <div class="mock rv">
+    <div class="mock-bar"><i></i><i></i><i></i><div class="url">your homepage, top of the page</div></div>
+    <div class="mock-body">
+      <div class="tag">Commercial and film production</div>
+      <h3>One shoot. 5 to 10 times the ads for TV, streaming and digital.</h3>
+      <p class="sub">We plan the budget, schedule and crew before the cameras roll. You know the cost and what you get up front.</p>
+      <div class="offers">
+        <div class="offer"><b>01</b><h4>Commercial campaigns</h4><p>For brands and networks, across TV, streaming and digital.</p></div>
+        <div class="offer"><b>02</b><h4>White-label production</h4><p>A full crew and gear for agencies, under their name.</p></div>
+        <div class="offer"><b>03</b><h4>Feature films</h4><p>Fully packaged with script, budget and distribution plan.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="gift rv" style="text-align:left"><p>To make it stronger, swap the range for a real number from one real shoot. An exact figure is easier to believe than a range. Use this draft whether you join the cohort or not.</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Your four weeks</div>
+  <h2>This draft is one person&rsquo;s read.<br>Five more founders make it <em class="serif">sharper.</em></h2>
+  <p class="lead">Your buyers aren&rsquo;t film people, and neither is the room. Over four Mondays they show you what an outsider sees, and you do the same for them.</p>
+  <div class="grid4">
+    <div class="card week rv"><span class="wk">Week 01</span><div class="date">Monday, December 14</div><h3>Map</h3><p>Pick the one buyer you&rsquo;re writing for and lock your statement.</p></div>
+    <div class="card week rv"><span class="wk">Week 02</span><div class="date">Monday, December 21</div><h3>Match</h3><p>The room reads your site and tells you where they get lost.</p></div>
+    <div class="card week rv"><span class="wk">Week 03</span><div class="date">Monday, January 4</div><h3>Move</h3><p>Rebuild the top of your homepage and move the tools lower.</p></div>
+    <div class="card week rv"><span class="wk">Week 04</span><div class="date">Monday, January 11</div><h3>Measure</h3><p>Five people outside film read it and say what you do in one sentence.</p></div>
+  </div>
+  <div class="gift rv"><p>No session on Monday, December 28. You get two quiet holiday weeks to do the work, then start the new year with a homepage people get.</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">What past members said</div>
+  <h2>Straight from their Google reviews.</h2>
+  <div class="grid3">
+    <div class="rev rv"><div class="stars">★★★★★</div><p>&ldquo;Three weeks into the program, I had a clearer positioning and 3 qualified leads.&rdquo;</p><span>Renee M. · Brand strategist</span></div>
+    <div class="rev rv"><div class="stars">★★★★★</div><p>&ldquo;Four weeks in, I&rsquo;ve stopped spending on paid ads, and I&rsquo;m building a referral engine around the clients I already have.&rdquo;</p><span>Alex N. · Attorney</span></div>
+    <div class="rev rv"><div class="stars">★★★★★</div><p>&ldquo;I came to BizColab&rsquo;s Los Angeles cohort stuck in years of writer&rsquo;s block. I left with Chapter One of my memoir launched.&rdquo;</p><span>Debra M. · Author</span></div>
+  </div>
+</div></section>
+
+<section id="seat"><div class="wrap">
+  <div class="eyebrow">Cohort 004</div>
+  <h2>Six seats. One is open for you.</h2>
+  <div class="seat rv">
+    <div>
+      <h3>What you get</h3>
+      <ul>
+        <li>Six founders and Michael, live on Google Meet</li>
+        <li>Four Mondays: December 14, December 21, January 4 and January 11</li>
+        <li>No session the week of December 28</li>
+        <li>90 minutes a session, at 5:30 PM or 8:30 PM Eastern</li>
+                <li>A recap page and next steps after every session</li>
+        <li>A place in the BizColab community after the four weeks</li>
+      </ul>
+    </div>
+    <div class="price">
+      <b>$249</b>
+      <p class="per">for all four weeks. About $62 a session.</p>
+      <a class="btn orange" href="https://buy.stripe.com/9B66oH8J28ggbRDbcR2Ji01">Pay $249 and save my seat &rarr;</a>
+      <a class="alt" href="mailto:michael@bizcolab.com?subject=Question%20about%20Cohort%20004">Questions? Email Michael</a>
+    </div>
+  </div>
+</div></section>
+
+<div class="band"><div class="wrap">
+  <div class="note">
+    <img src="/michael.jpg" alt="Michael">
+    <div>
+      <div class="eyebrow">A note from Michael</div>
+      <p>Levi, you know production cold. The only gap I saw is the first ten seconds of your website. That&rsquo;s what this cohort is good at fixing, and the room would get a lot from you too.</p>
+      <p>&mdash; Michael</p>
+      <div class="eyebrow" style="margin-top:34px">The links I promised</div>
+      <ul class="links">
+        <li><a href="https://www.founderspodcast.com/episodes/430-how-to-write-ads-that-sell">Founders Podcast: How to Write Ads That Sell</a><span>The copywriting episode I mentioned.</span></li>
+        <li><a href="https://www.penguinrandomhouse.com/books/835662/roll-the-calls-by-ari-emanuel/9798217412068/">Roll the Calls by Ari Emanuel</a><span>How many times he heard no before the mail room.</span></li>
+        <li>The E-Myth Revisited by Michael Gerber<span>Technician, entrepreneur and manager: the three hats.</span></li>
+      </ul>
+    </div>
+  </div>
+</div></div>
+
+<footer><div class="wrap">Prepared by Michael at BizColab for Levi. This page is private and not listed on the site.</div></footer>
+
+<script>
+// reveal on scroll
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+// no-widows pass: keep the last two words of each text block together
+document.querySelectorAll('h1,h2,h3,h4,p,li').forEach(function(el){
+  var n=el.lastChild;
+  while(n&&n.nodeType!==3)n=n.lastChild;
+  if(!n)return;
+  var t=n.nodeValue.replace(/\s+$/,''),i=t.lastIndexOf(' ');
+  if(i>0&&el.textContent.trim().split(/\s+/).length>3)n.nodeValue=t.slice(0,i)+' '+t.slice(i+1);
+});
+</script>
+</body></html>
