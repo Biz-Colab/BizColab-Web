@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EEI — Enter Environments</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#121317;--muted:#62666f;--line:#e4e5e8;--bg:#fff;--soft:#f4f4f2;--brand:#c0245c;--brand2:#ff5a7a;--ease:cubic-bezier(.2,.7,.1,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter Tight",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-weight:500;letter-spacing:-.03em;line-height:1.02;text-wrap:balance}
+.serif{font-family:"Instrument Serif",serif;font-weight:400;font-style:italic;letter-spacing:-.01em}
+p{text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:20px}
+.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand)}
+.ver{position:fixed;bottom:12px;left:12px;font-size:11px;background:#fff;border:1px solid var(--line);padding:4px 10px;border-radius:20px;color:var(--muted);z-index:99}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border-radius:100px;font-weight:600;font-size:15px;overflow:hidden;isolation:isolate;transition:color .4s var(--ease),transform .3s var(--ease);border:0;cursor:pointer;font-family:inherit}
+.btn:after{content:"";position:absolute;inset:0;border-radius:inherit;transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}
+.btn:hover:after{transform:none}
+.btn-primary{background:var(--brand);color:#fff}.btn-primary:after{background:var(--ink)}
+.btn-ghost{box-shadow:inset 0 0 0 1.5px var(--ink)}.btn-ghost:after{background:var(--ink)}.btn-ghost:hover{color:#fff}
+.btn .arr{display:inline-block;transition:transform .4s var(--ease)}.btn:hover .arr{transform:translateX(4px) rotate(-45deg)}
+
+/* progress + header */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand2));width:0;z-index:100}
+header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 32px));z-index:60;transition:.4s var(--ease)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 10px 0 26px;border-radius:100px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 30px rgba(18,19,23,.06)}
+header.small .nav{height:58px}
+.logo{font-weight:700;font-size:24px;color:var(--brand);letter-spacing:-.02em}
+nav ul{display:flex;gap:6px;list-style:none;font-size:14px;font-weight:500}
+nav ul a{padding:8px 16px;border-radius:100px;transition:.25s}
+nav ul a:hover,nav ul a.on{background:var(--ink);color:#fff}
+.nav .btn{padding:12px 20px;font-size:14px}
+
+/* hero */
+.hero{position:relative;padding-top:150px;padding-bottom:40px}
+.hero h1{font-size:clamp(54px,9.4vw,148px)}
+.line{display:block;overflow:hidden;padding-bottom:.06em}
+.line>span{display:inline-block;transform:translateY(110%);animation:up 1.1s var(--ease) forwards}
+.line:nth-child(2)>span{animation-delay:.12s}
+@keyframes up{to{transform:none}}
+.rot{display:inline-grid;color:var(--brand)}
+.rot span{grid-area:1/1;opacity:0;transform:translateY(40%);transition:.7s var(--ease)}
+.rot span.on{opacity:1;transform:none}
+.rot span.out{opacity:0;transform:translateY(-40%)}
+.hero-row{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-top:40px;opacity:0;animation:fade 1s .6s var(--ease) forwards}
+.hero-row p{font-size:19px;color:var(--muted);max-width:440px}
+.hero-row .ctas{display:flex;gap:12px;flex-wrap:wrap}
+@keyframes fade{to{opacity:1}}
+.hero-media{position:relative;margin-top:56px;height:min(78vh,720px);border-radius:28px;overflow:hidden;clip-path:inset(12% 8% 0 8% round 28px);animation:open 1.6s .3s var(--ease) forwards}
+@keyframes open{to{clip-path:inset(0 0 0 0 round 28px)}}
+.hero-media img{width:100%;height:120%;object-fit:cover;transform:translateY(var(--py,0))}
+.badge{position:absolute;right:28px;bottom:28px;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-radius:18px;padding:16px 20px;font-size:13px;display:flex;gap:14px;align-items:center}
+.badge b{display:block;font-size:17px}
+.badge i{width:40px;height:40px;border-radius:50%;background:var(--brand);display:grid;place-items:center;color:#fff;font-style:normal}
+.spin{position:absolute;left:28px;bottom:28px;width:118px;height:118px;animation:rot 18s linear infinite}
+.spin text{font-size:10.5px;letter-spacing:.24em;font-weight:600;fill:#fff;text-transform:uppercase}
+@keyframes rot{to{transform:rotate(360deg)}}
+
+/* marquee */
+.marq{overflow:hidden;padding:34px 0;border-bottom:1px solid var(--line)}
+.track{display:flex;gap:56px;width:max-content;animation:mq 30s linear infinite}
+.track span{font-size:clamp(28px,3.4vw,48px);font-weight:500;letter-spacing:-.03em;white-space:nowrap;display:flex;align-items:center;gap:56px}
+.track span:after{content:"✦";color:var(--brand);font-size:.5em}
+.track .serif{color:var(--muted)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:130px 0}
+
+/* mission scroll-highlight */
+.mission .big{font-size:clamp(30px,3.6vw,52px);font-weight:500;letter-spacing:-.025em;line-height:1.18;max-width:1100px}
+.mission .big .w{color:#cfd1d6;transition:color .4s}
+.mission .big .w.lit{color:var(--ink)}
+.mission .big .w.acc.lit{color:var(--brand)}
+.mission-foot{display:flex;gap:40px;justify-content:space-between;align-items:center;margin-top:56px;flex-wrap:wrap}
+.disc{display:flex;gap:10px;flex-wrap:wrap}
+.disc span{padding:10px 18px;border-radius:100px;background:var(--soft);font-size:14px;font-weight:500;transition:.3s}
+.disc span:hover{background:var(--brand);color:#fff;transform:translateY(-3px)}
+
+/* services tabs */
+.services{background:var(--soft);border-radius:40px;margin:0 16px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(40px,5.2vw,76px);max-width:760px}
+.svc{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:start}
+.tabs{display:flex;flex-direction:column}
+.tab{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:16px;padding:26px 0;border-top:1px solid #d9dadd;cursor:pointer;position:relative}
+.tab:last-child{border-bottom:1px solid #d9dadd}
+.tab .n{font-size:13px;font-weight:600;color:var(--muted)}
+.tab h3{font-size:clamp(22px,2.2vw,30px);color:#9a9ea6;transition:.35s var(--ease)}
+.tab .ic{width:40px;height:40px;border-radius:50%;border:1.5px solid #c9cbd0;display:grid;place-items:center;transition:.35s var(--ease)}
+.tab .bar{position:absolute;left:0;bottom:-1px;height:2px;background:var(--brand);width:0}
+.tab.on h3,.tab:hover h3{color:var(--ink)}
+.tab.on h3{transform:translateX(6px)}
+.tab.on .ic{background:var(--brand);border-color:var(--brand);color:#fff;transform:rotate(-45deg)}
+.tab.on .n{color:var(--brand)}
+.panel{position:sticky;top:110px;background:#fff;border-radius:28px;padding:44px;min-height:440px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(18,19,23,.18)}
+.panel .num{position:absolute;right:-10px;top:-40px;font-size:240px;font-weight:700;letter-spacing:-.06em;color:var(--soft);line-height:1;transition:.5s}
+.panel .in{position:relative;transition:opacity .35s,transform .45s var(--ease)}
+.panel.swap .in{opacity:0;transform:translateY(16px)}
+.panel h3{font-size:38px;margin-bottom:16px}
+.panel p{color:var(--muted);font-size:17px;margin-bottom:28px;max-width:440px}
+.panel ul{list-style:none;display:grid;gap:12px}
+.panel li{display:flex;gap:14px;align-items:center;padding:14px 18px;background:var(--soft);border-radius:14px;font-size:15px;font-weight:500}
+.panel li:before{content:"→";color:var(--brand);font-weight:700}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;margin-top:20px}
+.steps:before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--line)}
+.steps .fill{position:absolute;left:0;top:27px;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand2));width:var(--p,0%);transition:width .2s linear}
+.step .dot{position:relative;width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-weight:600;font-size:15px;transition:.4s;margin-bottom:28px}
+.step.lit .dot{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 0 0 8px rgba(192,36,92,.12)}
+.step h3{font-size:24px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+
+/* projects horizontal */
+.hscroll{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(32px,calc((100vw - 1216px)/2));padding:0 max(32px,calc((100vw - 1216px)/2)) 20px;cursor:grab;scrollbar-width:none}
+.hscroll::-webkit-scrollbar{display:none}
+.hscroll.drag{cursor:grabbing;scroll-snap-type:none}
+.pc{flex:0 0 min(520px,82vw);scroll-snap-align:start;user-select:none}
+.pc .ph{position:relative;aspect-ratio:5/4;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,#ecebe8,#f7f7f5)}
+.pc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease);pointer-events:none}
+.pc:hover .ph img{transform:scale(1.06)}
+.pc .ph .ph-empty{position:absolute;inset:0;display:grid;place-items:center;color:#aaadb3;font-size:14px}
+.pc .tag{position:absolute;left:18px;top:18px;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600}
+.pc .go{position:absolute;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#fff;display:grid;place-items:center;transform:scale(0);transition:.4s var(--ease)}
+.pc:hover .go{transform:scale(1)}
+.pc .meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px}
+.pc h3{font-size:28px}
+.pc .loc{font-size:14px;color:var(--muted)}
+.hint{display:flex;gap:10px}
+.hint button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);background:none;font-size:18px;cursor:pointer;transition:.3s}
+.hint button:hover{background:var(--ink);color:#fff}
+
+/* clients marquee */
+.clients{text-align:center;padding-top:40px}
+.clients h2{font-size:clamp(36px,4.4vw,62px);margin-bottom:56px}
+.lm{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);margin-bottom:18px}
+.lm .track{gap:18px;animation-duration:40s}
+.lm.rev .track{animation-direction:reverse}
+.lm:hover .track{animation-play-state:paused}
+.chip{width:190px;height:104px;border-radius:20px;background:var(--soft);display:grid;place-items:center;padding:22px;flex:none;transition:.35s var(--ease)}
+.chip img{max-width:120px;max-height:52px;object-fit:contain;filter:grayscale(1);opacity:.65;transition:.35s}
+.chip:hover{background:#fff;box-shadow:0 14px 34px -14px rgba(18,19,23,.25);transform:translateY(-4px)}
+.chip:hover img{filter:none;opacity:1}
+
+/* contact */
+.contact-card{background:var(--soft);border-radius:40px;margin:0 16px;padding:100px 0}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:72px}
+.cta h2{font-size:clamp(46px,6vw,92px)}
+.cta .lead{color:var(--muted);font-size:18px;margin:24px 0 40px;max-width:440px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:28px;font-size:15px}
+.info b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px}
+form{background:#fff;border-radius:28px;padding:40px;display:grid;gap:22px;box-shadow:0 30px 60px -30px rgba(18,19,23,.16)}
+form h3{font-size:26px}
+.fl{position:relative}
+.fl input,.fl textarea{width:100%;font:inherit;font-size:16px;padding:22px 0 10px;border:0;border-bottom:1.5px solid var(--line);background:none;outline:none;resize:none;transition:border-color .3s}
+.fl label{position:absolute;left:0;top:20px;color:var(--muted);pointer-events:none;transition:.25s var(--ease)}
+.fl input:focus,.fl textarea:focus{border-color:var(--brand)}
+.fl input:focus+label,.fl input:not(:placeholder-shown)+label,.fl textarea:focus+label,.fl textarea:not(:placeholder-shown)+label{top:0;font-size:12px;color:var(--brand)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills label{cursor:pointer}
+.pills input{display:none}
+.pills span{display:inline-block;padding:9px 16px;border-radius:100px;border:1.5px solid var(--line);font-size:14px;font-weight:500;transition:.25s}
+.pills input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.pills span:hover{border-color:var(--ink)}
+.ok{text-align:center;padding:60px 0}
+.ok i{display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:var(--brand);color:#fff;font-size:30px;font-style:normal;margin:0 auto 20px;animation:pop .6s var(--ease)}
+@keyframes pop{from{transform:scale(0)}}
+
+footer{padding:56px 0 40px}
+footer .big{font-size:clamp(70px,16vw,240px);font-weight:700;letter-spacing:-.06em;line-height:.85;color:var(--soft);user-select:none}
+footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:24px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+@media(max-width:900px){
+ .wrap{padding:0 16px}
+ nav ul{display:none}
+ .hero{padding-top:120px}
+ .hero-row{flex-direction:column;align-items:start}
+ .hero-media{height:56vh}
+ .spin{display:none}
+ section{padding:84px 0}
+ .services,.contact-card{margin:0 8px;border-radius:28px}
+ .svc,.cta{grid-template-columns:1fr}
+ .panel{position:relative;top:0;min-height:0;padding:28px}
+ .steps{grid-template-columns:1fr 1fr;gap:36px}
+ .steps:before,.steps .fill{display:none}
+ .two,.info{grid-template-columns:1fr}
+ .hscroll{padding:0 16px 20px;scroll-padding-inline:16px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.line>span,.rv{transform:none;opacity:1}.hero-row{opacity:1}.hero-media{clip-path:none}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<header id="hdr"><div class="nav">
+ <a href="#top" class="logo">EEI</a>
+ <nav><ul>
+  <li><a href="#services">Services</a></li>
+  <li><a href="#process">Process</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#clients">Clients</a></li>
+ </ul></nav>
+ <a href="#contact" class="btn btn-primary">Start a Project <span class="arr">→</span></a>
+</div></header>
+
+<main id="top">
+ <div class="wrap hero">
+  <span class="eyebrow" style="opacity:0;animation:fade .8s .1s forwards">Project &amp; Construction Management · Los Angeles</span>
+  <h1>
+   <span class="line"><span>Your project.</span></span>
+   <span class="line"><span>Our <span class="rot serif" id="rot"><span class="on">mission.</span><span>standard.</span><span>blueprint.</span><span>promise.</span></span></span></span>
+  </h1>
+  <div class="hero-row">
+   <p>A full-service project and construction management firm, guiding owners from first site visit to final punch list.</p>
+   <div class="ctas">
+    <a href="#contact" class="btn btn-primary">Discuss Your Project <span class="arr">→</span></a>
+    <a href="#projects" class="btn btn-ghost">See Our Work</a>
+   </div>
+  </div>
+ </div>
+ <div class="wrap">
+  <div class="hero-media" id="heroMedia">
+   <img src="https://eeistg.wpenginepowered.com/wp-content/uploads/2023/10/image-1.png" alt="Completed office interior">
+   <svg class="spin" viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#c">Enter Environments · Since Day One · </textPath></text></svg>
+   <div class="badge"><i>↗</i><div><b>Colorado Campus</b>Santa Monica, CA</div></div>
+  </div>
+ </div>
+
+ <div class="marq"><div class="track">
+  <span>Architecture</span><span class="serif">Engineering Design</span><span>General Contracting</span><span class="serif">Construction Management</span><span>Real Estate</span>
+  <span>Architecture</span><span class="serif">Engineering Design</span><span>General Contracting</span><span class="serif">Construction Management</span><span>Real Estate</span>
+ </div></div>
+
+ <section class="mission">
+  <div class="wrap">
+   <span class="eyebrow rv">Who We Are</span>
+   <p class="big" id="hl">We are <em class="acc">specialists</em> in managing every aspect of new construction, development, renovations and tenant improvements. And we are <em class="acc">seasoned pros</em> with real-world experience across architecture, engineering, contracting and real estate — so we speak every language on the jobsite.</p>
+   <div class="mission-foot rv">
+    <div class="disc"><span>New Builds</span><span>Development</span><span>Renovations</span><span>Tenant Improvements</span></div>
+    <a href="#clients" class="btn btn-ghost">View Our Clients <span class="arr">→</span></a>
+   </div>
+  </div>
+ </section>
+
+ <section class="services" id="services">
+  <div class="wrap">
+   <div class="sec-head">
+    <div><span class="eyebrow rv">Services</span><h2 class="rv d1">We establish, monitor and <span class="serif">lead</span> every phase.</h2></div>
+   </div>
+   <div class="svc">
+    <div class="tabs" id="tabs"></div>
+    <div class="panel" id="panel"><div class="num" id="pnum">01</div><div class="in" id="pin"></div></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="process">
+  <div class="wrap">
+   <div class="sec-head">
+    <div><span class="eyebrow rv">How We Work</span><h2 class="rv d1">From first sketch to <span class="serif">move-in day.</span></h2></div>
+   </div>
+   <div class="steps" id="steps">
+    <div class="fill"></div>
+    <div class="step rv"><div class="dot">01</div><h3>Plan</h3><p>Goals, budget, feasibility and site strategy set up front.</p></div>
+    <div class="step rv d1"><div class="dot">02</div><h3>Design</h3><p>We assemble and steer the design team toward your targets.</p></div>
+    <div class="step rv d2"><div class="dot">03</div><h3>Build</h3><p>Bids, contracts and on-site oversight with weekly reporting.</p></div>
+    <div class="step rv d3"><div class="dot">04</div><h3>Deliver</h3><p>Closeout, punch list and a smooth hand-off to occupancy.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="projects" style="padding-top:0">
+  <div class="wrap">
+   <div class="sec-head">
+    <div><span class="eyebrow rv">Selected Work</span><h2 class="rv d1">Projects we've <span class="serif">led.</span></h2></div>
+    <div class="hint"><button id="prev" aria-label="Previous">←</button><button id="next" aria-label="Next">→</button></div>
+   </div>
+  </div>
+  <div class="hscroll" id="hs">
+   <a class="pc" href="#"><div class="ph"><img src="https://eeistg.wpenginepowered.com/wp-content/uploads/2023/10/image-1.png" alt=""><span class="tag">Tenant Improvement</span><span class="go">↗</span></div><div class="meta"><h3>Colorado Campus</h3><span class="loc">Santa Monica, CA</span></div></a>
+   <a class="pc" href="#"><div class="ph"><span class="ph-empty">Project photo</span><span class="tag">New Construction</span><span class="go">↗</span></div><div class="meta"><h3>Project Name</h3><span class="loc">Los Angeles, CA</span></div></a>
+   <a class="pc" href="#"><div class="ph"><span class="ph-empty">Project photo</span><span class="tag">Renovation</span><span class="go">↗</span></div><div class="meta"><h3>Project Name</h3><span class="loc">Los Angeles, CA</span></div></a>
+   <a class="pc" href="#"><div class="ph"><span class="ph-empty">Project photo</span><span class="tag">Due Diligence</span><span class="go">↗</span></div><div class="meta"><h3>Project Name</h3><span class="loc">Los Angeles, CA</span></div></a>
+  </div>
+ </section>
+
+ <section class="clients" id="clients">
+  <div class="wrap"><span class="eyebrow rv">Clients</span><h2 class="rv d1">Trusted by owners <span class="serif">across industries.</span></h2></div>
+  <div class="lm"><div class="track" id="lm1"></div></div>
+  <div class="lm rev"><div class="track" id="lm2"></div></div>
+ </section>
+
+ <div class="contact-card" id="contact">
+  <div class="wrap cta">
+   <div>
+    <span class="eyebrow rv">Let's Connect</span>
+    <h2 class="rv d1">Tell us about <span class="serif">your project.</span></h2>
+    <p class="lead rv d2">Share a few details and a principal will follow up within one business day.</p>
+    <div class="info rv d3">
+     <div><b>Office</b>11911 San Vicente Blvd, Suite 265<br>Los Angeles, CA 90049</div>
+     <div><b>Contact</b>(310) 555-5555<br>connect@eeproject.com</div>
+    </div>
+   </div>
+   <form id="f" class="rv d1">
+    <h3>Project Inquiry</h3>
+    <div class="two">
+     <div class="fl"><input id="n" placeholder=" " required><label for="n">Name</label></div>
+     <div class="fl"><input id="co" placeholder=" "><label for="co">Company</label></div>
+    </div>
+    <div class="two">
+     <div class="fl"><input id="em" type="email" placeholder=" " required><label for="em">Email</label></div>
+     <div class="fl"><input id="ph" placeholder=" "><label for="ph">Phone</label></div>
+    </div>
+    <div>
+     <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Project type</div>
+     <div class="pills">
+      <label><input type="radio" name="t" checked><span>Advisory</span></label>
+      <label><input type="radio" name="t"><span>New Construction</span></label>
+      <label><input type="radio" name="t"><span>Tenant Improvement</span></label>
+      <label><input type="radio" name="t"><span>Due Diligence</span></label>
+      <label><input type="radio" name="t"><span>Forensics</span></label>
+     </div>
+    </div>
+    <div class="fl"><textarea id="msg" rows="3" placeholder=" "></textarea><label for="msg">Location, size, timeline…</label></div>
+    <button class="btn btn-primary" style="justify-content:center">Send Inquiry <span class="arr">→</span></button>
+   </form>
+  </div>
+ </div>
+</main>
+
+<footer><div class="wrap">
+ <div class="big">Enter Environments</div>
+ <div class="row"><span>© EEI · Los Angeles, CA</span><span>Services · Process · Projects · Clients · Contact</span></div>
+</div></footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+// rotating word
+(()=>{const w=$$('#rot span');let i=0;setInterval(()=>{w[i].classList.remove('on');w[i].classList.add('out');const o=w[i];setTimeout(()=>o.classList.remove('out'),700);i=(i+1)%w.length;w[i].classList.add('on')},2400)})();
+
+// services
+const S=[
+ ['Advisory Services','Strategic guidance for owners and investors before a single dollar is committed.',['Due diligence and code compliance reports','Establishing project goals and guidelines','Site feasibility, site selection and leases']],
+ ['New Construction & Development','Full owner\'s representation from entitlements through certificate of occupancy.',['Design team selection and coordination','Budget, schedule and bid management','On-site construction oversight']],
+ ['Tenant Improvement & Renovations','Fast, disciplined build-outs that keep occupied spaces running.',['Workplace and retail build-outs','Phasing around live operations','Move-in coordination']],
+ ['Asset Assessment & Due Diligence','Clear-eyed property condition insight for acquisitions and portfolios.',['Property condition assessments','Environmental and code review','Capital planning reports']],
+ ['Project Forensics','Independent analysis when a project goes off track.',['Cost and schedule claim review','Construction defect investigation','Expert support for resolution']]
+];
+const tabs=$('#tabs'),panel=$('#panel');let cur=0,timer;
+S.forEach((s,i)=>{const t=document.createElement('div');t.className='tab';t.innerHTML=`<span class="n">0${i+1}</span><h3>${s[0].replace('&','&amp;')}</h3><span class="ic">→</span><span class="bar"></span>`;t.onclick=()=>{show(i);auto()};t.onmouseenter=()=>show(i);tabs.append(t)});
+function show(i){cur=i;$$('.tab').forEach((t,j)=>{t.classList.toggle('on',j===i);const b=t.querySelector('.bar');b.style.transition='none';b.style.width='0';if(j===i){b.offsetWidth;b.style.transition='width 6s linear';b.style.width='100%'}});
+ panel.classList.add('swap');setTimeout(()=>{const s=S[i];$('#pnum').textContent='0'+(i+1);$('#pin').innerHTML=`<span class="eyebrow">Service 0${i+1}</span><h3>${s[0].replace('&','&amp;')}</h3><p>${s[1]}</p><ul>${s[2].map(x=>`<li>${x}</li>`).join('')}</ul>`;panel.classList.remove('swap')},220)}
+function auto(){clearInterval(timer);timer=setInterval(()=>show((cur+1)%S.length),6000)}
+show(0);auto();
+
+// logos
+const L=['download.png','download-2.png','download-1.png','unnamed-1.png','american-realty-advisors_owler_20160226_192620_original.png','cityofsantaclarita-1.png','applebees-1.png','AMPTP-1.png','artistsdirect-1.png','1-18-10-1800dentist-1.png'].map(f=>'https://eeistg.wpenginepowered.com/wp-content/uploads/2023/10/'+f);
+const chip=u=>`<div class="chip"><img src="${u}" alt="Client logo"></div>`;
+$('#lm1').innerHTML=[...L.slice(0,5),...L.slice(0,5),...L.slice(0,5),...L.slice(0,5)].map(chip).join('');
+$('#lm2').innerHTML=[...L.slice(5),...L.slice(5),...L.slice(5),...L.slice(5)].map(chip).join('');
+
+// word highlight split
+(()=>{const el=$('#hl');const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(/^\s+$/.test(t)||!t)f.append(t);else{const s=document.createElement('span');s.className='w'+(n.classList&&n.classList.contains('acc')?' acc':'');s.textContent=t;f.append(s)}});c.replaceWith(f)}else walk(c)})};walk(el);el.querySelectorAll('em').forEach(e=>e.style.fontStyle='normal')})();
+const words=$$('#hl .w');
+
+// reveal
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});
+$$('.rv').forEach(el=>io.observe(el));
+
+// scroll effects
+const hdr=$('#hdr'),prog=$('#prog'),hm=$('#heroMedia img'),steps=$('#steps');
+function onScroll(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(y/h*100)+'%';hdr.classList.toggle('small',y>40);
+ hm.style.setProperty('--py',(-y*.12)+'px');
+ const r=$('#hl').getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*.8-r.top)/(r.height+innerHeight*.3)));const n=Math.floor(p*words.length);words.forEach((w,i)=>w.classList.toggle('lit',i<n));
+ const sr=steps.getBoundingClientRect();const sp=Math.min(1,Math.max(0,(innerHeight*.75-sr.top)/(innerHeight*.5)));steps.style.setProperty('--p',(sp*100)+'%');$$('.step').forEach((s,i)=>s.classList.toggle('lit',sp>=i/3-.01));
+ $$('nav ul a').forEach(a=>{const s=$(a.getAttribute('href'));const b=s.getBoundingClientRect();a.classList.toggle('on',b.top<200&&b.bottom>200)})}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// drag scroll projects
+const hs=$('#hs');let down=false,sx,sl,moved;
+hs.addEventListener('pointerdown',e=>{down=true;moved=false;sx=e.pageX;sl=hs.scrollLeft;hs.classList.add('drag')});
+addEventListener('pointerup',()=>{down=false;hs.classList.remove('drag')});
+hs.addEventListener('pointermove',e=>{if(!down)return;const d=e.pageX-sx;if(Math.abs(d)>4)moved=true;hs.scrollLeft=sl-d});
+hs.addEventListener('click',e=>{if(moved)e.preventDefault()},true);
+$('#next').onclick=()=>hs.scrollBy({left:540,behavior:'smooth'});$('#prev').onclick=()=>hs.scrollBy({left:-540,behavior:'smooth'});
+
+// form
+$('#f').onsubmit=e=>{e.preventDefault();e.target.innerHTML='<div class="ok"><i>✓</i><h3>Thank you.</h3><p style="color:var(--muted);margin-top:8px">A principal will be in touch shortly.</p></div>'};
+</script>
+</body>
+</html>
