@@ -21,6 +21,7 @@ Static site on GitHub Pages (repo Biz-Colab/BizColab-Web, branch `main`), behind
 - Card grids of three = one row of three columns.
 - Titles, subtitles and paragraph text each on their own line; never a bold title running inline into text.
 - Never leave a single word alone on a line (keep the no-widows CSS+JS pass on every page).
+- Headlines, subheads, leads and short card text get balanced lines (`text-wrap:balance`): lines of roughly equal length, never one or two words left on the last line. Longer body text keeps `text-wrap:pretty`. Add this to any page you touch.
 - No visible version labels on live pages. Top-left logo always links to the homepage.
 - Palette: blue + saturated orange/yellow accent (not coral).
 - Every new page gets the shared sticky `.topbar` (50px); private pages get `robots noindex`.
